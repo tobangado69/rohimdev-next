@@ -1,0 +1,385 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui,
+      sans-serif;
+  }
+
+  .sf-pro-display {
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui,
+      sans-serif;
+  }
+}
+
+@layer components {
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+
+  .slide-up {
+    transform: translateY(40px);
+    opacity: 0;
+    animation: slideUp 1s ease-out forwards;
+  }
+
+  .blur-in {
+    filter: blur(10px);
+    opacity: 0;
+    animation: blurIn 1.5s ease-out forwards;
+  }
+
+  .stagger-1 {
+    animation-delay: 0.2s;
+  }
+  .stagger-2 {
+    animation-delay: 0.4s;
+  }
+  .stagger-3 {
+    animation-delay: 0.6s;
+  }
+  .stagger-4 {
+    animation-delay: 0.8s;
+  }
+  .stagger-5 {
+    animation-delay: 1s;
+  }
+  .stagger-6 {
+    animation-delay: 1.2s;
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Success Story Card Hover Effects */
+  .success-card {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .success-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left 0.8s ease-in-out;
+    z-index: 1;
+  }
+
+  .success-card:hover::before {
+    left: 100%;
+  }
+
+  .success-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .success-card:hover .card-image {
+    transform: scale(1.1);
+  }
+
+  .success-card:hover .card-gradient {
+    opacity: 0.8;
+  }
+
+  .success-card:hover .card-content {
+    transform: translateY(-4px);
+  }
+
+  .card-image {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-gradient {
+    transition: opacity 0.6s ease;
+  }
+
+  .card-content {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Counter Animation */
+  .counter {
+    animation: countUp 0.8s ease-out forwards;
+  }
+
+  /* Typing Animation */
+  .typing-cursor {
+    color: #3b82f6;
+    font-weight: bold;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+  }
+
+  .typing-text {
+    opacity: 0;
+    animation: fadeInLine 0.3s ease-out forwards;
+  }
+
+  .animate-typing-1 {
+    animation: fadeInLine 0.5s ease-out 0s forwards;
+  }
+  .animate-typing-1 .typing-text {
+    animation-delay: 0.2s;
+  }
+
+  .animate-typing-2 {
+    animation: fadeInLine 0.5s ease-out 1s forwards;
+    opacity: 0;
+  }
+  .animate-typing-2 .typing-text {
+    animation-delay: 1.2s;
+  }
+
+  .animate-typing-3 {
+    animation: fadeInLine 0.3s ease-out 1.8s forwards;
+    opacity: 0;
+  }
+
+  .animate-typing-4 {
+    animation: fadeInLine 0.5s ease-out 2s forwards;
+    opacity: 0;
+  }
+  .animate-typing-4 .typing-text {
+    animation-delay: 2.2s;
+  }
+
+  .animate-typing-5 {
+    animation: fadeInLine 0.5s ease-out 2.5s forwards;
+    opacity: 0;
+  }
+  .animate-typing-5 .typing-text {
+    animation-delay: 2.7s;
+  }
+
+  .animate-typing-6 {
+    animation: fadeInLine 0.5s ease-out 3s forwards;
+    opacity: 0;
+  }
+  .animate-typing-6 .typing-text {
+    animation-delay: 3.2s;
+  }
+
+  .animate-typing-7 {
+    animation: fadeInLine 0.5s ease-out 3.5s forwards;
+    opacity: 0;
+  }
+  .animate-typing-7 .typing-text {
+    animation-delay: 3.7s;
+  }
+
+  .animate-typing-8 {
+    animation: fadeInLine 0.3s ease-out 3.8s forwards;
+    opacity: 0;
+  }
+
+  .animate-typing-9 {
+    animation: fadeInLine 0.5s ease-out 4s forwards;
+    opacity: 0;
+  }
+  .animate-typing-9 .typing-text {
+    animation-delay: 4.2s;
+  }
+
+  .animate-typing-10 {
+    animation: fadeInLine 0.5s ease-out 5s forwards;
+    opacity: 0;
+  }
+  .animate-typing-10 .typing-text {
+    animation-delay: 5.2s;
+  }
+
+  .animate-typing-11 {
+    animation: fadeInLine 0.5s ease-out 5.5s forwards;
+    opacity: 0;
+  }
+  .animate-typing-11 .typing-text {
+    animation-delay: 5.7s;
+  }
+
+  .animate-typing-12 {
+    animation: fadeInLine 0.3s ease-out 5.8s forwards;
+    opacity: 0;
+  }
+
+  .animate-typing-13 {
+    animation: fadeInLine 0.5s ease-out 6s forwards;
+    opacity: 0;
+  }
+  .animate-typing-13 .typing-text {
+    animation-delay: 6.2s;
+  }
+
+  .animate-typing-14 {
+    animation: fadeInLine 0.5s ease-out 6.5s forwards;
+    opacity: 0;
+  }
+  .animate-typing-14 .typing-text {
+    animation-delay: 6.7s;
+  }
+
+  .animate-typing-15 {
+    animation: fadeInLine 0.5s ease-out 7s forwards;
+    opacity: 0;
+  }
+  .animate-typing-15 .typing-text {
+    animation-delay: 7.2s;
+  }
+
+  .animate-typing-16 {
+    animation: fadeInLine 0.5s ease-out 7.5s forwards;
+    opacity: 0;
+  }
+  .animate-typing-16 .typing-text {
+    animation-delay: 7.7s;
+  }
+
+  /* Highlight newly typed lines */
+  @keyframes highlightLine {
+    0% {
+      background-color: rgba(59, 130, 246, 0.1);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  .animate-typing-1,
+  .animate-typing-2,
+  .animate-typing-4,
+  .animate-typing-5,
+  .animate-typing-6,
+  .animate-typing-7,
+  .animate-typing-9,
+  .animate-typing-10,
+  .animate-typing-11,
+  .animate-typing-13,
+  .animate-typing-14,
+  .animate-typing-15,
+  .animate-typing-16 {
+    animation-fill-mode: both;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin: -2px -4px;
+  }
+
+  .animate-typing-1:after {
+    animation: highlightLine 1s ease-out 0.5s;
+  }
+  .animate-typing-2:after {
+    animation: highlightLine 1s ease-out 1.5s;
+  }
+  .animate-typing-4:after {
+    animation: highlightLine 1s ease-out 2.5s;
+  }
+  .animate-typing-5:after {
+    animation: highlightLine 1s ease-out 3s;
+  }
+  .animate-typing-6:after {
+    animation: highlightLine 1s ease-out 3.5s;
+  }
+  .animate-typing-7:after {
+    animation: highlightLine 1s ease-out 4s;
+  }
+  .animate-typing-9:after {
+    animation: highlightLine 1s ease-out 4.5s;
+  }
+  .animate-typing-10:after {
+    animation: highlightLine 1s ease-out 5.5s;
+  }
+  .animate-typing-11:after {
+    animation: highlightLine 1s ease-out 6s;
+  }
+  .animate-typing-13:after {
+    animation: highlightLine 1s ease-out 6.5s;
+  }
+  .animate-typing-14:after {
+    animation: highlightLine 1s ease-out 7s;
+  }
+  .animate-typing-15:after {
+    animation: highlightLine 1s ease-out 7.5s;
+  }
+  .animate-typing-16:after {
+    animation: highlightLine 1s ease-out 8s;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blurIn {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes countUp {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInLine {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

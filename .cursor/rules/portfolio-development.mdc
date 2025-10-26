@@ -1,0 +1,250 @@
+---
+alwaysApply: true
+description: Portfolio website development guidelines and best practices
+---
+
+# Portfolio Website Development Rules
+
+## 🎯 Project Overview
+This is a modern portfolio website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. The project features a stunning homepage with typing animations and professional design.
+
+## 🏗️ Architecture Guidelines
+
+### File Structure
+```
+app/
+├── page.tsx              # Homepage with typing animation
+├── about/page.tsx        # About page
+├── work/page.tsx         # Work experience
+├── projects/page.tsx     # Project showcase
+├── services/page.tsx     # Services offered
+├── contact/page.tsx      # Contact form
+└── layout.tsx           # Root layout
+
+components/
+├── ui/                   # Reusable UI components
+├── animations/           # Animation components
+├── sections/            # Page sections
+└── layout/              # Layout components
+
+lib/
+├── animations.ts         # Framer Motion variants
+├── utils.ts             # Utility functions
+└── constants.ts         # App constants
+```
+
+### Component Naming
+- Use PascalCase for component files: `CodeEditor.tsx`
+- Use kebab-case for page files: `about/page.tsx`
+- Prefix animation components with `Animated`: `AnimatedCounter.tsx`
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary**: `#000000` (black)
+- **Secondary**: `#ffffff` (white)
+- **Accent**: Blue gradient `#3b82f6` to `#8b5cf6`
+- **Text**: White with opacity: `text-white/70`, `text-white/60`
+- **Background**: Black with gradients
+
+### Typography
+- **Headings**: `font-sf-pro-display` (SF Pro Display)
+- **Body**: System font stack
+- **Code**: `font-mono` (monospace)
+
+### Spacing
+- **Container**: `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`
+- **Sections**: `py-16` to `py-32`
+- **Grid**: `gap-6` to `gap-8`
+
+## 🚀 Animation Guidelines
+
+### Framer Motion Usage
+```tsx
+import { motion } from 'framer-motion'
+
+// Use predefined variants from lib/animations.ts
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" }
+}
+```
+
+### Typing Animation
+- Use sequential line-by-line appearance
+- Implement syntax highlighting
+- Add blinking cursor effect
+- Use staggered delays (0.2s intervals)
+- Include line highlighting on appearance
+
+### Hover Effects
+- Scale: `hover:scale-105`
+- Glow: Custom glow effects with gradients
+- Color transitions: `transition-colors duration-300`
+- Transform: `hover:translateY(-4px)`
+
+## 📱 Responsive Design
+
+### Breakpoints
+- **Mobile**: `sm:` (640px+)
+- **Tablet**: `md:` (768px+)
+- **Desktop**: `lg:` (1024px+)
+- **Large**: `xl:` (1280px+)
+
+### Mobile-First Approach
+- Start with mobile styles
+- Add larger screen styles with prefixes
+- Test on actual devices
+- Optimize touch targets (min 44px)
+
+## 🎯 Component Patterns
+
+### Page Components
+```tsx
+// app/page.tsx
+export default function HomePage() {
+  return (
+    <main>
+      <HeroSection />
+      <CodeEditorSection />
+      <SuccessStoriesSection />
+      <FeaturesSection />
+    </main>
+  )
+}
+```
+
+### Section Components
+```tsx
+// components/sections/HeroSection.tsx
+'use client'
+import { motion } from 'framer-motion'
+
+export default function HeroSection() {
+  return (
+    <section className="pt-40 pb-20">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Content */}
+      </motion.div>
+    </section>
+  )
+}
+```
+
+### Animation Components
+```tsx
+// components/animations/TypingAnimation.tsx
+'use client'
+import { motion } from 'framer-motion'
+
+interface TypingLineProps {
+  line: number
+  content: string
+  delay: number
+}
+
+export function TypingLine({ line, content, delay }: TypingLineProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay, duration: 0.5 }}
+      className="flex items-center"
+    >
+      <span className="text-white/30 w-8 text-right mr-4">{line}</span>
+      <span className="text-sm font-mono">{content}</span>
+    </motion.div>
+  )
+}
+```
+
+## 🔧 Code Quality
+
+### TypeScript
+- Use strict mode
+- Define interfaces for all props
+- Use proper typing for animations
+- Avoid `any` type
+
+### Performance
+- Use `'use client'` only when necessary
+- Implement lazy loading for heavy components
+- Optimize images with Next.js Image
+- Use dynamic imports for large libraries
+
+### Accessibility
+- Add proper ARIA labels
+- Ensure keyboard navigation
+- Use semantic HTML
+- Test with screen readers
+- Maintain color contrast ratios
+
+## 📊 SEO & Meta
+
+### Page Metadata
+```tsx
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Rohim Dev - Portfolio',
+  description: 'Professional portfolio showcasing...',
+  openGraph: {
+    title: 'Rohim Dev - Portfolio',
+    description: 'Professional portfolio...',
+    images: ['/og-image.jpg'],
+  },
+}
+```
+
+### Structured Data
+- Use JSON-LD for structured data
+- Include person schema
+- Add organization schema
+- Include work examples
+
+## 🚀 Deployment
+
+### Environment Variables
+```env
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+```
+
+### Build Optimization
+- Use `next build` for production
+- Enable compression
+- Optimize images
+- Minify CSS and JS
+
+## 🧪 Testing
+
+### Component Testing
+- Test animation triggers
+- Verify responsive behavior
+- Check accessibility
+- Test form validation
+
+### Performance Testing
+- Run Lighthouse audits
+- Test Core Web Vitals
+- Monitor bundle size
+- Check loading times
+
+## 📝 Documentation
+
+### Code Comments
+- Document complex animations
+- Explain business logic
+- Add TODO comments for future work
+- Document component props
+
+### README
+- Include setup instructions
+- Document environment variables
+- Add deployment guide
+- Include contribution guidelines

@@ -1,0 +1,287 @@
+---
+globs: *.tsx,*.ts
+description: Typing animation implementation guidelines
+---
+
+# Typing Animation Implementation
+
+## 🎯 Overview
+This rule covers the implementation of the typing animation effect seen in the homepage code editor section. The animation simulates real-time code typing with syntax highlighting and smooth transitions.
+
+## 🏗️ Core Implementation
+
+### Animation Structure
+```tsx
+// components/animations/TypingAnimation.tsx
+'use client'
+import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+
+interface CodeLine {
+  line: number
+  content: string
+  delay: number
+  syntax: 'import' | 'interface' | 'function' | 'variable' | 'string' | 'comment'
+}
+
+const codeLines: CodeLine[] = [
+  { line: 1, content: "import React, { useState, useEffect } from 'react'", delay: 0, syntax: 'import' },
+  { line: 2, content: "import { motion } from 'framer-motion'", delay: 1, syntax: 'import' },
+  { line: 3, content: "", delay: 1.5, syntax: 'comment' },
+  { line: 4, content: "const Portfolio = () => {", delay: 2, syntax: 'function' },
+  // ... more lines
+]
+```
+
+### Syntax Highlighting
+```tsx
+const getSyntaxColor = (syntax: string) => {
+  switch (syntax) {
+    case 'import': return 'text-purple-300'
+    case 'function': return 'text-blue-300'
+    case 'variable': return 'text-cyan-400'
+    case 'string': return 'text-green-400'
+    case 'comment': return 'text-gray-500'
+    default: return 'text-white/70'
+  }
+}
+```
+
+### Line-by-Line Animation
+```tsx
+export function TypingAnimation() {
+  const [visibleLines, setVisibleLines] = useState<number[]>([])
+
+  useEffect(() => {
+    codeLines.forEach((line, index) => {
+      setTimeout(() => {
+        setVisibleLines(prev => [...prev, index])
+      }, line.delay * 1000)
+    })
+  }, [])
+
+  return (
+    <div className="bg-gray-950/80 border border-white/10 rounded-2xl overflow-hidden">
+      {codeLines.map((line, index) => (
+        <TypingLine
+          key={index}
+          line={line.line}
+          content={line.content}
+          delay={line.delay}
+          syntax={line.syntax}
+          isVisible={visibleLines.includes(index)}
+        />
+      ))}
+    </div>
+  )
+}
+```
+
+## 🎨 Visual Effects
+
+### Blinking Cursor
+```tsx
+const BlinkingCursor = () => (
+  <motion.span
+    className="text-cyan-400 font-bold"
+    animate={{ opacity: [1, 0, 1] }}
+    transition={{ duration: 1, repeat: Infinity }}
+  >
+    |
+  </motion.span>
+)
+```
+
+### Line Highlighting
+```tsx
+const TypingLine = ({ line, content, delay, syntax, isVisible }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ 
+        opacity: isVisible ? 1 : 0, 
+        x: isVisible ? 0 : -10 
+      }}
+      transition={{ delay, duration: 0.5 }}
+      className="flex items-center group"
+    >
+      <span className="text-white/30 w-8 text-right mr-4">{line}</span>
+      <span className="text-sm font-mono">
+        <SyntaxHighlightedText content={content} syntax={syntax} />
+        {isVisible && <BlinkingCursor />}
+      </span>
+    </motion.div>
+  )
+}
+```
+
+### Syntax Highlighting Component
+```tsx
+const SyntaxHighlightedText = ({ content, syntax }) => {
+  const highlightText = (text: string, type: string) => {
+    const patterns = {
+      import: /(import|from|{.*?})/g,
+      function: /(const|function|=>|{)/g,
+      variable: /(useState|useEffect|motion)/g,
+      string: /(['"`].*?['"`])/g,
+    }
+
+    if (type === 'import') {
+      return text.split(/(import|from|{.*?})/g).map((part, i) => {
+        if (part.match(/(import|from)/)) {
+          return <span key={i} className="text-purple-300">{part}</span>
+        }
+        if (part.match(/{.*?}/)) {
+          return <span key={i} className="text-blue-300">{part}</span>
+        }
+        return <span key={i} className="text-white/70">{part}</span>
+      })
+    }
+    
+    return <span className="text-white/70">{text}</span>
+  }
+
+  return <>{highlightText(content, syntax)}</>
+}
+```
+
+## ⚡ Performance Optimization
+
+### Animation Timing
+- Use `requestAnimationFrame` for smooth animations
+- Implement proper cleanup in useEffect
+- Use `transform` instead of changing layout properties
+- Debounce rapid state changes
+
+### Memory Management
+```tsx
+useEffect(() => {
+  const timeouts: NodeJS.Timeout[] = []
+  
+  codeLines.forEach((line, index) => {
+    const timeout = setTimeout(() => {
+      setVisibleLines(prev => [...prev, index])
+    }, line.delay * 1000)
+    timeouts.push(timeout)
+  })
+
+  return () => {
+    timeouts.forEach(clearTimeout)
+  }
+}, [])
+```
+
+## 🎯 Animation Variants
+
+### Framer Motion Variants
+```tsx
+const typingVariants = {
+  hidden: { 
+    opacity: 0, 
+    x: -20,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  },
+  highlight: {
+    backgroundColor: "rgba(59, 130, 246, 0.1)",
+    transition: {
+      duration: 0.3
+    }
+  }
+}
+```
+
+### Staggered Animation
+```tsx
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+}
+```
+
+## 📱 Responsive Considerations
+
+### Mobile Optimization
+```tsx
+const isMobile = useMediaQuery('(max-width: 768px)')
+
+const getAnimationDelay = (baseDelay: number) => {
+  return isMobile ? baseDelay * 0.7 : baseDelay
+}
+```
+
+### Touch Interactions
+- Disable animations on mobile if performance is poor
+- Use `prefers-reduced-motion` media query
+- Provide alternative static view
+
+## 🧪 Testing
+
+### Animation Testing
+```tsx
+// Test animation triggers
+test('typing animation starts on mount', async () => {
+  render(<TypingAnimation />)
+  
+  await waitFor(() => {
+    expect(screen.getByText('import React')).toBeInTheDocument()
+  })
+})
+
+// Test timing
+test('lines appear in correct order', async () => {
+  render(<TypingAnimation />)
+  
+  // Test first line appears immediately
+  expect(screen.getByText('import React')).toBeInTheDocument()
+  
+  // Test second line appears after delay
+  await waitFor(() => {
+    expect(screen.getByText('import { motion }')).toBeInTheDocument()
+  }, { timeout: 1500 })
+})
+```
+
+## 🎨 Customization
+
+### Theme Support
+```tsx
+const getThemeColors = (theme: 'dark' | 'light') => {
+  return {
+    background: theme === 'dark' ? 'bg-gray-950' : 'bg-gray-50',
+    text: theme === 'dark' ? 'text-white' : 'text-gray-900',
+    border: theme === 'dark' ? 'border-white/10' : 'border-gray-200'
+  }
+}
+```
+
+### Animation Speed
+```tsx
+const getAnimationSpeed = (speed: 'slow' | 'normal' | 'fast') => {
+  const multipliers = { slow: 1.5, normal: 1, fast: 0.7 }
+  return multipliers[speed]
+}
+```
+
+## 🚀 Best Practices
+
+1. **Performance**: Use `transform` and `opacity` for animations
+2. **Accessibility**: Respect `prefers-reduced-motion`
+3. **Timing**: Keep total animation under 10 seconds
+4. **Content**: Use realistic, relevant code examples
+5. **Testing**: Test on various devices and connection speeds
+6. **Fallbacks**: Provide static content for users who prefer it
