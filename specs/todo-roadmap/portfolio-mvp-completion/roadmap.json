@@ -1,0 +1,202 @@
+{
+  "projectId": "portfolio-mvp-completion",
+  "title": "Portfolio MVP Completion",
+  "description": "Complete the MVP features for Abdul Rohim's portfolio website to achieve 100% functionality and professional presentation",
+  "status": "planning",
+  "createdAt": "2024-12-19T10:00:00Z",
+  "updatedAt": "2024-12-19T10:00:00Z",
+  "estimatedDuration": "2.75 hours",
+  "priority": "high",
+  "complexity": "medium",
+  "columns": [
+    {
+      "id": "todo",
+      "title": "To Do",
+      "color": "#3b82f6",
+      "tasks": [
+        "epic-001",
+        "epic-002", 
+        "epic-003",
+        "epic-004"
+      ]
+    },
+    {
+      "id": "in-progress",
+      "title": "In Progress",
+      "color": "#f59e0b",
+      "tasks": []
+    },
+    {
+      "id": "review",
+      "title": "Review",
+      "color": "#8b5cf6",
+      "tasks": []
+    },
+    {
+      "id": "done",
+      "title": "Done",
+      "color": "#10b981",
+      "tasks": []
+    }
+  ],
+  "epics": [
+    {
+      "id": "epic-001",
+      "title": "Typing Animation Component",
+      "description": "Implement signature typing animation for homepage with syntax highlighting and smooth transitions",
+      "priority": "high",
+      "complexity": "medium",
+      "estimatedDuration": "30 minutes",
+      "status": "todo",
+      "assignee": null,
+      "dependencies": [],
+      "tasks": [
+        {
+          "id": "task-001-001",
+          "title": "Create TypingAnimation component structure",
+          "description": "Build the basic component structure with TypeScript interfaces and Framer Motion setup",
+          "estimatedDuration": "10 minutes",
+          "status": "todo",
+          "sddCommand": "/brief"
+        },
+        {
+          "id": "task-001-002", 
+          "title": "Implement syntax highlighting system",
+          "description": "Add syntax highlighting for React, TypeScript, and JavaScript code snippets",
+          "estimatedDuration": "10 minutes",
+          "status": "todo",
+          "sddCommand": "/implement"
+        },
+        {
+          "id": "task-001-003",
+          "title": "Add blinking cursor and animations",
+          "description": "Implement blinking cursor effect and smooth line-by-line typing animations",
+          "estimatedDuration": "10 minutes",
+          "status": "todo",
+          "sddCommand": "/implement"
+        }
+      ]
+    },
+    {
+      "id": "epic-002",
+      "title": "Project Filtering System",
+      "description": "Add interactive project filtering by category and technology with smooth transitions",
+      "priority": "high", 
+      "complexity": "medium",
+      "estimatedDuration": "45 minutes",
+      "status": "todo",
+      "assignee": null,
+      "dependencies": [],
+      "tasks": [
+        {
+          "id": "task-002-001",
+          "title": "Implement category filtering logic",
+          "description": "Create filtering state management and category-based project filtering",
+          "estimatedDuration": "15 minutes",
+          "status": "todo",
+          "sddCommand": "/brief"
+        },
+        {
+          "id": "task-002-002",
+          "title": "Add technology tag filtering",
+          "description": "Implement technology-based filtering with tag selection system",
+          "estimatedDuration": "15 minutes", 
+          "status": "todo",
+          "sddCommand": "/implement"
+        },
+        {
+          "id": "task-002-003",
+          "title": "Create filter UI components",
+          "description": "Build filter buttons, active states, and smooth transition animations",
+          "estimatedDuration": "15 minutes",
+          "status": "todo",
+          "sddCommand": "/implement"
+        }
+      ]
+    },
+    {
+      "id": "epic-003",
+      "title": "Project Detail Modals",
+      "description": "Create comprehensive project case study modals with detailed information and interactions",
+      "priority": "high",
+      "complexity": "high", 
+      "estimatedDuration": "60 minutes",
+      "status": "todo",
+      "assignee": null,
+      "dependencies": ["epic-002"],
+      "tasks": [
+        {
+          "id": "task-003-001",
+          "title": "Create ProjectModal component",
+          "description": "Build modal component with overlay, backdrop, and basic structure",
+          "estimatedDuration": "20 minutes",
+          "status": "todo",
+          "sddCommand": "/brief"
+        },
+        {
+          "id": "task-003-002",
+          "title": "Implement detailed project display",
+          "description": "Add comprehensive project information, images, and technology showcases",
+          "estimatedDuration": "20 minutes",
+          "status": "todo", 
+          "sddCommand": "/implement"
+        },
+        {
+          "id": "task-003-003",
+          "title": "Add modal animations and interactions",
+          "description": "Implement open/close animations, keyboard navigation, and accessibility features",
+          "estimatedDuration": "20 minutes",
+          "status": "todo",
+          "sddCommand": "/implement"
+        }
+      ]
+    },
+    {
+      "id": "epic-004",
+      "title": "Contact Form Validation",
+      "description": "Enhance contact form with client-side validation, success states, and professional UX",
+      "priority": "high",
+      "complexity": "low",
+      "estimatedDuration": "30 minutes", 
+      "status": "todo",
+      "assignee": null,
+      "dependencies": [],
+      "tasks": [
+        {
+          "id": "task-004-001",
+          "title": "Implement form validation logic",
+          "description": "Add client-side validation for all form fields with real-time feedback",
+          "estimatedDuration": "15 minutes",
+          "status": "todo",
+          "sddCommand": "/brief"
+        },
+        {
+          "id": "task-004-002",
+          "title": "Add success/error state handling",
+          "description": "Create loading states, success messages, and error handling with animations",
+          "estimatedDuration": "15 minutes",
+          "status": "todo",
+          "sddCommand": "/implement"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalTasks": 10,
+    "totalEpics": 4,
+    "estimatedTotalDuration": "2.75 hours",
+    "highPriorityTasks": 10,
+    "mediumComplexityTasks": 6,
+    "highComplexityTasks": 3,
+    "lowComplexityTasks": 1
+  },
+  "tags": [
+    "portfolio",
+    "mvp",
+    "animations",
+    "interactions",
+    "forms",
+    "modals",
+    "filtering"
+  ]
+}

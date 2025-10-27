@@ -1,0 +1,162 @@
+{
+  "page": "Work Experience",
+  "meta": {
+    "title": "Work Experience - Abdul Rohim | Infrastructure & Development Professional",
+    "description": "Abdul Rohim's Professional Work Experience - From Telkom Indonesia to Varnion Technology. Infrastructure specialist and full-stack developer.",
+    "keywords": "Abdul Rohim, Work Experience, Telkom Indonesia, Varnion Technology, Infrastructure, Network Engineer, Full-Stack Developer",
+    "url": "https://rohimdev.com/work"
+  },
+  "hero": {
+    "heading": "Professional Work Experience",
+    "description": "4+ years across telecommunications infrastructure and modern software development. Measurable results from network optimization to full‑stack delivery.",
+    "stats": [
+      {"value": "4+", "label": "Years Experience"},
+      {"value": "40%", "label": "Connectivity Issues Reduced"},
+      {"value": "25%", "label": "Repeat Visits Decreased"}
+    ]
+  },
+  "careerTimeline": {
+    "heading": "Career Timeline",
+    "subheading": "A progression from telecommunications infrastructure to modern web development",
+    "positions": [
+      {
+        "status": "current",
+        "title": "Staff Infrastructure",
+        "company": "Varnion Technology Semesta",
+        "period": "Jan 2025 - Present",
+        "companyDescription": "PT Varnion Technology Semesta, a leading technology service provider in Indonesia specializing in internet solutions for the hospitality industry. As an Infrastructure Staff, I contribute to the stability and scalability of client and internal systems through comprehensive network management and optimization initiatives.",
+        "achievements": [
+          {
+            "metric": "40% Improvement",
+            "description": "Reduced connectivity issues through systematic monitoring and optimization"
+          },
+          {
+            "metric": "Network Excellence",
+            "description": "Consistent internet performance and uptime across hotel client sites"
+          }
+        ],
+        "responsibilities": [
+          "Network device installation, configuration, and maintenance across hotel client sites",
+          "Regular monitoring and troubleshooting using Mikrotik and Ubiquiti tools",
+          "Structured cabling and server rack setups for improved organization",
+          "Cross-functional collaboration with NOC and support teams"
+        ],
+        "technologies": ["Mikrotik", "Ubiquiti", "Network Design", "Infrastructure Planning", "System Monitoring"],
+        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
+      },
+      {
+        "status": "previous",
+        "title": "Provisioning Technician",
+        "company": "PT Telkom Indonesia (IndiHome)",
+        "period": "Dec 2020 - Aug 2023",
+        "companyDescription": "PT Telkom Indonesia (IndiHome), the largest telecommunications company in Indonesia, where I served as a Provisioning Technician responsible for ensuring successful internet service activation and customer satisfaction across residential and business segments.",
+        "achievements": [
+          {
+            "metric": "25% Reduction",
+            "description": "Reduced repeat visits through quality workmanship and customer education"
+          },
+          {
+            "metric": "Service Excellence",
+            "description": "Faster service activation times and improved customer experience"
+          }
+        ],
+        "responsibilities": [
+          "Installation and configuration of IndiHome internet services for residential and business customers",
+          "On-site troubleshooting and signal quality testing using OTDR and OPM tools",
+          "Coordination with NOC and customer service teams for issue resolution",
+          "Customer education on equipment usage and maintenance for long-term satisfaction"
+        ],
+        "technologies": ["Fiber Optic", "OTDR", "OPM Testing", "Network Provisioning", "Customer Service"],
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
+      }
+    ]
+  },
+  "skillsSummary": {
+    "heading": "Professional Skills Summary",
+    "subheading": "A comprehensive skill set developed through diverse professional experiences",
+    "categories": [
+      {
+        "title": "Infrastructure & Networking",
+        "skills": [
+          "Network Design & Implementation",
+          "Mikrotik & Ubiquiti Systems",
+          "Fiber Optic Installation",
+          "System Monitoring & Optimization",
+          "Structured Cabling"
+        ]
+      },
+      {
+        "title": "Technical Troubleshooting",
+        "skills": [
+          "OTDR & OPM Testing",
+          "Signal Quality Analysis",
+          "Network Performance Optimization",
+          "Issue Root Cause Analysis",
+          "Preventive Maintenance"
+        ]
+      },
+      {
+        "title": "Project Management",
+        "skills": [
+          "Infrastructure Project Planning",
+          "Site Surveys & Assessment",
+          "Timeline Management",
+          "Quality Assurance",
+          "Documentation & Reporting"
+        ]
+      },
+      {
+        "title": "Customer Relations",
+        "skills": [
+          "Customer Service Excellence",
+          "Technical Support & Training",
+          "Issue Resolution",
+          "Communication Skills",
+          "Client Relationship Management"
+        ]
+      },
+      {
+        "title": "Team Collaboration",
+        "skills": [
+          "Cross-functional Teamwork",
+          "NOC Coordination",
+          "Knowledge Sharing",
+          "Support Team Integration",
+          "Collaborative Problem Solving"
+        ]
+      },
+      {
+        "title": "Software Development",
+        "skills": [
+          "Full-Stack JavaScript Development",
+          "React & Next.js Applications",
+          "Golang & Node.js Backend Development",
+          "Database Design & Management",
+          "API Development & Integration"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Let's Work Together",
+    "description": "Interested in leveraging my unique combination of infrastructure expertise and development skills for your next project? Let's discuss how I can contribute to your team's success.",
+    "actions": [
+      {
+        "text": "Get In Touch",
+        "link": "/contact#contact-form",
+        "type": "primary"
+      },
+      {
+        "text": "View My Projects",
+        "link": "/projects",
+        "type": "secondary"
+      },
+      {
+        "text": "Download Resume",
+        "link": "https://drive.google.com/file/d/1xOJ8LgtE1FLd9WIUxG31cIBemfF3Z4I0/view?usp=sharing",
+        "type": "tertiary"
+      }
+    ]
+  }
+}
+

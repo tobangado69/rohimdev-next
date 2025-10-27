@@ -1,0 +1,212 @@
+{
+  "page": "Projects",
+  "meta": {
+    "title": "Projects - Abdul Rohim | Full-Stack Development Portfolio",
+    "description": "Abdul Rohim's Development Projects - Mobile-FB Social App, ChatApp Real-time Messaging, Grammedia eCommerce Clone. Full-stack development portfolio.",
+    "keywords": "Abdul Rohim, Projects, React Native, GraphQL, Next.js, Full-Stack Development, Mobile App, Chat Application, eCommerce",
+    "url": "https://rohimdev.com/projects"
+  },
+  "hero": {
+    "heading": "Development Projects",
+    "description": "A collection of full‑stack applications across web and mobile—real‑time chat, social, and e‑commerce builds.",
+    "stats": [
+      {"value": "3", "label": "Major Projects"},
+      {"value": "10+", "label": "Technologies Used"},
+      {"value": "100%", "label": "Open Source"}
+    ]
+  },
+  "filterCategories": [
+    "All Projects",
+    "Mobile Apps",
+    "Web Applications",
+    "Full-Stack"
+  ],
+  "projects": [
+    {
+      "id": "mobile-fb",
+      "title": "Mobile-FB",
+      "category": ["mobile", "fullstack"],
+      "date": "April 2024",
+      "status": "In Development",
+      "icon": "📱",
+      "shortDescription": "A comprehensive full-stack social media application that replicates core Facebook functionality on mobile devices. Built during my Hacktiv8 bootcamp, this project demonstrates advanced React Native development, GraphQL integration, and real-time data synchronization across multiple platforms.",
+      "overview": "This was my capstone project at Hacktiv8, where I built a complete social media platform from scratch. The app handles user registration, post creation, real-time interactions, and social features like following/followers, all while maintaining smooth performance across iOS and Android devices.",
+      "keyFeatures": [
+        "User authentication with JWT and secure token storage",
+        "Real-time post feed with comments and likes functionality",
+        "User search, follow/unfollow system with MongoDB $lookup",
+        "Deployed on Expo for both Android and iOS platforms",
+        "Redis caching for optimized performance"
+      ],
+      "challenges": [
+        {
+          "title": "Real-time Updates",
+          "description": "Implementing live post updates across multiple users required careful GraphQL subscription management and state synchronization."
+        },
+        {
+          "title": "Cross-Platform Performance",
+          "description": "Optimized image loading and caching strategies to ensure smooth performance on both iOS and Android devices."
+        },
+        {
+          "title": "Complex State Management",
+          "description": "Used Apollo Client's cache management to handle complex social interactions and maintain data consistency."
+        }
+      ],
+      "techStack": ["React Native", "GraphQL", "Apollo Client", "Node.js", "MongoDB", "Redis", "Expo"],
+      "github": "https://github.com/tobangado69/Mobile-FB",
+      "image": "https://i.imgur.com/CFZvp5T.png",
+      "detailedCaseStudy": {
+        "technicalChallenges": [
+          "Implemented real-time data synchronization with GraphQL subscriptions",
+          "Designed scalable database schema with MongoDB aggregation pipelines",
+          "Optimized performance with Redis caching layer",
+          "Created secure authentication flow with JWT tokens",
+          "Built responsive mobile UI with React Native components"
+        ],
+        "architecture": {
+          "frontend": "React Native with Expo for cross-platform compatibility",
+          "backend": "Node.js with Apollo Server for GraphQL API",
+          "database": "MongoDB with Mongoose ODM",
+          "caching": "Redis for performance optimization",
+          "authentication": "JWT with secure token storage"
+        },
+        "learningOutcomes": [
+          "Advanced GraphQL schema design and resolver implementation",
+          "Real-time application architecture with subscriptions",
+          "Mobile app deployment and distribution via Expo",
+          "Database optimization with MongoDB aggregation"
+        ]
+      }
+    },
+    {
+      "id": "chatapp",
+      "title": "ChatApp",
+      "category": ["web", "fullstack"],
+      "date": "February 2024",
+      "status": "In Development",
+      "icon": "💬",
+      "shortDescription": "Real-time messaging application built with React and Socket.IO, featuring live chat functionality and user presence indicators.",
+      "overview": "Built as a learning project to understand real-time communication patterns, this chat application features instant messaging, user online/offline status, typing indicators, and message delivery confirmation. The project showcases my ability to work with WebSocket technologies and handle real-time state management.",
+      "keyFeatures": [
+        "Real-time messaging with Socket.IO implementation",
+        "User authentication and session management",
+        "Responsive design with Tailwind CSS",
+        "PostgreSQL database with Sequelize ORM",
+        "Context API for state management"
+      ],
+      "challenges": [
+        {
+          "title": "Connection Management",
+          "description": "Handling WebSocket connection drops and reconnections required implementing robust error handling and automatic reconnection logic."
+        },
+        {
+          "title": "Real-time State Sync",
+          "description": "Synchronizing message state across multiple clients while maintaining message order and preventing duplicates."
+        },
+        {
+          "title": "User Presence Detection",
+          "description": "Implemented heartbeat mechanism to accurately track user online/offline status and handle network interruptions gracefully."
+        }
+      ],
+      "techStack": ["React", "Socket.IO", "Express", "PostgreSQL", "Sequelize", "Tailwind CSS"],
+      "github": "https://github.com/tobangado69/ChatApp",
+      "image": "https://raw.githubusercontent.com/tobangado69/ChatApp/main/assets/home.png",
+      "detailedCaseStudy": {
+        "technicalImplementation": [
+          "WebSocket connection management with Socket.IO",
+          "Real-time message broadcasting to connected users",
+          "PostgreSQL database integration with Sequelize ORM",
+          "React Context API for global state management",
+          "Responsive UI design with Tailwind CSS"
+        ],
+        "keyFeatures": {
+          "realTimeMessaging": "Instant message delivery using WebSockets",
+          "userAuthentication": "Secure login and session management",
+          "messagePersistence": "All messages stored in PostgreSQL",
+          "responsiveDesign": "Works seamlessly across devices",
+          "userPresence": "Online/offline status indicators"
+        },
+        "technicalStack": {
+          "frontend": "React with Context API",
+          "backend": "Express.js with Socket.IO",
+          "database": "PostgreSQL with Sequelize",
+          "styling": "Tailwind CSS"
+        }
+      }
+    },
+    {
+      "id": "grammedia-clone",
+      "title": "Grammedia Clone",
+      "category": ["web", "fullstack"],
+      "date": "2024",
+      "status": "Live",
+      "icon": "🛒",
+      "shortDescription": "A comprehensive e-commerce web application that replicates modern online bookstore functionality. Built with Next.js and TypeScript, this project demonstrates advanced React patterns, server-side rendering, and complex e-commerce features including product management, user authentication, and shopping cart functionality.",
+      "overview": "This project showcases my ability to build production-ready e-commerce applications using modern web technologies. The application features a complete product catalog, user authentication, wishlist functionality, and responsive design optimized for both desktop and mobile devices.",
+      "keyFeatures": [
+        "Complete user registration and authentication system",
+        "Product listing with search and infinite scroll pagination",
+        "Wishlist functionality for saving favorite products",
+        "Detailed product pages with comprehensive information",
+        "Promotional banners and featured products section"
+      ],
+      "challenges": [
+        {
+          "title": "Server-Side Rendering",
+          "description": "Implementing SSR with Next.js for optimal SEO and performance while managing complex state and data fetching patterns."
+        },
+        {
+          "title": "Infinite Scroll Performance",
+          "description": "Optimized product loading with virtual scrolling and efficient pagination to handle large product catalogs without performance degradation."
+        },
+        {
+          "title": "TypeScript Integration",
+          "description": "Maintained type safety across complex e-commerce data structures and API integrations using advanced TypeScript patterns."
+        }
+      ],
+      "techStack": ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS", "Infinite Scroll"],
+      "github": "https://github.com/tobangado69/Grammedia-Clone",
+      "live": "https://gramedia.vercel.app/",
+      "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+      "detailedCaseStudy": {
+        "eCommerceFeatures": [
+          "Product catalog with search and filtering",
+          "Infinite scroll pagination for better UX",
+          "Wishlist functionality for saving products",
+          "User authentication and profile management",
+          "Responsive design for all device types"
+        ],
+        "technicalArchitecture": {
+          "framework": "Next.js with TypeScript for type safety",
+          "database": "MongoDB for flexible product data",
+          "styling": "Tailwind CSS for rapid UI development",
+          "performance": "Infinite scroll with React components",
+          "stateManagement": "React hooks and context"
+        },
+        "developmentFocus": [
+          "Modern e-commerce user experience patterns",
+          "Performance optimization with Next.js features",
+          "TypeScript integration for better code quality",
+          "Responsive design implementation"
+        ]
+      }
+    }
+  ],
+  "cta": {
+    "heading": "Interested in Collaborating?",
+    "description": "These projects demonstrate my ability to build full-stack applications with modern technologies. Let's work together to create something amazing for your next project.",
+    "actions": [
+      {
+        "text": "Start a Project",
+        "link": "/contact#contact-form",
+        "type": "primary"
+      },
+      {
+        "text": "View All Repositories",
+        "link": "https://github.com/tobangado69",
+        "type": "secondary"
+      }
+    ]
+  }
+}
+

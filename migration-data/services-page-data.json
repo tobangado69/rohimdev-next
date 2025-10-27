@@ -1,0 +1,203 @@
+{
+  "page": "Services",
+  "meta": {
+    "title": "Full-Stack Development Services - Abdul Rohim",
+    "description": "Abdul Rohim - Full-Stack Development Services. Expert in React, Next.js, React Native, Node.js, GraphQL. Custom web and mobile applications tailored to your business needs.",
+    "keywords": "Abdul Rohim, Full-Stack Developer, React, Next.js, React Native, Node.js, GraphQL, Web Development, Mobile Development, JavaScript, TypeScript",
+    "url": "https://rohimdev.com/services"
+  },
+  "hero": {
+    "heading": "Full‑Stack Development Services",
+    "description": "Transform ideas into scalable, production‑ready applications across web and mobile.",
+    "stats": [
+      {"value": "4+", "label": "Years Experience"},
+      {"value": "20+", "label": "Projects Delivered"},
+      {"value": "10+", "label": "Technologies Mastered"},
+      {"value": "100%", "label": "Client Satisfaction"}
+    ]
+  },
+  "coreServices": {
+    "heading": "Development Services",
+    "subheading": "Comprehensive full-stack solutions from frontend interfaces to backend systems, mobile applications, and everything in between.",
+    "services": [
+      {
+        "id": "frontend",
+        "title": "Frontend Development",
+        "icon": "💻",
+        "description": "Transform your ideas into stunning, high-performance web applications using cutting-edge React and Next.js technologies. I specialize in creating intuitive user interfaces that not only look beautiful but also deliver exceptional user experiences that drive engagement and conversions.",
+        "overview": "From concept to deployment, I handle every aspect of frontend development including UI/UX design, performance optimization, SEO implementation, and cross-browser compatibility. Every application is built with scalability and maintainability in mind.",
+        "features": [
+          "React & Next.js applications",
+          "Responsive design & mobile-first approach",
+          "Modern UI/UX with Tailwind CSS",
+          "Performance optimization & SEO",
+          "Progressive Web Apps (PWA)"
+        ],
+        "technologies": ["React", "Next.js", "Tailwind", "TypeScript"],
+        "startingPrice": "$2,000"
+      },
+      {
+        "id": "backend",
+        "title": "Backend Development",
+        "icon": "🔧",
+        "description": "Build powerful, scalable server-side solutions using Golang, Node.js, Express, and Nest.js. I create robust APIs, efficient databases, and secure authentication systems that form the backbone of your applications, ensuring they can handle growth and maintain peak performance.",
+        "overview": "Complete backend architecture including API design, database optimization, security implementation, and cloud deployment. Every system is built with enterprise-grade security, performance monitoring, and automated testing to ensure reliability.",
+        "features": [
+          "RESTful APIs & GraphQL servers",
+          "Database design (PostgreSQL, MongoDB)",
+          "Authentication & authorization systems",
+          "Real-time features with Socket.IO",
+          "Cloud deployment & scaling"
+        ],
+        "technologies": ["Golang", "Node.js", "Nest.js", "GraphQL", "PostgreSQL"],
+        "startingPrice": "$2,500"
+      },
+      {
+        "id": "mobile",
+        "title": "Mobile Development",
+        "icon": "📱",
+        "description": "Create powerful mobile applications that work seamlessly across iOS and Android using React Native. I deliver native performance and user experience while maintaining a single codebase, reducing development time and costs while ensuring your app reaches the widest possible audience.",
+        "overview": "Complete mobile app development from design to App Store deployment, including native module integration, push notifications, offline functionality, and performance optimization. Your app will be ready for both iOS and Android markets.",
+        "features": [
+          "Cross-platform React Native apps",
+          "Native performance & user experience",
+          "App Store & Play Store deployment",
+          "Push notifications & offline support",
+          "Social features & real-time chat"
+        ],
+        "technologies": ["React Native", "Expo", "Firebase", "JavaScript"],
+        "startingPrice": "$3,500"
+      },
+      {
+        "id": "infrastructure",
+        "title": "Infrastructure Services",
+        "icon": "🌐",
+        "description": "Leverage my unique background in telecommunications and network infrastructure to optimize your digital infrastructure. From network setup and monitoring to system optimization and troubleshooting, I provide comprehensive infrastructure solutions that ensure your applications run smoothly and reliably.",
+        "overview": "Complete infrastructure management including network design, performance monitoring, troubleshooting, and optimization. With 4+ years of telecommunications experience, I understand how to build robust systems that handle real-world network conditions.",
+        "features": [
+          "Network design & configuration (Mikrotik, Ubiquiti)",
+          "System monitoring & performance optimization",
+          "Fiber optic installation & testing (OTDR, OPM)",
+          "Structured cabling & server rack setup",
+          "Troubleshooting & issue resolution"
+        ],
+        "technologies": ["Mikrotik", "Ubiquiti", "OTDR", "Fiber Optic"],
+        "startingPrice": "$1,500"
+      }
+    ]
+  },
+  "technologyStack": {
+    "heading": "Technology Expertise",
+    "subheading": "Cutting-edge technologies and frameworks for building modern, scalable applications.",
+    "categories": [
+      {
+        "title": "Frontend",
+        "technologies": ["React", "Next.js", "Tailwind", "TypeScript"]
+      },
+      {
+        "title": "Backend",
+        "technologies": ["Golang", "Node.js", "Nest.js", "Express", "GraphQL"]
+      },
+      {
+        "title": "Database",
+        "technologies": ["PostgreSQL", "MongoDB", "Redis", "Supabase"]
+      },
+      {
+        "title": "Mobile & Tools",
+        "technologies": ["React Native", "Expo", "Jest", "Git"]
+      }
+    ]
+  },
+  "developmentProcess": {
+    "heading": "Development Process",
+    "subheading": "A proven methodology that ensures quality, efficiency, and client satisfaction from concept to deployment.",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Discovery",
+        "description": "Understanding your requirements, goals, and technical specifications through detailed consultation."
+      },
+      {
+        "number": 2,
+        "title": "Planning",
+        "description": "Creating detailed project roadmap, technical architecture, and timeline with clear milestones."
+      },
+      {
+        "number": 3,
+        "title": "Development",
+        "description": "Agile development with regular updates, code reviews, and continuous integration practices."
+      },
+      {
+        "number": 4,
+        "title": "Deployment",
+        "description": "Production deployment with monitoring, documentation, and ongoing support and maintenance."
+      }
+    ]
+  },
+  "pricingPlans": {
+    "heading": "Service Packages",
+    "subheading": "Flexible pricing options to match your project scope and budget requirements.",
+    "packages": [
+      {
+        "name": "Starter",
+        "subtitle": "Perfect for small projects and MVPs",
+        "priceRange": "$2,000 - $8,000",
+        "timeline": "4-8 weeks delivery",
+        "features": [
+          "Frontend or Backend development",
+          "Up to 5 pages/screens",
+          "Basic database integration",
+          "Responsive design",
+          "Basic deployment"
+        ],
+        "highlighted": false
+      },
+      {
+        "name": "Professional",
+        "subtitle": "Complete full-stack applications",
+        "priceRange": "$8,000 - $20,000",
+        "timeline": "8-16 weeks delivery",
+        "features": [
+          "Full-stack web or mobile app",
+          "Custom features & integrations",
+          "User authentication & profiles",
+          "API development & documentation",
+          "Production deployment & monitoring"
+        ],
+        "highlighted": true,
+        "badge": "MOST POPULAR"
+      },
+      {
+        "name": "Enterprise",
+        "subtitle": "Large-scale applications & platforms",
+        "priceRange": "$20,000+",
+        "timeline": "16+ weeks delivery",
+        "features": [
+          "Complex multi-platform solutions",
+          "Advanced integrations & APIs",
+          "Real-time features & chat systems",
+          "Performance optimization & scaling",
+          "Ongoing support & maintenance"
+        ],
+        "highlighted": false
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to Build Something Amazing?",
+    "description": "Let's transform your ideas into powerful digital solutions. From concept to deployment, I'll guide you through every step of the development process.",
+    "actions": [
+      {
+        "text": "Start Your Project",
+        "link": "/contact#get-in-touch",
+        "type": "primary"
+      },
+      {
+        "text": "View My Work",
+        "link": "/projects",
+        "type": "secondary"
+      }
+    ]
+  }
+}
+

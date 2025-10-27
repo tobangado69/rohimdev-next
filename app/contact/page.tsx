@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import {
   Mail,
-  Phone,
   MapPin,
   Clock,
   Send,
@@ -12,10 +11,11 @@ import {
   AlertCircle,
   Github,
   Linkedin,
-  Instagram,
+  MessageCircle,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { getContactPageData } from "@/lib/data";
 
 const contactInfo = [
   {
@@ -24,13 +24,6 @@ const contactInfo = [
     value: "rohimjoy70@gmail.com",
     description: "Send me an email anytime",
     href: "mailto:rohimjoy70@gmail.com",
-  },
-  {
-    icon: Phone,
-    title: "Phone",
-    value: "+1 (234) 567-890",
-    description: "Call me for urgent matters",
-    href: "tel:+1234567890",
   },
   {
     icon: MapPin,
@@ -48,25 +41,43 @@ const contactInfo = [
   },
 ];
 
-const socialLinks = [
-  {
-    name: "GitHub",
-    href: "https://github.com/tobangado69",
-    icon: Github,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com/in/tobangado",
-    icon: Linkedin,
-  },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/itsme.rohim/",
-    icon: Instagram,
-  },
-];
-
 export default function ContactPage() {
+  const contactData = getContactPageData();
+
+  // Map contact info data to component format using data from JSON
+  const contactInfo = contactData.contactInformation.methods.map((method) => ({
+    icon:
+      method.type === "email"
+        ? Mail
+        : method.type === "location"
+        ? MapPin
+        : method.type === "availability"
+        ? Clock
+        : Mail,
+    title: method.title,
+    value: method.value,
+    description:
+      method.type === "email"
+        ? "Send me an email anytime"
+        : method.type === "location"
+        ? "Available for local meetings"
+        : "Response Time",
+    href: method.link || "#",
+  }));
+
+  // Map professional profiles from JSON
+  const socialProfiles = contactData.professionalProfiles.profiles.map(
+    (profile) => ({
+      name: profile.platform,
+      href: profile.url,
+      icon:
+        profile.platform === "LinkedIn"
+          ? Linkedin
+          : profile.platform === "GitHub"
+          ? Github
+          : MessageCircle, // Telegram icon
+    })
+  );
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -91,11 +102,31 @@ export default function ContactPage() {
     e.preventDefault();
     setFormStatus("sending");
 
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 2000);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // Replace with actual key
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setFormStatus("error");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setFormStatus("error");
+    }
   };
 
   return (
@@ -112,11 +143,10 @@ export default function ContactPage() {
           >
             <div className="text-center">
               <h1 className="text-5xl sm:text-6xl sf-pro-display tracking-tight mb-8 font-light bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-                Get In Touch
+                {contactData.hero.heading}
               </h1>
               <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-                Have a project in mind? Let's discuss how we can work together
-                to bring your ideas to life.
+                {contactData.hero.description}
               </p>
             </div>
           </motion.div>
@@ -125,7 +155,7 @@ export default function ContactPage() {
 
       {/* Contact Info */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -133,16 +163,15 @@ export default function ContactPage() {
           >
             <div className="text-center mb-16">
               <h2 className="text-3xl sf-pro-display font-light mb-6">
-                Let's Connect
+                {contactData.contactInformation.heading}
               </h2>
               <p className="text-xl text-white/60 max-w-2xl mx-auto">
-                Choose your preferred way to reach out. I'm always excited to
-                hear about new projects.
+                {contactData.contactInformation.subheading}
               </p>
             </div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={info.title}
@@ -150,18 +179,22 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 whileHover={{ y: -8 }}
-                className="group p-6 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500 text-center"
+                className="group p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500 text-center"
                 {...({} as any)}
               >
                 <a href={info.href} className="block">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                     <info.icon className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold sf-pro-display mb-2">
+                  <h3 className="text-xl font-semibold sf-pro-display mb-3">
                     {info.title}
                   </h3>
-                  <p className="text-blue-400 font-medium mb-2">{info.value}</p>
-                  <p className="text-sm text-white/60">{info.description}</p>
+                  <p className="text-blue-400 font-medium mb-3 text-lg">
+                    {info.value}
+                  </p>
+                  <p className="text-sm text-white/60 leading-relaxed">
+                    {info.description}
+                  </p>
                 </a>
               </motion.div>
             ))}
@@ -181,11 +214,10 @@ export default function ContactPage() {
           >
             <div className="text-center mb-12">
               <h2 className="text-3xl sf-pro-display font-light mb-6">
-                Send a Message
+                {contactData.contactForm.heading}
               </h2>
               <p className="text-xl text-white/60 max-w-2xl mx-auto">
-                Fill out the form below and I'll get back to you within 24
-                hours.
+                {contactData.contactForm.description}
               </p>
             </div>
 
@@ -320,14 +352,14 @@ export default function ContactPage() {
             {...({} as any)}
           >
             <h2 className="text-3xl sf-pro-display font-light mb-6">
-              Follow Me
+              {contactData.professionalProfiles.heading}
             </h2>
             <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
               Stay updated with my latest projects and thoughts on development.
             </p>
 
             <div className="flex justify-center gap-6">
-              {socialLinks.map((social, index) => (
+              {socialProfiles.map((social, index) => (
                 <motion.a
                   key={social.name}
                   href={social.href}
@@ -360,37 +392,15 @@ export default function ContactPage() {
             {...({} as any)}
           >
             <h2 className="text-3xl sf-pro-display font-light mb-6">
-              Frequently Asked Questions
+              {contactData.faq.heading}
             </h2>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              Common questions about my services and process.
+              {contactData.faq.subheading}
             </p>
           </motion.div>
 
           <div className="space-y-8">
-            {[
-              {
-                question: "How long does a typical project take?",
-                answer:
-                  "Project timelines vary depending on complexity. A simple website takes 2-4 weeks, while complex applications can take 2-6 months. I'll provide a detailed timeline during our initial consultation.",
-              },
-              {
-                question:
-                  "Do you provide ongoing support after project completion?",
-                answer:
-                  "Yes! I offer 3-6 months of free support for bug fixes and minor updates. For ongoing maintenance and new features, I provide flexible support packages.",
-              },
-              {
-                question: "What technologies do you work with?",
-                answer:
-                  "I specialize in modern web technologies including React, Next.js, TypeScript, Node.js, and various databases. I also work with mobile development using React Native and cloud platforms like AWS and Vercel.",
-              },
-              {
-                question: "Do you work with clients outside the US?",
-                answer:
-                  "Absolutely! I work with clients worldwide. I'm experienced in remote collaboration and can accommodate different time zones for meetings and communication.",
-              },
-            ].map((faq, index) => (
+            {contactData.faq.questions.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

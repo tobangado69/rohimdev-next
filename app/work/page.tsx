@@ -4,115 +4,58 @@ import { motion } from "framer-motion";
 import { Calendar, MapPin, Building, Users, Award } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { getWorkPageData, getCareerTimeline } from "@/lib/data";
 
-const workExperience = [
+const technicalAchievements = [
   {
-    id: 1,
-    title: "Senior Full-Stack Developer",
-    company: "TechCorp Inc.",
-    location: "Surabaya, Indonesia",
-    type: "Full-time",
-    duration: "2023 - Present",
+    title: "40% Connectivity Improvement",
+    organization: "Varnion Technology",
+    period: "2025",
     description:
-      "Leading development of scalable web applications and mentoring junior developers. Responsible for architecture decisions and technical strategy.",
-    achievements: [
-      "Led a team of 5 developers in building a microservices architecture",
-      "Improved application performance by 40% through optimization",
-      "Mentored 3 junior developers and helped them grow their skills",
-      "Implemented CI/CD pipeline reducing deployment time by 60%",
-    ],
-    technologies: [
-      "React",
-      "Node.js",
-      "TypeScript",
-      "AWS",
-      "Docker",
-      "Kubernetes",
-    ],
-    logo: "🏢",
+      "Reduced connectivity issues by 40% through systematic monitoring and optimization",
+    technologies: ["Mikrotik", "Ubiquiti", "Network Design"],
+    impact:
+      "Significant improvement in network reliability and customer satisfaction",
   },
   {
-    id: 2,
-    title: "Frontend Developer",
-    company: "StartupX",
-    location: "Remote",
-    type: "Full-time",
-    duration: "2021 - 2023",
+    title: "25% Service Efficiency Gain",
+    organization: "Telkom Indonesia",
+    period: "2020-2023",
     description:
-      "Built responsive user interfaces and improved user experience across multiple products. Collaborated closely with design and product teams.",
-    achievements: [
-      "Developed 15+ React components used across the platform",
-      "Improved user engagement by 25% through UI/UX improvements",
-      "Reduced bundle size by 30% through code optimization",
-      "Implemented accessibility features achieving WCAG 2.1 AA compliance",
-    ],
-    technologies: [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Storybook",
-    ],
-    logo: "🚀",
+      "Reduced repeat visits by 25% through quality workmanship and customer education",
+    technologies: ["Fiber Optic", "OTDR", "Customer Service"],
+    impact: "Enhanced service quality and reduced operational costs",
   },
   {
-    id: 3,
-    title: "Junior Developer",
-    company: "WebStudio",
-    location: "New York, NY",
-    type: "Full-time",
-    duration: "2020 - 2021",
+    title: "Bootcamp Completion",
+    organization: "Hacktiv8",
+    period: "2024",
     description:
-      "Developed client websites and learned modern web development practices. Worked on various projects from small business sites to e-commerce platforms.",
-    achievements: [
-      "Delivered 20+ client projects on time and within budget",
-      "Learned modern JavaScript frameworks and best practices",
-      "Collaborated with senior developers on complex features",
-      "Maintained 100% client satisfaction rate",
-    ],
-    technologies: ["HTML", "CSS", "JavaScript", "WordPress", "PHP", "MySQL"],
-    logo: "💻",
-  },
-];
-
-const education = [
-  {
-    degree: "Bachelor of Science in Computer Science",
-    school: "University of California, Berkeley",
-    year: "2016 - 2020",
-    gpa: "3.8/4.0",
-    relevant_courses: [
-      "Data Structures",
-      "Algorithms",
-      "Database Systems",
-      "Software Engineering",
-      "Web Development",
-    ],
-  },
-];
-
-const certifications = [
-  {
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    year: "2023",
-    credential_id: "AWS-SAA-123456",
-  },
-  {
-    name: "Google Cloud Professional Developer",
-    issuer: "Google Cloud",
-    year: "2022",
-    credential_id: "GCP-PD-789012",
-  },
-  {
-    name: "React Developer Certification",
-    issuer: "Meta",
-    year: "2021",
-    credential_id: "META-RD-345678",
+      "Successfully graduated from intensive full-stack development program",
+    technologies: ["React", "Node.js", "Full-Stack Development"],
+    impact: "Transitioned from telecommunications to software development",
   },
 ];
 
 export default function WorkPage() {
+  const workData = getWorkPageData();
+  const careerTimeline = getCareerTimeline();
+
+  // Map work experience data to component format
+  const workExperience = careerTimeline.positions.map((position, index) => ({
+    id: `work-${index}`,
+    title: position.title,
+    company: position.company,
+    location: "Surabaya, Indonesia", // Default location
+    type: "Full-time", // Default type
+    duration: position.period,
+    description: position.companyDescription,
+    achievements: position.achievements.map(
+      (achievement) => achievement.description
+    ),
+    technologies: position.technologies,
+    logo: position.status === "current" ? "🏢" : "🏭",
+  }));
   return (
     <main className="min-h-screen">
       <Header />
@@ -125,13 +68,13 @@ export default function WorkPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
+            {...({} as any)}
           >
             <h1 className="text-5xl sm:text-6xl sf-pro-display tracking-tight mb-8 font-light bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-              Work Experience
+              {workData.hero.heading}
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              My professional journey and the experiences that have shaped my
-              career as a developer.
+              {workData.hero.description}
             </p>
           </motion.div>
         </div>
@@ -145,6 +88,7 @@ export default function WorkPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
+            {...({} as any)}
           >
             <h2 className="text-3xl sf-pro-display font-light mb-6">
               Professional Experience
@@ -154,14 +98,15 @@ export default function WorkPage() {
             </p>
           </motion.div>
 
-          <div className="space-y-12">
+          <div className="space-y-16">
             {workExperience.map((job, index) => (
               <motion.div
                 key={job.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
-                className="p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl"
+                className="p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl my-4"
+                {...({} as any)}
               >
                 <div className="flex flex-col lg:flex-row lg:items-start gap-6">
                   <div className="flex-shrink-0">
@@ -241,7 +186,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Education */}
+      {/* Technical Achievements */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -249,50 +194,60 @@ export default function WorkPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
+            {...({} as any)}
           >
             <h2 className="text-3xl sf-pro-display font-light mb-6">
-              Education
+              Technical Achievements
             </h2>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              My academic background and relevant coursework.
+              Measurable impact and professional milestones
             </p>
           </motion.div>
 
-          <div className="space-y-8">
-            {education.map((edu, index) => (
+          <div className="space-y-12">
+            {technicalAchievements.map((achievement, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
-                className="p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl"
+                className="p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl my-4"
+                {...({} as any)}
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-semibold sf-pro-display mb-2">
-                      {edu.degree}
+                      {achievement.title}
                     </h3>
                     <p className="text-blue-400 font-medium text-lg">
-                      {edu.school}
+                      {achievement.organization}
                     </p>
                   </div>
                   <div className="text-right mt-2 md:mt-0">
-                    <p className="text-white/60">{edu.year}</p>
-                    <p className="text-sm text-white/60">GPA: {edu.gpa}</p>
+                    <p className="text-white/60">{achievement.period}</p>
                   </div>
+                </div>
+
+                <div className="mb-4">
+                  <p className="text-white/70 text-lg leading-relaxed mb-3">
+                    {achievement.description}
+                  </p>
+                  <p className="text-green-400 font-medium">
+                    Impact: {achievement.impact}
+                  </p>
                 </div>
 
                 <div>
                   <h4 className="text-lg font-semibold sf-pro-display mb-3">
-                    Relevant Coursework
+                    Technologies & Skills
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {edu.relevant_courses.map((course) => (
+                    {achievement.technologies.map((tech) => (
                       <span
-                        key={course}
+                        key={tech}
                         className="px-3 py-1 bg-white/10 rounded-full text-sm text-white/70"
                       >
-                        {course}
+                        {tech}
                       </span>
                     ))}
                   </div>
@@ -303,47 +258,46 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-20">
+      {/* Professional Skills Summary */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
+            {...({} as any)}
           >
-            <h2 className="text-3xl sf-pro-display font-light mb-6">
-              Certifications
+            <h2 className="text-4xl sf-pro-display tracking-tight mb-6 font-light">
+              {workData.skillsSummary.heading}
             </h2>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              Professional certifications that validate my expertise.
+            <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              {workData.skillsSummary.subheading}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifications.map((cert, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {workData.skillsSummary.categories.map((category, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
-                className="p-6 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-2xl"
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="p-8 border border-white/10 rounded-3xl bg-gradient-to-br from-white/5 to-transparent"
+                {...({} as any)}
               >
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Award className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold sf-pro-display mb-2">
-                    {cert.name}
-                  </h3>
-                  <p className="text-blue-400 font-medium mb-2">
-                    {cert.issuer}
-                  </p>
-                  <p className="text-sm text-white/60 mb-2">{cert.year}</p>
-                  <p className="text-xs text-white/50">
-                    ID: {cert.credential_id}
-                  </p>
-                </div>
+                <h3 className="text-xl font-semibold mb-6">{category.title}</h3>
+                <ul className="space-y-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <li
+                      key={skillIndex}
+                      className="flex items-center gap-3 text-white/70"
+                    >
+                      <div className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></div>
+                      <span className="text-sm">{skill}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>

@@ -1,0 +1,178 @@
+{
+  "page": "About",
+  "meta": {
+    "title": "About - Abdul Rohim | Full-Stack Developer & Infrastructure Specialist",
+    "description": "About Abdul Rohim - Full-Stack JavaScript Developer with telecommunications and infrastructure background. From Telkom Indonesia to modern web development.",
+    "keywords": "Abdul Rohim, About, Full-Stack Developer, JavaScript, Telecommunications, Infrastructure, Hacktiv8, Career Journey",
+    "url": "https://rohimdev.com/about"
+  },
+  "hero": {
+    "heading": "Full-Stack Developer",
+    "introduction": "Hi! I'm Abdul Rohim, a Full Stack Web Developer with a strong background in telecommunications infrastructure and modern web development. I build scalable, high-performance applications and robust backend architectures.",
+    "cta": [
+      {
+        "text": "My Journey",
+        "link": "#journey",
+        "type": "primary"
+      },
+      {
+        "text": "Let's Connect",
+        "link": "/contact#contact-form",
+        "type": "secondary"
+      }
+    ],
+    "profileImage": "/assets/images/profile.png"
+  },
+  "aboutMe": {
+    "heading": "About Me",
+    "paragraphs": [
+      "I'm a full-stack JavaScript developer with a unique journey that spans from hands-on telecommunications infrastructure to cutting-edge software development. My career began in the trenches of network installation and troubleshooting at Telkom Indonesia, where I learned the fundamentals of how digital systems actually work in the real world.",
+      "After 3+ years of optimizing network performance and reducing connectivity issues by 25%, I realized I wanted to build the applications that run on these networks. This led me to Hacktiv8's intensive bootcamp, where I immersed myself in modern development practices and emerged with the skills to create both web and mobile applications.",
+      "Today, I combine this dual expertise as Staff Infrastructure at Varnion Technology, where I've achieved a 40% reduction in connectivity issues while also developing internal tools and applications. This unique perspective allows me to build software that's not just user-friendly, but also technically robust, scalable, and optimized for real-world network conditions."
+    ]
+  },
+  "mission": {
+    "heading": "My Mission",
+    "statements": [
+      {
+        "title": "Bridging Two Worlds",
+        "description": "I believe the best software solutions come from understanding both the technical infrastructure and the user experience. My mission is to create applications that not only look great and function perfectly, but also perform optimally in real-world network conditions."
+      },
+      {
+        "title": "What Excites Me",
+        "description": "I'm passionate about joining teams that value both technical excellence and user-centric design. I thrive in environments where I can contribute to meaningful projects, learn from experienced developers, and help build solutions that make a real difference in people's lives."
+      }
+    ]
+  },
+  "careerJourney": {
+    "heading": "During My Career",
+    "subheading": "A journey from telecommunications infrastructure to modern software development",
+    "timeline": [
+      {
+        "status": "current",
+        "title": "Staff Infrastructure",
+        "company": "Varnion Technology Semesta",
+        "period": "Jan 2025 - Present",
+        "description": "Leading network infrastructure projects for hospitality industry clients, where I've successfully reduced connectivity issues by 40% through systematic monitoring and optimization. I also develop internal tools and applications to streamline our operations, combining my infrastructure expertise with modern development practices.",
+        "technologies": ["Mikrotik", "Ubiquiti", "Network Design"]
+      },
+      {
+        "status": "education",
+        "title": "Full-Stack JavaScript Bootcamp",
+        "company": "Hacktiv8",
+        "period": "2024",
+        "description": "The decision to pursue Hacktiv8's intensive bootcamp was a turning point in my career. After years of working with network infrastructure, I realized I wanted to build the applications that run on these networks. The bootcamp challenged me to think differently about problem-solving and gave me the modern development skills to create both web and mobile applications that users actually love.",
+        "technologies": ["React", "Node.js", "Full-Stack"]
+      },
+      {
+        "status": "previous",
+        "title": "Provisioning Technician",
+        "company": "PT Telkom Indonesia (IndiHome)",
+        "period": "Dec 2020 - Aug 2023",
+        "description": "My professional journey began as a technician at Telkom Indonesia, Indonesia's largest telecommunications company. This role taught me the importance of reliability, customer service excellence, and systematic problem-solving. I reduced repeat visits by 25% through quality workmanship and customer education, while mastering advanced tools like OTDR and OPM for fiber optic testing.",
+        "technologies": ["Fiber Optic", "OTDR", "Customer Service"]
+      }
+    ]
+  },
+  "skills": {
+    "heading": "Skills & Technologies",
+    "subheading": "A comprehensive skill set spanning both software development and infrastructure management",
+    "categories": [
+      {
+        "title": "Frontend Development",
+        "skills": [
+          {"name": "React & Next.js", "level": 90},
+          {"name": "JavaScript/TypeScript", "level": 85},
+          {"name": "Tailwind CSS", "level": 95}
+        ]
+      },
+      {
+        "title": "Backend & Database",
+        "skills": [
+          {"name": "Golang & Node.js", "level": 85},
+          {"name": "PostgreSQL & MongoDB", "level": 75},
+          {"name": "Nest.js & Express", "level": 80},
+          {"name": "GraphQL & REST APIs", "level": 85}
+        ]
+      },
+      {
+        "title": "Mobile & Infrastructure",
+        "skills": [
+          {"name": "React Native", "level": 80},
+          {"name": "Network Configuration", "level": 90},
+          {"name": "Mikrotik & Ubiquiti", "level": 85}
+        ]
+      }
+    ]
+  },
+  "achievements": {
+    "heading": "Key Achievements",
+    "subheading": "Measurable impact across infrastructure and development roles",
+    "items": [
+      {
+        "metric": "40%",
+        "title": "Connectivity Issues Reduced",
+        "description": "Through systematic monitoring and optimization at Varnion Technology"
+      },
+      {
+        "metric": "25%",
+        "title": "Repeat Visits Decreased",
+        "description": "Quality workmanship and customer education at Telkom Indonesia"
+      },
+      {
+        "metric": "100%",
+        "title": "Bootcamp Completion",
+        "description": "Successfully graduated from Hacktiv8's intensive full-stack program"
+      },
+      {
+        "metric": "4+",
+        "title": "Years Experience",
+        "description": "Combined infrastructure and development expertise"
+      }
+    ]
+  },
+  "approach": {
+    "heading": "My Approach",
+    "subheading": "Core values and principles that guide my work and professional relationships",
+    "values": [
+      {
+        "title": "Problem Solving",
+        "description": "Breaking down complex challenges into manageable solutions with systematic thinking"
+      },
+      {
+        "title": "Adaptability",
+        "description": "Embracing new technologies and methodologies to stay current with industry evolution"
+      },
+      {
+        "title": "Collaboration",
+        "description": "Working effectively in dynamic teams and building strong professional relationships"
+      },
+      {
+        "title": "Quality Focus",
+        "description": "Committed to delivering robust, scalable solutions that exceed expectations"
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to Collaborate?",
+    "description": "I'm a dedicated and adaptable professional, always open to new opportunities and collaborations. If you'd like to connect or discuss a project, feel free to reach out!",
+    "actions": [
+      {
+        "text": "Start a Conversation",
+        "link": "/contact#contact-form",
+        "type": "primary"
+      },
+      {
+        "text": "View My Work",
+        "link": "/work",
+        "type": "secondary"
+      },
+      {
+        "text": "Download Resume",
+        "link": "https://drive.google.com/file/d/1xOJ8LgtE1FLd9WIUxG31cIBemfF3Z4I0/view?usp=sharing",
+        "type": "tertiary"
+      }
+    ]
+  }
+}
+

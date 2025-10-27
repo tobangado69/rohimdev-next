@@ -1,0 +1,29 @@
+# Robots.txt for Rohim Dev Portfolio
+# https://rohimdev.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rohimdev.com/sitemap.xml
+
+# Crawl delay (optional - helps prevent overloading server)
+Crawl-delay: 1
+
+# Allow all search engines to crawl all content
+# This portfolio is public and should be indexed
+
+# Block access to admin or sensitive areas (if any exist in future)
+# Disallow: /admin/
+# Disallow: /api/
+# Disallow: /_next/
+# Disallow: /private/
+
+# Allow access to static assets
+Allow: /images/
+Allow: /_next/static/
+Allow: /favicon.ico
+
+# Additional directives for better SEO
+# Host directive (helps with canonical URLs)
+Host: https://rohimdev.com

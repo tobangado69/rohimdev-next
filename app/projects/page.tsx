@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ExternalLink, Github, Star, Eye, Filter } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { getProjectsPageData, getProjectsList } from "@/lib/data";
 
 const projects = [
   {
@@ -129,18 +130,62 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Frontend", "Backend", "Full Stack", "Mobile"];
-
 export default function ProjectsPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const projectsData = getProjectsPageData();
+  const projectsList = getProjectsList();
+
+  // Map projects data to component format
+  const projects = projectsList.map((project) => ({
+    id: project.id,
+    title: project.title,
+    description: project.shortDescription,
+    image: project.image,
+    technologies: project.techStack,
+    category: project.category.join(", "),
+    status: project.status || "In Development", // Use actual status from data
+    github: project.github,
+    live: project.live || project.github, // Use live URL if available, fallback to GitHub
+    featured: true, // Default featured
+    metrics: {
+      users:
+        project.id === "mobile-fb"
+          ? "500+"
+          : project.id === "chatapp"
+          ? "1K+"
+          : "100+",
+      performance:
+        project.id === "mobile-fb"
+          ? "95/100"
+          : project.id === "chatapp"
+          ? "92/100"
+          : "90/100",
+      uptime:
+        project.id === "mobile-fb"
+          ? "99.8%"
+          : project.id === "chatapp"
+          ? "99.9%"
+          : "99.5%",
+    },
+    date: project.date,
+    icon: project.icon,
+    fullDescription: project.overview,
+    keyFeatures: project.keyFeatures,
+    challenges: project.challenges,
+  }));
+
+  const categories = projectsData.filterCategories;
+
+  const [selectedCategory, setSelectedCategory] = useState("All Projects");
   const [selectedProject, setSelectedProject] = useState<
     (typeof projects)[0] | null
   >(null);
 
   const filteredProjects =
-    selectedCategory === "All"
+    selectedCategory === "All Projects"
       ? projects
-      : projects.filter((project) => project.category === selectedCategory);
+      : projects.filter((project) =>
+          project.category.includes(selectedCategory)
+        );
 
   return (
     <main className="min-h-screen">
@@ -154,13 +199,13 @@ export default function ProjectsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
+            {...({} as any)}
           >
             <h1 className="text-5xl sm:text-6xl sf-pro-display tracking-tight mb-8 font-light bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-              My Projects
+              {projectsData.hero.heading}
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              A collection of projects that showcase my skills and passion for
-              creating innovative digital solutions.
+              {projectsData.hero.description}
             </p>
           </motion.div>
         </div>
@@ -174,6 +219,7 @@ export default function ProjectsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="flex flex-wrap justify-center gap-4"
+            {...({} as any)}
           >
             {categories.map((category) => (
               <button
@@ -198,6 +244,7 @@ export default function ProjectsPage() {
           <motion.div
             layout
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            {...({} as any)}
           >
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -209,6 +256,7 @@ export default function ProjectsPage() {
                 whileHover={{ y: -8 }}
                 className="group bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden cursor-pointer"
                 onClick={() => setSelectedProject(project)}
+                {...({} as any)}
               >
                 <div className="aspect-video relative overflow-hidden">
                   <img
@@ -277,7 +325,7 @@ export default function ProjectsPage() {
                           <Github className="h-4 w-4" />
                         </a>
                       )}
-                      {project.live && (
+                      {project.live && project.status === "Live" && (
                         <a
                           href={project.live}
                           target="_blank"
@@ -311,13 +359,15 @@ export default function ProjectsPage() {
           exit={{ opacity: 0 }}
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedProject(null)}
+          {...({} as any)}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             className="bg-gray-900 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
+            {...({} as any)}
           >
             <div className="aspect-video relative">
               <img
@@ -355,16 +405,17 @@ export default function ProjectsPage() {
                       <Github className="h-5 w-5" />
                     </a>
                   )}
-                  {selectedProject.live && (
-                    <a
-                      href={selectedProject.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-colors"
-                    >
-                      <ExternalLink className="h-5 w-5" />
-                    </a>
-                  )}
+                  {selectedProject.live &&
+                    selectedProject.status === "Live" && (
+                      <a
+                        href={selectedProject.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-colors"
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                      </a>
+                    )}
                 </div>
               </div>
 

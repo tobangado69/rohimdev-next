@@ -13,6 +13,7 @@ import {
   Database,
   Palette,
 } from "lucide-react";
+import { getServices } from "@/lib/data";
 
 const features = [
   {
@@ -78,6 +79,23 @@ const features = [
 ];
 
 export default function FeaturesSection() {
+  const services = getServices();
+
+  // Map services to features format
+  const features = services.map((service) => ({
+    icon:
+      service.id === "frontend"
+        ? Code
+        : service.id === "backend"
+        ? Database
+        : service.id === "mobile"
+        ? Smartphone
+        : service.id === "infrastructure"
+        ? Globe
+        : Code,
+    title: service.title,
+    description: service.description,
+  }));
   return (
     <section className="pt-32 pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,7 +107,7 @@ export default function FeaturesSection() {
             className="slide-up stagger-2 text-4xl sm:text-5xl sf-pro-display tracking-tight mb-6 font-light"
             {...({} as any)}
           >
-            Skills & expertise.
+            Services I Offer
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 40 }}
@@ -98,8 +116,8 @@ export default function FeaturesSection() {
             className="slide-up stagger-3 text-xl text-white/60 max-w-2xl mx-auto"
             {...({} as any)}
           >
-            A comprehensive set of skills and technologies I use to build
-            exceptional digital experiences.
+            Full-stack development expertise combining software development
+            expertise with infrastructure knowledge
           </motion.p>
         </div>
 

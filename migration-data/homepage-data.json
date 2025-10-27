@@ -1,0 +1,181 @@
+{
+  "page": "Homepage",
+  "meta": {
+    "title": "Abdul Rohim - Full-Stack Developer & Infrastructure Specialist",
+    "description": "Abdul Rohim - Full-Stack JavaScript Developer & Infrastructure Specialist. Experience in telecommunications, network infrastructure, and modern web development.",
+    "keywords": "Abdul Rohim, Full-Stack Developer, JavaScript, React, Golang, Nest.js, Infrastructure, Network Engineer, Telecommunications",
+    "ogImage": "https://rohimdev.com/assets/images/og-image.jpg",
+    "url": "https://rohimdev.com/"
+  },
+  "hero": {
+    "badge": "Full-Stack Developer & Infrastructure Specialist",
+    "heading": "Think different. Build exceptional.",
+    "description": "From telecommunications to software development. I build scalable web applications and design robust network infrastructure. Combining 4+ years of industry experience with modern development practices.",
+    "cta": [
+      {
+        "text": "View My Work",
+        "link": "/work",
+        "type": "primary"
+      },
+      {
+        "text": "View Projects",
+        "link": "/projects",
+        "type": "secondary"
+      }
+    ],
+    "profileImage": "assets/images/profile.png",
+    "profileImageAlt": "Abdul Rohim - Full-Stack Developer and Infrastructure Specialist professional headshot"
+  },
+  "professionalExperience": {
+    "heading": "4+ years of excellence",
+    "subheading": "Spanning telecommunications and software development",
+    "positions": [
+      {
+        "title": "Staff Infrastructure",
+        "company": "Varnion Technology Semesta",
+        "period": "Jan 2025 - Present",
+        "status": "current",
+        "description": "Leading network infrastructure projects for hospitality industry clients. Achieved 40% reduction in connectivity issues through systematic monitoring and optimization.",
+        "technologies": ["Mikrotik", "Ubiquiti", "Network Design"],
+        "achievement": "40% reduction in connectivity issues"
+      },
+      {
+        "title": "Provisioning Technician",
+        "company": "PT Telkom Indonesia",
+        "period": "Dec 2020 - Aug 2023",
+        "status": "previous",
+        "description": "Managed fiber optic installations and internet service provisioning. Reduced repeat visits by 25% through quality workmanship and customer education.",
+        "technologies": ["Fiber Optic", "OTDR", "Customer Service"],
+        "achievement": "25% reduction in repeat visits"
+      }
+    ]
+  },
+  "featuredProjects": {
+    "heading": "Showcasing modern development",
+    "subheading": "Practical applications built with cutting-edge technologies",
+    "projects": [
+      {
+        "id": "mobile-fb",
+        "title": "Mobile Fb",
+        "description": "A React Native Facebook clone demonstrating mobile development skills with GraphQL integration and real-time features.",
+        "technologies": ["React Native", "GraphQL", "Apollo"],
+        "date": "April 2024",
+        "icon": "📱",
+        "link": "/projects#mobile-fb"
+      },
+      {
+        "id": "chat-app",
+        "title": "Chat App",
+        "description": "Real-time messaging application built with React and Socket.IO, featuring live chat functionality and user presence indicators.",
+        "technologies": ["React", "Socket.IO", "PostgreSQL"],
+        "date": "February 2024",
+        "icon": "💬",
+        "link": "/projects#chat-app"
+      }
+    ]
+  },
+  "services": {
+    "heading": "Full-stack development expertise",
+    "subheading": "Combining software development expertise with infrastructure knowledge",
+    "offerings": [
+      {
+        "title": "Web Development",
+        "description": "Full-stack JavaScript applications using React, Next.js, Golang, and Node.js. Modern, responsive, and scalable solutions.",
+        "features": [
+          "React & Next.js Applications",
+          "REST API Development",
+          "Database Design & Integration",
+          "Performance Optimization"
+        ]
+      },
+      {
+        "title": "Mobile Development",
+        "description": "Cross-platform mobile applications using React Native. Native performance with shared codebase efficiency.",
+        "features": [
+          "React Native Apps",
+          "iOS & Android Development",
+          "Real-time Features",
+          "App Store Deployment"
+        ]
+      },
+      {
+        "title": "Infrastructure Services",
+        "description": "Network design, implementation, and optimization. Proven experience in enterprise-level infrastructure.",
+        "features": [
+          "Network Design & Setup",
+          "Mikrotik & Ubiquiti Systems",
+          "Troubleshooting & Optimization",
+          "Structured Cabling"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Ready to build something amazing?",
+    "description": "Let's discuss how I can help you bring your project to life.",
+    "cta": [
+      {
+        "text": "Start a Project",
+        "link": "/contact",
+        "type": "primary"
+      },
+      {
+        "text": "Send Email",
+        "link": "mailto:rohimjoy70@gmail.com",
+        "type": "secondary"
+      }
+    ]
+  },
+  "footer": {
+    "brand": "Rohim Dev",
+    "description": "Full-stack developer specializing in modern web and mobile applications. Building digital solutions that drive business growth.",
+    "email": "rohimjoy70@gmail.com",
+    "social": [
+      {
+        "platform": "LinkedIn",
+        "url": "https://linkedin.com/in/tobangado"
+      },
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/tobangado69"
+      },
+      {
+        "platform": "Email",
+        "url": "mailto:rohimjoy70@gmail.com"
+      }
+    ],
+    "quickLinks": [
+      {"text": "Home", "url": "/"},
+      {"text": "About", "url": "/about"},
+      {"text": "Work", "url": "/work"},
+      {"text": "Projects", "url": "/projects"}
+    ],
+    "copyright": "© 2025 Abdul Rohim. All rights reserved."
+  },
+  "structuredData": {
+    "type": "Person",
+    "name": "Abdul Rohim",
+    "jobTitle": "Full-Stack Developer & Infrastructure Specialist",
+    "email": "rohimjoy70@gmail.com",
+    "location": {
+      "city": "Surabaya",
+      "country": "Indonesia"
+    },
+    "alumniOf": "Hacktiv8",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Golang",
+      "Nest.js",
+      "Network Infrastructure",
+      "Telecommunications",
+      "Full-Stack Development"
+    ],
+    "sameAs": [
+      "https://linkedin.com/in/tobangado",
+      "https://github.com/tobangado69"
+    ]
+  }
+}
+

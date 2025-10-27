@@ -1,0 +1,51 @@
+{
+  "id": "epic-001",
+  "title": "Typing Animation Component",
+  "description": "Implement signature typing animation for homepage with syntax highlighting and smooth transitions",
+  "priority": "high",
+  "complexity": "medium",
+  "estimatedDuration": "30 minutes",
+  "status": "todo",
+  "assignee": null,
+  "dependencies": [],
+  "tasks": [
+    {
+      "id": "task-001-001",
+      "title": "Create TypingAnimation component structure",
+      "description": "Build the basic component structure with TypeScript interfaces and Framer Motion setup",
+      "estimatedDuration": "10 minutes",
+      "status": "todo",
+      "sddCommand": "/brief"
+    },
+    {
+      "id": "task-001-002", 
+      "title": "Implement syntax highlighting system",
+      "description": "Add syntax highlighting for React, TypeScript, and JavaScript code snippets",
+      "estimatedDuration": "10 minutes",
+      "status": "todo",
+      "sddCommand": "/implement"
+    },
+    {
+      "id": "task-001-003",
+      "title": "Add blinking cursor and animations",
+      "description": "Implement blinking cursor effect and smooth line-by-line typing animations",
+      "estimatedDuration": "10 minutes",
+      "status": "todo",
+      "sddCommand": "/implement"
+    }
+  ],
+  "acceptanceCriteria": [
+    "Typing animation displays React/TypeScript code with syntax highlighting",
+    "Sequential line-by-line typing effect works smoothly",
+    "Blinking cursor appears and animates correctly",
+    "Animation is responsive and performs well on all devices",
+    "Component integrates seamlessly with existing homepage design"
+  ],
+  "technicalRequirements": [
+    "Use Framer Motion for animations",
+    "Implement TypeScript interfaces for type safety",
+    "Follow existing design system patterns",
+    "Ensure mobile responsiveness",
+    "Optimize for performance (60fps animations)"
+  ]
+}

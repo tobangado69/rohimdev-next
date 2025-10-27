@@ -1,0 +1,52 @@
+{
+  "id": "epic-002",
+  "title": "Project Filtering System",
+  "description": "Add interactive project filtering by category and technology with smooth transitions",
+  "priority": "high", 
+  "complexity": "medium",
+  "estimatedDuration": "45 minutes",
+  "status": "todo",
+  "assignee": null,
+  "dependencies": [],
+  "tasks": [
+    {
+      "id": "task-002-001",
+      "title": "Implement category filtering logic",
+      "description": "Create filtering state management and category-based project filtering",
+      "estimatedDuration": "15 minutes",
+      "status": "todo",
+      "sddCommand": "/brief"
+    },
+    {
+      "id": "task-002-002",
+      "title": "Add technology tag filtering",
+      "description": "Implement technology-based filtering with tag selection system",
+      "estimatedDuration": "15 minutes", 
+      "status": "todo",
+      "sddCommand": "/implement"
+    },
+    {
+      "id": "task-002-003",
+      "title": "Create filter UI components",
+      "description": "Build filter buttons, active states, and smooth transition animations",
+      "estimatedDuration": "15 minutes",
+      "status": "todo",
+      "sddCommand": "/implement"
+    }
+  ],
+  "acceptanceCriteria": [
+    "Users can filter projects by category (All, Mobile, Web, Full-Stack)",
+    "Technology tag filtering works for all project technologies",
+    "Filter buttons show active/inactive states clearly",
+    "Smooth transitions when switching between filters",
+    "Filter state persists during user session",
+    "Mobile-responsive filter interface"
+  ],
+  "technicalRequirements": [
+    "Use React useState for filter state management",
+    "Implement efficient filtering algorithms",
+    "Follow existing design system for buttons and states",
+    "Ensure smooth animations with Framer Motion",
+    "Maintain performance with large project lists"
+  ]
+}

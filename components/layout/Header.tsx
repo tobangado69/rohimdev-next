@@ -87,6 +87,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden mt-4 glass-effect bg-white/5 border-white/10 border rounded-2xl p-4"
+            {...({} as any)}
           >
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (

@@ -13,179 +13,45 @@ import {
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-
-const services = [
-  {
-    icon: Code,
-    title: "Web Development",
-    description:
-      "Custom web applications built with modern technologies and best practices.",
-    features: [
-      "Responsive design",
-      "Performance optimization",
-      "SEO-friendly code",
-      "Cross-browser compatibility",
-      "Accessibility compliance",
-    ],
-    technologies: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL"],
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Development",
-    description:
-      "Native and cross-platform mobile applications for iOS and Android.",
-    features: [
-      "React Native development",
-      "Native iOS/Android apps",
-      "App store optimization",
-      "Push notifications",
-      "Offline functionality",
-    ],
-    technologies: ["React Native", "Expo", "Swift", "Kotlin", "Firebase"],
-  },
-  {
-    icon: Palette,
-    title: "UI/UX Design",
-    description:
-      "Beautiful, intuitive user interfaces that provide exceptional user experiences.",
-    features: [
-      "User research & analysis",
-      "Wireframing & prototyping",
-      "Visual design",
-      "Design systems",
-      "User testing",
-    ],
-    technologies: ["Figma", "Adobe XD", "Sketch", "Principle", "InVision"],
-  },
-  {
-    icon: Database,
-    title: "Backend Development",
-    description:
-      "Scalable server-side solutions and API development for your applications.",
-    features: [
-      "RESTful API design",
-      "Database design & optimization",
-      "Authentication & security",
-      "Cloud deployment",
-      "Performance monitoring",
-    ],
-    technologies: ["Node.js", "Python", "PostgreSQL", "MongoDB", "AWS"],
-  },
-  {
-    icon: Zap,
-    title: "Performance Optimization",
-    description:
-      "Speed up your applications and improve user experience through optimization.",
-    features: [
-      "Code optimization",
-      "Bundle size reduction",
-      "Image optimization",
-      "Caching strategies",
-      "CDN implementation",
-    ],
-    technologies: ["Webpack", "Vite", "CloudFlare", "Redis", "Lighthouse"],
-  },
-  {
-    icon: Users,
-    title: "Consulting",
-    description:
-      "Technical guidance and architecture decisions for your development projects.",
-    features: [
-      "Technical architecture review",
-      "Code quality assessment",
-      "Technology recommendations",
-      "Team mentoring",
-      "Project planning",
-    ],
-    technologies: [
-      "Architecture",
-      "Best Practices",
-      "Code Review",
-      "Mentoring",
-      "Planning",
-    ],
-  },
-];
-
-const pricingPlans = [
-  {
-    name: "Starter",
-    price: "$2,500",
-    period: "per project",
-    description: "Perfect for small projects and MVPs",
-    features: [
-      "Up to 5 pages",
-      "Responsive design",
-      "Basic animations",
-      "Contact form",
-      "SEO optimization",
-      "2 weeks delivery",
-    ],
-    popular: false,
-  },
-  {
-    name: "Professional",
-    price: "$5,000",
-    period: "per project",
-    description: "Ideal for growing businesses",
-    features: [
-      "Up to 15 pages",
-      "Custom animations",
-      "CMS integration",
-      "User authentication",
-      "Analytics setup",
-      "4 weeks delivery",
-      "3 months support",
-    ],
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "quote",
-    description: "For large-scale applications",
-    features: [
-      "Unlimited pages",
-      "Advanced features",
-      "Custom integrations",
-      "Scalable architecture",
-      "Performance optimization",
-      "6+ weeks delivery",
-      "6 months support",
-      "Priority support",
-    ],
-    popular: false,
-  },
-];
-
-const testimonials = [
-  {
-    name: "Sarah Chen",
-    role: "CEO, TechStart",
-    content:
-      "Working with this developer was an absolute pleasure. The attention to detail and technical expertise exceeded our expectations.",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
-  },
-  {
-    name: "Michael Rodriguez",
-    role: "Product Manager, InnovateCorp",
-    content:
-      "The project was delivered on time and within budget. The code quality and documentation were outstanding.",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-  },
-  {
-    name: "Emily Johnson",
-    role: "Founder, DesignStudio",
-    content:
-      "Professional, reliable, and incredibly talented. I would definitely recommend their services to anyone.",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-  },
-];
+import {
+  getServicesPageData,
+  getCoreServices,
+  getTestimonials,
+} from "@/lib/data";
 
 export default function ServicesPage() {
+  const servicesData = getServicesPageData();
+  const coreServices = getCoreServices();
+  const testimonials = getTestimonials();
+
+  // Map services data to component format
+  const services = coreServices.services.map((service) => ({
+    icon:
+      service.id === "frontend"
+        ? Code
+        : service.id === "backend"
+        ? Database
+        : service.id === "mobile"
+        ? Smartphone
+        : service.id === "infrastructure"
+        ? Zap
+        : Code,
+    title: service.title,
+    description: service.description,
+    features: service.features,
+    technologies: service.technologies,
+    startingPrice: service.startingPrice,
+  }));
+
+  // Use pricing plans from data
+  const pricingPlans = servicesData.pricingPlans.packages.map((plan) => ({
+    name: plan.name,
+    price: plan.priceRange,
+    period: plan.timeline,
+    description: plan.subtitle,
+    features: plan.features,
+    popular: plan.highlighted,
+  }));
   return (
     <main className="min-h-screen">
       <Header />
@@ -198,13 +64,14 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
+            {...({} as any)}
+            {...({} as any)}
           >
             <h1 className="text-5xl sm:text-6xl sf-pro-display tracking-tight mb-8 font-light bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-              Services
+              {servicesData.hero.heading}
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              Comprehensive development services to bring your ideas to life
-              with modern technologies and best practices.
+              {servicesData.hero.description}
             </p>
           </motion.div>
         </div>
@@ -218,6 +85,7 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
+            {...({} as any)}
           >
             <h2 className="text-3xl sf-pro-display font-light mb-6">
               What I Offer
@@ -237,6 +105,7 @@ export default function ServicesPage() {
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 whileHover={{ y: -8 }}
                 className="p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500"
+                {...({} as any)}
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl flex items-center justify-center mb-6">
                   <service.icon className="h-8 w-8 text-white" />
@@ -258,6 +127,7 @@ export default function ServicesPage() {
                       <li
                         key={idx}
                         className="flex items-center gap-2 text-white/60"
+                        {...({} as any)}
                       >
                         <Check className="h-4 w-4 text-green-400 flex-shrink-0" />
                         <span className="text-sm">{feature}</span>
@@ -275,6 +145,7 @@ export default function ServicesPage() {
                       <span
                         key={tech}
                         className="px-3 py-1 bg-white/10 rounded-full text-sm text-white/70"
+                        {...({} as any)}
                       >
                         {tech}
                       </span>
@@ -295,6 +166,7 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
+            {...({} as any)}
           >
             <h2 className="text-3xl sf-pro-display font-light mb-6">
               Pricing Plans
@@ -317,6 +189,7 @@ export default function ServicesPage() {
                     ? "bg-gradient-to-br from-blue-500/20 to-purple-600/20 border-2 border-blue-500/30"
                     : "bg-gradient-to-br from-white/5 to-transparent border border-white/10"
                 }`}
+                {...({} as any)}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -354,6 +227,7 @@ export default function ServicesPage() {
                       ? "bg-white text-black hover:bg-white/90"
                       : "bg-white/10 text-white hover:bg-white/20 border border-white/20"
                   }`}
+                  {...({} as any)}
                 >
                   Get Started
                   <ArrowRight className="inline-block ml-2 h-4 w-4" />
@@ -372,23 +246,25 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
+            {...({} as any)}
           >
             <h2 className="text-3xl sf-pro-display font-light mb-6">
-              Client Testimonials
+              {testimonials.heading}
             </h2>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              What clients say about working with me.
+              {testimonials.description}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {testimonials.items.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
                 className="p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl"
+                {...({} as any)}
               >
                 <div className="flex items-center gap-4 mb-6">
                   <img
@@ -420,6 +296,7 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-br from-white/10 to-white/5 glass-effect border border-white/20 rounded-3xl p-16"
+            {...({} as any)}
           >
             <h2 className="text-4xl sf-pro-display font-light mb-6">
               Ready to start your project?
@@ -433,6 +310,7 @@ export default function ServicesPage() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-white/90 transition-all flex items-center gap-2 justify-center"
+                {...({} as any)}
               >
                 Start a Project
                 <ArrowRight className="h-5 w-5" />
@@ -441,6 +319,7 @@ export default function ServicesPage() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 border border-white/30 rounded-full font-semibold hover:bg-white/10 transition-all"
+                {...({} as any)}
               >
                 View Portfolio
               </motion.button>

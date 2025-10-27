@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Monitor } from "lucide-react";
 import { useEffect, useState } from "react";
+import { getHeroData } from "@/lib/data";
 
 // Declare UnicornStudio global
 declare global {
@@ -16,6 +17,7 @@ declare global {
 
 export default function HeroSection() {
   const [isClient, setIsClient] = useState(false);
+  const heroData = getHeroData();
 
   useEffect(() => {
     // Ensure we're on the client side
@@ -80,9 +82,7 @@ export default function HeroSection() {
           {...({} as any)}
         >
           <div className="w-2 h-2 rounded-full animate-pulse bg-cyan-400"></div>
-          <span className="text-sm font-medium">
-            Available for new opportunities
-          </span>
+          <span className="text-sm font-medium">{heroData.badge}</span>
         </motion.div>
 
         {/* Main Heading */}
@@ -93,9 +93,7 @@ export default function HeroSection() {
           className="slide-up stagger-1 text-5xl sm:text-6xl lg:text-7xl sf-pro-display tracking-tight mb-8 bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent font-light"
           {...({} as any)}
         >
-          Think different.
-          <br />
-          Build exceptional.
+          {heroData.heading}
         </motion.h1>
 
         {/* Description */}
@@ -106,9 +104,7 @@ export default function HeroSection() {
           className="slide-up stagger-2 max-w-2xl leading-relaxed text-lg font-normal text-white/60 mb-12 ml-0"
           {...({} as any)}
         >
-          From telecommunications to software development. I build scalable web
-          applications and design robust network infrastructure. Combining 4+
-          years of industry experience with modern development practices.
+          {heroData.description}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -119,8 +115,8 @@ export default function HeroSection() {
           className="slide-up stagger-3 flex flex-col sm:flex-row gap-4 justify-start"
           {...({} as any)}
         >
-          {/* Glow Button */}
-          <GlowButton />
+          {/* Primary Button */}
+          <GlowButton text={heroData.cta[0].text} link={heroData.cta[0].link} />
 
           {/* Secondary Button */}
           <motion.button
@@ -128,9 +124,10 @@ export default function HeroSection() {
             whileTap={{ scale: 0.95 }}
             className="hover:bg-white/30 transition-all flex gap-2 font-medium bg-[#000000] border-white/20 border rounded-full pt-4 pr-8 pb-4 pl-8 items-center"
             {...({} as any)}
+            onClick={() => (window.location.href = heroData.cta[1].link)}
           >
             <Monitor className="h-5 w-5" />
-            View My Work
+            {heroData.cta[1].text}
           </motion.button>
         </motion.div>
       </div>
@@ -138,7 +135,7 @@ export default function HeroSection() {
   );
 }
 
-function GlowButton() {
+function GlowButton({ text, link }: { text: string; link: string }) {
   return (
     <motion.button
       whileHover={{ scale: 1.05 }}
@@ -152,9 +149,10 @@ function GlowButton() {
         } as React.CSSProperties
       }
       {...({} as any)}
+      onClick={() => (window.location.href = link)}
     >
       <span className="relative z-10 flex items-center gap-2">
-        Get Started
+        {text}
         <ArrowRight className="w-5 h-5" />
       </span>
 
