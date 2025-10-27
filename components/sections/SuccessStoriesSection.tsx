@@ -3,10 +3,67 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, BarChart3, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { getProjects } from "@/lib/data";
+// No data imports; use hardcoded projects
 
 export default function SuccessStoriesSection() {
-  const projects = getProjects();
+  const projects = [
+    {
+      id: "mobile-fb",
+      title: "Mobile-FB",
+      type: "Mobile App",
+      category: ["Mobile", "Full-Stack"],
+      shortDescription:
+        "A comprehensive full-stack social media application that replicates core Facebook functionality on mobile devices.",
+      displayDate: "April 2024",
+      image: "https://i.imgur.com/CFZvp5T.png",
+      techStack: [
+        "React Native",
+        "GraphQL",
+        "Apollo Client",
+        "Node.js",
+        "MongoDB",
+        "Redis",
+        "Expo",
+      ],
+    },
+    {
+      id: "chatapp",
+      title: "ChatApp",
+      type: "Web App",
+      category: ["Web", "Full-Stack"],
+      shortDescription:
+        "Real-time messaging application built with React and Socket.IO, featuring live chat functionality and user presence indicators.",
+      displayDate: "February 2024",
+      image:
+        "https://raw.githubusercontent.com/tobangado69/ChatApp/main/assets/home.png",
+      techStack: [
+        "React",
+        "Socket.IO",
+        "Express",
+        "PostgreSQL",
+        "Sequelize",
+        "Tailwind CSS",
+      ],
+    },
+    {
+      id: "grammedia-clone",
+      title: "Grammedia Clone",
+      type: "E-commerce",
+      category: ["Web", "Full-Stack"],
+      shortDescription:
+        "A comprehensive e-commerce web application that replicates modern online bookstore functionality.",
+      displayDate: "2024",
+      image:
+        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+      techStack: [
+        "Next.js",
+        "TypeScript",
+        "MongoDB",
+        "Tailwind CSS",
+        "Infinite Scroll",
+      ],
+    },
+  ] as const;
 
   // Map projects to success stories format
   const successStories = projects.map((project, index) => ({

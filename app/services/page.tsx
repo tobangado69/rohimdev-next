@@ -13,16 +13,158 @@ import {
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import {
-  getServicesPageData,
-  getCoreServices,
-  getTestimonials,
-} from "@/lib/data";
+// No data imports; use hardcoded data
 
 export default function ServicesPage() {
-  const servicesData = getServicesPageData();
-  const coreServices = getCoreServices();
-  const testimonials = getTestimonials();
+  const servicesData = {
+    hero: {
+      heading: "Full‑Stack Development Services",
+      description:
+        "Transform ideas into scalable, production‑ready applications across web and mobile.",
+    },
+    pricingPlans: {
+      packages: [
+        {
+          name: "Starter",
+          subtitle: "Perfect for small projects and MVPs",
+          priceRange: "$2,000 - $8,000",
+          timeline: "4-8 weeks delivery",
+          features: [
+            "Frontend or Backend development",
+            "Up to 5 pages/screens",
+            "Basic database integration",
+            "Responsive design",
+            "Basic deployment",
+          ],
+          highlighted: false,
+        },
+        {
+          name: "Professional",
+          subtitle: "Complete full-stack applications",
+          priceRange: "$8,000 - $20,000",
+          timeline: "8-16 weeks delivery",
+          features: [
+            "Full-stack web or mobile app",
+            "Custom features & integrations",
+            "User authentication & profiles",
+            "API development & documentation",
+            "Production deployment & monitoring",
+          ],
+          highlighted: true,
+        },
+        {
+          name: "Enterprise",
+          subtitle: "Large-scale applications & platforms",
+          priceRange: "$20,000+",
+          timeline: "16+ weeks delivery",
+          features: [
+            "Complex multi-platform solutions",
+            "Advanced integrations & APIs",
+            "Real-time features & chat systems",
+            "Performance optimization & scaling",
+            "Ongoing support & maintenance",
+          ],
+          highlighted: false,
+        },
+      ],
+    },
+  } as const;
+
+  const coreServices = {
+    services: [
+      {
+        id: "frontend",
+        title: "Frontend Development",
+        description:
+          "Transform your ideas into stunning, high-performance web applications using React and Next.js.",
+        features: [
+          "React & Next.js applications",
+          "Responsive design & mobile-first approach",
+          "Modern UI/UX with Tailwind CSS",
+          "Performance optimization & SEO",
+          "Progressive Web Apps (PWA)",
+        ],
+        technologies: ["React", "Next.js", "Tailwind", "TypeScript"],
+        startingPrice: "$2,000",
+      },
+      {
+        id: "backend",
+        title: "Backend Development",
+        description:
+          "Build powerful, scalable server-side solutions using Golang, Node.js, and Nest.js.",
+        features: [
+          "RESTful APIs & GraphQL servers",
+          "Database design (PostgreSQL, MongoDB)",
+          "Authentication & authorization systems",
+          "Real-time features with Socket.IO",
+          "Cloud deployment & scaling",
+        ],
+        technologies: ["Golang", "Node.js", "Nest.js", "GraphQL", "PostgreSQL"],
+        startingPrice: "$2,500",
+      },
+      {
+        id: "mobile",
+        title: "Mobile Development",
+        description:
+          "Create powerful mobile applications that work seamlessly across iOS and Android using React Native.",
+        features: [
+          "Cross-platform React Native apps",
+          "Native performance & user experience",
+          "App Store & Play Store deployment",
+          "Push notifications & offline support",
+          "Social features & real-time chat",
+        ],
+        technologies: ["React Native", "Expo", "Firebase", "JavaScript"],
+        startingPrice: "$3,500",
+      },
+      {
+        id: "infrastructure",
+        title: "Infrastructure Services",
+        description:
+          "Leverage my telecommunications background for robust network design, monitoring, and optimization.",
+        features: [
+          "Network design & configuration (Mikrotik, Ubiquiti)",
+          "System monitoring & performance optimization",
+          "Fiber optic installation & testing (OTDR, OPM)",
+          "Structured cabling & server rack setup",
+          "Troubleshooting & issue resolution",
+        ],
+        technologies: ["Mikrotik", "Ubiquiti", "OTDR", "Fiber Optic"],
+        startingPrice: "$1,500",
+      },
+    ],
+  } as const;
+
+  const testimonials = {
+    heading: "Client Testimonials",
+    description: "What clients say about working with me.",
+    items: [
+      {
+        name: "Sarah Chen",
+        role: "CEO, TechStart",
+        content:
+          "Working with Abdul was an absolute pleasure. The attention to detail and technical expertise exceeded our expectations.",
+        avatar:
+          "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+      },
+      {
+        name: "Michael Rodriguez",
+        role: "Product Manager, InnovateCorp",
+        content:
+          "The project was delivered on time and within budget. The code quality and documentation were outstanding.",
+        avatar:
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      },
+      {
+        name: "Emily Johnson",
+        role: "Founder, DesignStudio",
+        content:
+          "Professional, reliable, and incredibly talented. I would definitely recommend Abdul's services to anyone.",
+        avatar:
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      },
+    ],
+  } as const;
 
   // Map services data to component format
   const services = coreServices.services.map((service) => ({

@@ -13,7 +13,7 @@ import {
   Database,
   Palette,
 } from "lucide-react";
-import { getServices } from "@/lib/data";
+// No data imports; use hardcoded services mapped to features
 
 const features = [
   {
@@ -79,7 +79,32 @@ const features = [
 ];
 
 export default function FeaturesSection() {
-  const services = getServices();
+  const services = [
+    {
+      id: "frontend",
+      title: "Frontend Development",
+      description:
+        "React & Next.js applications with responsive, accessible UI and strong SEO.",
+    },
+    {
+      id: "backend",
+      title: "Backend Development",
+      description:
+        "Scalable APIs and data layers using Golang/Node.js with secure auth.",
+    },
+    {
+      id: "mobile",
+      title: "Mobile Development",
+      description:
+        "React Native apps for iOS and Android with native performance.",
+    },
+    {
+      id: "infrastructure",
+      title: "Infrastructure Services",
+      description:
+        "Network design, monitoring, and optimization using Mikrotik & Ubiquiti.",
+    },
+  ] as const;
 
   // Map services to features format
   const features = services.map((service) => ({

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ExternalLink, Github, Star, Eye, Filter } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { getProjectsPageData, getProjectsList } from "@/lib/data";
+// No data imports; using hardcoded data
 
 const projects = [
   {
@@ -131,59 +131,129 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
-  const projectsData = getProjectsPageData();
-  const projectsList = getProjectsList();
-
-  // Map projects data to component format
-  const projects = projectsList.map((project) => ({
-    id: project.id,
-    title: project.title,
-    description: project.shortDescription,
-    image: project.image,
-    technologies: project.techStack,
-    category: project.category.join(", "),
-    status: project.status || "In Development", // Use actual status from data
-    github: project.github,
-    live: project.live || project.github, // Use live URL if available, fallback to GitHub
-    featured: true, // Default featured
-    metrics: {
-      users:
-        project.id === "mobile-fb"
-          ? "500+"
-          : project.id === "chatapp"
-          ? "1K+"
-          : "100+",
-      performance:
-        project.id === "mobile-fb"
-          ? "95/100"
-          : project.id === "chatapp"
-          ? "92/100"
-          : "90/100",
-      uptime:
-        project.id === "mobile-fb"
-          ? "99.8%"
-          : project.id === "chatapp"
-          ? "99.9%"
-          : "99.5%",
+  const projectsData = {
+    hero: {
+      heading: "Development Projects",
+      description:
+        "A collection of full‑stack applications across web and mobile—real‑time chat, social, and e‑commerce builds.",
     },
-    date: project.date,
-    icon: project.icon,
-    fullDescription: project.overview,
-    keyFeatures: project.keyFeatures,
-    challenges: project.challenges,
-  }));
+    filterCategories: [
+      "All Projects",
+      "Mobile Apps",
+      "Web Applications",
+      "Full-Stack",
+    ],
+  } as const;
+
+  // Use the hardcoded list declared above
+  type RawProject = {
+    id: string;
+    title: string;
+    shortDescription: string;
+    image: string;
+    techStack: string[];
+    category: string[];
+    status?: string;
+    github?: string;
+    live?: string | null;
+    date?: string;
+    icon?: string;
+    overview?: string;
+    keyFeatures?: string[];
+    challenges?: unknown;
+  };
+
+  type ViewProject = {
+    id: string;
+    title: string;
+    description: string;
+    image: string;
+    technologies: string[];
+    category: string;
+    status: string;
+    github?: string;
+    live?: string | null;
+    featured: boolean;
+    metrics: { users: string; performance: string; uptime: string };
+    date?: string;
+    icon?: string;
+    fullDescription?: string;
+    keyFeatures?: string[];
+    challenges?: unknown;
+  };
+
+  const projectsMapped: ViewProject[] = (
+    projects as unknown as RawProject[]
+  ).map((project: Partial<RawProject> & any) => {
+    const categoryJoined = Array.isArray(project.category)
+      ? (project.category as string[]).join(", ")
+      : typeof project.category === "string"
+      ? project.category
+      : "General";
+
+    const techs: string[] = Array.isArray(project.techStack)
+      ? project.techStack
+      : Array.isArray(project.technologies)
+      ? project.technologies
+      : [];
+
+    const idStr = String(project.id);
+
+    return {
+      id: idStr,
+      title: project.title as string,
+      description:
+        (project.shortDescription as string) ||
+        (project.description as string) ||
+        "",
+      image: project.image as string,
+      technologies: techs,
+      category: categoryJoined,
+      status: (project.status as string) || "In Development",
+      github: project.github as string | undefined,
+      live:
+        (project.live as string | null) ||
+        (project.github as string | undefined) ||
+        null,
+      featured: true,
+      metrics: {
+        users:
+          idStr === "mobile-fb" ? "500+" : idStr === "chatapp" ? "1K+" : "100+",
+        performance:
+          idStr === "mobile-fb"
+            ? "95/100"
+            : idStr === "chatapp"
+            ? "92/100"
+            : "90/100",
+        uptime:
+          idStr === "mobile-fb"
+            ? "99.8%"
+            : idStr === "chatapp"
+            ? "99.9%"
+            : "99.5%",
+      },
+      date: project.date as string | undefined,
+      icon: project.icon as string | undefined,
+      fullDescription:
+        (project.overview as string) ||
+        (project.fullDescription as string) ||
+        undefined,
+      keyFeatures: (project.keyFeatures as string[]) || undefined,
+      challenges: project.challenges,
+    } satisfies ViewProject;
+  });
 
   const categories = projectsData.filterCategories;
 
   const [selectedCategory, setSelectedCategory] = useState("All Projects");
-  const [selectedProject, setSelectedProject] = useState<
-    (typeof projects)[0] | null
-  >(null);
+  const [selectedProject, setSelectedProject] = useState<ViewProject | null>(
+    null
+  );
 
   const filteredProjects =
     selectedCategory === "All Projects"
-      ? projects
-      : projects.filter((project) =>
+      ? projectsMapped
+      : projectsMapped.filter((project: ViewProject) =>
           project.category.includes(selectedCategory)
         );
 
@@ -246,7 +316,7 @@ export default function ProjectsPage() {
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             {...({} as any)}
           >
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project: ViewProject, index: number) => (
               <motion.div
                 key={project.id}
                 layout
@@ -297,7 +367,7 @@ export default function ProjectsPage() {
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 3).map((tech) => (
+                    {project.technologies.slice(0, 3).map((tech: string) => (
                       <span
                         key={tech}
                         className="px-2 py-1 bg-white/10 rounded text-xs text-white/70"
@@ -449,7 +519,7 @@ export default function ProjectsPage() {
                   Technologies Used
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {selectedProject.technologies.map((tech) => (
+                  {selectedProject.technologies.map((tech: string) => (
                     <span
                       key={tech}
                       className="px-3 py-1 bg-white/10 rounded-full text-sm text-white/70"

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Monitor } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getHeroData } from "@/lib/data";
 
 // Declare UnicornStudio global
 declare global {
@@ -17,7 +16,17 @@ declare global {
 
 export default function HeroSection() {
   const [isClient, setIsClient] = useState(false);
-  const heroData = getHeroData();
+  // Hardcoded hero data for reliability (no runtime data imports)
+  const heroData = {
+    badge: "Full-Stack Developer & Infrastructure Specialist",
+    heading: "Think different. Build exceptional.",
+    description:
+      "From telecommunications to software development. I build scalable web applications and design robust network infrastructure. Combining 4+ years of industry experience with modern development practices.",
+    cta: [
+      { text: "View My Work", link: "/work", type: "primary" },
+      { text: "View Projects", link: "/projects", type: "secondary" },
+    ],
+  } as const;
 
   useEffect(() => {
     // Ensure we're on the client side

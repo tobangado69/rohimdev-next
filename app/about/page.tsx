@@ -5,16 +5,83 @@ import { Code, Palette, Smartphone, Database, Zap, Users } from "lucide-react";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import {
-  getAboutPageData,
-  getCareerJourney,
-  getSkillsBreakdown,
-} from "@/lib/data";
+// No data imports; using hardcoded data for reliability
 
 export default function AboutPage() {
-  const aboutData = getAboutPageData();
-  const careerJourney = getCareerJourney();
-  const skillsBreakdown = getSkillsBreakdown();
+  const aboutData = {
+    hero: {
+      heading: "Full-Stack Developer",
+      introduction:
+        "Hi! I'm Abdul Rohim, a Full Stack Web Developer with a strong background in telecommunications infrastructure and modern web development. I build scalable, high-performance applications and robust backend architectures.",
+    },
+    aboutMe: {
+      heading: "About Me",
+      paragraphs: [
+        "I'm a full-stack JavaScript developer with a unique journey that spans from hands-on telecommunications infrastructure to cutting-edge software development. My career began in the trenches of network installation and troubleshooting at Telkom Indonesia, where I learned the fundamentals of how digital systems actually work in the real world.",
+        "After 3+ years of optimizing network performance and reducing connectivity issues by 25%, I realized I wanted to build the applications that run on these networks. This led me to Hacktiv8's intensive bootcamp, where I immersed myself in modern development practices and emerged with the skills to create both web and mobile applications.",
+        "Today, I combine this dual expertise as Staff Infrastructure at Varnion Technology, where I've achieved a 40% reduction in connectivity issues while also developing internal tools and applications. This unique perspective allows me to build software that's not just user-friendly, but also technically robust, scalable, and optimized for real-world network conditions.",
+      ],
+    },
+  } as const;
+
+  const skillsBreakdown = {
+    categories: [
+      {
+        title: "Frontend",
+        skills: [
+          { name: "React & Next.js", level: 90 },
+          { name: "JavaScript/TypeScript", level: 85 },
+          { name: "Tailwind CSS", level: 95 },
+        ],
+      },
+      {
+        title: "Backend & Database",
+        skills: [
+          { name: "Golang & Node.js", level: 85 },
+          { name: "PostgreSQL & MongoDB", level: 75 },
+          { name: "Nest.js & Express", level: 80 },
+          { name: "GraphQL & REST APIs", level: 85 },
+        ],
+      },
+      {
+        title: "Mobile & Infrastructure",
+        skills: [
+          { name: "React Native", level: 80 },
+          { name: "Network Configuration", level: 90 },
+          { name: "Mikrotik & Ubiquiti", level: 85 },
+        ],
+      },
+    ],
+  } as const;
+
+  const careerJourney = {
+    timeline: [
+      {
+        period: "Jan 2025 - Present",
+        title: "Staff Infrastructure",
+        company: "Varnion Technology Semesta",
+        description:
+          "Leading network infrastructure projects for hospitality industry clients, where I've successfully reduced connectivity issues by 40% through systematic monitoring and optimization. I also develop internal tools and applications to streamline our operations, combining my infrastructure expertise with modern development practices.",
+        technologies: ["Mikrotik", "Ubiquiti", "Network Design"],
+      },
+      {
+        period: "2024",
+        title: "Full-Stack JavaScript Bootcamp",
+        company: "Hacktiv8",
+        description:
+          "The decision to pursue Hacktiv8's intensive bootcamp was a turning point in my career. After years of working with network infrastructure, I realized I wanted to build the applications that run on these networks. The bootcamp challenged me to think differently about problem-solving and gave me the modern development skills to create both web and mobile applications that users actually love.",
+        technologies: ["React", "Node.js", "Full-Stack"],
+      },
+      {
+        period: "Dec 2020 - Aug 2023",
+        title: "Provisioning Technician",
+        company: "PT Telkom Indonesia (IndiHome)",
+        description:
+          "My professional journey began as a technician at Telkom Indonesia, Indonesia's largest telecommunications company. This role taught me the importance of reliability, customer service excellence, and systematic problem-solving. I reduced repeat visits by 25% through quality workmanship and customer education, while mastering advanced tools like OTDR and OPM for fiber optic testing.",
+        technologies: ["Fiber Optic", "OTDR", "Customer Service"],
+      },
+    ],
+  } as const;
 
   // Map skills data to component format
   const skills = skillsBreakdown.categories

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Calendar, MapPin, Building, Users, Award } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { getWorkPageData, getCareerTimeline } from "@/lib/data";
+// No data imports; use hardcoded data
 
 const technicalAchievements = [
   {
@@ -38,8 +38,90 @@ const technicalAchievements = [
 ];
 
 export default function WorkPage() {
-  const workData = getWorkPageData();
-  const careerTimeline = getCareerTimeline();
+  const workData = {
+    hero: {
+      heading: "Professional Work Experience",
+      description:
+        "4+ years across telecommunications infrastructure and modern software development. Measurable results from network optimization to full‑stack delivery.",
+    },
+    skillsSummary: {
+      heading: "Professional Skills Summary",
+      subheading:
+        "A comprehensive skill set developed through diverse professional experiences",
+      categories: [
+        {
+          title: "Infrastructure & Networking",
+          skills: [
+            "Network Design & Implementation",
+            "Mikrotik & Ubiquiti Systems",
+            "Fiber Optic Installation",
+            "System Monitoring & Optimization",
+            "Structured Cabling",
+          ],
+        },
+        {
+          title: "Software Development",
+          skills: [
+            "Full-Stack JavaScript Development",
+            "React & Next.js Applications",
+            "Golang & Node.js Backend Development",
+            "Database Design & Management",
+            "API Development & Integration",
+          ],
+        },
+      ],
+    },
+  } as const;
+
+  const careerTimeline = {
+    positions: [
+      {
+        status: "current",
+        title: "Staff Infrastructure",
+        company: "Varnion Technology Semesta",
+        period: "Jan 2025 - Present",
+        companyDescription:
+          "Leading network infrastructure projects for hospitality industry clients. Achieved 40% reduction in connectivity issues through systematic monitoring and optimization.",
+        achievements: [
+          {
+            metric: "40% Improvement",
+            description: "Reduced connectivity issues",
+          },
+          {
+            metric: "Network Excellence",
+            description: "Consistent uptime and performance",
+          },
+        ],
+        technologies: [
+          "Mikrotik",
+          "Ubiquiti",
+          "Network Design",
+          "System Monitoring",
+        ],
+      },
+      {
+        status: "previous",
+        title: "Provisioning Technician",
+        company: "PT Telkom Indonesia (IndiHome)",
+        period: "Dec 2020 - Aug 2023",
+        companyDescription:
+          "Managed fiber optic installations and internet service provisioning. Reduced repeat visits by 25% through quality workmanship and customer education.",
+        achievements: [
+          { metric: "25% Reduction", description: "Fewer repeat visits" },
+          {
+            metric: "Service Excellence",
+            description: "Improved activation times",
+          },
+        ],
+        technologies: [
+          "Fiber Optic",
+          "OTDR",
+          "OPM Testing",
+          "Customer Service",
+        ],
+      },
+    ],
+  } as const;
 
   // Map work experience data to component format
   const workExperience = careerTimeline.positions.map((position, index) => ({

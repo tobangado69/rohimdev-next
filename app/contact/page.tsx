@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { getContactPageData } from "@/lib/data";
+// No data imports; use hardcoded data
 
 const contactInfo = [
   {
@@ -42,7 +42,72 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
-  const contactData = getContactPageData();
+  const contactData = {
+    hero: {
+      heading: "Let's Work Together",
+      description:
+        "Ready to bring your ideas to life? Let's discuss your project and create something exceptional.",
+    },
+    contactInformation: {
+      heading: "Get In Touch",
+      subheading:
+        "Choose your preferred way to reach out. I'm always excited to discuss new projects and opportunities.",
+      methods: [
+        {
+          type: "email",
+          title: "Email",
+          value: "rohimjoy70@gmail.com",
+          link: "mailto:rohimjoy70@gmail.com",
+        },
+        {
+          type: "location",
+          title: "Location",
+          value: "Surabaya, Indonesia",
+          link: "#",
+        },
+        {
+          type: "availability",
+          title: "Availability",
+          value: "Mon - Sat, 9:00 - 17:00 WIB",
+          link: "#",
+        },
+      ],
+    },
+    professionalProfiles: {
+      heading: "Professional Profiles",
+      profiles: [
+        { platform: "LinkedIn", url: "https://linkedin.com/in/tobangado" },
+        { platform: "GitHub", url: "https://github.com/tobangado69" },
+        { platform: "Telegram", url: "https://t.me/Tobangado70" },
+      ],
+    },
+    contactForm: {
+      heading: "Send Me a Message",
+      description:
+        "Fill out the form below and I'll get back to you within 24 hours. Let's discuss your project requirements and goals.",
+    },
+    faq: {
+      heading: "Frequently Asked Questions",
+      subheading: "Quick answers to common questions about working together.",
+      questions: [
+        {
+          question: "How quickly can you start my project?",
+          answer:
+            "I typically respond within 24 hours. After scope alignment, I can often start within 1-2 weeks depending on workload.",
+        },
+        {
+          question: "Do you offer free consultations?",
+          answer:
+            "Yes. Initial consultation to understand your needs and propose approaches is free.",
+        },
+        {
+          question: "What's your development process?",
+          answer:
+            "Discovery → Planning → Development → Deployment, with regular updates.",
+        },
+      ],
+    },
+  } as const;
 
   // Map contact info data to component format using data from JSON
   const contactInfo = contactData.contactInformation.methods.map((method) => ({

@@ -3,10 +3,41 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, BarChart3, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { getWorkExperience } from "@/lib/data";
+// No data imports; use hardcoded data below
 
 export default function ProfessionalExperienceSection() {
-  const workExperience = getWorkExperience();
+  const workExperience = [
+    {
+      id: "varnion-current",
+      title: "Staff Infrastructure",
+      company: "Varnion Technology Semesta",
+      description:
+        "Leading network infrastructure projects for hospitality industry clients, where I've successfully reduced connectivity issues by 40% through systematic monitoring and optimization. I also develop internal tools and applications to streamline our operations, combining my infrastructure expertise with modern development practices.",
+      achievements: [
+        { metric: "40%", description: "reduction in connectivity issues" },
+      ],
+      image:
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+      status: "current",
+      technologies: ["Mikrotik", "Ubiquiti", "Network Design"],
+      period: { display: "Jan 2025 - Present" },
+    },
+    {
+      id: "telkom-previous",
+      title: "Provisioning Technician",
+      company: "PT Telkom Indonesia",
+      description:
+        "Managed fiber optic installations and internet service provisioning. Reduced repeat visits by 25% through quality workmanship and customer education.",
+      achievements: [
+        { metric: "25%", description: "reduction in repeat visits" },
+      ],
+      image:
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+      status: "previous",
+      technologies: ["Fiber Optic", "OTDR", "Customer Service"],
+      period: { display: "Dec 2020 - Aug 2023" },
+    },
+  ] as const;
 
   // Map work experience to success stories format
   const experienceStories = workExperience.map((work, index) => ({
