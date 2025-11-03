@@ -73,6 +73,7 @@ export default function Footer() {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors"
+                  aria-label={`Visit ${item.name} profile`}
                   {...({} as any)}
                 >
                   <item.icon className="h-4 w-4" />
@@ -142,13 +143,13 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
-          <p className="text-white/40 text-sm">
+          <p className="text-white/60 text-sm">
             © 2025 Rohim Dev. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <Link
               href="/contact"
-              className="text-white/40 hover:text-white transition-colors text-sm"
+              className="text-white/60 hover:text-white transition-colors text-sm"
             >
               Let's work together →
             </Link>

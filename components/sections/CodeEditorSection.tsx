@@ -179,11 +179,17 @@ export default function CodeEditorSection() {
                   <div className="flex gap-2 bg-blue-500/20 border-blue-500/30 border rounded-lg pt-2 pr-4 pb-2 pl-4 items-center">
                     <div className="h-3 w-3 text-blue-400">⚛</div>
                     <span className="text-xs text-blue-300">Portfolio.tsx</span>
-                    <button className="h-3 w-3 text-white/40 hover:text-white cursor-pointer">
+                    <button
+                      className="h-3 w-3 text-white/40 hover:text-white cursor-pointer"
+                      aria-label="Close tab"
+                    >
                       ×
                     </button>
                   </div>
-                  <button className="p-2 hover:bg-white/5 rounded-lg">
+                  <button
+                    className="p-2 hover:bg-white/5 rounded-lg"
+                    aria-label="Add new tab"
+                  >
                     <div className="h-4 w-4 text-white/40">+</div>
                   </button>
                 </div>
@@ -215,11 +221,17 @@ export default function CodeEditorSection() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="px-3 py-1.5 text-xs bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2">
+                  <button
+                    className="px-3 py-1.5 text-xs bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2"
+                    aria-label="Star project"
+                  >
                     <Star className="h-3 w-3" />
                     2.3k
                   </button>
-                  <button className="px-3 py-1.5 text-xs bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2">
+                  <button
+                    className="px-3 py-1.5 text-xs bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2"
+                    aria-label="Fork project"
+                  >
                     <GitBranch className="h-3 w-3" />
                     Fork
                   </button>
@@ -282,7 +294,10 @@ export default function CodeEditorSection() {
                     <Eye className="h-4 w-4 text-blue-400" />
                     <span className="text-sm font-medium">Live Preview</span>
                   </div>
-                  <button className="p-1 hover:bg-white/10 rounded">
+                  <button
+                    className="p-1 hover:bg-white/10 rounded"
+                    aria-label="Open live preview in new tab"
+                  >
                     <ExternalLink className="h-3 w-3" />
                   </button>
                 </div>
@@ -320,10 +335,16 @@ export default function CodeEditorSection() {
 
           {/* Floating action buttons */}
           <div className="absolute bottom-4 right-4 flex gap-2">
-            <button className="hover:bg-white/20 transition-all bg-white/10 rounded-full pt-3 pr-3 pb-3 pl-3">
+            <button
+              className="hover:bg-white/20 transition-all bg-white/10 rounded-full pt-3 pr-3 pb-3 pl-3"
+              aria-label="Play project"
+            >
               <Play className="w-5 h-5" />
             </button>
-            <button className="hover:bg-white/20 transition-all bg-white/10 rounded-full pt-3 pr-3 pb-3 pl-3">
+            <button
+              className="hover:bg-white/20 transition-all bg-white/10 rounded-full pt-3 pr-3 pb-3 pl-3"
+              aria-label="Share project"
+            >
               <Share className="h-5 w-5" />
             </button>
           </div>
