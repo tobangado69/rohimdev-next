@@ -12,29 +12,35 @@ export default function ProfessionalExperienceSection() {
       title: "Staff Infrastructure",
       company: "Varnion Technology Semesta",
       description:
-        "Leading network infrastructure projects for hospitality industry clients, where I've successfully reduced connectivity issues by 40% through systematic monitoring and optimization. I also develop internal tools and applications to streamline our operations, combining my infrastructure expertise with modern development practices.",
+        "PT Varnion Technology Semesta, a leading technology service provider in Indonesia specializing in internet solutions for the hospitality industry. As an Infrastructure Staff, I contributed to the stability and scalability of client and internal systems through comprehensive network management and optimization initiatives.",
       achievements: [
         { metric: "40%", description: "reduction in connectivity issues" },
       ],
       image:
         "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
       status: "current",
-      technologies: ["Mikrotik", "Ubiquiti", "Network Design"],
+      technologies: [
+        "Mikrotik",
+        "Ubiquiti",
+        "Network Design",
+        "Infrastructure Planning",
+        "System Monitoring",
+      ],
       period: { display: "Jan 2025 - Present" },
     },
     {
       id: "telkom-previous",
       title: "Provisioning Technician",
-      company: "PT Telkom Indonesia",
+      company: "PT Telkom Indonesia (IndiHome)",
       description:
-        "Managed fiber optic installations and internet service provisioning. Reduced repeat visits by 25% through quality workmanship and customer education.",
+        "PT Telkom Indonesia (IndiHome), the largest telecommunications company in Indonesia, where I served as a Provisioning Technician responsible for ensuring successful internet service activation and customer satisfaction through comprehensive installation, troubleshooting, and customer support services.",
       achievements: [
         { metric: "25%", description: "reduction in repeat visits" },
       ],
       image:
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
       status: "previous",
-      technologies: ["Fiber Optic", "OTDR", "Customer Service"],
+      technologies: ["Fiber Optic", "OTDR", "OPM Testing", "Customer Service"],
       period: { display: "Dec 2020 - Aug 2023" },
     },
   ] as const;
@@ -46,6 +52,7 @@ export default function ProfessionalExperienceSection() {
     company: work.company,
     role: work.title,
     description: work.description,
+    badge: work.status === "current" ? "Current Position" : "Previous Role",
     metrics:
       work.achievements[0]?.metric + " " + work.achievements[0]?.description ||
       "Professional Excellence",
@@ -118,7 +125,7 @@ export default function ProfessionalExperienceSection() {
                   {/* Badge */}
                   <div className="flex items-center justify-between mb-4">
                     <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-medium text-white/80 border border-white/20">
-                      Case Study
+                      {story.badge}
                     </span>
                     <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/20">
                       <story.icon className="w-5 h-5 text-white/80" />
