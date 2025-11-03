@@ -172,11 +172,12 @@ export default function ContactPage() {
     if (
       !formData.name.trim() ||
       !formData.email.trim() ||
+      !formData.subject.trim() ||
       !formData.message.trim()
     ) {
       setFormStatus("error");
       setErrorMessage(
-        "Please fill in all required fields (Name, Email, Message)"
+        "Please fill in all required fields (Name, Email, Subject, Message)"
       );
       return;
     }
@@ -204,6 +205,10 @@ export default function ContactPage() {
         return;
       }
 
+      // Format subject - ensure it's meaningful
+      const subjectText =
+        formData.subject.trim() || `Contact Form: ${formData.name.trim()}`;
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -214,7 +219,7 @@ export default function ContactPage() {
           access_key: accessKey,
           name: formData.name.trim(),
           email: formData.email.trim(),
-          subject: formData.subject.trim() || "Contact Form Submission",
+          subject: subjectText,
           message: formData.message.trim(),
           from_name: formData.name.trim(),
         }),
