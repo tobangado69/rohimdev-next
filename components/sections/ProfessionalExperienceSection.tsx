@@ -171,6 +171,7 @@ export default function ProfessionalExperienceSection() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20"
+                      aria-label="View full work experience details"
                       {...({} as any)}
                     >
                       <ArrowRight className="w-4 h-4 text-white/80" />

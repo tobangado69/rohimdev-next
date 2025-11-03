@@ -138,7 +138,11 @@ export default function ProjectsPage() {
   // Helper function to normalize category names for matching
   const normalizeCategory = (category: string): string[] => {
     const lower = category.toLowerCase();
-    if (lower.includes("full") || lower.includes("stack") || lower === "fullstack") {
+    if (
+      lower.includes("full") ||
+      lower.includes("stack") ||
+      lower === "fullstack"
+    ) {
       return ["fullstack", "full-stack", "full stack"];
     }
     if (lower.includes("mobile")) {
@@ -213,7 +217,9 @@ export default function ProjectsPage() {
         "",
       image: project.image as string,
       technologies: techs,
-      category: Array.isArray(project.category) ? project.category : categoryJoined,
+      category: Array.isArray(project.category)
+        ? project.category
+        : categoryJoined,
       status: (project.status as string) || "In Development",
       github: project.github as string | undefined,
       live:
@@ -251,7 +257,8 @@ export default function ProjectsPage() {
   ).sort();
 
   const [selectedCategory, setSelectedCategory] = useState("All Projects");
-  const [selectedTechnology, setSelectedTechnology] = useState<string>("All Technologies");
+  const [selectedTechnology, setSelectedTechnology] =
+    useState<string>("All Technologies");
   const [selectedProject, setSelectedProject] = useState<ViewProject | null>(
     null
   );
@@ -263,10 +270,11 @@ export default function ProjectsPage() {
       const projectCategories = Array.isArray(project.category)
         ? project.category.map((c: string) => c.toLowerCase())
         : [project.category.toLowerCase()];
-      
+
       const categoryMatch = normalizedFilter.some((filterCat: string) =>
-        projectCategories.some((projCat: string) =>
-          projCat.includes(filterCat) || filterCat.includes(projCat)
+        projectCategories.some(
+          (projCat: string) =>
+            projCat.includes(filterCat) || filterCat.includes(projCat)
         )
       );
 
@@ -275,9 +283,10 @@ export default function ProjectsPage() {
 
     // Technology filter
     if (selectedTechnology !== "All Technologies") {
-      const techMatch = project.technologies.some((tech: string) =>
-        tech.toLowerCase() === selectedTechnology.toLowerCase() ||
-        tech.toLowerCase().includes(selectedTechnology.toLowerCase())
+      const techMatch = project.technologies.some(
+        (tech: string) =>
+          tech.toLowerCase() === selectedTechnology.toLowerCase() ||
+          tech.toLowerCase().includes(selectedTechnology.toLowerCase())
       );
       if (!techMatch) return false;
     }
@@ -343,7 +352,9 @@ export default function ProjectsPage() {
             className="flex flex-wrap justify-center gap-3"
             {...({} as any)}
           >
-            <span className="text-sm text-white/60 flex items-center px-2">Filter by Tech:</span>
+            <span className="text-sm text-white/60 flex items-center px-2">
+              Filter by Tech:
+            </span>
             <button
               onClick={() => setSelectedTechnology("All Technologies")}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
@@ -458,6 +469,7 @@ export default function ProjectsPage() {
                           rel="noopener noreferrer"
                           className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors"
                           onClick={(e) => e.stopPropagation()}
+                          aria-label={`View ${project.title} on GitHub`}
                         >
                           <Github className="h-4 w-4" />
                         </a>
@@ -469,6 +481,7 @@ export default function ProjectsPage() {
                           rel="noopener noreferrer"
                           className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors"
                           onClick={(e) => e.stopPropagation()}
+                          aria-label={`View live ${project.title} project`}
                         >
                           <ExternalLink className="h-4 w-4" />
                         </a>
