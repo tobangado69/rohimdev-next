@@ -143,9 +143,26 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
-          <p className="text-white/60 text-sm">
-            © 2025 Rohim Dev. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+            <p className="text-white/60 text-sm">
+              © 2025 Rohim Dev. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/terms"
+                className="text-white/60 hover:text-white transition-colors text-sm"
+              >
+                Terms of Service
+              </Link>
+              <span className="text-white/40">•</span>
+              <Link
+                href="/privacy"
+                className="text-white/60 hover:text-white transition-colors text-sm"
+              >
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
           <div className="mt-4 md:mt-0">
             <Link
               href="/contact"
