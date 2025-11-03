@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Building, Users, Award } from "lucide-react";
+import {
+  Calendar,
+  MapPin,
+  Building,
+  Users,
+  Award,
+  Briefcase,
+} from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 // No data imports; use hardcoded data
@@ -121,21 +128,31 @@ export default function WorkPage() {
         company: "Varnion Technology Semesta",
         period: "Jan 2025 - Present",
         companyDescription:
-          "Leading network infrastructure projects for hospitality industry clients. Achieved 40% reduction in connectivity issues through systematic monitoring and optimization.",
+          "PT Varnion Technology Semesta, a leading technology service provider in Indonesia specializing in internet solutions for the hospitality industry. As an Infrastructure Staff, I contributed to the stability and scalability of client and internal systems through the following initiatives:",
+        responsibilities: [
+          "Performed installation, configuration, and maintenance of network devices including routers, switches, and access points across various hotel client sites, ensuring consistent internet performance and uptime.",
+          "Conducted regular monitoring and troubleshooting of network infrastructure using tools like Mikrotik and Ubiquiti, which resulted in a 40% reduction in reported connectivity issues.",
+          "Implemented structured cabling and server rack setups in hotel environments, contributing to improved system organization and long-term maintainability.",
+          "Collaborated with cross-functional teams including NOC (Network Operation Center) and support teams to ensure timely resolution of escalated technical issues.",
+          "Assisted in the planning and deployment of new infrastructure projects, including site surveys and bandwidth estimation, helping the team meet project timelines and client expectations.",
+        ],
         achievements: [
           {
-            metric: "40% Improvement",
-            description: "Reduced connectivity issues",
+            metric: "40% Reduction",
+            description:
+              "Reduced connectivity issues through systematic monitoring and optimization",
           },
           {
             metric: "Network Excellence",
-            description: "Consistent uptime and performance",
+            description:
+              "Consistent internet performance and uptime across hotel client sites",
           },
         ],
         technologies: [
           "Mikrotik",
           "Ubiquiti",
           "Network Design",
+          "Infrastructure Planning",
           "System Monitoring",
         ],
       },
@@ -145,7 +162,14 @@ export default function WorkPage() {
         company: "PT Telkom Indonesia (IndiHome)",
         period: "Dec 2020 - Aug 2023",
         companyDescription:
-          "Managed fiber optic installations and internet service provisioning. Reduced repeat visits by 25% through quality workmanship and customer education.",
+          "PT Telkom Indonesia (IndiHome), the largest telecommunications company in Indonesia, where I served as a Provisioning Technician responsible for ensuring successful internet service activation and customer satisfaction:",
+        responsibilities: [
+          "Installed and configured IndiHome internet services—including fiber optic connections, modems, and set-top boxes—for residential and business customers across assigned coverage areas.",
+          "Conducted on-site troubleshooting and signal quality testing using tools such as OTDR and OPM, ensuring proper network functionality and reducing repeat visits by 25%.",
+          "Coordinated with the NOC and customer service teams to resolve provisioning issues promptly, contributing to faster service activation times and improved customer experience.",
+          "Educated customers on how to use and maintain their internet equipment, fostering long-term satisfaction and reducing post-installation complaints.",
+          "Maintained detailed reports of daily installations, customer feedback, and technical findings, helping improve operational transparency and service delivery efficiency.",
+        ],
         achievements: [
           { metric: "25% Reduction", description: "Fewer repeat visits" },
           {
@@ -172,6 +196,7 @@ export default function WorkPage() {
     type: "Full-time", // Default type
     duration: position.period,
     description: position.companyDescription,
+    responsibilities: (position as any).responsibilities || [],
     achievements: position.achievements.map(
       (achievement) => achievement.description
     ),
@@ -263,9 +288,34 @@ export default function WorkPage() {
                       </div>
                     </div>
 
-                    <p className="text-white/60 mb-6 leading-relaxed">
+                    <p className="text-white/80 mb-6 leading-relaxed">
                       {job.description}
                     </p>
+
+                    {job.responsibilities &&
+                      job.responsibilities.length > 0 && (
+                        <div className="mb-6">
+                          <h4 className="text-lg font-semibold sf-pro-display mb-3 flex items-center gap-2">
+                            <Briefcase className="h-5 w-5" />
+                            Key Responsibilities
+                          </h4>
+                          <ul className="space-y-3">
+                            {job.responsibilities.map(
+                              (responsibility: string, idx: number) => (
+                                <li
+                                  key={idx}
+                                  className="flex items-start gap-3 text-white/70 leading-relaxed"
+                                >
+                                  <span className="text-blue-400 mt-1 flex-shrink-0">
+                                    •
+                                  </span>
+                                  <span>{responsibility}</span>
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        </div>
+                      )}
 
                     <div className="mb-6">
                       <h4 className="text-lg font-semibold sf-pro-display mb-3 flex items-center gap-2">
