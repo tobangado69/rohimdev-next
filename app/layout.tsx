@@ -101,7 +101,7 @@ export default function RootLayout({
     image: "https://rohimdev.com/images/profile.png",
     sameAs: [
       "https://github.com/tobangado69",
-      "https://linkedin.com/in/abdul-rohim",
+      "https://www.linkedin.com/in/tobangado",
       "https://t.me/Tobangado70",
     ],
     knowsAbout: [

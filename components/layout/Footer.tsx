@@ -143,7 +143,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
           <p className="text-white/40 text-sm">
-            © 2024 Rohim Dev. All rights reserved.
+            © 2025 Rohim Dev. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <Link
