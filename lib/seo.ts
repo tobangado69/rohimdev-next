@@ -15,7 +15,7 @@ export const SEO_CONFIG = {
     location: "Indonesia",
     social: {
       github: "https://github.com/tobangado69",
-      linkedin: "https://linkedin.com/in/abdul-rohim",
+      linkedin: "https://www.linkedin.com/in/tobangado",
       telegram: "https://t.me/Tobangado70",
     }
   },

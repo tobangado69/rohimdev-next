@@ -9,123 +9,113 @@ import Footer from "@/components/layout/Footer";
 
 const projects = [
   {
-    id: 1,
-    title: "E-commerce Platform",
+    id: "mobile-fb",
+    title: "Mobile-FB",
     description:
-      "A full-stack e-commerce platform built with React, Node.js, and PostgreSQL. Features include user authentication, product management, shopping cart, and payment integration.",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "AWS"],
-    category: "Full Stack",
-    status: "Live",
-    github: "https://github.com/yourname/ecommerce-platform",
-    live: "https://ecommerce-demo.com",
+      "A comprehensive full-stack social media application that replicates core Facebook functionality on mobile devices. Built during my Hacktiv8 bootcamp, this project demonstrates advanced React Native development, GraphQL integration, and real-time data synchronization across multiple platforms.",
+    image: "https://i.imgur.com/CFZvp5T.png",
+    technologies: [
+      "React Native",
+      "GraphQL",
+      "Apollo Client",
+      "Node.js",
+      "MongoDB",
+      "Redis",
+      "Expo",
+    ],
+    category: ["mobile", "fullstack"],
+    status: "In Development",
+    github: "https://github.com/tobangado69/Mobile-FB",
+    live: null,
     featured: true,
+    date: "April 2024",
+    icon: "📱",
+    overview:
+      "This was my capstone project at Hacktiv8, where I built a complete social media platform from scratch. The app handles user registration, post creation, real-time interactions, and social features like following/followers, all while maintaining smooth performance across iOS and Android devices.",
+    keyFeatures: [
+      "User authentication with JWT and secure token storage",
+      "Real-time post feed with comments and likes functionality",
+      "User search, follow/unfollow system with MongoDB $lookup",
+      "Deployed on Expo for both Android and iOS platforms",
+      "Redis caching for optimized performance",
+    ],
     metrics: {
-      users: "10K+",
-      performance: "98/100",
-      uptime: "99.9%",
-    },
-  },
-  {
-    id: 2,
-    title: "SaaS Dashboard",
-    description:
-      "A comprehensive analytics dashboard for SaaS businesses with real-time data visualization and reporting capabilities.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    technologies: ["Next.js", "TypeScript", "D3.js", "Tailwind CSS", "Vercel"],
-    category: "Frontend",
-    status: "Live",
-    github: "https://github.com/yourname/saas-dashboard",
-    live: "https://dashboard-demo.com",
-    featured: true,
-    metrics: {
-      users: "5K+",
+      users: "500+",
       performance: "95/100",
       uptime: "99.8%",
     },
   },
   {
-    id: 3,
-    title: "Mobile Banking App",
+    id: "chatapp",
+    title: "ChatApp",
     description:
-      "A React Native mobile application for banking with secure authentication, transaction history, and real-time notifications.",
+      "Real-time messaging application built with React and Socket.IO, featuring live chat functionality and user presence indicators.",
     image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-    technologies: ["React Native", "Node.js", "MongoDB", "Firebase", "Expo"],
-    category: "Mobile",
+      "https://raw.githubusercontent.com/tobangado69/ChatApp/main/assets/home.png",
+    technologies: [
+      "React",
+      "Socket.IO",
+      "Express",
+      "PostgreSQL",
+      "Sequelize",
+      "Tailwind CSS",
+    ],
+    category: ["web", "fullstack"],
     status: "In Development",
-    github: "https://github.com/yourname/banking-app",
+    github: "https://github.com/tobangado69/ChatApp",
     live: null,
-    featured: false,
+    featured: true,
+    date: "February 2024",
+    icon: "💬",
+    overview:
+      "Built as a learning project to understand real-time communication patterns, this chat application features instant messaging, user online/offline status, typing indicators, and message delivery confirmation. The project showcases my ability to work with WebSocket technologies and handle real-time state management.",
+    keyFeatures: [
+      "Real-time messaging with Socket.IO implementation",
+      "User authentication and session management",
+      "Responsive design with Tailwind CSS",
+      "PostgreSQL database with Sequelize ORM",
+      "Context API for state management",
+    ],
     metrics: {
-      users: "2K+",
+      users: "1K+",
       performance: "92/100",
-      uptime: "99.5%",
+      uptime: "99.9%",
     },
   },
   {
-    id: 4,
-    title: "Portfolio Website",
+    id: "grammedia-clone",
+    title: "Grammedia Clone",
     description:
-      "A modern, responsive portfolio website built with Next.js and Framer Motion, featuring smooth animations and interactive elements.",
+      "A comprehensive e-commerce web application that replicates modern online bookstore functionality. Built with Next.js and TypeScript, this project demonstrates advanced React patterns, server-side rendering, and complex e-commerce features including product management, user authentication, and shopping cart functionality.",
     image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
     technologies: [
       "Next.js",
       "TypeScript",
-      "Framer Motion",
+      "MongoDB",
       "Tailwind CSS",
-      "Vercel",
+      "Infinite Scroll",
     ],
-    category: "Frontend",
+    category: ["web", "fullstack"],
     status: "Live",
-    github: "https://github.com/yourname/portfolio",
-    live: "https://yourname.dev",
-    featured: false,
+    github: "https://github.com/tobangado69/Grammedia-Clone",
+    live: "https://gramedia.vercel.app/",
+    featured: true,
+    date: "2024",
+    icon: "🛒",
+    overview:
+      "This project showcases my ability to build production-ready e-commerce applications using modern web technologies. The application features a complete product catalog, user authentication, wishlist functionality, and responsive design optimized for both desktop and mobile devices.",
+    keyFeatures: [
+      "Complete user registration and authentication system",
+      "Product listing with search and infinite scroll pagination",
+      "Wishlist functionality for saving favorite products",
+      "Detailed product pages with comprehensive information",
+      "Promotional banners and featured products section",
+    ],
     metrics: {
-      users: "1K+",
-      performance: "100/100",
-      uptime: "99.9%",
-    },
-  },
-  {
-    id: 5,
-    title: "API Gateway",
-    description:
-      "A microservices API gateway built with Node.js and Express, handling authentication, rate limiting, and request routing.",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
-    technologies: ["Node.js", "Express", "Redis", "Docker", "AWS"],
-    category: "Backend",
-    status: "Live",
-    github: "https://github.com/yourname/api-gateway",
-    live: "https://api-gateway.com",
-    featured: false,
-    metrics: {
-      users: "50K+",
-      performance: "99/100",
-      uptime: "99.9%",
-    },
-  },
-  {
-    id: 6,
-    title: "Task Management Tool",
-    description:
-      "A collaborative task management application with real-time updates, team collaboration features, and project tracking.",
-    image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-    technologies: ["Vue.js", "Node.js", "Socket.io", "MongoDB", "Heroku"],
-    category: "Full Stack",
-    status: "Live",
-    github: "https://github.com/yourname/task-manager",
-    live: "https://taskmanager-demo.com",
-    featured: false,
-    metrics: {
-      users: "3K+",
-      performance: "94/100",
-      uptime: "99.7%",
+      users: "100+",
+      performance: "90/100",
+      uptime: "99.5%",
     },
   },
 ];
@@ -142,8 +132,23 @@ export default function ProjectsPage() {
       "Mobile Apps",
       "Web Applications",
       "Full-Stack",
-    ],
+    ] as const,
   } as const;
+
+  // Helper function to normalize category names for matching
+  const normalizeCategory = (category: string): string[] => {
+    const lower = category.toLowerCase();
+    if (lower.includes("full") || lower.includes("stack") || lower === "fullstack") {
+      return ["fullstack", "full-stack", "full stack"];
+    }
+    if (lower.includes("mobile")) {
+      return ["mobile", "mobile apps", "mobile-apps"];
+    }
+    if (lower.includes("web")) {
+      return ["web", "web applications", "web-applications"];
+    }
+    return [lower];
+  };
 
   // Use the hardcoded list declared above
   type RawProject = {
@@ -169,7 +174,7 @@ export default function ProjectsPage() {
     description: string;
     image: string;
     technologies: string[];
-    category: string;
+    category: string | string[];
     status: string;
     github?: string;
     live?: string | null;
@@ -208,29 +213,22 @@ export default function ProjectsPage() {
         "",
       image: project.image as string,
       technologies: techs,
-      category: categoryJoined,
+      category: Array.isArray(project.category) ? project.category : categoryJoined,
       status: (project.status as string) || "In Development",
       github: project.github as string | undefined,
       live:
         (project.live as string | null) ||
         (project.github as string | undefined) ||
         null,
-      featured: true,
-      metrics: {
-        users:
-          idStr === "mobile-fb" ? "500+" : idStr === "chatapp" ? "1K+" : "100+",
-        performance:
-          idStr === "mobile-fb"
-            ? "95/100"
-            : idStr === "chatapp"
-            ? "92/100"
-            : "90/100",
-        uptime:
-          idStr === "mobile-fb"
-            ? "99.8%"
-            : idStr === "chatapp"
-            ? "99.9%"
-            : "99.5%",
+      featured: (project.featured as boolean) ?? false,
+      metrics: (project.metrics as {
+        users: string;
+        performance: string;
+        uptime: string;
+      }) || {
+        users: "100+",
+        performance: "90/100",
+        uptime: "99.5%",
       },
       date: project.date as string | undefined,
       icon: project.icon as string | undefined,
@@ -245,17 +243,47 @@ export default function ProjectsPage() {
 
   const categories = projectsData.filterCategories;
 
+  // Extract all unique technologies for filter
+  const allTechnologies = Array.from(
+    new Set(
+      projectsMapped.flatMap((project: ViewProject) => project.technologies)
+    )
+  ).sort();
+
   const [selectedCategory, setSelectedCategory] = useState("All Projects");
+  const [selectedTechnology, setSelectedTechnology] = useState<string>("All Technologies");
   const [selectedProject, setSelectedProject] = useState<ViewProject | null>(
     null
   );
 
-  const filteredProjects =
-    selectedCategory === "All Projects"
-      ? projectsMapped
-      : projectsMapped.filter((project: ViewProject) =>
-          project.category.includes(selectedCategory)
-        );
+  const filteredProjects = projectsMapped.filter((project: ViewProject) => {
+    // Category filter
+    if (selectedCategory !== "All Projects") {
+      const normalizedFilter = normalizeCategory(selectedCategory);
+      const projectCategories = Array.isArray(project.category)
+        ? project.category.map((c: string) => c.toLowerCase())
+        : [project.category.toLowerCase()];
+      
+      const categoryMatch = normalizedFilter.some((filterCat: string) =>
+        projectCategories.some((projCat: string) =>
+          projCat.includes(filterCat) || filterCat.includes(projCat)
+        )
+      );
+
+      if (!categoryMatch) return false;
+    }
+
+    // Technology filter
+    if (selectedTechnology !== "All Technologies") {
+      const techMatch = project.technologies.some((tech: string) =>
+        tech.toLowerCase() === selectedTechnology.toLowerCase() ||
+        tech.toLowerCase().includes(selectedTechnology.toLowerCase())
+      );
+      if (!techMatch) return false;
+    }
+
+    return true;
+  });
 
   return (
     <main className="min-h-screen">
@@ -283,7 +311,8 @@ export default function ProjectsPage() {
 
       {/* Filter Section */}
       <section className="py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          {/* Category Filter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -302,6 +331,40 @@ export default function ProjectsPage() {
                 }`}
               >
                 {category}
+              </button>
+            ))}
+          </motion.div>
+
+          {/* Technology Filter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="flex flex-wrap justify-center gap-3"
+            {...({} as any)}
+          >
+            <span className="text-sm text-white/60 flex items-center px-2">Filter by Tech:</span>
+            <button
+              onClick={() => setSelectedTechnology("All Technologies")}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                selectedTechnology === "All Technologies"
+                  ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                  : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white border border-white/10"
+              }`}
+            >
+              All Technologies
+            </button>
+            {allTechnologies.map((tech) => (
+              <button
+                key={tech}
+                onClick={() => setSelectedTechnology(tech)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  selectedTechnology === tech
+                    ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                    : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white border border-white/10"
+                }`}
+              >
+                {tech}
               </button>
             ))}
           </motion.div>
@@ -357,7 +420,11 @@ export default function ProjectsPage() {
                     <h3 className="text-xl font-semibold sf-pro-display mb-1">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-white/70">{project.category}</p>
+                    <p className="text-sm text-white/70">
+                      {Array.isArray(project.category)
+                        ? project.category.join(", ")
+                        : project.category}
+                    </p>
                   </div>
                 </div>
 
@@ -461,7 +528,10 @@ export default function ProjectsPage() {
                     {selectedProject.title}
                   </h2>
                   <p className="text-blue-400 font-medium">
-                    {selectedProject.category} • {selectedProject.status}
+                    {Array.isArray(selectedProject.category)
+                      ? selectedProject.category.join(", ")
+                      : selectedProject.category}{" "}
+                    • {selectedProject.status}
                   </p>
                 </div>
                 <div className="flex gap-2">

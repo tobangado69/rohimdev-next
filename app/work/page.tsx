@@ -50,6 +50,16 @@ export default function WorkPage() {
         "A comprehensive skill set developed through diverse professional experiences",
       categories: [
         {
+          title: "Software Development",
+          skills: [
+            "Full-Stack JavaScript Development",
+            "React & Next.js Applications",
+            "Golang & Node.js Backend Development",
+            "Database Design & Management",
+            "API Development & Integration",
+          ],
+        },
+        {
           title: "Infrastructure & Networking",
           skills: [
             "Network Design & Implementation",
@@ -60,13 +70,43 @@ export default function WorkPage() {
           ],
         },
         {
-          title: "Software Development",
+          title: "Technical Troubleshooting",
           skills: [
-            "Full-Stack JavaScript Development",
-            "React & Next.js Applications",
-            "Golang & Node.js Backend Development",
-            "Database Design & Management",
-            "API Development & Integration",
+            "OTDR & OPM Testing",
+            "Signal Quality Analysis",
+            "Network Performance Optimization",
+            "Issue Root Cause Analysis",
+            "Preventive Maintenance",
+          ],
+        },
+        {
+          title: "Project Management",
+          skills: [
+            "Infrastructure Project Planning",
+            "Site Surveys & Assessment",
+            "Timeline Management",
+            "Quality Assurance",
+            "Documentation & Reporting",
+          ],
+        },
+        {
+          title: "Customer Relations",
+          skills: [
+            "Customer Service Excellence",
+            "Technical Support & Training",
+            "Issue Resolution",
+            "Communication Skills",
+            "Client Relationship Management",
+          ],
+        },
+        {
+          title: "Team Collaboration",
+          skills: [
+            "Cross-functional Teamwork",
+            "NOC Coordination",
+            "Knowledge Sharing",
+            "Support Team Integration",
+            "Collaborative Problem Solving",
           ],
         },
       ],

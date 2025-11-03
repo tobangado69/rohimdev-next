@@ -152,6 +152,7 @@ export default function ContactPage() {
   const [formStatus, setFormStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -165,32 +166,79 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage("");
+
+    // Basic validation
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
+      setFormStatus("error");
+      setErrorMessage(
+        "Please fill in all required fields (Name, Email, Message)"
+      );
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      setFormStatus("error");
+      setErrorMessage("Please enter a valid email address");
+      return;
+    }
+
     setFormStatus("sending");
 
     try {
+      // Use environment variable - must be set in .env.local
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+      if (!accessKey) {
+        console.error("Web3Forms access key is not configured");
+        setFormStatus("error");
+        setErrorMessage(
+          "Form submission is not configured. Please contact the site administrator."
+        );
+        return;
+      }
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // Replace with actual key
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
+          access_key: accessKey,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim() || "Contact Form Submission",
+          message: formData.message.trim(),
+          from_name: formData.name.trim(),
         }),
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (response.ok && data.success) {
         setFormStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
+        setErrorMessage("");
       } else {
+        console.error("Form submission error:", data);
         setFormStatus("error");
+        setErrorMessage(
+          data.message || "Failed to send message. Please try again."
+        );
       }
     } catch (error) {
       console.error("Form submission error:", error);
       setFormStatus("error");
+      setErrorMessage(
+        "Network error. Please check your connection and try again."
+      );
     }
   };
 
