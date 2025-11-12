@@ -1,7 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
+
+const MotionLink = motion(Link);
 
 export default function CTASection() {
   return (
@@ -40,10 +43,12 @@ export default function CTASection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
             {...({} as any)}
           >
-            <motion.button
+            <MotionLink
+              href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative group px-8 py-4 bg-white text-black rounded-full font-semibold overflow-hidden"
+              className="relative group px-8 py-4 bg-white text-black rounded-full font-semibold overflow-hidden inline-flex items-center justify-center"
+              aria-label="Start a project"
               {...({} as any)}
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -51,17 +56,19 @@ export default function CTASection() {
                 <ArrowRight className="w-5 h-5" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.button>
+            </MotionLink>
 
-            <motion.button
+            <MotionLink
+              href="https://t.me/Tobangado70"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border border-white/30 rounded-full font-semibold hover:bg-white/10 transition-all flex items-center gap-2 justify-center"
+              className="px-8 py-4 border border-white/30 rounded-full font-semibold hover:bg-white/10 transition-all flex items-center gap-2 justify-center text-white/80 hover:text-white"
+              aria-label="Schedule a call via Telegram"
               {...({} as any)}
             >
               <Phone className="h-5 w-5" />
               Schedule a Call
-            </motion.button>
+            </MotionLink>
           </motion.div>
 
           <motion.p
