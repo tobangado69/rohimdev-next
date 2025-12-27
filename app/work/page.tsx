@@ -1,14 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  Calendar,
-  MapPin,
-  Building,
-  Users,
-  Award,
-  Briefcase,
-} from "lucide-react";
+import { Calendar, MapPin, Building, Award, Briefcase } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 // No data imports; use hardcoded data
@@ -210,50 +202,34 @@ export default function WorkPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-            {...({} as any)}
-          >
+          <div className="text-center">
             <h1 className="text-5xl sm:text-6xl sf-pro-display tracking-tight mb-8 font-light bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
               {workData.hero.heading}
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
               {workData.hero.description}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Work Experience */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-            {...({} as any)}
-          >
+          <div className="text-center mb-16">
             <h2 className="text-3xl sf-pro-display font-light mb-6">
               Professional Experience
             </h2>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
               A detailed look at my career progression and key achievements.
             </p>
-          </motion.div>
+          </div>
 
           <div className="space-y-16">
             {workExperience.map((job, index) => (
-              <motion.div
+              <div
                 key={job.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.8 }}
                 className="p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl my-4"
-                {...({} as any)}
               >
                 <div className="flex flex-col lg:flex-row lg:items-start gap-6">
                   <div className="flex-shrink-0">
@@ -352,7 +328,7 @@ export default function WorkPage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -361,30 +337,20 @@ export default function WorkPage() {
       {/* Technical Achievements */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-            {...({} as any)}
-          >
+          <div className="text-center mb-16">
             <h2 className="text-3xl sf-pro-display font-light mb-6">
               Technical Achievements
             </h2>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
               Measurable impact and professional milestones
             </p>
-          </motion.div>
+          </div>
 
           <div className="space-y-12">
             {technicalAchievements.map((achievement, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.8 }}
                 className="p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl my-4"
-                {...({} as any)}
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div>
@@ -424,7 +390,7 @@ export default function WorkPage() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -433,30 +399,20 @@ export default function WorkPage() {
       {/* Professional Skills Summary */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-            {...({} as any)}
-          >
+          <div className="text-center mb-16">
             <h2 className="text-4xl sf-pro-display tracking-tight mb-6 font-light">
               {workData.skillsSummary.heading}
             </h2>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
               {workData.skillsSummary.subheading}
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {workData.skillsSummary.categories.map((category, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
                 className="p-8 border border-white/10 rounded-3xl bg-gradient-to-br from-white/5 to-transparent"
-                {...({} as any)}
               >
                 <h3 className="text-xl font-semibold mb-6">{category.title}</h3>
                 <ul className="space-y-3">
@@ -470,7 +426,7 @@ export default function WorkPage() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

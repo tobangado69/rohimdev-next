@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { TrendingUp, Users, BarChart3, ArrowRight } from "lucide-react";
 import Link from "next/link";
 // No data imports; use hardcoded data below
@@ -77,43 +77,27 @@ export default function ProfessionalExperienceSection() {
     <section className="pt-32 pb-32">
       <div className="max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pr-4 pl-4">
         <div className="text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="slide-up stagger-2 text-4xl sm:text-5xl sf-pro-display tracking-tight mb-6 font-light"
-            {...({} as any)}
-          >
+          <h2 className="text-4xl sm:text-5xl sf-pro-display tracking-tight mb-6 font-light">
             Professional Experience
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="slide-up stagger-3 text-xl text-white/60 max-w-2xl mx-auto"
-            {...({} as any)}
-          >
+          </h2>
+          <p className="text-xl text-white/60 max-w-2xl mx-auto">
             4+ years of excellence spanning telecommunications and software
             development
-          </motion.p>
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {experienceStories.map((story, index) => (
             <Link key={story.id} href="/work">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
-                className="slide-up stagger-4 group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all duration-500 cursor-pointer hover:scale-105"
-                {...({} as any)}
-              >
+              <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all duration-500 cursor-pointer hover:scale-105">
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <img
+                  <Image
                     src={story.image}
                     alt={story.title}
-                    className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    fill
+                    className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${story.color}`}
@@ -174,42 +158,28 @@ export default function ProfessionalExperienceSection() {
                       </div>
                       <div className="text-white/60">{story.period}</div>
                     </div>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20"
+                    <button
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 cursor-pointer"
                       aria-label="View full work experience details"
-                      {...({} as any)}
                     >
                       <ArrowRight className="w-4 h-4 text-white/80" />
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </Link>
           ))}
         </div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="slide-up stagger-5 text-center mt-16"
-          {...({} as any)}
-        >
+        <div className="text-center mt-16">
           <Link href="/work">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
-              {...({} as any)}
-            >
+            <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 cursor-pointer">
               View Full Experience
               <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            </button>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, FileText, Shield } from "lucide-react";
 import Header from "@/components/layout/Header";
@@ -169,12 +168,7 @@ export default function TermsPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8"
-          >
+          <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-3 mb-4">
               <FileText className="h-8 w-8 text-blue-400" />
               <h1 className="text-4xl sm:text-5xl sf-pro-display font-light bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
@@ -184,42 +178,32 @@ export default function TermsPage() {
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
               Terms and conditions for using our website and services
             </p>
-          </motion.div>
+          </div>
 
           {/* Navigation Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm group"
+              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm group cursor-pointer"
             >
               <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
               Back to Home
             </Link>
             <Link
               href="/privacy"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white/90 hover:text-white rounded-lg transition-all text-sm border border-white/10"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white/90 hover:text-white rounded-lg transition-all text-sm border border-white/10 cursor-pointer"
             >
               <Shield className="h-4 w-4" />
               View Privacy Policy
             </Link>
-          </motion.div>
+          </div>
 
           {/* Last Updated */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center mb-12"
-          >
+          <div className="text-center mb-12">
             <p className="text-sm text-white/50">
               Last updated: {new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -227,12 +211,7 @@ export default function TermsPage() {
       <section className="pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Introduction */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-12 p-6 bg-white/5 rounded-lg border border-white/10"
-          >
+          <div className="mb-12 p-6 bg-white/5 rounded-lg border border-white/10">
             <p className="text-white/80 leading-relaxed">
               Welcome to Rohim Dev. These Terms of Service ("Terms") govern your use of the Rohim Dev website (the "Website") and the services offered by Abdul Rohim ("I", "me", or "my").
             </p>
@@ -243,22 +222,19 @@ export default function TermsPage() {
             <div className="mt-6 pt-6 border-t border-white/10">
               <Link
                 href="/privacy"
-                className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium"
+                className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium cursor-pointer"
               >
                 <Shield className="h-4 w-4" />
                 Read our Privacy Policy
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Terms Sections */}
           <div className="space-y-8">
-            {sections.map((section, index) => (
-              <motion.div
+            {sections.map((section) => (
+              <div
                 key={section.number}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 + index * 0.05 }}
                 className="bg-white/5 rounded-lg border border-white/10 p-6 sm:p-8 hover:bg-white/10 transition-colors"
               >
                 <h2 className="text-2xl font-semibold mb-4 flex items-center gap-3">
@@ -268,21 +244,16 @@ export default function TermsPage() {
                 <div className="text-white/70 leading-relaxed">
                   {section.content}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Agreement Statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-12 p-6 bg-blue-500/10 rounded-lg border border-blue-500/20"
-          >
+          <div className="mt-12 p-6 bg-blue-500/10 rounded-lg border border-blue-500/20">
             <p className="text-white/90 leading-relaxed text-center">
               By using my website and services, you acknowledge that you have read and agree to these Terms of Service.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -290,4 +261,3 @@ export default function TermsPage() {
     </main>
   );
 }
-

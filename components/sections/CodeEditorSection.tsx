@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Folder,
   FileCode,
@@ -25,11 +25,7 @@ const codeLines = [
     delay: 0,
   },
   { line: 2, content: "import { motion } from 'framer-motion'", delay: 1 },
-  {
-    line: 3,
-    content: "import { ArrowRight, Monitor } from 'lucide-react'",
-    delay: 1.5,
-  },
+  { line: 3, content: "import { ArrowRight, Monitor } from 'lucide-react'", delay: 1.5 },
   { line: 4, content: "", delay: 2 },
   { line: 5, content: "interface DashboardProps {", delay: 2.5 },
   { line: 6, content: "  userId: string", delay: 3 },
@@ -42,73 +38,59 @@ const codeLines = [
     delay: 5,
   },
   { line: 11, content: "  theme = 'dark' }) => {", delay: 5.5 },
-  {
-    line: 12,
-    content: "  const [metrics, setMetrics] = useState<MetricsData>(null)",
-    delay: 6,
-  },
-  {
-    line: 13,
-    content: "  const [isLoading, setIsLoading] = useState(true)",
-    delay: 6.5,
-  },
+  { line: 12, content: "  const [metrics, setMetrics] = useState(null)", delay: 6 },
+  { line: 13, content: "  const [isLoading, setIsLoading] = useState(true)", delay: 6.5 },
   { line: 14, content: "", delay: 7 },
   { line: 15, content: "  useEffect(() => {", delay: 7.5 },
   { line: 16, content: "    fetchUserMetrics(userId)", delay: 8 },
   { line: 17, content: "      .then(data => setMetrics(data))", delay: 8.5 },
-  {
-    line: 18,
-    content: "      .catch(error => console.error(error))",
-    delay: 9,
-  },
-  {
-    line: 19,
-    content: "      .finally(() => setIsLoading(false))",
-    delay: 9.5,
-  },
-  { line: 20, content: "  }, [userId])", delay: 10 },
-  { line: 21, content: "", delay: 10.5 },
-  { line: 22, content: "  return (", delay: 11 },
-  {
-    line: 23,
-    content: "    <div className='dashboard-container'>",
-    delay: 11.5,
-  },
-  { line: 24, content: "      <motion.h1", delay: 12 },
-  { line: 25, content: "        initial={{ opacity: 0, y: 20 }}", delay: 12.5 },
-  { line: 26, content: "        animate={{ opacity: 1, y: 0 }}", delay: 13 },
-  { line: 27, content: "        className='text-4xl font-bold'", delay: 13.5 },
-  { line: 28, content: "      >", delay: 14 },
-  { line: 29, content: "        Welcome back!", delay: 14.5 },
-  { line: 30, content: "      </motion.h1>", delay: 15 },
-  { line: 31, content: "", delay: 15.5 },
-  { line: 32, content: "      {isLoading ? (", delay: 16 },
-  {
-    line: 33,
-    content: "        <div className='loading-spinner'>Loading...</div>",
-    delay: 16.5,
-  },
-  { line: 34, content: "      ) : (", delay: 17 },
-  { line: 35, content: "        <MetricsPanel data={metrics} />", delay: 17.5 },
-  { line: 36, content: "      )}", delay: 18 },
-  { line: 37, content: "    </div>", delay: 18.5 },
-  { line: 38, content: "  )", delay: 19 },
-  { line: 39, content: "}", delay: 19.5 },
+  { line: 18, content: "      .finally(() => setIsLoading(false))", delay: 9 },
+  { line: 19, content: "  }, [userId])", delay: 9.5 },
+  { line: 20, content: "", delay: 10 },
+  { line: 21, content: "  return (", delay: 10.5 },
+  { line: 22, content: "    <div className='dashboard'>", delay: 11 },
+  { line: 23, content: "      <h1 className='text-4xl font-bold'>", delay: 11.5 },
+  { line: 24, content: "        Welcome back!", delay: 12 },
+  { line: 25, content: "      </h1>", delay: 12.5 },
+  { line: 26, content: "    </div>", delay: 13 },
+  { line: 27, content: "  )", delay: 13.5 },
+  { line: 28, content: "}", delay: 14 },
 ];
 
 export default function CodeEditorSection() {
   const [visibleLines, setVisibleLines] = useState<number[]>([]);
+  const [shouldAnimate, setShouldAnimate] = useState(true);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Intersection Observer to stop animation when not visible
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShouldAnimate(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    // Only animate if section is visible
+    if (!shouldAnimate) return;
+
     codeLines.forEach((line, index) => {
       setTimeout(() => {
         setVisibleLines((prev) => [...prev, index]);
       }, line.delay * 1000);
     });
-  }, []);
+  }, [shouldAnimate]);
 
   return (
-    <section className="pt-20 pb-20">
+    <section id="code-editor" ref={sectionRef} className="pt-20 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="stagger-2 glass-effect relative overflow-hidden bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 border rounded-3xl pt-8 pr-8 pb-8 pl-8 blur-in">
           {/* IDE Header */}
