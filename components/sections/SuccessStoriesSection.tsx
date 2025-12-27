@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { TrendingUp, Users, BarChart3, ArrowRight } from "lucide-react";
 import Link from "next/link";
 // No data imports; use hardcoded projects
@@ -93,45 +93,29 @@ export default function SuccessStoriesSection() {
     <section className="pt-32 pb-32">
       <div className="max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pr-4 pl-4">
         <div className="text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="slide-up stagger-2 text-4xl sm:text-5xl sf-pro-display tracking-tight mb-6 font-light"
-            {...({} as any)}
-          >
+          <h2 className="text-4xl sm:text-5xl sf-pro-display tracking-tight mb-6 font-light">
             Featured Projects
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="slide-up stagger-3 text-xl text-white/60 max-w-2xl mx-auto"
-            {...({} as any)}
-          >
+          </h2>
+          <p className="text-xl text-white/60 max-w-2xl mx-auto">
             Showcasing modern development with practical applications built
             using cutting-edge technologies
-          </motion.p>
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {successStories.map((story, index) => (
             <Link key={story.id} href="/projects">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.8 }}
-                className="fade-in stagger-3 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden group cursor-pointer hover:border-white/20 transition-all duration-300 hover:scale-105"
-                {...({} as any)}
-              >
+              <div className="success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden group cursor-pointer hover:border-white/20 transition-all duration-300 hover:scale-105">
                 <div
                   className={`aspect-video bg-gradient-to-br ${story.color} relative overflow-hidden`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
-                  <img
+                  <Image
                     src={story.image}
                     alt={story.title}
-                    className="w-full h-full object-cover card-image"
+                    fill
+                    className="object-cover card-image"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute top-4 left-4">
                     <div className="px-3 py-1 bg-black/50 glass-effect rounded-full text-xs font-medium">
@@ -170,19 +154,13 @@ export default function SuccessStoriesSection() {
                     <ArrowRight className="h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </Link>
           ))}
         </div>
 
         {/* View All Projects Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="text-center mt-12"
-          {...({} as any)}
-        >
+        <div className="text-center mt-12">
           <Link
             href="/projects"
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
@@ -190,16 +168,10 @@ export default function SuccessStoriesSection() {
             <span className="mr-2">View All Projects</span>
             <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
-        </motion.div>
+        </div>
 
         {/* Stats Section with Counter Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8"
-          {...({} as any)}
-        >
+        <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="text-center">
             <div className="lg:text-4xl sf-pro-display counter text-3xl font-light text-neutral-50 mb-2">
               50+
@@ -224,7 +196,7 @@ export default function SuccessStoriesSection() {
             </div>
             <div className="text-white/60">(Response Time)</div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

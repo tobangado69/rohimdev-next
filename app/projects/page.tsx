@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 import { ExternalLink, Github, Star, Eye, Filter } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -301,20 +301,14 @@ export default function ProjectsPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-            {...({} as any)}
-          >
+          <div className="text-center">
             <h1 className="text-5xl sm:text-6xl sf-pro-display tracking-tight mb-8 font-light bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
               {projectsData.hero.heading}
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
               {projectsData.hero.description}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -322,18 +316,12 @@ export default function ProjectsPage() {
       <section className="py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           {/* Category Filter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-4"
-            {...({} as any)}
-          >
+          <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-full font-medium transition-all ${
+                className={`px-6 py-3 rounded-full font-medium transition-all cursor-pointer ${
                   selectedCategory === category
                     ? "bg-white text-black"
                     : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
@@ -342,22 +330,16 @@ export default function ProjectsPage() {
                 {category}
               </button>
             ))}
-          </motion.div>
+          </div>
 
           {/* Technology Filter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="flex flex-wrap justify-center gap-3"
-            {...({} as any)}
-          >
+          <div className="flex flex-wrap justify-center gap-3">
             <span className="text-sm text-white/60 flex items-center px-2">
               Filter by Tech:
             </span>
             <button
               onClick={() => setSelectedTechnology("All Technologies")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer ${
                 selectedTechnology === "All Technologies"
                   ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
                   : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white border border-white/10"
@@ -369,7 +351,7 @@ export default function ProjectsPage() {
               <button
                 key={tech}
                 onClick={() => setSelectedTechnology(tech)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer ${
                   selectedTechnology === tech
                     ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
                     : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white border border-white/10"
@@ -378,29 +360,19 @@ export default function ProjectsPage() {
                 {tech}
               </button>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Projects Grid */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-            {...({} as any)}
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project: ViewProject, index: number) => (
-              <motion.div
+              <div
                 key={project.id}
-                layout
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
-                whileHover={{ y: -8 }}
-                className="group bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden cursor-pointer"
+                className="group bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                 onClick={() => setSelectedProject(project)}
-                {...({} as any)}
               >
                 <div className="aspect-video relative overflow-hidden">
                   <img
@@ -495,29 +467,21 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Project Modal */}
       {selectedProject && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+        <div
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedProject(null)}
-          {...({} as any)}
         >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
+          <div
             className="bg-gray-900 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e: React.MouseEvent) => e.stopPropagation()}
-            {...({} as any)}
           >
             <div className="aspect-video relative">
               <img
@@ -528,7 +492,7 @@ export default function ProjectsPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
+                className="absolute top-4 right-4 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center hover:bg-black/70 transition-colors cursor-pointer"
               >
                 ×
               </button>
@@ -613,8 +577,8 @@ export default function ProjectsPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
 
       <Footer />

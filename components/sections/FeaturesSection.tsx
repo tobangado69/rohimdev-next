@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Zap,
   ShieldCheck,
@@ -125,40 +124,20 @@ export default function FeaturesSection() {
     <section className="pt-32 pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="slide-up stagger-2 text-4xl sm:text-5xl sf-pro-display tracking-tight mb-6 font-light"
-            {...({} as any)}
-          >
+          <h2 className="text-4xl sm:text-5xl sf-pro-display tracking-tight mb-6 font-light">
             Services I Offer
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="slide-up stagger-3 text-xl text-white/60 max-w-2xl mx-auto"
-            {...({} as any)}
-          >
+          </h2>
+          <p className="text-xl text-white/60 max-w-2xl mx-auto">
             Full-stack development expertise combining software development
             expertise with infrastructure knowledge
-          </motion.p>
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <motion.div
+            <div
               key={feature.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
-              whileHover={{
-                y: -8,
-                transition: { duration: 0.3 },
-              }}
               className="group p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500"
-              {...({} as any)}
             >
               <div className="w-10 h-10 flex bg-neutral-50/5 border-neutral-50/20 border rounded-xl backdrop-blur-md items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <feature.icon className="h-6 w-6 text-white" />
@@ -169,7 +148,7 @@ export default function FeaturesSection() {
               <p className="text-white/60 leading-relaxed group-hover:text-white/80 transition-colors">
                 {feature.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -27,7 +27,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Interactive IDE Section */}
+      {/* All sections load immediately for instant first render */}
       <CodeEditorSection />
 
       {/* Success Stories Section */}

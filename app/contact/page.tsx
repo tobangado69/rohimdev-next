@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 import {
   Mail,
@@ -16,30 +15,6 @@ import {
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 // No data imports; use hardcoded data
-
-const contactInfo = [
-  {
-    icon: Mail,
-    title: "Email",
-    value: "rohimjoy70@gmail.com",
-    description: "Send me an email anytime",
-    href: "mailto:rohimjoy70@gmail.com",
-  },
-  {
-    icon: MapPin,
-    title: "Location",
-    value: "Surabaya, Indonesia",
-    description: "Available for local meetings",
-    href: "#",
-  },
-  {
-    icon: Clock,
-    title: "Availability",
-    value: "Mon - Fri, 9AM - 6PM",
-    description: "Pacific Time Zone",
-    href: "#",
-  },
-];
 
 export default function ContactPage() {
   const contactData = {
@@ -109,7 +84,7 @@ export default function ContactPage() {
     },
   } as const;
 
-  // Map contact info data to component format using data from JSON
+  // Map contact info data to component format
   const contactInfo = contactData.contactInformation.methods.map((method) => ({
     icon:
       method.type === "email"
@@ -130,7 +105,7 @@ export default function ContactPage() {
     href: method.link || "#",
   }));
 
-  // Map professional profiles from JSON
+  // Map professional profiles
   const socialProfiles = contactData.professionalProfiles.profiles.map(
     (profile) => ({
       name: profile.platform,
@@ -143,6 +118,7 @@ export default function ContactPage() {
           : MessageCircle, // Telegram icon
     })
   );
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -254,51 +230,34 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="text-center">
-              <h1 className="text-5xl sm:text-6xl sf-pro-display tracking-tight mb-8 font-light bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-                {contactData.hero.heading}
-              </h1>
-              <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-                {contactData.hero.description}
-              </p>
-            </div>
-          </motion.div>
+          <div className="text-center">
+            <h1 className="text-5xl sm:text-6xl sf-pro-display tracking-tight mb-8 font-light bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
+              {contactData.hero.heading}
+            </h1>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              {contactData.hero.description}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Contact Info */}
       <section className="py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sf-pro-display font-light mb-6">
-                {contactData.contactInformation.heading}
-              </h2>
-              <p className="text-xl text-white/60 max-w-2xl mx-auto">
-                {contactData.contactInformation.subheading}
-              </p>
-            </div>
-          </motion.div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sf-pro-display font-light mb-6">
+              {contactData.contactInformation.heading}
+            </h2>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">
+              {contactData.contactInformation.subheading}
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {contactInfo.map((info, index) => (
-              <motion.div
+            {contactInfo.map((info) => (
+              <div
                 key={info.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
-                whileHover={{ y: -8 }}
-                className="group p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500 text-center"
-                {...({} as any)}
+                className="group p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500 text-center hover:scale-105 cursor-pointer"
               >
                 <a href={info.href} className="block">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -314,7 +273,7 @@ export default function ContactPage() {
                     {info.description}
                   </p>
                 </a>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -323,13 +282,7 @@ export default function ContactPage() {
       {/* Contact Form */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-white/10 to-white/5 glass-effect border border-white/20 rounded-3xl p-8 md:p-12"
-            {...({} as any)}
-          >
+          <div className="bg-gradient-to-br from-white/10 to-white/5 glass-effect border border-white/20 rounded-3xl p-8 md:p-12">
             <div className="text-center mb-12">
               <h2 className="text-3xl sf-pro-display font-light mb-6">
                 {contactData.contactForm.heading}
@@ -419,17 +372,14 @@ export default function ContactPage() {
 
               <div className="flex items-center justify-between">
                 <div className="text-sm text-white/60">* Required fields</div>
-                <motion.button
+                <button
                   type="submit"
                   disabled={formStatus === "sending"}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 ${
+                  className={`px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 cursor-pointer hover:scale-105 ${
                     formStatus === "sending"
                       ? "bg-white/20 text-white/50 cursor-not-allowed"
                       : "bg-white text-black hover:bg-white/90"
                   }`}
-                  {...({} as any)}
                 >
                   {formStatus === "sending" ? (
                     <>
@@ -452,23 +402,17 @@ export default function ContactPage() {
                       Send Message
                     </>
                   )}
-                </motion.button>
+                </button>
               </div>
             </form>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Social Links */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-            {...({} as any)}
-          >
+          <div className="text-center">
             <h2 className="text-3xl sf-pro-display font-light mb-6">
               {contactData.professionalProfiles.heading}
             </h2>
@@ -477,61 +421,45 @@ export default function ContactPage() {
             </p>
 
             <div className="flex justify-center gap-6">
-              {socialProfiles.map((social, index) => (
-                <motion.a
+              {socialProfiles.map((social) => (
+                <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.8 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-16 h-16 bg-gradient-to-br from-white/10 to-white/5 border border-white/20 rounded-2xl flex items-center justify-center hover:border-white/40 transition-all duration-300"
-                  {...({} as any)}
+                  className="w-16 h-16 bg-gradient-to-br from-white/10 to-white/5 border border-white/20 rounded-2xl flex items-center justify-center hover:border-white/40 transition-all duration-300 hover:scale-110 cursor-pointer"
                 >
                   <social.icon className="w-8 h-8 text-white" />
-                </motion.a>
+                </a>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-            {...({} as any)}
-          >
+          <div className="text-center mb-16">
             <h2 className="text-3xl sf-pro-display font-light mb-6">
               {contactData.faq.heading}
             </h2>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
               {contactData.faq.subheading}
             </p>
-          </motion.div>
+          </div>
 
           <div className="space-y-8">
             {contactData.faq.questions.map((faq, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
                 className="p-6 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-2xl"
-                {...({} as any)}
               >
                 <h3 className="text-lg font-semibold sf-pro-display mb-3">
                   {faq.question}
                 </h3>
                 <p className="text-white/60 leading-relaxed">{faq.answer}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
