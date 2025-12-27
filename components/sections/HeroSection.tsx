@@ -66,12 +66,13 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="max-w-full sm:px-6 lg:px-8 relative z-10 mr-auto ml-auto pt-40 pr-4 pl-4">
+    <div className="max-w-full relative z-10">
       {/* UnicornStudio Animation Container - Only render on client */}
       {isClient && (
-        <div className="spline-container absolute top-0 w-full h-1200 -z-10">
+        <div className="spline-container absolute top-0 left-0 right-0 w-full -z-10">
           <div
             data-us-project="5lHoGfe3FLqHAGyFDn3C"
+            className="w-full max-w-7xl mx-auto"
             style={{
               width: "100%",
               height: "750px",
@@ -81,64 +82,71 @@ export default function HeroSection() {
           </div>
         </div>
       )}
-      <div className="max-w-4xl text-left mt-10 mb-10 justify-end ml-8 sm:ml-16 lg:ml-24">
-        {/* Trust Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="slide-up inline-flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-600/10 border border-blue-500/20 rounded-full mb-8"
-          {...({} as any)}
-        >
-          <div className="w-2 h-2 rounded-full animate-pulse bg-cyan-400"></div>
-          <span className="text-sm font-medium">{heroData.badge}</span>
-        </motion.div>
 
-        {/* Main Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="slide-up stagger-1 text-5xl sm:text-6xl lg:text-7xl sf-pro-display tracking-tight mb-8 bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent font-light"
-          {...({} as any)}
-        >
-          {heroData.heading}
-        </motion.h1>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="slide-up stagger-2 max-w-2xl leading-relaxed text-lg font-normal text-white/60 mb-12 ml-0"
-          {...({} as any)}
-        >
-          {heroData.description}
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="slide-up stagger-3 flex flex-col sm:flex-row gap-4 justify-start"
-          {...({} as any)}
-        >
-          {/* Primary Button */}
-          <GlowButton text={heroData.cta[0].text} link={heroData.cta[0].link} />
-
-          {/* Secondary Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hover:bg-white/30 transition-all flex gap-2 font-medium bg-[#000000] border-white/20 border rounded-full pt-4 pr-8 pb-4 pl-8 items-center"
+      {/* Centered Hero Content Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40">
+        <div className="max-w-4xl text-left">
+          {/* Trust Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="slide-up inline-flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-600/10 border border-blue-500/20 rounded-full mb-8"
             {...({} as any)}
-            onClick={() => (window.location.href = heroData.cta[1].link)}
           >
-            <Monitor className="h-5 w-5" />
-            {heroData.cta[1].text}
-          </motion.button>
-        </motion.div>
+            <div className="w-2 h-2 rounded-full animate-pulse bg-cyan-400"></div>
+            <span className="text-sm font-medium">{heroData.badge}</span>
+          </motion.div>
+
+          {/* Main Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="slide-up stagger-1 text-5xl sm:text-6xl lg:text-7xl sf-pro-display tracking-tight mb-8 bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent font-light"
+            {...({} as any)}
+          >
+            {heroData.heading}
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="slide-up stagger-2 max-w-2xl leading-relaxed text-lg font-normal text-white/60 mb-12"
+            {...({} as any)}
+          >
+            {heroData.description}
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="slide-up stagger-3 flex flex-col sm:flex-row gap-4 justify-start"
+            {...({} as any)}
+          >
+            {/* Primary Button */}
+            <GlowButton
+              text={heroData.cta[0].text}
+              link={heroData.cta[0].link}
+            />
+
+            {/* Secondary Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="hover:bg-white/30 transition-all flex gap-2 font-medium bg-[#000000] border-white/20 border rounded-full pt-4 pr-8 pb-4 pl-8 items-center"
+              {...({} as any)}
+              onClick={() => (window.location.href = heroData.cta[1].link)}
+            >
+              <Monitor className="h-5 w-5" />
+              {heroData.cta[1].text}
+            </motion.button>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
