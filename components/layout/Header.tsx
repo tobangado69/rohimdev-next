@@ -61,7 +61,7 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://drive.google.com/file/d/1W_-jCsQIlI2N4vfkjZHQBLRhBWJ1nLp8/view?usp=sharing"
+              href="https://drive.google.com/file/d/17WL7BlaxqEaUcL_qyXa16wKdlaOgStZx/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 text-sm text-white/70 hover:text-white transition-colors cursor-pointer"
@@ -130,7 +130,7 @@ export default function Header() {
                   ))}
                   <div className="px-6 pt-2 pb-4 border-t border-white/10 mt-2 flex flex-col space-y-3">
                     <a
-                      href="https://drive.google.com/file/d/1W_-jCsQIlI2N4vfkjZHQBLRhBWJ1nLp8/view?usp=sharing"
+                      href="https://drive.google.com/file/d/17WL7BlaxqEaUcL_qyXa16wKdlaOgStZx/view?usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-4 py-3 text-base text-white/90 hover:text-white transition-colors text-left active:bg-white/5 rounded-lg cursor-pointer"
