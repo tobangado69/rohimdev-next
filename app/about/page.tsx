@@ -12,14 +12,14 @@ export default function AboutPage() {
     hero: {
       heading: "Full-Stack Developer",
       introduction:
-        "Hi! I'm Abdul Rohim, a Full Stack Web Developer with a strong background in telecommunications infrastructure and modern web development. I build scalable, high-performance applications and robust backend architectures.",
+        "Hi! I'm Abdul Rohim, a Full Stack Web Developer building scalable web applications and APIs. From telecommunications infrastructure to fullstack development—I craft solutions that bridge systems and deliver results.",
     },
     aboutMe: {
       heading: "About Me",
       paragraphs: [
-        "I'm a full-stack JavaScript developer with a unique journey that spans from hands-on telecommunications infrastructure to cutting-edge software development. My career began in the trenches of network installation and troubleshooting at Telkom Indonesia, where I learned the fundamentals of how digital systems actually work in the real world.",
-        "After 3+ years of optimizing network performance and reducing connectivity issues by 25%, I realized I wanted to build the applications that run on these networks. This led me to Hacktiv8's intensive bootcamp, where I immersed myself in modern development practices and emerged with the skills to create both web and mobile applications.",
-        "Today, I combine this dual expertise as Staff Infrastructure at Varnion Technology, where I've achieved a 40% reduction in connectivity issues while also developing internal tools and applications. This unique perspective allows me to build software that's not just user-friendly, but also technically robust, scalable, and optimized for real-world network conditions.",
+        "I'm a Full Stack Developer currently working as a Freelance Developer (Rohimdev.com) while also serving as a Fullstack Developer at Varnion Technology. I specialize in building scalable web applications with Node.js, Express, Hono, Golang (Gin), PostgreSQL, and React. I've successfully delivered 3-5 concurrent fullstack projects, leveraging AI-assisted development tools to improve velocity and code quality.",
+        "At Varnion Technology, I transitioned from Staff Infrastructure (Jan-Aug 2025) to Fullstack Developer (Sep 2025-Present). During this time, I built scalable RESTful APIs and automated reporting pipelines, focusing on clean architecture, security, and performance. I collaborate closely with infrastructure and NOC teams to bridge system requirements between application and network layers.",
+        "My journey into software development started after 3+ years in telecommunications at PT Telkom Indonesia (IndiHome). This foundational experience taught me systematic problem-solving, reliability, and customer service excellence—skills that continue to inform how I build robust, user-friendly applications today.",
       ],
     },
   } as const;
@@ -30,25 +30,26 @@ export default function AboutPage() {
         title: "Frontend",
         skills: [
           { name: "React & Next.js", level: 90 },
-          { name: "JavaScript/TypeScript", level: 85 },
+          { name: "TypeScript", level: 85 },
           { name: "Tailwind CSS", level: 95 },
         ],
       },
       {
-        title: "Backend & Database",
+        title: "Backend",
         skills: [
-          { name: "Golang & Node.js", level: 85 },
-          { name: "PostgreSQL & MongoDB", level: 75 },
-          { name: "Nest.js & Express", level: 80 },
-          { name: "GraphQL & REST APIs", level: 85 },
+          { name: "Node.js & Express", level: 85 },
+          { name: "Golang (Gin)", level: 80 },
+          { name: "RESTful APIs", level: 90 },
+          { name: "Clean Architecture", level: 85 },
         ],
       },
       {
-        title: "Mobile & Infrastructure",
+        title: "Database & Tools",
         skills: [
-          { name: "React Native", level: 80 },
-          { name: "Network Configuration", level: 90 },
-          { name: "Mikrotik & Ubiquiti", level: 85 },
+          { name: "PostgreSQL", level: 85 },
+          { name: "Prisma ORM", level: 80 },
+          { name: "Git & Version Control", level: 90 },
+          { name: "Docker", level: 75 },
         ],
       },
     ],
@@ -58,27 +59,35 @@ export default function AboutPage() {
     timeline: [
       {
         period: "Jan 2025 - Present",
+        title: "Freelance Fullstack Developer",
+        company: "Rohimdev.com",
+        description:
+          "Delivering 3-5 concurrent fullstack projects for client-specific requirements. Building backend services with Node.js, Express, Hono, and Golang (Gin), designing PostgreSQL databases with Prisma ORM, and integrating frontend applications with backend services. Using AI-assisted tools to improve development velocity.",
+        technologies: ["Node.js", "Express", "Hono", "Golang", "PostgreSQL", "Prisma", "React"],
+      },
+      {
+        period: "Sep 2025 - Present",
+        title: "Fullstack Developer",
+        company: "Varnion Technology Semesta",
+        description:
+          "Developing internal web applications using React, Node.js, and PostgreSQL. Building scalable RESTful APIs with clean architecture, security, and performance focus. Collaborating with infrastructure and NOC teams to bridge system requirements. Automating operational processes and reporting pipelines.",
+        technologies: ["React", "Node.js", "PostgreSQL", "RESTful APIs", "Clean Architecture"],
+      },
+      {
+        period: "Jan 2025 - Aug 2025",
         title: "Staff Infrastructure",
         company: "Varnion Technology Semesta",
         description:
-          "Leading network infrastructure projects for hospitality industry clients, where I've successfully reduced connectivity issues by 40% through systematic monitoring and optimization. I also develop internal tools and applications to streamline our operations, combining my infrastructure expertise with modern development practices.",
-        technologies: ["Mikrotik", "Ubiquiti", "Network Design"],
-      },
-      {
-        period: "2024",
-        title: "Full-Stack JavaScript Bootcamp",
-        company: "Hacktiv8",
-        description:
-          "The decision to pursue Hacktiv8's intensive bootcamp was a turning point in my career. After years of working with network infrastructure, I realized I wanted to build the applications that run on these networks. The bootcamp challenged me to think differently about problem-solving and gave me the modern development skills to create both web and mobile applications that users actually love.",
-        technologies: ["React", "Node.js", "Full-Stack"],
+          "Transition period from telecommunications infrastructure to software development. Performed installation, configuration, and maintenance of network devices. Conducted regular monitoring and troubleshooting using Mikrotik and Ubiquiti systems.",
+        technologies: ["Mikrotik", "Ubiquiti", "Network Design", "System Monitoring"],
       },
       {
         period: "Dec 2020 - Aug 2023",
         title: "Provisioning Technician",
         company: "PT Telkom Indonesia (IndiHome)",
         description:
-          "My professional journey began as a technician at Telkom Indonesia, Indonesia's largest telecommunications company. This role taught me the importance of reliability, customer service excellence, and systematic problem-solving. I reduced repeat visits by 25% through quality workmanship and customer education, while mastering advanced tools like OTDR and OPM for fiber optic testing.",
-        technologies: ["Fiber Optic", "OTDR", "Customer Service"],
+          "My foundational experience in telecommunications. Installed and configured fiber optic internet services. Conducted on-site troubleshooting and signal quality testing using OTDR and OPM. Reduced repeat visits by 25% through quality workmanship and customer education.",
+        technologies: ["Fiber Optic", "OTDR", "OPM Testing", "Customer Service"],
       },
     ],
   } as const;
