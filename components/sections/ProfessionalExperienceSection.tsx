@@ -8,32 +8,75 @@ import Link from "next/link";
 export default function ProfessionalExperienceSection() {
   const workExperience = [
     {
-      id: "varnion-current",
-      title: "Staff Infrastructure",
+      id: "freelance-current",
+      title: "Freelance Fullstack Developer",
+      company: "Rohimdev.com",
+      description:
+        "Delivering 3-5 concurrent fullstack projects for client-specific requirements. Building scalable web applications with Node.js, Express, Hono, Golang, and PostgreSQL with Prisma ORM.",
+      achievements: [
+        { metric: "3-5", description: "concurrent projects" },
+      ],
+      image:
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
+      status: "current",
+      technologies: [
+        "Node.js",
+        "Express",
+        "Hono",
+        "Golang",
+        "PostgreSQL",
+        "Prisma",
+        "React",
+      ],
+      period: { display: "Jan 2025 - Present" },
+    },
+    {
+      id: "varnion-dev-current",
+      title: "Fullstack Developer",
       company: "Varnion Technology Semesta",
       description:
-        "PT Varnion Technology Semesta, a leading technology service provider in Indonesia specializing in internet solutions for the hospitality industry. As an Infrastructure Staff, I contributed to the stability and scalability of client and internal systems through comprehensive network management and optimization initiatives.",
+        "Developing internal web applications using React, Node.js, and PostgreSQL. Building scalable RESTful APIs with clean architecture, security, and performance focus.",
       achievements: [
-        { metric: "40%", description: "reduction in connectivity issues" },
+        { metric: "Efficiency", description: "improved through automation" },
       ],
       image:
         "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
       status: "current",
       technologies: [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "RESTful APIs",
+        "Clean Architecture",
+      ],
+      period: { display: "Sep 2025 - Present" },
+    },
+    {
+      id: "varnion-infra-previous",
+      title: "Staff Infrastructure",
+      company: "Varnion Technology Semesta",
+      description:
+        "Transition period from telecommunications infrastructure to software development. Maintained network operations while building development skills.",
+      achievements: [
+        { metric: "Career", description: "transition to development" },
+      ],
+      image:
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop",
+      status: "previous",
+      technologies: [
         "Mikrotik",
         "Ubiquiti",
         "Network Design",
-        "Infrastructure Planning",
         "System Monitoring",
       ],
-      period: { display: "Jan 2025 - Present" },
+      period: { display: "Jan 2025 - Aug 2025" },
     },
     {
       id: "telkom-previous",
       title: "Provisioning Technician",
       company: "PT Telkom Indonesia (IndiHome)",
       description:
-        "PT Telkom Indonesia (IndiHome), the largest telecommunications company in Indonesia, where I served as a Provisioning Technician responsible for ensuring successful internet service activation and customer satisfaction through comprehensive installation, troubleshooting, and customer support services.",
+        "Foundational experience in telecommunications infrastructure. Built strong problem-solving skills and customer service excellence at Indonesia's largest telecom company.",
       achievements: [
         { metric: "25%", description: "reduction in repeat visits" },
       ],
@@ -81,8 +124,7 @@ export default function ProfessionalExperienceSection() {
             Professional Experience
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            4+ years of excellence spanning telecommunications and software
-            development
+            4+ years building scalable web applications and APIs
           </p>
         </div>
 

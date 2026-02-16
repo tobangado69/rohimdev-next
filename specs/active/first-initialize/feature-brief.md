@@ -115,7 +115,7 @@
 - **LinkedIn**: https://linkedin.com/in/tobangado
 - **GitHub**: https://github.com/tobangado69
 - **Upwork**: https://www.upwork.com/freelancers/~01ed64880e8526c9c7
-- **Resume**: https://drive.google.com/file/d/17WL7BlaxqEaUcL_qyXa16wKdlaOgStZx/view?usp=sharing
+- **Resume**: https://drive.google.com/file/d/17LLuWo5ijpn32DZZ6Nvk_JsAFOiwiptm/view?usp=sharing?usp=sharing
 
 ### Work Experience Data
 1. **Staff Infrastructure** - Varnion Technology Semesta (Jan 2025 - Present)

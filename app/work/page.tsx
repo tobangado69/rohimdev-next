@@ -7,32 +7,32 @@ import Footer from "@/components/layout/Footer";
 
 const technicalAchievements = [
   {
-    title: "40% Connectivity Improvement",
-    organization: "Varnion Technology",
-    period: "2025",
+    title: "3-5 Concurrent Projects Delivered",
+    organization: "Rohimdev.com",
+    period: "2025 - Present",
     description:
-      "Reduced connectivity issues by 40% through systematic monitoring and optimization",
-    technologies: ["Mikrotik", "Ubiquiti", "Network Design"],
+      "Successfully delivered 3-5 concurrent fullstack projects for client-specific requirements, managing multiple priorities while maintaining code quality and delivery timelines.",
+    technologies: ["Node.js", "Express", "Hono", "Golang", "PostgreSQL", "Prisma", "React"],
     impact:
-      "Significant improvement in network reliability and customer satisfaction",
+      "Improved development velocity through AI-assisted tools and clean architecture patterns",
   },
   {
-    title: "25% Service Efficiency Gain",
-    organization: "Telkom Indonesia",
-    period: "2020-2023",
+    title: "Internal Efficiency Improvement",
+    organization: "Varnion Technology",
+    period: "2025 - Present",
     description:
-      "Reduced repeat visits by 25% through quality workmanship and customer education",
-    technologies: ["Fiber Optic", "OTDR", "Customer Service"],
-    impact: "Enhanced service quality and reduced operational costs",
+      "Built scalable RESTful APIs and automated reporting pipelines, reducing manual workloads and improving internal operational efficiency.",
+    technologies: ["React", "Node.js", "PostgreSQL", "RESTful APIs", "Clean Architecture"],
+    impact: "Streamlined operations and reduced manual processing by automating workflows",
   },
   {
-    title: "Bootcamp Completion",
-    organization: "Hacktiv8",
-    period: "2024",
+    title: "Career Transition Success",
+    organization: "Telkom Indonesia → Software Development",
+    period: "2020 - 2025",
     description:
-      "Successfully graduated from intensive full-stack development program",
-    technologies: ["React", "Node.js", "Full-Stack Development"],
-    impact: "Transitioned from telecommunications to software development",
+      "Successfully transitioned from telecommunications infrastructure to fullstack software development, building a diverse skill set across both domains.",
+    technologies: ["Problem Solving", "Continuous Learning", "System Design", "Full-Stack Development"],
+    impact: "Achieved measurable growth in software development with tangible project outcomes",
   },
 ];
 
@@ -41,71 +41,51 @@ export default function WorkPage() {
     hero: {
       heading: "Professional Work Experience",
       description:
-        "4+ years across telecommunications infrastructure and modern software development. Measurable results from network optimization to full‑stack delivery.",
+        "4+ years building scalable web applications and APIs. From telecommunications infrastructure to fullstack development—crafting solutions that bridge systems and deliver results.",
     },
     skillsSummary: {
-      heading: "Professional Skills Summary",
+      heading: "Technical Skills",
       subheading:
-        "A comprehensive skill set developed through diverse professional experiences",
+        "A comprehensive skill set built through real-world fullstack development experience",
       categories: [
         {
-          title: "Software Development",
+          title: "Frontend Development",
           skills: [
-            "Full-Stack JavaScript Development",
-            "React & Next.js Applications",
-            "Golang & Node.js Backend Development",
-            "Database Design & Management",
-            "API Development & Integration",
+            "React & Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "UI/UX Implementation",
+            "Responsive Design",
           ],
         },
         {
-          title: "Infrastructure & Networking",
+          title: "Backend Development",
           skills: [
-            "Network Design & Implementation",
-            "Mikrotik & Ubiquiti Systems",
-            "Fiber Optic Installation",
-            "System Monitoring & Optimization",
-            "Structured Cabling",
+            "Node.js & Express",
+            "Golang (Gin)",
+            "RESTful API Design",
+            "Microservices",
+            "Clean Architecture",
           ],
         },
         {
-          title: "Technical Troubleshooting",
+          title: "Database & APIs",
           skills: [
-            "OTDR & OPM Testing",
-            "Signal Quality Analysis",
-            "Network Performance Optimization",
-            "Issue Root Cause Analysis",
-            "Preventive Maintenance",
+            "PostgreSQL",
+            "Prisma ORM",
+            "API Integration",
+            "Database Design",
+            "Data Modeling",
           ],
         },
         {
-          title: "Project Management",
+          title: "DevOps & Tools",
           skills: [
-            "Infrastructure Project Planning",
-            "Site Surveys & Assessment",
-            "Timeline Management",
-            "Quality Assurance",
-            "Documentation & Reporting",
-          ],
-        },
-        {
-          title: "Customer Relations",
-          skills: [
-            "Customer Service Excellence",
-            "Technical Support & Training",
-            "Issue Resolution",
-            "Communication Skills",
-            "Client Relationship Management",
-          ],
-        },
-        {
-          title: "Team Collaboration",
-          skills: [
-            "Cross-functional Teamwork",
-            "NOC Coordination",
-            "Knowledge Sharing",
-            "Support Team Integration",
-            "Collaborative Problem Solving",
+            "Git & Version Control",
+            "Docker",
+            "CI/CD Pipelines",
+            "Cloud Deployment",
+            "Performance Optimization",
           ],
         },
       ],
@@ -116,37 +96,100 @@ export default function WorkPage() {
     positions: [
       {
         status: "current",
-        title: "Staff Infrastructure",
-        company: "Varnion Technology Semesta",
+        title: "Freelance Fullstack Developer",
+        company: "Rohimdev.com",
         period: "Jan 2025 - Present",
         companyDescription:
-          "PT Varnion Technology Semesta, a leading technology service provider in Indonesia specializing in internet solutions for the hospitality industry. As an Infrastructure Staff, I contributed to the stability and scalability of client and internal systems through the following initiatives:",
+          "Delivering 3-5 concurrent fullstack projects for client-specific requirements. Building scalable web applications with modern technologies and clean architecture patterns.",
         responsibilities: [
-          "Performed installation, configuration, and maintenance of network devices including routers, switches, and access points across various hotel client sites, ensuring consistent internet performance and uptime.",
-          "Conducted regular monitoring and troubleshooting of network infrastructure using tools like Mikrotik and Ubiquiti, which resulted in a 40% reduction in reported connectivity issues.",
-          "Implemented structured cabling and server rack setups in hotel environments, contributing to improved system organization and long-term maintainability.",
-          "Collaborated with cross-functional teams including NOC (Network Operation Center) and support teams to ensure timely resolution of escalated technical issues.",
-          "Assisted in the planning and deployment of new infrastructure projects, including site surveys and bandwidth estimation, helping the team meet project timelines and client expectations.",
+          "Built backend services using Node.js, Express, Hono, and Golang (Gin)",
+          "Designed and managed PostgreSQL databases with Prisma ORM",
+          "Integrated frontend applications with backend services for consistent data flow",
+          "Improved development velocity using AI-assisted tools (Cursor, Claude Code, TRAE)",
         ],
         achievements: [
           {
-            metric: "40% Reduction",
-            description:
-              "Reduced connectivity issues through systematic monitoring and optimization",
+            metric: "3-5 Projects",
+            description: "Concurrent fullstack projects delivered",
           },
           {
+            metric: "Development Velocity",
+            description: "Improved through AI-assisted development tools",
+          },
+        ],
+        technologies: [
+          "Node.js",
+          "Express",
+          "Hono",
+          "Golang",
+          "Gin",
+          "PostgreSQL",
+          "Prisma",
+          "React",
+        ],
+        type: "Freelance",
+      },
+      {
+        status: "current",
+        title: "Fullstack Developer",
+        company: "Varnion Technology Semesta",
+        period: "Sep 2025 - Present",
+        companyDescription:
+          "Developing and maintaining internal web applications using React, Node.js, and PostgreSQL to support operational and monitoring workflows.",
+        responsibilities: [
+          "Built scalable RESTful APIs and backend services focusing on clean architecture, security, and performance",
+          "Developed and maintained internal web applications using React, Node.js, and PostgreSQL",
+          "Collaborated closely with infrastructure and NOC teams to bridge system requirements",
+          "Automated operational processes and reporting pipelines",
+        ],
+        achievements: [
+          {
+            metric: "Internal Efficiency",
+            description: "Improved through automated reporting pipelines",
+          },
+          {
+            metric: "Reduced Workloads",
+            description: "Automated operational processes",
+          },
+        ],
+        technologies: [
+          "React",
+          "Node.js",
+          "PostgreSQL",
+          "RESTful APIs",
+          "Clean Architecture",
+        ],
+        type: "Full-time",
+      },
+      {
+        status: "previous",
+        title: "Staff Infrastructure",
+        company: "Varnion Technology Semesta",
+        period: "Jan 2025 - Aug 2025",
+        companyDescription:
+          "Transition period from telecommunications infrastructure to software development. Continued network maintenance while building development skills.",
+        responsibilities: [
+          "Performed installation, configuration, and maintenance of network devices",
+          "Conducted regular monitoring and troubleshooting of network infrastructure",
+          "Collaborated with cross-functional teams including NOC",
+        ],
+        achievements: [
+          {
             metric: "Network Excellence",
-            description:
-              "Consistent internet performance and uptime across hotel client sites",
+            description: "Maintained consistent internet performance and uptime",
+          },
+          {
+            metric: "Career Transition",
+            description: "Successfully transitioned to fullstack development",
           },
         ],
         technologies: [
           "Mikrotik",
           "Ubiquiti",
           "Network Design",
-          "Infrastructure Planning",
           "System Monitoring",
         ],
+        type: "Full-time",
       },
       {
         status: "previous",
@@ -154,16 +197,17 @@ export default function WorkPage() {
         company: "PT Telkom Indonesia (IndiHome)",
         period: "Dec 2020 - Aug 2023",
         companyDescription:
-          "PT Telkom Indonesia (IndiHome), the largest telecommunications company in Indonesia, where I served as a Provisioning Technician responsible for ensuring successful internet service activation and customer satisfaction:",
+          "Foundational experience in telecommunications infrastructure. Built strong problem-solving skills and customer service excellence.",
         responsibilities: [
-          "Installed and configured IndiHome internet services—including fiber optic connections, modems, and set-top boxes—for residential and business customers across assigned coverage areas.",
-          "Conducted on-site troubleshooting and signal quality testing using tools such as OTDR and OPM, ensuring proper network functionality and reducing repeat visits by 25%.",
-          "Coordinated with the NOC and customer service teams to resolve provisioning issues promptly, contributing to faster service activation times and improved customer experience.",
-          "Educated customers on how to use and maintain their internet equipment, fostering long-term satisfaction and reducing post-installation complaints.",
-          "Maintained detailed reports of daily installations, customer feedback, and technical findings, helping improve operational transparency and service delivery efficiency.",
+          "Installed and configured IndiHome internet services including fiber optic connections",
+          "Conducted on-site troubleshooting and signal quality testing using OTDR and OPM",
+          "Coordinated with NOC and customer service teams for prompt issue resolution",
         ],
         achievements: [
-          { metric: "25% Reduction", description: "Fewer repeat visits" },
+          {
+            metric: "25% Reduction",
+            description: "Fewer repeat visits through quality service",
+          },
           {
             metric: "Service Excellence",
             description: "Improved activation times",
@@ -175,6 +219,7 @@ export default function WorkPage() {
           "OPM Testing",
           "Customer Service",
         ],
+        type: "Full-time",
       },
     ],
   } as const;
@@ -184,16 +229,16 @@ export default function WorkPage() {
     id: `work-${index}`,
     title: position.title,
     company: position.company,
-    location: "Surabaya, Indonesia", // Default location
-    type: "Full-time", // Default type
+    location: "Surabaya, Indonesia",
+    type: position.type || "Full-time",
     duration: position.period,
     description: position.companyDescription,
-    responsibilities: (position as any).responsibilities || [],
+    responsibilities: position.responsibilities || [],
     achievements: position.achievements.map(
       (achievement) => achievement.description
     ),
     technologies: position.technologies,
-    logo: position.status === "current" ? "🏢" : "🏭",
+    logo: position.status === "current" ? "💻" : "📡",
   }));
   return (
     <main className="min-h-screen">
