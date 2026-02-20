@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work - Start Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Geist', 'sans-serif'],
+        },
+        colors: {
+          neutral: {
+            50: '#fafafa',
+            100: '#f5f5f5',
+            200: '#e5e5e5',
+            300: '#d4d4d4',
+            400: '#a3a3a3',
+            500: '#737373',
+            600: '#525252',
+            700: '#404040',
+            800: '#262626',
+            900: '#171717',
+          }
+        },
+        animation: {
+          'marquee': 'marquee 40s linear infinite',
+          'marquee-slow': 'marquee 80s linear infinite',
+          'clip-in': 'clipIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) both',
+          'fade-up': 'fadeUp 0.8s ease-out forwards',
+        },
+        keyframes: {
+          marquee: {
+            '0%': { transform: 'translateX(0%)' },
+            '100%': { transform: 'translateX(-50%)' },
+          },
+          clipIn: {
+            '0%': { opacity: '0', clipPath: 'inset(0 0 100% 0)' },
+            '100%': { opacity: '1', clipPath: 'inset(0 0 0 0)' },
+          },
+          fadeUp: {
+            '0%': { opacity: '0', transform: 'translateY(20px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          }
+        }
+      }
+    }
+  }
+  </script>
+  <style>
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .spotlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.04), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+  .grid-lines {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+  <style>
+  .font-geist { font-family: 'Geist', sans-serif !important; }
+  </style>
+</head>
+<body class="min-h-screen overflow-x-hidden selection:bg-neutral-300 selection:text-neutral-900 text-neutral-900 bg-neutral-100 relative font-sans">
+  <main class="flex-1 lg:ml-64 lg:p-16 flex flex-col pt-6 pr-6 pb-6 pl-6 gap-x-12 gap-y-12">
+
+  <!-- Header & Toggle -->
+  <header class="flex flex-col md:flex-row gap-6 animate-fade-up gap-x-6 gap-y-6 items-end justify-between" style="animation-delay: 0.4s">
+      <div class="space-y-2 gap-x-6 gap-y-6">
+          <h1 class="text-5xl md:text-6xl font-medium tracking-tighter text-neutral-900">Selected Work</h1>
+          <p class="text-neutral-500 text-lg">Exploring boundaries in digital product design.</p>
+      </div>
+
+      <!-- Toggle Button -->
+      <div class="flex gap-1 bg-neutral-200/50 rounded-lg pt-1 pr-1 pb-1 pl-1 gap-x-6 gap-y-6 items-center">
+          <button id="btn-list" onclick="setView('list')" class="px-4 py-1.5 rounded-md bg-white shadow-sm text-sm font-medium text-neutral-900 transition-all">
+                      List
+                  </button>
+          <button id="btn-grid" onclick="setView('grid')" class="px-4 py-1.5 rounded-md text-neutral-500 text-sm font-medium hover:text-neutral-900 transition-all hover:bg-neutral-200/50">
+                      Grid
+                  </button>
+      </div>
+  </header>
+
+  <!-- Cases Container -->
+  <!-- Default is List View: flex-col gap-24 -->
+  <!-- Grid View will be: grid grid-cols-1 md:grid-cols-2 gap-12 -->
+  <section class="sm:py-24 lg:pl-0 lg:pr-0 lg:pt-0 lg:pb-0 pt-24 pr-0 pb-24 pl-0">
+  <div class="max-w-4xl [animation:fadeSlideIn_0.8s_ease-out_0s_both] animate-on-scroll">
+
+      <div class="flex flex-col [animation:fadeSlideIn_0.8s_ease-out_0.6s_both] animate-on-scroll sm:flex-row sm:gap-4 mb-8 gap-x-3 gap-y-3 items-start">
+          <div class="button-wrap relative z-10 rounded-full bg-transparent pointer-events-none">
+              <button class="glass-button all-unset cursor-pointer relative rounded-full pointer-events-auto z-30 outline-none focus:outline-none">
+        <span class="button-text relative block select-none font-medium text-base text-neutral-800 tracking-tight px-6 py-3.5 font-geist" style="font-size: 17px;">
+          View my work
+        </span>
+        <div class="button-shine"></div>
+      </button>
+              <style>
+                  @property --angle-1 {
+                      syntax: "<angle>";
+                      inherits: false;
+                      initial-value: -75deg
+                  }
+
+                  @property --angle-2 {
+                      syntax: "<angle>";
+                      inherits: false;
+                      initial-value: -45deg
+                  }
+
+                  .button-wrap {
+                      transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1)
+                  }
+
+                  .glass-button {
+                      background: linear-gradient(-75deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+                      box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05), inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5), 0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.2), 0 0 0.1em 0.25em rgba(255, 255, 255, 0.2) inset, 0 0 0 0 rgba(255, 255, 255, 1);
+                      backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+                      transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1)
+                  }
+
+                  .glass-button:hover {
+                      transform: scale(0.975);
+                      backdrop-filter: blur(0.01em);
+                      box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05), inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5), 0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25), 0 0 0.05em 0.1em rgba(255, 255, 255, 0.5) inset, 0 0 0 0 rgba(255, 255, 255, 1)
+                  }
+
+                  .glass-button:active {
+                      transform: scale(0.95) rotate3d(1, 0, 0, 25deg);
+                      box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05), inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5), 0 0.125em 0.125em -0.125em rgba(0, 0, 0, 0.2), 0 0 0.1em 0.25em rgba(255, 255, 255, 0.2) inset, 0 0.225em 0.05em 0 rgba(0, 0, 0, 0.05), 0 0.25em 0 0 rgba(255, 255, 255, 0.75), inset 0 0.25em 0.05em 0 rgba(0, 0, 0, 0.15)
+                  }
+
+                  .button-text {
+                      text-shadow: 0em 0.25em 0.05em rgba(0, 0, 0, 0.1);
+                      transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1)
+                  }
+
+                  .glass-button:hover .button-text {
+                      text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12)
+                  }
+
+                  .glass-button:active .button-text {
+                      text-shadow: 0.025em 0.25em 0.05em rgba(0, 0, 0, 0.12)
+                  }
+
+                  .glass-button::after {
+                      content: '';
+                      position: absolute;
+                      inset: 0;
+                      border-radius: 999px;
+                      width: calc(100% + 2px);
+                      height: calc(100% + 2px);
+                      top: -1px;
+                      left: -1px;
+                      padding: 1px;
+                      box-sizing: border-box;
+                      background: conic-gradient(from var(--angle-1) at 50% 50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5% 40%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 60% 95%, rgba(0, 0, 0, 0.5)), linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+                      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+                      mask-composite: exclude;
+                      transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1), --angle-1 500ms ease;
+                      box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.5)
+                  }
+
+                  .glass-button:hover::after {
+                      --angle-1: -125deg
+                  }
+
+                  .glass-button:active::after {
+                      --angle-1: -75deg
+                  }
+
+                  .button-shine {
+                      position: absolute;
+                      inset: 0;
+                      border-radius: 999px;
+                      width: calc(100% - 1px);
+                      height: calc(100% - 1px);
+                      top: 0.5px;
+                      left: 0.5px;
+                      background: linear-gradient(var(--angle-2), rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 40% 50%, rgba(255, 255, 255, 0) 55%);
+                      mix-blend-mode: screen;
+                      pointer-events: none;
+                      background-size: 200% 200%;
+                      background-position: 0% 50%;
+                      background-repeat: no-repeat;
+                      transition: background-position 500ms cubic-bezier(0.25, 1, 0.5, 1), --angle-2 500ms cubic-bezier(0.25, 1, 0.5, 1)
+                  }
+
+                  .glass-button:hover .button-shine {
+                      background-position: 25% 50%
+                  }
+
+                  .glass-button:active .button-shine {
+                      background-position: 50% 15%;
+                      --angle-2: -15deg
+                  }
+              </style>
+          </div>
+          <a href="mailto:hello@jinsung.design" class="inline-flex items-center justify-center hover:bg-neutral-100 text-base font-medium text-neutral-900 bg-white border-neutral-200 border rounded-full pt-3 pr-6 pb-3 pl-6 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] font-geist">
+              Contact me
+          </a>
+      </div><p class="text-lg sm:text-xl text-neutral-600 mb-8 max-w-2xl leading-relaxed font-geist [animation:fadeSlideIn_0.8s_ease-out_0.2s_both] animate-on-scroll">
+          UI/UX Designer based in San Francisco. I craft intuitive interfaces
+          and design systems that help teams build better products—from
+          zero-to-one to scale.
+      </p>
+      <div class="flex flex-wrap gap-2.5 mb-8 [animation:fadeSlideIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
+          <span class="inline-flex items-center gap-2 text-xs text-neutral-700 bg-neutral-100 border-neutral-200 border rounded-full pt-1.5 pr-3 pb-1.5 pl-3 font-geist shadow-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[14px] h-[14px]">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" class=""></path>
+        <polyline points="7.5 4.21 12 6.81 16.5 4.21" class=""></polyline>
+        <polyline points="7.5 19.79 7.5 14.6 3 12" class=""></polyline>
+        <polyline points="21 12 16.5 14.6 16.5 19.79" class=""></polyline>
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" class=""></polyline>
+        <line x1="12" y1="22.08" x2="12" y2="12" class=""></line>
+      </svg>
+      UI/UX Design
+    </span>
+          <span class="inline-flex items-center gap-2 text-xs text-neutral-700 bg-neutral-100 border border-neutral-200 rounded-full pt-1.5 pr-3 pb-1.5 pl-3 font-geist shadow-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[14px] h-[14px]">
+        <rect width="7" height="9" x="3" y="3" rx="1" class=""></rect>
+        <rect width="7" height="5" x="14" y="3" rx="1" class=""></rect>
+        <rect width="7" height="9" x="14" y="12" rx="1" class=""></rect>
+        <rect width="7" height="5" x="3" y="16" rx="1" class=""></rect>
+      </svg>
+      Design Systems
+    </span>
+          <span class="inline-flex items-center gap-2 text-xs text-neutral-700 bg-neutral-100 border border-neutral-200 rounded-full pt-1.5 pr-3 pb-1.5 pl-3 font-geist shadow-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[14px] h-[14px]">
+        <rect width="18" height="18" x="3" y="3" rx="2" class=""></rect>
+        <path d="M9 3v18" class=""></path>
+        <path d="M9 15h12" class=""></path>
+      </svg>
+      Prototyping
+    </span>
+          <span class="inline-flex items-center gap-2 text-xs text-neutral-700 bg-neutral-100 border border-neutral-200 rounded-full pt-1.5 pr-3 pb-1.5 pl-3 font-geist shadow-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[14px] h-[14px]">
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" class=""></path>
+        <circle cx="12" cy="12" r="3" class=""></circle>
+      </svg>
+      User Research
+    </span>
+      </div>
+      
+  </div>
+  
+  <style>
+      .button {
+          cursor: pointer;
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          transition: all 0.25s ease;
+          background: radial-gradient(65.28% 65.28% at 50% 100%, rgba(255, 165, 0, 0.8) 0%, rgba(255, 165, 0, 0) 100%), linear-gradient(0deg, #f97316, #f97316);
+          border-radius: 9999px;
+          border: none;
+          outline: none;
+          padding: 12px 24px;
+          min-height: 48px;
+          min-width: 102px
+      }
+
+      .button::before,
+      .button::after {
+          content: "";
+          position: absolute;
+          transition: all 0.5s ease-in-out;
+          z-index: 0
+      }
+
+      .button::before {
+          inset: 1px;
+          background: linear-gradient(177.95deg, rgba(255, 255, 255, 0.19) 0%, rgba(255, 255, 255, 0) 100%);
+          border-radius: 9999px
+      }
+
+      .button::after {
+          inset: 2px;
+          background: radial-gradient(65.28% 65.28% at 50% 100%, rgba(255, 165, 0, 0.8) 0%, rgba(255, 165, 0, 0) 100%), linear-gradient(0deg, #f97316, #f97316);
+          border-radius: 9999px
+      }
+
+      .button:active {
+          transform: scale(0.95)
+      }
+
+      .points_wrapper {
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          position: absolute;
+          z-index: 1
+      }
+
+      .points_wrapper .point {
+          bottom: -10px;
+          position: absolute;
+          animation: floating-points infinite ease-in-out;
+          pointer-events: none;
+          width: 2px;
+          height: 2px;
+          background-color: #fff;
+          border-radius: 9999px
+      }
+
+      @keyframes floating-points {
+          0% {
+              transform: translateY(0)
+          }
+
+          85% {
+              opacity: 0
+          }
+
+          100% {
+              transform: translateY(-55px);
+              opacity: 0
+          }
+      }
+
+      .points_wrapper .point:nth-child(1) {
+          left: 10%;
+          opacity: 1;
+          animation-duration: 2.35s;
+          animation-delay: 0.2s
+      }
+
+      .points_wrapper .point:nth-child(2) {
+          left: 30%;
+          opacity: 0.7;
+          animation-duration: 2.5s;
+          animation-delay: 0.5s
+      }
+
+      .points_wrapper .point:nth-child(3) {
+          left: 25%;
+          opacity: 0.8;
+          animation-duration: 2.2s;
+          animation-delay: 0.1s
+      }
+
+      .points_wrapper .point:nth-child(4) {
+          left: 44%;
+          opacity: 0.6;
+          animation-duration: 2.05s
+      }
+
+      .points_wrapper .point:nth-child(5) {
+          left: 50%;
+          opacity: 1;
+          animation-duration: 1.9s
+      }
+
+      .points_wrapper .point:nth-child(6) {
+          left: 75%;
+          opacity: 0.5;
+          animation-duration: 1.5s;
+          animation-delay: 1.5s
+      }
+
+      .points_wrapper .point:nth-child(7) {
+          left: 88%;
+          opacity: 0.9;
+          animation-duration: 2.2s;
+          animation-delay: 0.2s
+      }
+
+      .points_wrapper .point:nth-child(8) {
+          left: 58%;
+          opacity: 0.8;
+          animation-duration: 2.25s;
+          animation-delay: 0.2s
+      }
+
+      .points_wrapper .point:nth-child(9) {
+          left: 98%;
+          opacity: 0.6;
+          animation-duration: 2.6s;
+          animation-delay: 0.1s
+      }
+
+      .points_wrapper .point:nth-child(10) {
+          left: 65%;
+          opacity: 1;
+          animation-duration: 2.5s;
+          animation-delay: 0.2s
+      }
+
+      .inner {
+          z-index: 2;
+          gap: 6px;
+          position: relative;
+          width: 100%;
+          color: white;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1.5;
+          transition: color 0.2s ease-in-out
+      }
+
+      .inner svg.icon {
+          width: 18px;
+          height: 18px;
+          transition: transform 0.3s ease;
+          stroke: white;
+          fill: none
+      }
+
+      .button:hover svg.icon {
+          transform: translateX(2px)
+      }
+
+      .button:hover svg.icon path {
+          animation: dash 0.8s linear forwards
+      }
+
+      @keyframes dash {
+          0% {
+              stroke-dasharray: 0, 20;
+              stroke-dashoffset: 0
+          }
+
+          50% {
+              stroke-dasharray: 10, 10;
+              stroke-dashoffset: -5
+          }
+
+          100% {
+              stroke-dasharray: 20, 0;
+              stroke-dashoffset: -10
+          }
+      }
+  </style>
+</section>
+  <div id="cases-container" class="flex flex-col gap-24 animate-fade-up" style="animation-delay: 0.5s;">
+
+      <!-- Case Study 1 -->
+      <article class="group" style="">
+          <!-- Image Card Frame -->
+          <div class="md:p-4 hover:shadow-md transition-all duration-500 bg-white w-full border-neutral-200 border rounded-2xl pt-3 pr-3 pb-3 pl-3 shadow-sm">
+              <div class="aspect-[16/10] overflow-hidden group-hover:cursor-pointer bg-[#1a1c18] w-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1c053fe9-7127-4df7-ae87-36ae206fe067_1600w.jpg)] bg-cover bg-center rounded-lg relative">
+<!-- Overlay Content Mockup (mimicking the screenshot) -->
+<div class="bg-black/50 md:p-12 flex flex-col z-10 rounded-xl pt-8 pr-8 pb-8 pl-8 absolute top-0 right-0 bottom-0 left-0 justify-between" style="">
+  <div class="flex gap-2 justify-end">
+    <div class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider text-white border border-white/10">
+      Explore Features</div>
+    <div class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider text-white border border-white/10">
+      Our Process</div>
+    <div class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider text-white border border-white/20">
+      Get Started</div>
+  </div>
+
+  <div class="flex items-end justify-between">
+    <div class="max-w-md">
+      <p class="text-white font-medium mb-2">A perfect fit, every time.</p>
+      <p class="text-white/60 text-sm leading-relaxed">Custom floorplans are designed to make
+        the most of your existing space and accentuate its best features.</p>
+    </div>
+    <div class="flex gap-2">
+      <div class="px-4 py-2 bg-white rounded-lg text-xs font-semibold text-neutral-900">Get in
+        Touch</div>
+      <div class="px-4 py-2 bg-white/10 backdrop-blur rounded-lg text-xs font-semibold text-white border border-white/10">
+        Request Sample Designs</div>
+    </div>
+  </div>
+</div>
+
+<!-- Floorplan Graphic (SVG Placeholder) -->
+
+</div>
+          </div>
+
+          <!-- Description & Metadata -->
+          <div class="mt-8 md:mt-12 px-2">
+              <div class="max-w-4xl">
+                  <span class="text-sm text-neutral-400 mb-4 block uppercase tracking-wide">Cover</span>
+                  <h2 class="text-3xl md:text-4xl font-normal tracking-tight text-neutral-900 leading-tight mb-12">
+                      Discovering a new height in home through an innovative, beautifully simple way to build in Los
+                      Angeles.
+                  </h2>
+
+                  <!-- Details Grid -->
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 border-t border-neutral-200 pt-8">
+                      <div class="">
+                          <h4 class="text-sm text-neutral-400 mb-1">Year</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">2025</p>
+                      </div>
+                      <div>
+                          <h4 class="text-sm text-neutral-400 mb-1">With</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">MOUTHWASH Studio</p>
+                      </div>
+                      <div>
+                          <h4 class="text-sm text-neutral-400 mb-1">For</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">Cover</p>
+                      </div>
+                      <div class="">
+                          <h4 class="text-sm text-neutral-400 mb-1">Location</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">Los Angeles,California</p>
+                      </div>
+
+                      <!-- Second Row (Recognition) span full on mobile -->
+                      <div class="col-span-2 md:col-span-4 mt-2">
+                          <h4 class="text-sm text-neutral-400 mb-1">Recognition</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">SiteInspire, Awwwards SOTD</p>
+                      </div>
+                  </div>
+
+                  <!-- Tags -->
+                  <div class="flex flex-wrap gap-2 mt-8">
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">Development</span>
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">Headless</span>
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">Sanity</span>
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">Mouthwash</span>
+                  </div>
+              </div>
+          </div>
+      </article>
+
+      <!-- Case Study 2 -->
+      <article class="group">
+          <!-- Image Card Frame -->
+          <div class="md:p-4 hover:shadow-md transition-all duration-500 bg-white w-full border-neutral-200 border rounded-2xl pt-3 pr-3 pb-3 pl-3 shadow-sm">
+              <div class="aspect-[16/10] overflow-hidden group-hover:cursor-pointer bg-center bg-[#1a1c18] w-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0851aedf-fdcc-48be-8ea0-cd63cc04fcda_1600w.jpg)] bg-cover rounded-lg relative">
+<!-- Overlay Content Mockup (mimicking the screenshot) -->
+<div class="bg-black/50 md:p-12 flex flex-col z-10 rounded-xl pt-8 pr-8 pb-8 pl-8 absolute top-0 right-0 bottom-0 left-0 justify-between">
+  <div class="flex gap-2 justify-end">
+    <div class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider text-white border border-white/10">
+      Explore Features</div>
+    <div class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider text-white border border-white/10">
+      Our Process</div>
+    <div class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider text-white border border-white/20">
+      Get Started</div>
+  </div>
+
+  <div class="flex items-end justify-between">
+    <div class="max-w-md">
+      <p class="text-white font-medium mb-2">A perfect fit, every time.</p>
+      <p class="text-white/60 text-sm leading-relaxed">Custom floorplans are designed to make
+        the most of your existing space and accentuate its best features.</p>
+    </div>
+    <div class="flex gap-2">
+      <div class="px-4 py-2 bg-white rounded-lg text-xs font-semibold text-neutral-900">Get in
+        Touch</div>
+      <div class="px-4 py-2 bg-white/10 backdrop-blur rounded-lg text-xs font-semibold text-white border border-white/10">
+        Request Sample Designs</div>
+    </div>
+  </div>
+</div>
+
+<!-- Floorplan Graphic (SVG Placeholder) -->
+
+</div>
+          </div>
+
+          <!-- Description & Metadata -->
+          <div class="mt-8 md:mt-12 px-2">
+              <div class="max-w-4xl">
+                  <span class="text-sm text-neutral-400 mb-4 block uppercase tracking-wide">Workly</span>
+                  <h2 class="text-3xl md:text-4xl font-normal tracking-tight text-neutral-900 leading-tight mb-12">
+                      Redefining the modern workspace with an AI-driven productivity suite for remote teams.
+                  </h2>
+
+                  <!-- Details Grid -->
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 border-t border-neutral-200 pt-8">
+                      <div>
+                          <h4 class="text-sm text-neutral-400 mb-1">Year</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">2024</p>
+                      </div>
+                      <div>
+                          <h4 class="text-sm text-neutral-400 mb-1">Role</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">Product Design</p>
+                      </div>
+                      <div>
+                          <h4 class="text-sm text-neutral-400 mb-1">Client</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">Workly Inc.</p>
+                      </div>
+                      <div>
+                          <h4 class="text-sm text-neutral-400 mb-1">Sector</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">SaaS / B2B</p>
+                      </div>
+                      <div class="col-span-2 md:col-span-4 mt-2">
+                          <h4 class="text-sm text-neutral-400 mb-1">Outcome</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">300% User Growth, $10M Series A</p>
+                      </div>
+                  </div>
+
+                  <!-- Tags -->
+                  <div class="flex flex-wrap gap-2 mt-8">
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">Product Strategy</span>
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">UI/UX</span>
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">Design System</span>
+                  </div>
+              </div>
+          </div>
+      </article>
+
+      <!-- Case Study 3 -->
+      <article class="group">
+          <!-- Image Card Frame -->
+          <div class="md:p-4 hover:shadow-md transition-all duration-500 bg-white w-full border-neutral-200 border rounded-2xl pt-3 pr-3 pb-3 pl-3 shadow-sm">
+              <div class="aspect-[16/10] overflow-hidden group-hover:cursor-pointer bg-center bg-[#000000] w-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f3c53183-d5a0-484c-8070-57d6db15bf31_3840w.png)] bg-cover rounded-lg relative">
+<!-- Overlay Content Mockup (mimicking the screenshot) -->
+<div class="bg-black/50 md:p-12 flex flex-col z-10 rounded-xl pt-8 pr-8 pb-8 pl-8 absolute top-0 right-0 bottom-0 left-0 justify-between">
+  <div class="flex gap-2 justify-end">
+    <div class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider text-white border border-white/10">
+      Explore Features</div>
+    <div class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider text-white border border-white/10">
+      Our Process</div>
+    <div class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider text-white border border-white/20">
+      Get Started</div>
+  </div>
+
+  <div class="flex items-end justify-between">
+    <div class="max-w-md">
+      <p class="text-white font-medium mb-2">A perfect fit, every time.</p>
+      <p class="text-white/60 text-sm leading-relaxed">Custom floorplans are designed to make
+        the most of your existing space and accentuate its best features.</p>
+    </div>
+    <div class="flex gap-2">
+      <div class="px-4 py-2 bg-white rounded-lg text-xs font-semibold text-neutral-900">Get in
+        Touch</div>
+      <div class="px-4 py-2 bg-white/10 backdrop-blur rounded-lg text-xs font-semibold text-white border border-white/10">
+        Request Sample Designs</div>
+    </div>
+  </div>
+</div>
+
+<!-- Floorplan Graphic (SVG Placeholder) -->
+
+</div>
+          </div>
+
+          <!-- Description & Metadata -->
+          <div class="mt-8 md:mt-12 px-2">
+              <div class="max-w-4xl">
+                  <span class="text-sm text-neutral-400 mb-4 block uppercase tracking-wide">Lumina Financial</span>
+                  <h2 class="text-3xl md:text-4xl font-normal tracking-tight text-neutral-900 leading-tight mb-12">
+                      Crafting a transparent and accessible financial future for the next generation of investors.
+                  </h2>
+
+                  <!-- Details Grid -->
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 border-t border-neutral-200 pt-8">
+                      <div>
+                          <h4 class="text-sm text-neutral-400 mb-1">Year</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">2023</p>
+                      </div>
+                      <div class="">
+                          <h4 class="text-sm text-neutral-400 mb-1">Services</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">Branding &amp; Web</p>
+                      </div>
+                      <div>
+                          <h4 class="text-sm text-neutral-400 mb-1">Platform</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">Web, iOS, Android</p>
+                      </div>
+                      <div>
+                          <h4 class="text-sm text-neutral-400 mb-1">Location</h4>
+                          <p class="text-[15px] font-medium text-neutral-900">London, UK</p>
+                      </div>
+                  </div>
+
+                  <!-- Tags -->
+                  <div class="flex flex-wrap gap-2 mt-8">
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">Fintech</span>
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">Identity</span>
+                      <span class="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">App Design</span>
+                  </div>
+              </div>
+          </div>
+      </article>
+
+  </div>
+
+</main>
+  <script>
+    lucide.createIcons();
+    function handleSpotlight(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      e.currentTarget.style.setProperty('--mouse-x', x + 'px');
+      e.currentTarget.style.setProperty('--mouse-y', y + 'px');
+    }
+  </script>
+</body>
+</html>

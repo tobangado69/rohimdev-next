@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "heading": "Let's Work Together",
+    "description": "Ready to bring your ideas to life? Let's discuss your project and create something exceptional."
+  },
+  "contactInformation": {
+    "heading": "Get In Touch",
+    "subheading": "Choose your preferred way to reach out. I'm always excited to discuss new projects and opportunities.",
+    "methods": [
+      {
+        "type": "email",
+        "title": "Email",
+        "value": "rohimjoy70@gmail.com",
+        "link": "mailto:rohimjoy70@gmail.com",
+        "description": "Send me an email anytime"
+      },
+      {
+        "type": "location",
+        "title": "Location",
+        "value": "Surabaya, Indonesia",
+        "link": "#",
+        "description": "Available for local meetings"
+      },
+      {
+        "type": "availability",
+        "title": "Availability",
+        "value": "Mon - Sat, 9:00 - 17:00 WIB",
+        "link": "#",
+        "description": "Response Time"
+      }
+    ]
+  },
+  "professionalProfiles": {
+    "heading": "Professional Profiles",
+    "description": "Stay updated with my latest projects and thoughts on development.",
+    "profiles": [
+      { "platform": "LinkedIn", "url": "https://linkedin.com/in/tobangado" },
+      { "platform": "GitHub", "url": "https://github.com/tobangado69" },
+      { "platform": "Telegram", "url": "https://t.me/Tobangado70" }
+    ]
+  },
+  "contactForm": {
+    "heading": "Send Me a Message",
+    "description": "Fill out the form below and I'll get back to you within 24 hours. Let's discuss your project requirements and goals.",
+    "fields": [
+      { "name": "name", "label": "Full Name", "type": "text", "placeholder": "Your full name", "required": true },
+      { "name": "email", "label": "Email Address", "type": "email", "placeholder": "your.email@example.com", "required": true },
+      { "name": "subject", "label": "Subject", "type": "text", "placeholder": "What's this about?", "required": true },
+      { "name": "message", "label": "Message", "type": "textarea", "placeholder": "Tell me about your project...", "required": true }
+    ]
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "subheading": "Quick answers to common questions about working together.",
+    "questions": [
+      {
+        "question": "How quickly can you start my project?",
+        "answer": "I typically respond within 24 hours. After scope alignment, I can often start within 1-2 weeks depending on workload."
+      },
+      {
+        "question": "Do you offer free consultations?",
+        "answer": "Yes. Initial consultation to understand your needs and propose approaches is free."
+      },
+      {
+        "question": "What's your development process?",
+        "answer": "Discovery → Planning → Development → Deployment, with regular updates."
+      }
+    ]
+  },
+  "scheduleCallLink": "https://t.me/Tobangado70"
+}

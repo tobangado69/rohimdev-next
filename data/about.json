@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "heading": "Abdul Rohim",
+    "subheading": "Full-Stack Developer",
+    "introduction": "With 2+ years of experience, I specialize in building scalable applications using React, Next.js, Node.js, and Golang. From telecommunications to fullstack—I craft solutions that bridge systems and deliver results.",
+    "location": "Surabaya, Indonesia",
+    "experienceYears": "2+",
+    "quote": "I Have Served and I Will Be of Service"
+  },
+  "aboutMe": {
+    "heading": "About Me",
+    "paragraph": "I'm a Full Stack Developer building scalable web applications and APIs. Currently freelancing at Rohimdev.com and working as Fullstack Developer at Varnion Technology. I focus on clean architecture, RESTful APIs, and modern tooling—delivering 3-5 concurrent projects while improving velocity with AI-assisted development."
+  },
+  "skills": {
+    "categories": [
+      {
+        "title": "Frontend",
+        "skills": [
+          { "name": "React & Next.js", "level": 90 },
+          { "name": "TypeScript", "level": 85 },
+          { "name": "Tailwind CSS", "level": 95 }
+        ]
+      },
+      {
+        "title": "Backend",
+        "skills": [
+          { "name": "Node.js & Express", "level": 85 },
+          { "name": "Golang (Gin)", "level": 80 },
+          { "name": "RESTful APIs", "level": 90 },
+          { "name": "Clean Architecture", "level": 85 }
+        ]
+      },
+      {
+        "title": "Database & Tools",
+        "skills": [
+          { "name": "PostgreSQL", "level": 85 },
+          { "name": "Prisma ORM", "level": 80 },
+          { "name": "Git & Version Control", "level": 90 },
+          { "name": "Docker", "level": 75 }
+        ]
+      }
+    ]
+  },
+  "careerJourney": {
+    "timeline": [
+      {
+        "period": "Jan 2025 - Present",
+        "title": "Freelance Fullstack Developer",
+        "company": "Rohimdev.com",
+        "description": "Delivering 3-5 concurrent fullstack projects for client-specific requirements. Building backend services with Node.js, Express, Hono, and Golang (Gin), designing PostgreSQL databases with Prisma ORM, and integrating frontend applications with backend services. Using AI-assisted tools to improve development velocity.",
+        "technologies": ["Node.js", "Express", "Hono", "Golang", "PostgreSQL", "Prisma", "React"]
+      },
+      {
+        "period": "Sep 2025 - Present",
+        "title": "Fullstack Developer",
+        "company": "Varnion Technology Semesta",
+        "description": "Developing internal web applications using React, Node.js, and PostgreSQL. Building scalable RESTful APIs with clean architecture, security, and performance focus. Collaborating with infrastructure and NOC teams to bridge system requirements. Automating operational processes and reporting pipelines.",
+        "technologies": ["React", "Node.js", "PostgreSQL", "RESTful APIs", "Clean Architecture"]
+      },
+      {
+        "period": "Jan 2025 - Aug 2025",
+        "title": "Staff Infrastructure",
+        "company": "Varnion Technology Semesta",
+        "description": "Transition period from telecommunications infrastructure to software development. Performed installation, configuration, and maintenance of network devices. Conducted regular monitoring and troubleshooting using Mikrotik and Ubiquiti systems.",
+        "technologies": ["Mikrotik", "Ubiquiti", "Network Design", "System Monitoring"]
+      },
+      {
+        "period": "Dec 2020 - Aug 2023",
+        "title": "Provisioning Technician",
+        "company": "PT Telkom Indonesia (IndiHome)",
+        "description": "My foundational experience in telecommunications. Installed and configured fiber optic internet services. Conducted on-site troubleshooting and signal quality testing using OTDR and OPM. Reduced repeat visits by 25% through quality workmanship and customer education.",
+        "technologies": ["Fiber Optic", "OTDR", "OPM Testing", "Customer Service"]
+      }
+    ]
+  },
+  "interests": {
+    "heading": "Beyond Code",
+    "description": "When I'm not coding, you can find me exploring new technologies, contributing to open source, or enjoying outdoor activities.",
+    "items": [
+      { "title": "Learning", "emoji": "📚", "description": "Always exploring new technologies and frameworks" },
+      { "title": "Open Source", "emoji": "🌱", "description": "Contributing to projects that make a difference" },
+      { "title": "Adventure", "emoji": "🏔️", "description": "Hiking, photography, and exploring new places" }
+    ]
+  },
+  "profileImage": "/images/profile.png"
+}

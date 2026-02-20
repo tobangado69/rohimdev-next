@@ -1,0 +1,86 @@
+{
+  "title": "Terms of Service",
+  "subtitle": "Terms and conditions for using our website and services",
+  "introduction": [
+    "Welcome to Rohim Dev. These Terms of Service (\"Terms\") govern your use of the Rohim Dev website (the \"Website\") and the services offered by Abdul Rohim (\"I\", \"me\", or \"my\").",
+    "By accessing or using the Website, you agree to be bound by these Terms. If you disagree with any part of the Terms, you may not access the Website or use my services."
+  ],
+  "sections": [
+    {
+      "number": "1",
+      "title": "Services",
+      "content": "I provide web development, mobile development, infrastructure management, and related services as described on the Website. The specific details, deliverables, timelines, and costs for services will be outlined in a separate agreement or proposal for each project."
+    },
+    {
+      "number": "2",
+      "title": "Use of the Website",
+      "content": [
+        "You agree to use the Website only for lawful purposes and in a way that does not infringe upon the rights of others or restrict their use of the Website.",
+        "You are prohibited from: Using the Website in any way that could damage, disable, or impair the Website or interfere with others' use; Attempting to gain unauthorized access to any part of the Website, other accounts, or computer systems connected to the Website; Using any robot, spider, or other automated means to access the Website; Introducing viruses, trojans, worms, or other malicious code to the Website; Collecting or harvesting any information from the Website without permission"
+      ]
+    },
+    {
+      "number": "3",
+      "title": "Intellectual Property",
+      "content": "The Website and its original content, features, and functionality are owned by Abdul Rohim and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws. You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on the Website without my prior written consent."
+    },
+    {
+      "number": "4",
+      "title": "Client Projects and Deliverables",
+      "content": [
+        "For client projects, ownership of deliverables will be specified in the project agreement. Unless otherwise stated:",
+        "Upon full payment, clients receive ownership of the final deliverables specifically created for their project; I retain ownership of any pre-existing materials, frameworks, or tools used in creating the deliverables; I reserve the right to display and link to completed client work as part of my portfolio unless otherwise agreed"
+      ]
+    },
+    {
+      "number": "5",
+      "title": "User Content",
+      "content": "If you submit content to the Website (such as comments, testimonials, or project information), you grant me a non-exclusive, royalty-free, perpetual, irrevocable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content throughout the world in any media. You represent and warrant that you own or control all rights to the content you submit and that the content does not violate these Terms or any applicable laws."
+    },
+    {
+      "number": "6",
+      "title": "Payment Terms",
+      "content": [
+        "Payment terms for services will be outlined in the project agreement or proposal. Unless otherwise specified:",
+        "A deposit may be required before work begins; Final payment is due upon completion of the project and before the transfer of deliverables; Late payments may incur additional fees; All fees are non-refundable unless otherwise agreed in writing"
+      ]
+    },
+    {
+      "number": "7",
+      "title": "Disclaimers",
+      "content": "The information on this Website is provided on an \"as is\" basis. I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the Website or the information, products, services, or related graphics contained on the Website for any purpose."
+    },
+    {
+      "number": "8",
+      "title": "Limitation of Liability",
+      "content": "In no event will I be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this Website."
+    },
+    {
+      "number": "9",
+      "title": "Indemnification",
+      "content": "You agree to defend, indemnify, and hold harmless Abdul Rohim from and against any and all claims, damages, obligations, losses, liabilities, costs, and expenses (including attorney's fees) arising from your use of the Website or your violation of these Terms."
+    },
+    {
+      "number": "10",
+      "title": "Termination",
+      "content": "I may terminate or suspend your access to the Website immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms."
+    },
+    {
+      "number": "11",
+      "title": "Governing Law",
+      "content": "These Terms shall be interpreted and governed by the laws of Indonesia, without regard to its conflict of law provisions."
+    },
+    {
+      "number": "12",
+      "title": "Changes to Terms",
+      "content": "I reserve the right to modify or replace these Terms at any time. If a revision is material, I will try to provide at least 30 days notice prior to any new terms taking effect."
+    },
+    {
+      "number": "13",
+      "title": "Contact Information",
+      "content": "If you have any questions about these Terms of Service, please contact me at rohimjoy70@gmail.com"
+    }
+  ],
+  "agreementStatement": "By using my website and services, you acknowledge that you have read and agree to these Terms of Service.",
+  "contactEmail": "rohimjoy70@gmail.com"
+}

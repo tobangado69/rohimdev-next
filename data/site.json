@@ -1,0 +1,63 @@
+{
+  "name": "rohimdev.com",
+  "tagline": "rohim.dev",
+  "username": "@rohimdev",
+  "description": "Design partner for startups that move fast and ship right. Product, brand, and web design.",
+  "year": 2026,
+  "seo": {
+    "siteName": "Abdul Rohim - Portfolio",
+    "siteUrl": "https://rohimdev.com",
+    "siteDescription": "Professional full-stack developer with 4+ years of experience in React, Next.js, Node.js, and infrastructure management.",
+    "author": {
+      "name": "Abdul Rohim",
+      "title": "Full-Stack Developer & Infrastructure Specialist",
+      "email": "rohimjoy70@gmail.com",
+      "location": "Indonesia",
+      "social": {
+        "github": "https://github.com/tobangado69",
+        "linkedin": "https://www.linkedin.com/in/tobangado",
+        "telegram": "https://t.me/Tobangado70"
+      }
+    },
+    "defaultImage": "https://rohimdev.com/images/profile.png",
+    "ogImage": "https://rohimdev.com/og-image.jpg",
+    "keywords": {
+      "primary": ["fullstack developer", "react developer", "nextjs developer", "nodejs developer", "typescript developer", "javascript developer"],
+      "secondary": ["mobile app developer", "react native developer", "infrastructure specialist", "network engineer", "portfolio", "web developer"],
+      "location": ["indonesia developer", "remote developer", "freelance developer"],
+      "technologies": ["graphql developer", "mongodb developer", "postgresql developer", "tailwind css developer", "framer motion developer"]
+    },
+    "pages": {
+      "home": {
+        "title": "Abdul Rohim - Full-Stack Developer & Infrastructure Specialist",
+        "description": "Professional full-stack developer with 4+ years of experience in React, Next.js, Node.js, and infrastructure management.",
+        "keywords": ["fullstack developer", "react developer", "nextjs developer", "portfolio", "web developer"]
+      },
+      "about": {
+        "title": "About Abdul Rohim - Full-Stack Developer Journey",
+        "description": "Learn about Abdul Rohim's journey from telecommunications engineer to full-stack developer.",
+        "keywords": ["about abdul rohim", "developer journey", "telecommunications engineer", "career transition"]
+      },
+      "projects": {
+        "title": "Projects - Abdul Rohim's Portfolio",
+        "description": "Explore Abdul Rohim's portfolio of full-stack projects.",
+        "keywords": ["abdul rohim projects", "react native projects", "nextjs projects", "fullstack projects"]
+      },
+      "services": {
+        "title": "Services - Full-Stack Development & Infrastructure Solutions",
+        "description": "Professional full-stack development services including React, Next.js, Node.js, mobile apps.",
+        "keywords": ["fullstack development services", "react development services", "mobile app development", "infrastructure services"]
+      },
+      "work": {
+        "title": "Work Experience - Abdul Rohim's Professional Journey",
+        "description": "Abdul Rohim's professional experience spanning telecommunications engineering and full-stack development.",
+        "keywords": ["abdul rohim work experience", "telkom indonesia engineer", "telecommunications engineer", "infrastructure specialist"]
+      },
+      "contact": {
+        "title": "Contact Abdul Rohim - Full-Stack Developer",
+        "description": "Get in touch with Abdul Rohim for full-stack development projects.",
+        "keywords": ["contact abdul rohim", "hire fullstack developer", "freelance developer contact", "react developer hire"]
+      }
+    }
+  }
+}

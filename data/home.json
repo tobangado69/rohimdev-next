@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "rohimdevNext": {
+      "badge": "Full-Stack Developer & Infrastructure Specialist",
+      "heading": "Think different. Build exceptional.",
+      "description": "From telecommunications to software development. I build scalable web applications and design robust network infrastructure. Combining 4+ years of industry experience with modern development practices.",
+      "cta": [
+        { "text": "View My Work", "link": "/work", "type": "primary" },
+        { "text": "View Projects", "link": "/projects", "type": "secondary" }
+      ]
+    },
+    "current": {
+      "heading": "Design partner for startups that move fast and ship right.",
+      "description": "We help founders turn messy ideas into products people actually use. Product, brand, and web design. One team. Zero friction.",
+      "cta": "Design with us",
+      "trustText": "Trusted by startups that raised millions and globally recognized brands",
+      "vimeoVideoId": "1147300181"
+    }
+  },
+  "logos": [
+    { "name": "Logitech", "size": 96 },
+    { "name": "Samsung", "size": 96 },
+    { "name": "Lenovo", "size": 96 },
+    { "name": "Vercel", "size": 48 },
+    { "name": "Stripe", "size": 48 },
+    { "name": "Notion", "size": 48 }
+  ],
+  "features": {
+    "current": [
+      { "text": "Your learning path adapts based on progress and skill assessments." },
+      { "text": "The system knows when to push or hold back — based on mastery zones." },
+      { "text": "No more switching platforms. Theory, practice, and labs unified." },
+      { "text": "Portfolio, skills, and credentials tracked. Always know your value." }
+    ],
+    "rohimdevNext": [
+      { "title": "Lightning Performance", "description": "Optimized code and modern frameworks ensure blazing fast load times and smooth user experiences." },
+      { "title": "Security First", "description": "Built with security best practices, including data encryption and secure authentication systems." },
+      { "title": "Global Reach", "description": "Responsive design that works perfectly across all devices and screen sizes worldwide." },
+      { "title": "Smart Solutions", "description": "AI-powered features and intelligent automation to enhance user experience and efficiency." },
+      { "title": "Modern Stack", "description": "Built with cutting-edge technologies including React, Next.js, TypeScript, and Tailwind CSS." },
+      { "title": "User Centered", "description": "Every design decision is made with the end user in mind, ensuring intuitive and accessible interfaces." },
+      { "title": "Clean Code", "description": "Well-structured, maintainable code following industry best practices and design patterns." },
+      { "title": "Mobile First", "description": "Mobile-first approach ensures your application looks and works great on all devices." },
+      { "title": "Scalable Architecture", "description": "Designed to handle growth with scalable database design and efficient data management." },
+      { "title": "Beautiful Design", "description": "Stunning visual design that captures attention while maintaining excellent usability." }
+    ]
+  },
+  "services": {
+    "current": [
+      { "title": "Product Design", "items": ["Web Apps", "Mobile Apps", "Design Systems", "Prototyping & Ideation"] },
+      { "title": "Web Design", "items": ["Landing Pages", "Multi-Page Websites", "Aura Development", "Animations"] },
+      { "title": "Brand Identity", "items": ["Brand Guidelines", "Brand Assets", "Logos & Marks", "Pitch Decks"] }
+    ]
+  },
+  "faq": {
+    "current": [
+      { "q": "How does the \"pause\" feature work?", "a": "We understand you might not have enough design work to fill up an entire month. Perhaps you only have one or two requests at the moment. That's where pausing your subscription comes in handy. Billing cycles are based on a 31 day period." },
+      { "q": "What is the typical turnaround time?", "a": "On average, most requests are completed in just two days or less. However, more complex requests can take longer." },
+      { "q": "Do you offer development services?", "a": "Yes! We offer Webflow and Framer development as part of our package. Custom coding is available upon request." },
+      { "q": "How do we communicate?", "a": "We use a private Slack channel for day-to-day communication and Trello for task management. We also offer optional bi-weekly sync calls." }
+    ]
+  },
+  "pricing": {
+    "current": {
+      "heading": "Growth for startups shipping fast.",
+      "description": "Dedicated design lead. Unlimited requests. Strategic input. Long-term roadmap support.",
+      "plan": {
+        "name": "Monthly Retainer",
+        "badge": "Most Popular",
+        "description": "Perfect for early teams getting off the ground",
+        "price": "$6,990/month",
+        "features": [
+          "Priority delivery",
+          "All our services, unlimited possibilities",
+          "Weekly delivery and pause or cancel anytime",
+          "1:1 communication on Slack and optional weekly call"
+        ],
+        "extras": [
+          { "title": "Pause anytime", "description": "Put your retainer on hold whenever you want, for up to 30 days." },
+          { "title": "Try it for a week", "description": "If you're not satisfied and would rather go for a classic contract, we refund 75% immediately without asking questions." }
+        ]
+      }
+    }
+  },
+  "caseStudy": {
+    "title": "Case study - Workly",
+    "headline": "Redesigned product UX and brand positioning after poor early adoption. Result: clearer value proposition, higher retention, stronger sales demos.",
+    "image": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a5387a0b-52c6-40c2-b3be-ef86329b19cc_1600w.webp"
+  },
+  "cta": {
+    "rohimdevNext": {
+      "heading": "Ready to work together?",
+      "description": "Let's discuss your project and bring your ideas to life with modern web technologies.",
+      "primary": "Start a Project",
+      "secondary": "Schedule a Call",
+      "secondaryLink": "https://t.me/Tobangado70",
+      "note": "Free consultation. No commitment required. Let's build something amazing together."
+    }
+  },
+  "stats": {
+    "projectsCompleted": "50+",
+    "clientSatisfaction": "99.9%",
+    "yearsExperience": "3+",
+    "responseTime": "Mon - Sat 9:00 - 17:00 WIB"
+  }
+}

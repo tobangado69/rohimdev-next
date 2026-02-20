@@ -1,0 +1,49 @@
+{
+  "navigation": [
+    { "name": "Home", "href": "/" },
+    { "name": "About", "href": "/about" },
+    { "name": "Work", "href": "/work" },
+    { "name": "Projects", "href": "/projects" },
+    { "name": "Services", "href": "/services" },
+    { "name": "Contact", "href": "/contact" }
+  ],
+  "navLinks": [
+    { "href": "/", "label": "Home" },
+    { "href": "/work", "label": "Work" },
+    { "href": "/services", "label": "Services" },
+    { "href": "/pricing", "label": "Pricing" },
+    { "href": "/contact", "label": "Contact" }
+  ],
+  "social": [
+    { "name": "LinkedIn", "href": "https://linkedin.com/in/tobangado", "icon": "Linkedin" },
+    { "name": "GitHub", "href": "https://github.com/tobangado69", "icon": "Github" },
+    { "name": "Telegram", "href": "https://t.me/Tobangado70", "icon": "MessageCircle" }
+  ],
+  "footer": {
+    "brand": "Rohim Dev",
+    "tagline": "Full-stack developer crafting digital experiences.",
+    "email": "rohimjoy70@gmail.com",
+    "location": "Surabaya, Indonesia",
+    "serviceLinks": [
+      { "label": "Website design", "href": "/services" },
+      { "label": "Product design", "href": "/services" },
+      { "label": "Brand identity", "href": "/services" },
+      { "label": "Website development", "href": "/services" }
+    ],
+    "caseStudyLinks": [
+      { "label": "Selected work", "href": "/work" },
+      { "label": "Featured projects", "href": "/work" }
+    ],
+    "companyLinks": [
+      { "label": "Work", "href": "/work" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "legalLinks": [
+      { "label": "Privacy Policy", "href": "/privacy" },
+      { "label": "Terms of Service", "href": "/terms" },
+      { "label": "Data Processing", "href": "/contact" },
+      { "label": "Cookie Settings", "href": "/contact" }
+    ],
+    "resumeUrl": "https://drive.google.com/file/d/17LLuWo5ijpn32DZZ6Nvk_JsAFOiwiptm/view?usp=sharing"
+  }
+}

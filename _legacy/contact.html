@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Start Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Geist', 'sans-serif'],
+        },
+        colors: {
+          neutral: {
+            50: '#fafafa',
+            100: '#f5f5f5',
+            200: '#e5e5e5',
+            300: '#d4d4d4',
+            400: '#a3a3a3',
+            500: '#737373',
+            600: '#525252',
+            700: '#404040',
+            800: '#262626',
+            900: '#171717',
+          }
+        },
+        animation: {
+          'marquee': 'marquee 40s linear infinite',
+          'marquee-slow': 'marquee 80s linear infinite',
+          'clip-in': 'clipIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) both',
+          'fade-up': 'fadeUp 0.8s ease-out forwards',
+        },
+        keyframes: {
+          marquee: {
+            '0%': { transform: 'translateX(0%)' },
+            '100%': { transform: 'translateX(-50%)' },
+          },
+          clipIn: {
+            '0%': { opacity: '0', clipPath: 'inset(0 0 100% 0)' },
+            '100%': { opacity: '1', clipPath: 'inset(0 0 0 0)' },
+          },
+          fadeUp: {
+            '0%': { opacity: '0', transform: 'translateY(20px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          }
+        }
+      }
+    }
+  }
+  </script>
+  <style>
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .spotlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.04), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+  .grid-lines {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+  <style>
+  .font-geist { font-family: 'Geist', sans-serif !important; }
+  </style>
+</head>
+<body class="min-h-screen overflow-x-hidden selection:bg-neutral-300 selection:text-neutral-900 text-neutral-900 bg-neutral-100 relative font-sans">
+  <!-- Background Grid Lines -->
+        <div class="fixed grid-lines w-full h-full top-0 right-0 bottom-0 left-0 pointer-events-none"></div>
+    
+        <div class="relative z-10 flex flex-col lg:flex-row min-h-screen max-w-[1600px] mx-auto">
+            
+            <!-- Sidebar / Navigation -->
+            <aside class="lg:w-64 lg:fixed lg:h-screen flex flex-col z-50 glass-panel lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:border-r w-full border-neutral-200/50 border-b pt-8 pr-8 pb-8 pl-8 justify-between">
+                <div class="">
+                    <div class="mb-12 animate-clip-in" style="animation-delay: 0.1s;">
+                    <a href="#" class="block text-3xl tracking-tighter font-medium group font-geist">
+                        start<span class="text-neutral-400 group-hover:text-neutral-900 transition-colors font-geist">.agency</span>
+                    </a>
+                    </div>
+    
+                    <nav class="space-y-4 animate-clip-in" style="animation-delay: 0.2s;">
+                    <a href="index.html" class="block text-lg text-neutral-500 hover:text-neutral-900 hover:translate-x-1 transition-all font-geist">Home</a>
+                    <a href="work.html" class="block text-lg text-neutral-500 hover:text-neutral-900 hover:translate-x-1 transition-all font-geist">Work</a>
+                    <a href="services.html" class="block text-lg text-neutral-500 hover:text-neutral-900 hover:translate-x-1 transition-all font-geist">Services</a>
+                    <a href="pricing.html" class="block text-lg text-neutral-500 hover:text-neutral-900 hover:translate-x-1 transition-all font-geist">Pricing</a>
+                    <a href="contact.html" class="block text-lg text-neutral-900 font-medium translate-x-1 transition-all font-geist">Contact</a>
+                    </nav>
+                </div>
+    
+                <div class="hidden lg:block space-y-2 animate-clip-in" style="animation-delay: 0.3s;">
+                    <div class="flex items-center gap-2 mb-4">
+                    <img src="https://ui-avatars.com/api/?name=Start+Agency&amp;background=random&amp;color=fff" alt="User" class="w-8 h-8 rounded-full opacity-80">
+                    <div class="text-sm leading-tight">
+                        <p class="font-medium text-neutral-900 font-geist">start.agency</p>
+                        <p class="text-neutral-500 font-geist">@startagency</p>
+                    </div>
+                    </div>
+                    <p class="text-xs text-neutral-400 font-geist">Template designed by François Savard from END Agency.</p>
+                </div>
+            </aside>
+    
+            <!-- Main Content Area -->
+            <main class="flex-1 lg:ml-64 lg:p-16 flex flex-col gap-20 lg:gap-24 overflow-hidden p-6">
+    
+                <!-- Join Our Team Section -->
+                <section class="animate-fade-up w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center pt-10" style="animation-delay: 0.4s">
+                    <!-- Text Content -->
+                    <div class="lg:col-span-5 space-y-8">
+                        <h1 class="text-4xl lg:text-5xl font-medium text-neutral-900 tracking-tight font-geist">Join our team</h1>
+                        <p class="text-lg text-neutral-500 leading-relaxed font-geist">
+                            We're constantly on the lookout for exceptional talent. If you're driven, creative, and ready to work with some of the best minds in the industry, we want to hear from you.
+                        </p>
+                        <button class="glass-button all-unset cursor-pointer outline-none focus:outline-none z-30 pointer-events-auto text-base rounded-full mt-1 mb-1 relative" style="">
+              <span class="button-text relative block select-none font-medium text-base text-neutral-800 tracking-tight px-6 py-3.5 font-geist" style="font-size: 18px;">
+                  Design with us
+              </span>
+              <!-- Shine Effect -->
+              <div class="button-shine"></div>
+          </button>
+        <style class="z-30 pointer-events-auto">
+          @property --angle-1 {
+            syntax: "<angle>";
+            inherits: false;
+            initial-value: -75deg;
+          }
+    
+          @property --angle-2 {
+            syntax: "<angle>";
+            inherits: false;
+            initial-value: -45deg;
+          }
+    
+          body {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2rem, 4vw, 5rem);
+          }
+    
+          .button-wrap {
+            transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+          }
+    
+          .glass-button {
+            background: linear-gradient(-75deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            box-shadow:
+              inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+              inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+              0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.2),
+              0 0 0.1em 0.25em rgba(255, 255, 255, 0.2) inset,
+              0 0 0 0 rgba(255, 255, 255, 1);
+            backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+            transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+          }
+    
+          .glass-button:hover {
+            transform: scale(0.975);
+            backdrop-filter: blur(0.01em);
+            box-shadow:
+              inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+              inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+              0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
+              0 0 0.05em 0.1em rgba(255, 255, 255, 0.5) inset,
+              0 0 0 0 rgba(255, 255, 255, 1);
+          }
+    
+          .glass-button:active {
+            transform: scale(0.95) rotate3d(1, 0, 0, 25deg);
+            box-shadow:
+              inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+              inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+              0 0.125em 0.125em -0.125em rgba(0, 0, 0, 0.2),
+              0 0 0.1em 0.25em rgba(255, 255, 255, 0.2) inset,
+              0 0.225em 0.05em 0 rgba(0, 0, 0, 0.05),
+              0 0.25em 0 0 rgba(255, 255, 255, 0.75),
+              inset 0 0.25em 0.05em 0 rgba(0, 0, 0, 0.15);
+          }
+    
+          .button-text {
+            text-shadow: 0em 0.25em 0.05em rgba(0, 0, 0, 0.1);
+            transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+          }
+    
+          .glass-button:hover .button-text {
+            text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
+          }
+    
+          .glass-button:active .button-text {
+            text-shadow: 0.025em 0.25em 0.05em rgba(0, 0, 0, 0.12);
+          }
+    
+          .button-shadow {
+            filter: blur(clamp(2px, 0.125em, 12px));
+            transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+          }
+    
+          .button-shadow::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+            width: calc(100% - 2em);
+            height: calc(100% - 2em);
+            top: -0.5em;
+            left: -0.875em;
+            padding: 0.125em;
+            box-sizing: border-box;
+            opacity: 1;
+            transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+          }
+    
+          .glass-button:hover+.button-shadow {
+            filter: blur(clamp(2px, 0.0625em, 6px));
+          }
+    
+          .glass-button:hover+.button-shadow::after {
+            top: -0.875em;
+            opacity: 1;
+          }
+    
+          .glass-button:active+.button-shadow {
+            filter: blur(clamp(2px, 0.125em, 12px));
+          }
+    
+          .glass-button:active+.button-shadow::after {
+            top: -0.5em;
+            opacity: 0.75;
+          }
+    
+          .glass-button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            width: calc(100% + 2px);
+            height: calc(100% + 2px);
+            top: -1px;
+            left: -1px;
+            padding: 1px;
+            box-sizing: border-box;
+            background:
+              conic-gradient(from var(--angle-1) at 50% 50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5% 40%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 60% 95%, rgba(0, 0, 0, 0.5)),
+              linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1), --angle-1 500ms ease;
+            box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.5);
+          }
+    
+          .glass-button:hover::after {
+            --angle-1: -125deg;
+          }
+    
+          .glass-button:active::after {
+            --angle-1: -75deg;
+          }
+    
+          .button-shine {
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            width: calc(100% - 1px);
+            height: calc(100% - 1px);
+            top: 0.5px;
+            left: 0.5px;
+            background: linear-gradient(var(--angle-2), rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 40% 50%, rgba(255, 255, 255, 0) 55%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            background-size: 200% 200%;
+            background-position: 0% 50%;
+            background-repeat: no-repeat;
+            transition: background-position 500ms cubic-bezier(0.25, 1, 0.5, 1), --angle-2 500ms cubic-bezier(0.25, 1, 0.5, 1);
+          }
+    
+          .glass-button:hover .button-shine {
+            background-position: 25% 50%;
+          }
+    
+          .glass-button:active .button-shine {
+            background-position: 50% 15%;
+            --angle-2: -15deg;
+          }
+    
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+    
+            to {
+              opacity: 1;
+            }
+          }
+        </style>
+                    </div>
+    
+                    <!-- Abstract Team Visual -->
+                    <div class="lg:col-span-7 relative">
+                        <div class="grid grid-cols-6 sm:grid-cols-8 gap-4 items-end opacity-50 select-none pointer-events-none">
+                            <!-- Row of Abstract People -->
+                            <!-- Person 1 -->
+                            <div class="flex flex-col items-center gap-2 transform translate-y-8">
+                                <div class="w-10 h-10 rounded-full bg-neutral-200"></div>
+                                <div class="w-10 h-20 rounded-full bg-neutral-200"></div>
+                            </div>
+                            <!-- Person 2 -->
+                            <div class="flex flex-col items-center gap-2 transform -translate-y-4">
+                                <div class="w-10 h-10 rounded-full bg-neutral-200"></div>
+                                <div class="w-10 h-24 rounded-full bg-neutral-200"></div>
+                            </div>
+                            <!-- Person 3 -->
+                            <div class="flex flex-col items-center gap-2 transform translate-y-2">
+                                <div class="w-10 h-10 rounded-full bg-neutral-200"></div>
+                                <div class="w-10 h-16 rounded-full bg-neutral-200"></div>
+                            </div>
+                            <!-- Empty Spot (Dashed) -->
+                            <div class="flex flex-col items-center gap-2 transform -translate-y-2 group cursor-pointer pointer-events-auto transition-transform hover:-translate-y-4 duration-300">
+                                <div class="w-10 h-10 rounded-full border-2 border-dashed border-neutral-300 group-hover:border-neutral-400 group-hover:bg-neutral-100/50 transition-colors"></div>
+                                <div class="w-10 h-20 rounded-full border-2 border-dashed border-neutral-300 group-hover:border-neutral-400 group-hover:bg-neutral-100/50 transition-colors"></div>
+                            </div>
+                            <!-- Person 4 -->
+                            <div class="flex flex-col items-center gap-2 transform translate-y-6">
+                                <div class="w-10 h-10 rounded-full bg-neutral-200"></div>
+                                <div class="w-10 h-22 rounded-full bg-neutral-200"></div>
+                            </div>
+                             <!-- Person 5 -->
+                             <div class="flex flex-col items-center gap-2 transform -translate-y-6 hidden sm:flex">
+                                <div class="w-10 h-10 rounded-full bg-neutral-200"></div>
+                                <div class="w-10 h-16 rounded-full bg-neutral-200"></div>
+                            </div>
+                            <!-- Person 6 -->
+                            <div class="flex flex-col items-center gap-2 transform translate-y-4 hidden sm:flex">
+                                <div class="w-10 h-10 rounded-full bg-neutral-200"></div>
+                                <div class="w-10 h-24 rounded-full bg-neutral-200"></div>
+                            </div>
+                             <!-- Person 7 -->
+                             <div class="flex flex-col items-center gap-2 transform -translate-y-2 hidden sm:flex">
+                                <div class="w-10 h-10 rounded-full bg-neutral-200"></div>
+                                <div class="w-10 h-20 rounded-full bg-neutral-200"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <!-- Founder Section -->
+                <section class="animate-fade-up w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start pb-12" style="animation-delay: 0.6s">
+                    
+                    <!-- Left: Content -->
+                    <div class="flex flex-col justify-center space-y-10 lg:sticky lg:top-32">
+                        <h2 class="lg:text-[44px] leading-[1.1] text-4xl font-medium text-neutral-900 tracking-tight font-geist">Hey, I'm Dann, founder of Start Agency.</h2>
+                        
+                        <div class="space-y-6 text-lg text-neutral-500 font-normal leading-relaxed font-geist">
+                            <p class="">Hey, I’m Dann. I’ve been designing since middle school and shipping for 8+ years—early‑stage teams, big enterprise, and the messy stuff in between. I’ve sat next to founders from day one, helped them land top‑tier VC money, and ran product as Head of Product for a stealth startup backed by Silicon Valley heavyweights.
+    </p>
+                            <p class="">I started Start Agency to give sharp, technical founders high‑level design without agency fluff. Move fast, ship clean, no hand‑holding.</p>
+                            <p class="">We don’t do “make it pretty.” We do product. Design that drives traction, conversion, retention. Systems that scale. Files you can actually hand off. The goal: something customers love, investors notice, and your team is proud to stand behind.</p>
+                            <p class="">If that’s the vibe, let’s talk. Tell me what you’re building.</p>
+                        </div>
+    
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <button class="hover:bg-neutral-800 transition-all duration-300 flex gap-3 text-base font-medium text-white font-geist bg-neutral-900 rounded-full px-8 py-4 gap-x-3 gap-y-3 items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" class="lucide lucide-calendar w-5 h-5"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                                Book a Call
+                            </button>
+                            <button class="hover:bg-neutral-50 transition-all duration-300 flex text-base font-medium text-neutral-900 font-geist bg-white border-neutral-200 border rounded-full px-8 py-4 shadow-sm gap-x-3 gap-y-3 items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="mail" class="lucide lucide-mail w-5 h-5"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
+                                Email us
+                            </button>
+                        </div>
+                    </div>
+    
+                    <!-- Right: Founder Image Card -->
+                    <div class="lg:h-[800px] overflow-hidden group bg-center bg-neutral-900 w-full h-[600px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f473548d-ce40-4ff1-ba44-72a4f781d8bf_1600w.png)] bg-cover rounded-[32px] relative">
+                        <div class=""><img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f473548d-ce40-4ff1-ba44-72a4f781d8bf_1600w.png" alt="Founder Portrait" class="transition-transform duration-700 group-hover:scale-105 opacity-90 w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0"></div>
+                        
+                        <!-- Gradient Overlay -->
+                        <div class="bg-gradient-to-t from-black/90 via-black/40 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+    
+                        <!-- Content at Bottom -->
+                        <div class="lg:p-12 flex pt-8 pr-8 pb-8 pl-8 absolute right-0 bottom-0 left-0 items-end justify-between">
+                            <div class="space-y-1">
+                                <h3 class="text-3xl font-medium text-white tracking-tight font-geist">Dann Luckery</h3>
+                                <p class="text-base text-neutral-400 tracking-wide font-geist">Founder &amp; Lead Designer</p>
+                                
+                                <div class="flex gap-4 pt-4 text-neutral-400">
+                                    <a href="#" class="hover:text-white transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="twitter" class="lucide lucide-twitter w-5 h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                                    </a>
+                                    <a href="#" class="hover:text-white transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="linkedin" class="lucide lucide-linkedin w-5 h-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    </a>
+                                </div>
+                            </div>
+    
+                            <!-- Signature -->
+                            <div class="text-white opacity-80 w-32 md:w-48">
+                                <svg viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                    <path d="M10 50 C 30 40, 50 60, 40 70 S 20 50, 60 40 S 100 60, 90 50 S 120 30, 140 50 S 180 40, 190 60" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+    
+                </section>
+    
+                <footer class="pt-0 pb-0 mt-12">
+                    <div class="bg-white border-neutral-200 border rounded-3xl p-8 lg:p-12 shadow-[0_24px_60px_-32px_rgba(15,23,42,0.35)]">
+                      <div class="flex flex-col lg:flex-row gap-10 lg:gap-16">
+                        <!-- Brand -->
+                        <div class="lg:w-1/3 space-y-5">
+                          <div class="flex items-center gap-3">
+                            <div class="flex flex-col">
+                              <span class="text-sm font-semibold text-neutral-900 tracking-tight font-geist">start.agency</span>
+                              <span class="text-[11px] uppercase text-neutral-400 tracking-[0.16em] font-geist">Start with design</span>
+                            </div>
+                          </div>
+                          <p class="text-sm text-neutral-500 max-w-sm font-geist">We partner with startups on early stage and help them solve problems with efficient design.</p>
+                        </div>
+              
+                        <!-- Links -->
+                        <div class="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+                          <div class="space-y-3">
+                            <h3 class="uppercase text-xs font-medium text-neutral-400 tracking-[0.16em] font-geist">Service</h3>
+                            <ul class="space-y-2 text-neutral-600">
+                              <li><a href="#" class="hover:text-neutral-900 transition-colors font-geist">Website design</a></li>
+                              <li><a href="#" class="hover:text-neutral-900 transition-colors font-geist">Product design</a></li>
+                              <li><a href="#" class="hover:text-neutral-900 transition-colors font-geist">Brand identity</a></li>
+                            </ul>
+                          </div>
+                          <div class="space-y-3">
+                            <h3 class="text-xs font-medium uppercase tracking-[0.16em] text-neutral-400 font-geist">Company</h3>
+                            <ul class="space-y-2 text-neutral-600">
+                              <li><a href="#" class="hover:text-neutral-900 transition-colors font-geist">Studio</a></li>
+                              <li><a href="#" class="hover:text-neutral-900 transition-colors font-geist">Clients</a></li>
+                              <li><a href="#" class="hover:text-neutral-900 transition-colors font-geist">Contact</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <!-- Logos + Bottom row -->
+                      <div class="mt-10 border-t border-neutral-100 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-neutral-400">
+                        <p class="font-geist">© 2025 start.agency</p>
+                        <div class="flex flex-wrap gap-4">
+                          <a href="#" class="hover:text-neutral-700 transition-colors font-geist">Privacy Policy</a>
+                          <a href="#" class="hover:text-neutral-700 transition-colors font-geist">Terms of Service</a>
+                        </div>
+                      </div>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    
+        <script class="">
+            lucide.createIcons();
+        </script>
+    
+    <script data-img-fallback-handler>!function(){var f=["https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg","https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg","https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c543a9e1-f226-4ced-80b0-feb8445a75b9_1600w.jpg","https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5bab247f-35d9-400d-a82b-fd87cfe913d2_1600w.webp","https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp"],h=new Set;function g(s){for(var x=0,i=0;i<s.length;i++)x=(x<<5)-x+s.charCodeAt(i)|0;return f[Math.abs(x)%f.length]}function r(t){var s=t.src;if(s&&!h.has(s)){h.add(s);t.src=g(s)}}window.addEventListener("error",function(e){var t=e.target;if(t&&t.tagName==="IMG")r(t)},!0);function c(){document.querySelectorAll("img").forEach(function(i){if(i.complete&&!i.naturalWidth&&i.src)r(i)})}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",c);else c()}()</script>
+  <script>
+    lucide.createIcons();
+    function handleSpotlight(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      e.currentTarget.style.setProperty('--mouse-x', x + 'px');
+      e.currentTarget.style.setProperty('--mouse-y', y + 'px');
+    }
+  </script>
+</body>
+</html>

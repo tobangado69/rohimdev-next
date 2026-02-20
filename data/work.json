@@ -1,0 +1,179 @@
+{
+  "hero": {
+    "heading": "Professional Work Experience",
+    "description": "4+ years building scalable web applications and APIs. From telecommunications infrastructure to fullstack development—crafting solutions that bridge systems and deliver results."
+  },
+  "positions": [
+    {
+      "status": "current",
+      "title": "Freelance Fullstack Developer",
+      "company": "Rohimdev.com",
+      "period": "Jan 2025 - Present",
+      "type": "Freelance",
+      "location": "Surabaya, Indonesia",
+      "companyDescription": "Delivering 3-5 concurrent fullstack projects for client-specific requirements. Building scalable web applications with modern technologies and clean architecture patterns.",
+      "responsibilities": [
+        "Built backend services using Node.js, Express, Hono, and Golang (Gin)",
+        "Designed and managed PostgreSQL databases with Prisma ORM",
+        "Integrated frontend applications with backend services for consistent data flow",
+        "Improved development velocity using AI-assisted tools (Cursor, Claude Code, TRAE)"
+      ],
+      "achievements": [
+        { "metric": "3-5 Projects", "description": "Concurrent fullstack projects delivered" },
+        { "metric": "Development Velocity", "description": "Improved through AI-assisted development tools" }
+      ],
+      "technologies": ["Node.js", "Express", "Hono", "Golang", "Gin", "PostgreSQL", "Prisma", "React"]
+    },
+    {
+      "status": "current",
+      "title": "Fullstack Developer",
+      "company": "Varnion Technology Semesta",
+      "period": "Sep 2025 - Present",
+      "type": "Full-time",
+      "location": "Surabaya, Indonesia",
+      "companyDescription": "Developing and maintaining internal web applications using React, Node.js, and PostgreSQL to support operational and monitoring workflows.",
+      "responsibilities": [
+        "Built scalable RESTful APIs and backend services focusing on clean architecture, security, and performance",
+        "Developed and maintained internal web applications using React, Node.js, and PostgreSQL",
+        "Collaborated closely with infrastructure and NOC teams to bridge system requirements",
+        "Automated operational processes and reporting pipelines"
+      ],
+      "achievements": [
+        { "metric": "Internal Efficiency", "description": "Improved through automated reporting pipelines" },
+        { "metric": "Reduced Workloads", "description": "Automated operational processes" }
+      ],
+      "technologies": ["React", "Node.js", "PostgreSQL", "RESTful APIs", "Clean Architecture"]
+    },
+    {
+      "status": "previous",
+      "title": "Staff Infrastructure",
+      "company": "Varnion Technology Semesta",
+      "period": "Jan 2025 - Aug 2025",
+      "type": "Full-time",
+      "location": "Surabaya, Indonesia",
+      "companyDescription": "Transition period from telecommunications infrastructure to software development. Continued network maintenance while building development skills.",
+      "responsibilities": [
+        "Performed installation, configuration, and maintenance of network devices",
+        "Conducted regular monitoring and troubleshooting of network infrastructure",
+        "Collaborated with cross-functional teams including NOC"
+      ],
+      "achievements": [
+        { "metric": "Network Excellence", "description": "Maintained consistent internet performance and uptime" },
+        { "metric": "Career Transition", "description": "Successfully transitioned to fullstack development" }
+      ],
+      "technologies": ["Mikrotik", "Ubiquiti", "Network Design", "System Monitoring"]
+    },
+    {
+      "status": "previous",
+      "title": "Provisioning Technician",
+      "company": "PT Telkom Indonesia (IndiHome)",
+      "period": "Dec 2020 - Aug 2023",
+      "type": "Full-time",
+      "location": "Surabaya, Indonesia",
+      "companyDescription": "Foundational experience in telecommunications infrastructure. Built strong problem-solving skills and customer service excellence.",
+      "responsibilities": [
+        "Installed and configured IndiHome internet services including fiber optic connections",
+        "Conducted on-site troubleshooting and signal quality testing using OTDR and OPM",
+        "Coordinated with NOC and customer service teams for prompt issue resolution"
+      ],
+      "achievements": [
+        { "metric": "25% Reduction", "description": "Fewer repeat visits through quality service" },
+        { "metric": "Service Excellence", "description": "Improved activation times" }
+      ],
+      "technologies": ["Fiber Optic", "OTDR", "OPM Testing", "Customer Service"]
+    }
+  ],
+  "technicalAchievements": [
+    {
+      "title": "3-5 Concurrent Projects Delivered",
+      "organization": "Rohimdev.com",
+      "period": "2025 - Present",
+      "description": "Successfully delivered 3-5 concurrent fullstack projects for client-specific requirements, managing multiple priorities while maintaining code quality and delivery timelines.",
+      "technologies": ["Node.js", "Express", "Hono", "Golang", "PostgreSQL", "Prisma", "React"],
+      "impact": "Improved development velocity through AI-assisted tools and clean architecture patterns"
+    },
+    {
+      "title": "Internal Efficiency Improvement",
+      "organization": "Varnion Technology",
+      "period": "2025 - Present",
+      "description": "Built scalable RESTful APIs and automated reporting pipelines, reducing manual workloads and improving internal operational efficiency.",
+      "technologies": ["React", "Node.js", "PostgreSQL", "RESTful APIs", "Clean Architecture"],
+      "impact": "Streamlined operations and reduced manual processing by automating workflows"
+    },
+    {
+      "title": "Career Transition Success",
+      "organization": "Telkom Indonesia → Software Development",
+      "period": "2020 - 2025",
+      "description": "Successfully transitioned from telecommunications infrastructure to fullstack software development, building a diverse skill set across both domains.",
+      "technologies": ["Problem Solving", "Continuous Learning", "System Design", "Full-Stack Development"],
+      "impact": "Achieved measurable growth in software development with tangible project outcomes"
+    }
+  ],
+  "skillsSummary": {
+    "heading": "Technical Skills",
+    "subheading": "A comprehensive skill set built through real-world fullstack development experience",
+    "categories": [
+      {
+        "title": "Frontend Development",
+        "skills": ["React & Next.js", "TypeScript", "Tailwind CSS", "UI/UX Implementation", "Responsive Design"]
+      },
+      {
+        "title": "Backend Development",
+        "skills": ["Node.js & Express", "Golang (Gin)", "RESTful API Design", "Microservices", "Clean Architecture"]
+      },
+      {
+        "title": "Database & APIs",
+        "skills": ["PostgreSQL", "Prisma ORM", "API Integration", "Database Design", "Data Modeling"]
+      },
+      {
+        "title": "DevOps & Tools",
+        "skills": ["Git & Version Control", "Docker", "CI/CD Pipelines", "Cloud Deployment", "Performance Optimization"]
+      }
+    ]
+  },
+  "caseStudies": [
+    {
+      "slug": "cover",
+      "title": "Cover",
+      "headline": "Discovering a new height in home through an innovative, beautifully simple way to build in Los Angeles.",
+      "image": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1c053fe9-7127-4df7-ae87-36ae206fe067_1600w.jpg",
+      "details": [
+        { "label": "Year", "value": "2025" },
+        { "label": "With", "value": "MOUTHWASH Studio" },
+        { "label": "For", "value": "Cover" },
+        { "label": "Location", "value": "Los Angeles, California" },
+        { "label": "Recognition", "value": "SiteInspire, Awwwards SOTD", "span": true }
+      ],
+      "tags": ["Development", "Headless", "Sanity", "Mouthwash"]
+    },
+    {
+      "slug": "workly",
+      "title": "Workly",
+      "headline": "Redefining the modern workspace with an AI-driven productivity suite for remote teams.",
+      "image": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0851aedf-fdcc-48be-8ea0-cd63cc04fcda_1600w.jpg",
+      "details": [
+        { "label": "Year", "value": "2024" },
+        { "label": "Role", "value": "Product Design" },
+        { "label": "Client", "value": "Workly Inc." },
+        { "label": "Sector", "value": "SaaS / B2B" },
+        { "label": "Outcome", "value": "300% User Growth, $10M Series A", "span": true }
+      ],
+      "tags": ["Product Strategy", "UI/UX", "Design System"]
+    },
+    {
+      "slug": "lumina",
+      "title": "Lumina Financial",
+      "headline": "Crafting a transparent and accessible financial future for the next generation of investors.",
+      "image": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f3c53183-d5a0-484c-8070-57d6db15bf31_3840w.png",
+      "details": [
+        { "label": "Year", "value": "2023" },
+        { "label": "Services", "value": "Branding & Web" },
+        { "label": "Platform", "value": "Web, iOS, Android" },
+        { "label": "Location", "value": "London, UK" }
+      ],
+      "tags": ["Fintech", "Identity", "App Design"]
+    }
+  ],
+  "workContentBio": "UI/UX Designer based in San Francisco. I craft intuitive interfaces and design systems that help teams build better products—from zero-to-one to scale.",
+  "skillTags": ["UI/UX Design", "Design Systems", "Prototyping", "User Research"]
+}
