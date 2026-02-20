@@ -7,10 +7,10 @@
   "seo": {
     "siteName": "Abdul Rohim - Portfolio",
     "siteUrl": "https://rohimdev.com",
-    "siteDescription": "Professional full-stack developer with 4+ years of experience in React, Next.js, Node.js, and infrastructure management.",
+    "siteDescription": "Professional full-stack JavaScript engineer with 4+ years of experience in React, Next.js, Node.js, TypeScript, and Golang.",
     "author": {
       "name": "Abdul Rohim",
-      "title": "Full-Stack Developer & Infrastructure Specialist",
+      "title": "Full-Stack JavaScript Engineer",
       "email": "rohimjoy70@gmail.com",
       "location": "Indonesia",
       "social": {
@@ -23,14 +23,14 @@
     "ogImage": "https://rohimdev.com/og-image.jpg",
     "keywords": {
       "primary": ["fullstack developer", "react developer", "nextjs developer", "nodejs developer", "typescript developer", "javascript developer"],
-      "secondary": ["mobile app developer", "react native developer", "infrastructure specialist", "network engineer", "portfolio", "web developer"],
+      "secondary": ["mobile app developer", "react native developer", "golang developer", "network engineer", "portfolio", "web developer"],
       "location": ["indonesia developer", "remote developer", "freelance developer"],
       "technologies": ["graphql developer", "mongodb developer", "postgresql developer", "tailwind css developer", "framer motion developer"]
     },
     "pages": {
       "home": {
-        "title": "Abdul Rohim - Full-Stack Developer & Infrastructure Specialist",
-        "description": "Professional full-stack developer with 4+ years of experience in React, Next.js, Node.js, and infrastructure management.",
+        "title": "Abdul Rohim - Full-Stack JavaScript Engineer",
+        "description": "Professional full-stack JavaScript engineer with 4+ years of experience in React, Next.js, Node.js, TypeScript, and Golang.",
         "keywords": ["fullstack developer", "react developer", "nextjs developer", "portfolio", "web developer"]
       },
       "about": {
@@ -44,7 +44,7 @@
         "keywords": ["abdul rohim projects", "react native projects", "nextjs projects", "fullstack projects"]
       },
       "services": {
-        "title": "Services - Full-Stack Development & Infrastructure Solutions",
+        "title": "Services - Full-Stack JavaScript Development",
         "description": "Professional full-stack development services including React, Next.js, Node.js, mobile apps.",
         "keywords": ["fullstack development services", "react development services", "mobile app development", "infrastructure services"]
       },
