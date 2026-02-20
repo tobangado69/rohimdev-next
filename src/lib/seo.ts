@@ -48,7 +48,7 @@ export function getDefaultMetadata(): Metadata {
   };
 }
 
-type PageKey = "home" | "about" | "work" | "services" | "contact" | "projects";
+type PageKey = "home" | "about" | "work" | "services" | "contact" | "projects" | "privacy" | "terms";
 
 /** Build page metadata from site.pages */
 export function getPageMetadata(pageKey: PageKey): Metadata {

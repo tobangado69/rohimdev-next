@@ -57,6 +57,16 @@
         "title": "Contact Abdul Rohim - Full-Stack Developer",
         "description": "Get in touch with Abdul Rohim for full-stack development projects.",
         "keywords": ["contact abdul rohim", "hire fullstack developer", "freelance developer contact", "react developer hire"]
+      },
+      "privacy": {
+        "title": "Privacy Policy - Abdul Rohim",
+        "description": "Learn how Abdul Rohim collects, uses, and protects your personal information.",
+        "keywords": ["privacy policy", "data protection", "personal information", "cookies"]
+      },
+      "terms": {
+        "title": "Terms of Service - Abdul Rohim",
+        "description": "Terms and conditions for using Abdul Rohim's website and services.",
+        "keywords": ["terms of service", "terms and conditions", "legal", "service agreement"]
       }
     }
   }
