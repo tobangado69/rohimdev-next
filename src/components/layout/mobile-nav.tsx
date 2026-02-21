@@ -48,7 +48,18 @@ export function MobileNav({ currentPath = "/" }: MobileNavProps) {
           </Link>
         ))}
       </nav>
-      <div className="mt-6 pt-4 border-t border-neutral-100">
+      <div className="mt-6 pt-4 border-t border-neutral-100 space-y-3">
+        <GlassButton
+          href={PROFILE.social.resume}
+          external
+          variant="default"
+          className="w-full text-center"
+        >
+          <span className="inline-flex items-center gap-2">
+            Resume
+            <ArrowUpRight className="w-4 h-4 shrink-0" />
+          </span>
+        </GlassButton>
         <GlassButton
           href={PROFILE.social.upwork}
           external

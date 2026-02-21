@@ -41,7 +41,17 @@ export function Sidebar() {
             </Link>
           ))}
         </nav>
-        <div className="hidden lg:block mt-6">
+        <div className="hidden lg:block mt-6 space-y-3">
+          <GlassButton
+            href={PROFILE.social.resume}
+            external
+            variant="default"
+          >
+            <span className="inline-flex items-center gap-2">
+              Resume
+              <ArrowUpRight className="w-4 h-4 shrink-0" />
+            </span>
+          </GlassButton>
           <GlassButton
             href={PROFILE.social.upwork}
             external
