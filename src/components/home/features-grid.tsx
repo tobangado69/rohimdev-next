@@ -134,7 +134,7 @@ export function FeaturesGrid() {
                 href="/work"
                 className="group flex items-center gap-3 bg-white hover:bg-zinc-100 transition-all text-zinc-900 text-sm font-medium rounded-full px-6 py-3 w-fit shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
-                <span>Read more</span>
+                <span>View Work</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
