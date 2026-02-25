@@ -42,7 +42,7 @@ export function Hero() {
       </div>
 
       <div
-        className="lg:col-span-5 flex items-center justify-center overflow-hidden relative"
+        className="animate-clip-in lg:col-span-5 flex items-center justify-center overflow-hidden relative"
         style={{ animationDelay: "0.5s" }}
       >
         {/* Phone-like Container - responsive sizing */}
