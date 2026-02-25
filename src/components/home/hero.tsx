@@ -85,26 +85,6 @@ export function Hero() {
               <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-white -mb-0.5 -mr-0.5"></div>
               <div className="bg-black/60 backdrop-blur-md px-2 py-1 rounded text-[10px] text-white uppercase tracking-widest">Tracking</div>
             </div>
-
-            {/* Caption */}
-            <div className="space-y-2">
-              <div className="bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/5 shadow-lg transform translate-y-0 group-hover:-translate-y-2 transition-transform duration-500">
-                <p className="text-xl font-bold text-neutral-900 text-center leading-tight">
-                  Full-Stack Developer
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Floating Stats Element */}
-        <div className="absolute bottom-10 right-10 p-4 rounded-2xl flex items-center gap-3 shadow-lg bg-white/80 backdrop-blur-md border border-neutral-200 z-20">
-          <div className="bg-blue-500/10 p-2 rounded-lg text-blue-500">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-          </div>
-          <div>
-            <div className="text-xs text-neutral-500">Experience</div>
-            <div className="text-lg font-bold text-neutral-900 tracking-tight">2+ <span className="text-neutral-500 text-sm font-normal">years</span></div>
           </div>
         </div>
       </div>
