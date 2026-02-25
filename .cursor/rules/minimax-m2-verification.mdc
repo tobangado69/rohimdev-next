@@ -440,9 +440,9 @@ struct ContentView: View {
 
 ---
 
-## ReadLints Tool - Test Error Checking
+## ReadLints Tool - Linter Error Checking
 
-The `ReadLints` tool reads test errors from the workspace. Use it after every file edit.
+The `ReadLints` tool reads linter errors from the workspace. Use it after every file edit.
 
 ### Usage
 
@@ -457,7 +457,7 @@ The `ReadLints` tool reads test errors from the workspace. Use it after every fi
 
 1. **Only check files you've edited** - Don't scan entire codebase
 2. **Check immediately after edits** - Catch errors early
-3. **Fix errors before proceeding** - Don't accumulate test errors
+3. **Fix errors before proceeding** - Don't accumulate lint errors
 4. **Use specific paths** - More efficient than broad scans
 
 ### Example Workflow
@@ -466,7 +466,7 @@ The `ReadLints` tool reads test errors from the workspace. Use it after every fi
 // 1. Edit a file
 → StrReplace(path="src/utils.ts", ...)
 
-// 2. Check for test errors
+// 2. Check for linter errors
 → ReadLints(paths=["src/utils.ts"])
 
 // 3. If errors found, fix them
@@ -482,12 +482,12 @@ The `ReadLints` tool reads test errors from the workspace. Use it after every fi
 
 ### Effort-Scaled Verification
 
-**Instant**: Just test the edited file.
+**Instant**: Just lint the edited file.
 ```
 → ReadLints(paths=["path/to/edited/file"])
 ```
 
-**Light**: Test + build + quick self-review.
+**Light**: Lint + build + quick self-review.
 ```
 → ReadLints(paths=["path/to/edited/file"])
 → Shell(command="npm run build", description="Build check")  // or equivalent
@@ -511,7 +511,7 @@ The `ReadLints` tool reads test errors from the workspace. Use it after every fi
 ```
 → Shell(command="npm install", description="Install dependencies")
 → Shell(command="npm run build", description="Build project")
-→ Shell(command="npm run test", description="Run tests")
+→ Shell(command="npm run lint", description="Run linter")
 → ReadLints(paths=["src/"])
 ```
 
@@ -534,6 +534,7 @@ The `ReadLints` tool reads test errors from the workspace. Use it after every fi
 → Shell(command="cargo check", description="Check Rust code")
 → Shell(command="cargo build", description="Build Rust project")
 → Shell(command="cargo test", description="Run Rust tests")
+→ Shell(command="cargo clippy", description="Run Clippy lints")
 ```
 
 **C/C++:**
@@ -695,12 +696,12 @@ Before marking ANY task complete (scale to effort level):
 
 ### Instant
 ```
-□ Tests pass on edited file
+□ Linter passes on edited file
 ```
 
 ### Light
 ```
-□ Tests pass on edited file
+□ Linter passes on edited file
 □ Build succeeds
 □ Adversarial self-review performed
 ```
@@ -709,7 +710,7 @@ Before marking ANY task complete (scale to effort level):
 ```
 □ Package versions checked for NEW dependencies
 □ CLI tools used where available
-□ Tests pass on all edited files
+□ Linter passes on all edited files
 □ Build succeeds
 □ Relevant tests pass
 □ Adversarial self-review performed
@@ -720,7 +721,6 @@ Before marking ANY task complete (scale to effort level):
 ```
 □ Package versions checked for NEW dependencies
 □ CLI tools used where available
-□ Tests pass on all edited files
 □ Syntax verified against language reference
 □ No IDE project files generated manually
 □ Build succeeds

@@ -24,6 +24,7 @@ This subagent addresses a common issue where AI marks tasks as done but implemen
    - Confirm no syntax errors
 
 3. **Run relevant tests or verification steps**
+   - Run linters on changed files
    - Execute build commands
    - Run specific tests if available
 
@@ -38,6 +39,7 @@ For each claimed completion, verify:
 
 ```
 □ Files exist at expected paths
+□ No linter errors (ReadLints)
 □ Build succeeds (npm run build, cargo check, etc.)
 □ Tests pass (if tests exist)
 □ UI renders correctly (if UI component)
@@ -55,6 +57,7 @@ Report your findings clearly:
 
 Checks performed:
 - [x] Files created at correct locations
+- [x] No linter errors
 - [x] Build passes
 - [x] Tests pass
 

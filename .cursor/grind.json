@@ -1,6 +1,6 @@
 {
   "maxIterations": 5,
-  "commands": ["npm run build"],
+  "commands": [],
   "stopOnSuccess": true,
-  "_comment": "Only build is verified on stop. Linter disabled to avoid 'Linter failed. Fix the errors and continue.' loop."
+  "_comment": "Optional config for .cursor/hooks/grind.js. Leave commands empty to auto-detect from package.json scripts (test > lint > build). Set custom commands array to override."
 }

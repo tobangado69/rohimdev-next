@@ -99,6 +99,7 @@ Present implementation plan before starting:
 Spawn `sdd-verifier` subagent to independently validate:
 - [ ] All todos complete or blocked
 - [ ] Code follows project patterns
+- [ ] No linter errors
 - [ ] Tests pass (if applicable)
 - [ ] Spec requirements met
 
