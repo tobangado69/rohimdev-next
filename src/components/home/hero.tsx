@@ -45,17 +45,6 @@ export function Hero() {
         className="lg:col-span-4 flex items-center justify-center overflow-hidden relative"
         style={{ animationDelay: "0.5s" }}
       >
-        {/* Background Decoration */}
-        <div className="absolute inset-0 bg-cover bg-center opacity-10 blur-3xl scale-125 animate-pulse pointer-events-none">
-          <Image
-            src={PROFILE.avatar}
-            alt=""
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 1024px) 100vw, 33vw"
-          />
-        </div>
-
         {/* Phone-like Container */}
         <div className="relative w-full max-w-sm aspect-[9/16] rounded-[2rem] overflow-hidden shadow-2xl border border-neutral-200 group cursor-pointer">
           <Image
