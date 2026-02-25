@@ -42,10 +42,11 @@ export function Hero() {
       </div>
 
       <div
-        className="lg:col-span-4 flex flex-col animate-clip-in bg-stone-50 border-stone-200 border rounded-3xl p-2 space-y-8 gap-x-12 gap-y-12 justify-between overflow-hidden relative"
-        style={{ animationDelay: "0.5s", height: "fit-content" }}
+        className="lg:col-span-4 flex items-center justify-center overflow-hidden relative"
+        style={{ animationDelay: "0.5s" }}
       >
-        <div className="absolute inset-0 opacity-30 blur-3xl scale-125 animate-pulse pointer-events-none">
+        {/* Background Decoration */}
+        <div className="absolute inset-0 bg-cover bg-center opacity-10 blur-3xl scale-125 animate-pulse pointer-events-none">
           <Image
             src={PROFILE.avatar}
             alt=""
@@ -54,15 +55,57 @@ export function Hero() {
             sizes="(max-width: 1024px) 100vw, 33vw"
           />
         </div>
-        <div className="aspect-[3/4] overflow-hidden w-full border-stone-200 border rounded-2xl relative bg-neutral-100">
+
+        {/* Phone-like Container */}
+        <div className="relative w-full max-w-sm aspect-[9/16] rounded-[2rem] overflow-hidden shadow-2xl border border-neutral-200 group cursor-pointer">
           <Image
             src={PROFILE.avatar}
             alt={PROFILE.name}
             fill
-            className="object-cover object-top rounded-2xl"
+            className="object-cover object-top transition-transform duration-1000 group-hover:scale-110"
             sizes="(max-width: 1024px) 100vw, 33vw"
             priority
           />
+          
+          {/* Overlay UI */}
+          <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
+            {/* REC Indicator */}
+            <div className="flex justify-between items-start">
+              <div className="px-3 py-1 rounded-full text-xs font-medium flex items-center gap-2 text-white bg-black/40 backdrop-blur-md border border-white/10">
+                <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></div>
+                REC
+              </div>
+            </div>
+
+            {/* Face Tracking Box */}
+            <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-40 h-40 border border-white/40 rounded-2xl flex items-end justify-center pb-2 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
+              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-white -mt-0.5 -ml-0.5"></div>
+              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-white -mt-0.5 -mr-0.5"></div>
+              <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-white -mb-0.5 -ml-0.5"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-white -mb-0.5 -mr-0.5"></div>
+              <div className="bg-black/60 backdrop-blur-md px-2 py-1 rounded text-[10px] text-white uppercase tracking-widest">Tracking</div>
+            </div>
+
+            {/* Caption */}
+            <div className="space-y-2">
+              <div className="bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/5 shadow-lg transform translate-y-0 group-hover:-translate-y-2 transition-transform duration-500">
+                <p className="text-xl font-bold text-neutral-900 text-center leading-tight">
+                  Full-Stack Developer
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Stats Element */}
+        <div className="absolute bottom-10 right-10 p-4 rounded-2xl flex items-center gap-3 shadow-lg bg-white/80 backdrop-blur-md border border-neutral-200 z-20">
+          <div className="bg-blue-500/10 p-2 rounded-lg text-blue-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </div>
+          <div>
+            <div className="text-xs text-neutral-500">Experience</div>
+            <div className="text-lg font-bold text-neutral-900 tracking-tight">2+ <span className="text-neutral-500 text-sm font-normal">years</span></div>
+          </div>
         </div>
       </div>
     </section>
