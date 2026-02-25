@@ -42,9 +42,18 @@ export function Hero() {
       </div>
 
       <div
-        className="lg:col-span-4 flex flex-col animate-clip-in bg-stone-50 border-stone-200 border rounded-3xl p-2 space-y-8 gap-x-12 gap-y-12 justify-between"
+        className="lg:col-span-4 flex flex-col animate-clip-in bg-stone-50 border-stone-200 border rounded-3xl p-2 space-y-8 gap-x-12 gap-y-12 justify-between overflow-hidden relative"
         style={{ animationDelay: "0.5s", height: "fit-content" }}
       >
+        <div className="absolute inset-0 opacity-30 blur-3xl scale-125 animate-pulse pointer-events-none">
+          <Image
+            src={PROFILE.avatar}
+            alt=""
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 1024px) 100vw, 33vw"
+          />
+        </div>
         <div className="aspect-[3/4] overflow-hidden w-full border-stone-200 border rounded-2xl relative bg-neutral-100">
           <Image
             src={PROFILE.avatar}
