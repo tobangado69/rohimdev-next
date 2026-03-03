@@ -6,6 +6,28 @@
   "positions": [
     {
       "status": "current",
+      "title": "Infrastructure & Application Engineer",
+      "company": "Varnion Technology",
+      "period": "Jan 2025 - Present",
+      "type": "Full-time",
+      "location": "Surabaya, Indonesia",
+      "companyDescription": "Managed infrastructure operations across 6–8 active client sites. Developed internal web applications for monitoring and operational workflows. Automated reporting and reduced network incidents through proactive practices.",
+      "responsibilities": [
+        "Managed infrastructure operations across 6–8 active client sites, ensuring SLA-aligned network stability and performance",
+        "Developed internal web applications using React, Node.js, and PostgreSQL to support monitoring and operational workflows",
+        "Automated reporting pipelines, reducing manual processing time by approximately 30%",
+        "Reduced network connectivity incidents by 40% through proactive monitoring and structured deployment practices",
+        "Presented technical infrastructure solutions to B2B stakeholders, including hotel general managers, aligning system capabilities with operational needs"
+      ],
+      "achievements": [
+        { "metric": "30% Reduction", "description": "Manual processing time reduced through automated reporting" },
+        { "metric": "40% Fewer Incidents", "description": "Network connectivity issues reduced via proactive monitoring" },
+        { "metric": "6–8 Client Sites", "description": "Managed infrastructure across active deployments" }
+      ],
+      "technologies": ["React", "Node.js", "PostgreSQL", "Infrastructure", "Monitoring", "Automation"]
+    },
+    {
+      "status": "current",
       "title": "Freelance Fullstack Developer",
       "company": "Rohimdev.com",
       "period": "Jan 2025 - Present",
@@ -23,45 +45,6 @@
         { "metric": "Development Velocity", "description": "Improved through AI-assisted development tools" }
       ],
       "technologies": ["Node.js", "Express", "Hono", "Golang", "Gin", "PostgreSQL", "Prisma", "React"]
-    },
-    {
-      "status": "current",
-      "title": "Fullstack Developer",
-      "company": "Varnion Technology Semesta",
-      "period": "Sep 2025 - Present",
-      "type": "Full-time",
-      "location": "Surabaya, Indonesia",
-      "companyDescription": "Developing and maintaining internal web applications using React, Node.js, and PostgreSQL to support operational and monitoring workflows.",
-      "responsibilities": [
-        "Built scalable RESTful APIs and backend services focusing on clean architecture, security, and performance",
-        "Developed and maintained internal web applications using React, Node.js, and PostgreSQL",
-        "Collaborated closely with infrastructure and NOC teams to bridge system requirements",
-        "Automated operational processes and reporting pipelines"
-      ],
-      "achievements": [
-        { "metric": "Internal Efficiency", "description": "Improved through automated reporting pipelines" },
-        { "metric": "Reduced Workloads", "description": "Automated operational processes" }
-      ],
-      "technologies": ["React", "Node.js", "PostgreSQL", "RESTful APIs", "Clean Architecture"]
-    },
-    {
-      "status": "previous",
-      "title": "Staff Infrastructure",
-      "company": "Varnion Technology Semesta",
-      "period": "Jan 2025 - Aug 2025",
-      "type": "Full-time",
-      "location": "Surabaya, Indonesia",
-      "companyDescription": "Transition period from telecommunications infrastructure to software development. Continued network maintenance while building development skills.",
-      "responsibilities": [
-        "Performed installation, configuration, and maintenance of network devices",
-        "Conducted regular monitoring and troubleshooting of network infrastructure",
-        "Collaborated with cross-functional teams including NOC"
-      ],
-      "achievements": [
-        { "metric": "Network Excellence", "description": "Maintained consistent internet performance and uptime" },
-        { "metric": "Career Transition", "description": "Successfully transitioned to fullstack development" }
-      ],
-      "technologies": ["Mikrotik", "Ubiquiti", "Network Design", "System Monitoring"]
     },
     {
       "status": "previous",
@@ -93,18 +76,18 @@
       "impact": "Improved development velocity through AI-assisted tools and clean architecture patterns"
     },
     {
-      "title": "Internal Efficiency Improvement",
+      "title": "Infrastructure & Application Engineering",
       "organization": "Varnion Technology",
       "period": "2025 - Present",
-      "description": "Built scalable RESTful APIs and automated reporting pipelines, reducing manual workloads and improving internal operational efficiency.",
-      "technologies": ["React", "Node.js", "PostgreSQL", "RESTful APIs", "Clean Architecture"],
-      "impact": "Streamlined operations and reduced manual processing by automating workflows"
+      "description": "Managed 6–8 client site infrastructures. Automated reporting pipelines (~30% time savings), reduced network incidents by 40%, and developed internal monitoring applications with React, Node.js, and PostgreSQL.",
+      "technologies": ["React", "Node.js", "PostgreSQL", "Infrastructure", "Monitoring", "Automation"],
+      "impact": "Improved operational efficiency and stability through automation and proactive practices"
     },
     {
       "title": "Career Transition Success",
       "organization": "Telkom Indonesia → Software Development",
       "period": "2020 - 2025",
-      "description": "Successfully transitioned from telecommunications infrastructure to fullstack software development, building a diverse skill set across both domains.",
+      "description": "Successfully transitioned from telecommunications infrastructure to software development, building a diverse skill set across both domains.",
       "technologies": ["Problem Solving", "Continuous Learning", "System Design", "Full-Stack Development"],
       "impact": "Achieved measurable growth in software development with tangible project outcomes"
     }

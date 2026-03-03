@@ -9,7 +9,7 @@
   },
   "aboutMe": {
     "heading": "About Me",
-    "paragraph": "I'm a Full Stack Developer building scalable web applications and APIs. Currently freelancing at Rohimdev.com and working as Fullstack Developer at Varnion Technology. I focus on clean architecture, RESTful APIs, and modern tooling—delivering 3-5 concurrent projects while improving velocity with AI-assisted development."
+    "paragraph": "I'm a Full Stack Developer building scalable web applications and APIs. Currently freelancing at Rohimdev.com and working as Infrastructure & Application Engineer at Varnion Technology. I focus on clean architecture, RESTful APIs, and modern tooling—delivering 3-5 concurrent projects while improving velocity with AI-assisted development."
   },
   "skills": {
     "categories": [
@@ -51,18 +51,11 @@
         "technologies": ["Node.js", "Express", "Hono", "Golang", "PostgreSQL", "Prisma", "React"]
       },
       {
-        "period": "Sep 2025 - Present",
-        "title": "Fullstack Developer",
-        "company": "Varnion Technology Semesta",
-        "description": "Developing internal web applications using React, Node.js, and PostgreSQL. Building scalable RESTful APIs with clean architecture, security, and performance focus. Collaborating with infrastructure and NOC teams to bridge system requirements. Automating operational processes and reporting pipelines.",
-        "technologies": ["React", "Node.js", "PostgreSQL", "RESTful APIs", "Clean Architecture"]
-      },
-      {
-        "period": "Jan 2025 - Aug 2025",
-        "title": "Staff Infrastructure",
-        "company": "Varnion Technology Semesta",
-        "description": "Transition period from telecommunications infrastructure to software development. Performed installation, configuration, and maintenance of network devices. Conducted regular monitoring and troubleshooting using Mikrotik and Ubiquiti systems.",
-        "technologies": ["Mikrotik", "Ubiquiti", "Network Design", "System Monitoring"]
+        "period": "Jan 2025 - Present",
+        "title": "Infrastructure & Application Engineer",
+        "company": "Varnion Technology",
+        "description": "Managed infrastructure operations across 6–8 active client sites. Developed internal web applications using React, Node.js, and PostgreSQL for monitoring and operational workflows. Automated reporting pipelines (~30% time savings), reduced network incidents by 40%, and presented technical solutions to B2B stakeholders including hotel general managers.",
+        "technologies": ["React", "Node.js", "PostgreSQL", "Infrastructure", "Monitoring", "Automation"]
       },
       {
         "period": "Dec 2020 - Aug 2023",
