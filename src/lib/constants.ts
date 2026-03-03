@@ -20,7 +20,7 @@ export const PROFILE = {
     github: "https://github.com/tobangado69",
     upwork: "https://www.upwork.com/freelancers/abdulr1422",
     x: "https://x.com/AbdulRohim74845",
-    resume: "https://drive.google.com/file/d/17LLuWo5ijpn32DZZ6Nvk_JsAFOiwiptm/view", // TODO: Replace with actual resume URL
+    resume: "https://drive.google.com/file/d/1VWuzlILeTqPAOUX3DMuQB0ragfpNdOZD/view", // TODO: Replace with actual resume URL
   },
 } as const;
 
