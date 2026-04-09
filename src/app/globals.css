@@ -25,8 +25,8 @@ html.lenis, html.lenis body {
   --animate-marquee: marquee 40s linear infinite;
   --animate-marquee-slow: marquee 80s linear infinite;
   --animate-clip-in: clipIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) both;
-  --animate-fade-up: fadeUp 0.8s ease-out forwards;
-  --animate-fade-in-up: fadeUp 0.8s ease-out forwards;
+  --animate-fade-up: fadeUp 0.8s ease-out both;
+  --animate-fade-in-up: fadeUp 0.8s ease-out both;
   --animate-scale-in: scaleIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) both;
   --color-neutral-50: #fafafa;
   --color-neutral-100: #f5f5f5;
@@ -104,7 +104,7 @@ html.lenis, html.lenis body {
 }
 
 .animate-fadeInUp {
-  animation: fadeUp 0.8s ease-out forwards;
+  animation: fadeUp 0.8s ease-out both;
 }
 
 .animation-delay-300 {

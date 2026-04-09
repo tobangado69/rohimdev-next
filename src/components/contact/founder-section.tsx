@@ -4,11 +4,11 @@ import { PROFILE } from "@/lib/constants";
 
 export function FounderSection() {
   return (
-    <section
-      className="animate-fade-up w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start pb-12"
-      style={{ animationDelay: "0.6s" }}
-    >
-      <div className="flex flex-col justify-center space-y-10 lg:sticky lg:top-32">
+    <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start pb-12">
+      <div
+        className="flex flex-col justify-center space-y-10 lg:sticky lg:top-32 animate-fade-up"
+        style={{ animationDelay: "0.6s" }}
+      >
         <h2 className="lg:text-[44px] leading-[1.1] text-4xl font-medium text-neutral-900 tracking-tight">
           Hey, I&apos;m {PROFILE.name.split(" ")[0]}
         </h2>
@@ -70,7 +70,10 @@ export function FounderSection() {
         </div>
       </div>
 
-      <div className="lg:h-[800px] overflow-hidden group bg-neutral-900 w-full h-[600px] rounded-[32px] relative">
+      <div
+        className="lg:h-[800px] overflow-hidden group bg-neutral-900 w-full h-[600px] rounded-[32px] relative animate-fade-up"
+        style={{ animationDelay: "0.65s" }}
+      >
         <Image
           src={PROFILE.avatar}
           alt={`${PROFILE.name} portrait`}

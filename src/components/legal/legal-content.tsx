@@ -18,7 +18,10 @@ export function LegalContent({ type }: LegalContentProps) {
   return (
     <div className="grid lg:grid-cols-[1fr_200px] gap-12">
       <article className="space-y-12">
-        <header className="space-y-4">
+        <header
+          className="space-y-4 animate-clip-in"
+          style={{ animationDelay: "0.4s" }}
+        >
           <h1 className="text-4xl font-semibold text-neutral-900 tracking-tight">
             {data.title}
           </h1>
@@ -27,44 +30,52 @@ export function LegalContent({ type }: LegalContentProps) {
           )}
         </header>
 
-        {data.introduction && (
-          <p className="text-neutral-600 leading-relaxed text-lg">
-            {Array.isArray(data.introduction)
-              ? data.introduction.join(" ")
-              : data.introduction}
-          </p>
-        )}
+        <div
+          className="animate-fade-up space-y-12"
+          style={{ animationDelay: "0.5s" }}
+        >
+          {data.introduction && (
+            <p className="text-neutral-600 leading-relaxed text-lg">
+              {Array.isArray(data.introduction)
+                ? data.introduction.join(" ")
+                : data.introduction}
+            </p>
+          )}
 
-        <div className="space-y-12 border-t border-neutral-200 pt-12">
-          {data.sections.map((section, index) => (
-            <LegalSection
-              key={index}
-              title={section.title}
-              content={section.content}
-              number={"number" in section ? section.number : undefined}
-            />
-          ))}
-        </div>
-
-        {data.agreementStatement && (
-          <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
-            <p className="text-neutral-600">{data.agreementStatement}</p>
-            {data.contactEmail && (
-              <p className="mt-4 text-neutral-900">
-                Contact:{" "}
-                <a
-                  href={`mailto:${data.contactEmail}`}
-                  className="underline hover:text-neutral-600"
-                >
-                  {data.contactEmail}
-                </a>
-              </p>
-            )}
+          <div className="space-y-12 border-t border-neutral-200 pt-12">
+            {data.sections.map((section, index) => (
+              <LegalSection
+                key={index}
+                title={section.title}
+                content={section.content}
+                number={"number" in section ? section.number : undefined}
+              />
+            ))}
           </div>
-        )}
+
+          {data.agreementStatement && (
+            <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+              <p className="text-neutral-600">{data.agreementStatement}</p>
+              {data.contactEmail && (
+                <p className="mt-4 text-neutral-900">
+                  Contact:{" "}
+                  <a
+                    href={`mailto:${data.contactEmail}`}
+                    className="underline hover:text-neutral-600"
+                  >
+                    {data.contactEmail}
+                  </a>
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       </article>
 
-      <aside>
+      <aside
+        className="animate-fade-up"
+        style={{ animationDelay: "0.5s" }}
+      >
         <TableOfContents items={tocItems} />
       </aside>
     </div>

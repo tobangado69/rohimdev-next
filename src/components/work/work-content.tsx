@@ -57,7 +57,7 @@ export function WorkContent() {
   return (
     <>
       <header
-        className="flex flex-col md:flex-row gap-6 animate-fade-up gap-x-6 gap-y-6 items-end justify-between"
+        className="flex flex-col md:flex-row gap-6 animate-clip-in gap-x-6 gap-y-6 items-end justify-between"
         style={{ animationDelay: "0.4s" }}
       >
         <div className="space-y-2">

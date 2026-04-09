@@ -157,7 +157,7 @@ export function HowWeWork() {
     <section
       className="animate-scaleIn animation-delay-300 sm:pl-2 sm:pr-2 sm:pt-2 sm:pb-2 bg-stone-50 w-full max-w-none z-10 border border-stone-200 rounded-3xl pt-6 pr-6 pb-6 pl-6 relative shadow-2xl"
     >
-      <div className="flex animate-fadeInUp sm:pt-6 sm:pr-6 sm:pb-6 sm:pl-6 pt-6 pr-1 pb-6 pl-1 gap-x-6 gap-y-6 items-center">
+      <div className="flex animate-fade-up sm:pt-6 sm:pr-6 sm:pb-6 sm:pl-6 pt-6 pr-1 pb-6 pl-1 gap-x-6 gap-y-6 items-center">
         <h2 className="text-[44px] leading-[0.9] sm:text-6xl lg:text-7xl xl:text-5xl text-zinc-950 tracking-tighter">
           How we works
         </h2>
