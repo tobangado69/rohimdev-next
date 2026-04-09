@@ -442,7 +442,7 @@ export default function WorkPage() {
       </section>
 
       {/* Professional Skills Summary */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-black">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sf-pro-display tracking-tight mb-6 font-light">
