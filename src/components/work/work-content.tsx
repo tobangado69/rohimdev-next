@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { GlassButton } from "@/components/ui/glass-button";
+import type { ProjectContent } from "@/types/content";
 
 const SKILL_TAGS = [
   "React & Next.js",
@@ -13,45 +14,11 @@ const SKILL_TAGS = [
   "React Native",
 ];
 
-/** Hardcoded projects - no external data fetching */
-const PROJECTS = [
-  {
-    slug: "mobile-fb",
-    title: "Mobile-FB",
-    headline: "A comprehensive full-stack social media application that replicates core Facebook functionality on mobile devices.",
-    image: "https://i.imgur.com/CFZvp5T.png",
-    date: "April 2024",
-    status: "In Development",
-    technologies: ["React Native", "GraphQL", "Apollo Client", "Node.js", "MongoDB", "Redis", "Expo"],
-    github: "https://github.com/tobangado69/Mobile-FB",
-    live: null as string | null,
-  },
-  {
-    slug: "chatapp",
-    title: "ChatApp",
-    headline: "Real-time messaging application built with React and Socket.IO, featuring live chat functionality and user presence indicators.",
-    image: "https://raw.githubusercontent.com/tobangado69/ChatApp/main/assets/home.png",
-    date: "February 2024",
-    status: "In Development",
-    technologies: ["React", "Socket.IO", "Express", "PostgreSQL", "Sequelize", "Tailwind CSS"],
-    github: "https://github.com/tobangado69/ChatApp",
-    live: null as string | null,
-  },
-  {
-    slug: "grammedia-clone",
-    title: "Grammedia Clone",
-    headline: "A comprehensive e-commerce web application that replicates modern online bookstore functionality.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-    date: "2024",
-    status: "Live",
-    technologies: ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS", "Infinite Scroll"],
-    github: "https://github.com/tobangado69/Grammedia-Clone",
-    live: "https://gramedia.vercel.app/",
-  },
-];
+type WorkContentProps = {
+  projects: ProjectContent[];
+};
 
-
-export function WorkContent() {
+export function WorkContent({ projects }: WorkContentProps) {
   const [view, setView] = useState<"list" | "grid">("list");
 
   return (
@@ -120,27 +87,33 @@ export function WorkContent() {
         className={`animate-fade-up ${view === "list" ? "flex flex-col gap-24" : "grid grid-cols-1 md:grid-cols-2 gap-12"}`}
         style={{ animationDelay: "0.5s" }}
       >
-        {PROJECTS.map((project) => (
+        {projects.map((project) => (
           <article key={project.slug} className="group">
-            <div className="md:p-4 hover:shadow-md transition-all duration-500 bg-white w-full border border-neutral-200 rounded-2xl p-3 shadow-sm">
-              <div className="aspect-16/10 overflow-hidden group-hover:cursor-pointer bg-[#1a1c18] w-full rounded-lg relative">
+            <Link
+              href={`/work/${project.slug}`}
+              className="block md:p-4 hover:shadow-md transition-all duration-500 bg-white w-full border border-neutral-200 rounded-2xl p-3 shadow-sm"
+            >
+              <span className="sr-only">View {project.title} case study</span>
+              <div className="aspect-16/10 overflow-hidden bg-[#1a1c18] w-full rounded-lg relative">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover bg-center"
+                  className="object-cover bg-center group-hover:scale-[1.02] transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
               </div>
-            </div>
+            </Link>
             <div className="mt-8 md:mt-12 px-2">
               <div className="max-w-4xl">
-                <span className="text-sm text-neutral-400 mb-4 block uppercase tracking-wide">
-                  {project.title}
-                </span>
-                <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-neutral-900 leading-tight mb-12">
-                  {project.headline}
-                </h2>
+                <Link href={`/work/${project.slug}`} className="block group/title">
+                  <span className="text-sm text-neutral-400 mb-4 block uppercase tracking-wide group-hover/title:text-neutral-600 transition-colors">
+                    {project.title}
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-neutral-900 leading-tight mb-6 group-hover/title:text-neutral-700 transition-colors">
+                    {project.headline}
+                  </h2>
+                </Link>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 border-t border-neutral-200 pt-8">
                   <div>
                     <h4 className="text-sm text-neutral-400 mb-1">Year</h4>
@@ -159,14 +132,16 @@ export function WorkContent() {
                   <div>
                     <h4 className="text-sm text-neutral-400 mb-1">Links</h4>
                     <div className="flex flex-wrap gap-2">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[15px] font-medium text-neutral-900 hover:text-neutral-600 underline"
-                      >
-                        GitHub
-                      </a>
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[15px] font-medium text-neutral-900 hover:text-neutral-600 underline"
+                        >
+                          GitHub
+                        </a>
+                      )}
                       {project.live && (
                         <a
                           href={project.live}
@@ -180,7 +155,7 @@ export function WorkContent() {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-2 mt-8">
+                <div className="flex flex-wrap items-center gap-3 mt-8">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
@@ -189,6 +164,12 @@ export function WorkContent() {
                       {tech}
                     </span>
                   ))}
+                  <Link
+                    href={`/work/${project.slug}`}
+                    className="ml-auto text-sm font-medium text-neutral-900 underline hover:text-neutral-600"
+                  >
+                    View case study →
+                  </Link>
                 </div>
               </div>
             </div>
