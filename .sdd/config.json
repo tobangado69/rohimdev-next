@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0",
+  "version": "5.1.0",
   "project": {
     "name": "SDD Cursor Commands",
     "description": "Spec-Driven Development toolkit for Cursor IDE",
@@ -12,6 +12,7 @@
     "collaborationMode": true,
     "defaultWorkflow": "brief", 
     "planningTimeLimit": 30,
+    "maxParallelImplementers": 4,
     "templates": {
       "brief": ".sdd/templates/feature-brief-v2.md",
       "spec": ".sdd/templates/spec-compact.md",
