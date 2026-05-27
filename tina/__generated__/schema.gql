@@ -513,22 +513,395 @@ type ContactConnection implements Connection {
   edges: [ContactConnectionEdges]
 }
 
+type ProjectSeo {
+  title: String
+  description: String
+  keywords: [String]
+  ogImage: String
+}
+
+type ProjectDetailHeroPrimaryCta {
+  label: String
+  href: String
+  variant: String
+  external: Boolean
+}
+
+type ProjectDetailHeroSecondaryCta {
+  label: String
+  href: String
+  variant: String
+  external: Boolean
+}
+
+type ProjectDetailHero {
+  eyebrow: String
+  title: String
+  subtitle: String
+  primaryImage: String
+  supportingImages: [String]
+  primaryCta: ProjectDetailHeroPrimaryCta
+  secondaryCta: ProjectDetailHeroSecondaryCta
+}
+
+type ProjectDetailMetadata {
+  role: String
+  client: String
+  timeline: String
+  platform: String
+  year: String
+  collaboration: String
+}
+
+type ProjectDetailDesignDirection {
+  heading: String
+  summary: String
+  bullets: [String]
+}
+
+type ProjectDetailOverview {
+  heading: String
+  summary: String
+  bullets: [String]
+}
+
+type ProjectDetailChallenge {
+  heading: String
+  summary: String
+  bullets: [String]
+}
+
+type ProjectDetailSolution {
+  heading: String
+  summary: String
+  bullets: [String]
+}
+
+type ProjectDetailGallery {
+  image: String
+  alt: String
+  caption: String
+  category: String
+}
+
+type ProjectDetailTechStack {
+  category: String
+  tools: [String]
+}
+
+type ProjectDetailFeatures {
+  title: String
+  description: String
+  impact: String
+  icon: String
+}
+
+type ProjectDetailProcess {
+  phase: String
+  title: String
+  description: String
+  outputs: [String]
+}
+
+type ProjectDetailDeliverables {
+  title: String
+  description: String
+  link: String
+}
+
+type ProjectDetailMetrics {
+  value: String
+  label: String
+  description: String
+}
+
+type ProjectDetailTestimonial {
+  quote: String
+  name: String
+  role: String
+  company: String
+  avatar: String
+}
+
+type ProjectDetailConversionCtas {
+  label: String
+  href: String
+  variant: String
+  external: Boolean
+}
+
+type ProjectDetailConversion {
+  heading: String
+  description: String
+  ctas: [ProjectDetailConversionCtas]
+}
+
+type ProjectDetailPricing {
+  model: String
+  startingAt: String
+  included: [String]
+  note: String
+}
+
+type ProjectDetailSocialProofLinks {
+  label: String
+  href: String
+}
+
+type ProjectDetailSocialProof {
+  badges: [String]
+  links: [ProjectDetailSocialProofLinks]
+  repositoryStats: [String]
+  launchNotes: String
+}
+
+type ProjectDetailResponsiveUx {
+  breakpoints: [String]
+  interactionNotes: [String]
+  accessibilityNotes: [String]
+}
+
+type ProjectDetailSeoPerformance {
+  performanceTargets: [String]
+  seoNotes: [String]
+  technicalChecks: [String]
+}
+
+type ProjectDetailInfrastructure {
+  hosting: String
+  backend: String
+  database: String
+  storage: String
+  cicd: String
+  monitoring: String
+}
+
+type ProjectDetail {
+  hero: ProjectDetailHero
+  metadata: ProjectDetailMetadata
+  designDirection: ProjectDetailDesignDirection
+  overview: ProjectDetailOverview
+  challenge: ProjectDetailChallenge
+  solution: ProjectDetailSolution
+  gallery: [ProjectDetailGallery]
+  techStack: [ProjectDetailTechStack]
+  features: [ProjectDetailFeatures]
+  process: [ProjectDetailProcess]
+  deliverables: [ProjectDetailDeliverables]
+  metrics: [ProjectDetailMetrics]
+  testimonial: ProjectDetailTestimonial
+  conversion: ProjectDetailConversion
+  pricing: ProjectDetailPricing
+  socialProof: ProjectDetailSocialProof
+  responsiveUx: ProjectDetailResponsiveUx
+  seoPerformance: ProjectDetailSeoPerformance
+  infrastructure: ProjectDetailInfrastructure
+}
+
 type Project implements Node & Document {
   title: String!
   slug: String!
   headline: String
   summary: String
-  image: String
+  images: [String]
   date: String
   status: String
   technologies: [String]
   github: String
   live: String
   featured: Boolean
+  projectType: String
+  seo: ProjectSeo
+  detail: ProjectDetail
   body: JSON
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input ProjectSeoFilter {
+  title: StringFilter
+  description: StringFilter
+  keywords: StringFilter
+  ogImage: ImageFilter
+}
+
+input ProjectDetailHeroPrimaryCtaFilter {
+  label: StringFilter
+  href: StringFilter
+  variant: StringFilter
+  external: BooleanFilter
+}
+
+input ProjectDetailHeroSecondaryCtaFilter {
+  label: StringFilter
+  href: StringFilter
+  variant: StringFilter
+  external: BooleanFilter
+}
+
+input ProjectDetailHeroFilter {
+  eyebrow: StringFilter
+  title: StringFilter
+  subtitle: StringFilter
+  primaryImage: ImageFilter
+  supportingImages: ImageFilter
+  primaryCta: ProjectDetailHeroPrimaryCtaFilter
+  secondaryCta: ProjectDetailHeroSecondaryCtaFilter
+}
+
+input ProjectDetailMetadataFilter {
+  role: StringFilter
+  client: StringFilter
+  timeline: StringFilter
+  platform: StringFilter
+  year: StringFilter
+  collaboration: StringFilter
+}
+
+input ProjectDetailDesignDirectionFilter {
+  heading: StringFilter
+  summary: StringFilter
+  bullets: StringFilter
+}
+
+input ProjectDetailOverviewFilter {
+  heading: StringFilter
+  summary: StringFilter
+  bullets: StringFilter
+}
+
+input ProjectDetailChallengeFilter {
+  heading: StringFilter
+  summary: StringFilter
+  bullets: StringFilter
+}
+
+input ProjectDetailSolutionFilter {
+  heading: StringFilter
+  summary: StringFilter
+  bullets: StringFilter
+}
+
+input ProjectDetailGalleryFilter {
+  image: ImageFilter
+  alt: StringFilter
+  caption: StringFilter
+  category: StringFilter
+}
+
+input ProjectDetailTechStackFilter {
+  category: StringFilter
+  tools: StringFilter
+}
+
+input ProjectDetailFeaturesFilter {
+  title: StringFilter
+  description: StringFilter
+  impact: StringFilter
+  icon: StringFilter
+}
+
+input ProjectDetailProcessFilter {
+  phase: StringFilter
+  title: StringFilter
+  description: StringFilter
+  outputs: StringFilter
+}
+
+input ProjectDetailDeliverablesFilter {
+  title: StringFilter
+  description: StringFilter
+  link: StringFilter
+}
+
+input ProjectDetailMetricsFilter {
+  value: StringFilter
+  label: StringFilter
+  description: StringFilter
+}
+
+input ProjectDetailTestimonialFilter {
+  quote: StringFilter
+  name: StringFilter
+  role: StringFilter
+  company: StringFilter
+  avatar: ImageFilter
+}
+
+input ProjectDetailConversionCtasFilter {
+  label: StringFilter
+  href: StringFilter
+  variant: StringFilter
+  external: BooleanFilter
+}
+
+input ProjectDetailConversionFilter {
+  heading: StringFilter
+  description: StringFilter
+  ctas: ProjectDetailConversionCtasFilter
+}
+
+input ProjectDetailPricingFilter {
+  model: StringFilter
+  startingAt: StringFilter
+  included: StringFilter
+  note: StringFilter
+}
+
+input ProjectDetailSocialProofLinksFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input ProjectDetailSocialProofFilter {
+  badges: StringFilter
+  links: ProjectDetailSocialProofLinksFilter
+  repositoryStats: StringFilter
+  launchNotes: StringFilter
+}
+
+input ProjectDetailResponsiveUxFilter {
+  breakpoints: StringFilter
+  interactionNotes: StringFilter
+  accessibilityNotes: StringFilter
+}
+
+input ProjectDetailSeoPerformanceFilter {
+  performanceTargets: StringFilter
+  seoNotes: StringFilter
+  technicalChecks: StringFilter
+}
+
+input ProjectDetailInfrastructureFilter {
+  hosting: StringFilter
+  backend: StringFilter
+  database: StringFilter
+  storage: StringFilter
+  cicd: StringFilter
+  monitoring: StringFilter
+}
+
+input ProjectDetailFilter {
+  hero: ProjectDetailHeroFilter
+  metadata: ProjectDetailMetadataFilter
+  designDirection: ProjectDetailDesignDirectionFilter
+  overview: ProjectDetailOverviewFilter
+  challenge: ProjectDetailChallengeFilter
+  solution: ProjectDetailSolutionFilter
+  gallery: ProjectDetailGalleryFilter
+  techStack: ProjectDetailTechStackFilter
+  features: ProjectDetailFeaturesFilter
+  process: ProjectDetailProcessFilter
+  deliverables: ProjectDetailDeliverablesFilter
+  metrics: ProjectDetailMetricsFilter
+  testimonial: ProjectDetailTestimonialFilter
+  conversion: ProjectDetailConversionFilter
+  pricing: ProjectDetailPricingFilter
+  socialProof: ProjectDetailSocialProofFilter
+  responsiveUx: ProjectDetailResponsiveUxFilter
+  seoPerformance: ProjectDetailSeoPerformanceFilter
+  infrastructure: ProjectDetailInfrastructureFilter
 }
 
 input RichTextFilter {
@@ -542,13 +915,16 @@ input ProjectFilter {
   slug: StringFilter
   headline: StringFilter
   summary: StringFilter
-  image: ImageFilter
+  images: ImageFilter
   date: StringFilter
   status: StringFilter
   technologies: StringFilter
   github: StringFilter
   live: StringFilter
   featured: BooleanFilter
+  projectType: StringFilter
+  seo: ProjectSeoFilter
+  detail: ProjectDetailFilter
   body: RichTextFilter
 }
 
@@ -758,18 +1134,206 @@ input ContactMutation {
   form: ContactFormMutation
 }
 
+input ProjectSeoMutation {
+  title: String
+  description: String
+  keywords: [String]
+  ogImage: String
+}
+
+input ProjectDetailHeroPrimaryCtaMutation {
+  label: String
+  href: String
+  variant: String
+  external: Boolean
+}
+
+input ProjectDetailHeroSecondaryCtaMutation {
+  label: String
+  href: String
+  variant: String
+  external: Boolean
+}
+
+input ProjectDetailHeroMutation {
+  eyebrow: String
+  title: String
+  subtitle: String
+  primaryImage: String
+  supportingImages: [String]
+  primaryCta: ProjectDetailHeroPrimaryCtaMutation
+  secondaryCta: ProjectDetailHeroSecondaryCtaMutation
+}
+
+input ProjectDetailMetadataMutation {
+  role: String
+  client: String
+  timeline: String
+  platform: String
+  year: String
+  collaboration: String
+}
+
+input ProjectDetailDesignDirectionMutation {
+  heading: String
+  summary: String
+  bullets: [String]
+}
+
+input ProjectDetailOverviewMutation {
+  heading: String
+  summary: String
+  bullets: [String]
+}
+
+input ProjectDetailChallengeMutation {
+  heading: String
+  summary: String
+  bullets: [String]
+}
+
+input ProjectDetailSolutionMutation {
+  heading: String
+  summary: String
+  bullets: [String]
+}
+
+input ProjectDetailGalleryMutation {
+  image: String
+  alt: String
+  caption: String
+  category: String
+}
+
+input ProjectDetailTechStackMutation {
+  category: String
+  tools: [String]
+}
+
+input ProjectDetailFeaturesMutation {
+  title: String
+  description: String
+  impact: String
+  icon: String
+}
+
+input ProjectDetailProcessMutation {
+  phase: String
+  title: String
+  description: String
+  outputs: [String]
+}
+
+input ProjectDetailDeliverablesMutation {
+  title: String
+  description: String
+  link: String
+}
+
+input ProjectDetailMetricsMutation {
+  value: String
+  label: String
+  description: String
+}
+
+input ProjectDetailTestimonialMutation {
+  quote: String
+  name: String
+  role: String
+  company: String
+  avatar: String
+}
+
+input ProjectDetailConversionCtasMutation {
+  label: String
+  href: String
+  variant: String
+  external: Boolean
+}
+
+input ProjectDetailConversionMutation {
+  heading: String
+  description: String
+  ctas: [ProjectDetailConversionCtasMutation]
+}
+
+input ProjectDetailPricingMutation {
+  model: String
+  startingAt: String
+  included: [String]
+  note: String
+}
+
+input ProjectDetailSocialProofLinksMutation {
+  label: String
+  href: String
+}
+
+input ProjectDetailSocialProofMutation {
+  badges: [String]
+  links: [ProjectDetailSocialProofLinksMutation]
+  repositoryStats: [String]
+  launchNotes: String
+}
+
+input ProjectDetailResponsiveUxMutation {
+  breakpoints: [String]
+  interactionNotes: [String]
+  accessibilityNotes: [String]
+}
+
+input ProjectDetailSeoPerformanceMutation {
+  performanceTargets: [String]
+  seoNotes: [String]
+  technicalChecks: [String]
+}
+
+input ProjectDetailInfrastructureMutation {
+  hosting: String
+  backend: String
+  database: String
+  storage: String
+  cicd: String
+  monitoring: String
+}
+
+input ProjectDetailMutation {
+  hero: ProjectDetailHeroMutation
+  metadata: ProjectDetailMetadataMutation
+  designDirection: ProjectDetailDesignDirectionMutation
+  overview: ProjectDetailOverviewMutation
+  challenge: ProjectDetailChallengeMutation
+  solution: ProjectDetailSolutionMutation
+  gallery: [ProjectDetailGalleryMutation]
+  techStack: [ProjectDetailTechStackMutation]
+  features: [ProjectDetailFeaturesMutation]
+  process: [ProjectDetailProcessMutation]
+  deliverables: [ProjectDetailDeliverablesMutation]
+  metrics: [ProjectDetailMetricsMutation]
+  testimonial: ProjectDetailTestimonialMutation
+  conversion: ProjectDetailConversionMutation
+  pricing: ProjectDetailPricingMutation
+  socialProof: ProjectDetailSocialProofMutation
+  responsiveUx: ProjectDetailResponsiveUxMutation
+  seoPerformance: ProjectDetailSeoPerformanceMutation
+  infrastructure: ProjectDetailInfrastructureMutation
+}
+
 input ProjectMutation {
   title: String
   slug: String
   headline: String
   summary: String
-  image: String
+  images: [String]
   date: String
   status: String
   technologies: [String]
   github: String
   live: String
   featured: Boolean
+  projectType: String
+  seo: ProjectSeoMutation
+  detail: ProjectDetailMutation
   body: JSON
 }
 

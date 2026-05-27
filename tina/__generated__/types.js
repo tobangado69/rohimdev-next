@@ -160,13 +160,176 @@ export const ProjectPartsFragmentDoc = gql`
   slug
   headline
   summary
-  image
+  images
   date
   status
   technologies
   github
   live
   featured
+  projectType
+  seo {
+    __typename
+    title
+    description
+    keywords
+    ogImage
+  }
+  detail {
+    __typename
+    hero {
+      __typename
+      eyebrow
+      title
+      subtitle
+      primaryImage
+      supportingImages
+      primaryCta {
+        __typename
+        label
+        href
+        variant
+        external
+      }
+      secondaryCta {
+        __typename
+        label
+        href
+        variant
+        external
+      }
+    }
+    metadata {
+      __typename
+      role
+      client
+      timeline
+      platform
+      year
+      collaboration
+    }
+    designDirection {
+      __typename
+      heading
+      summary
+      bullets
+    }
+    overview {
+      __typename
+      heading
+      summary
+      bullets
+    }
+    challenge {
+      __typename
+      heading
+      summary
+      bullets
+    }
+    solution {
+      __typename
+      heading
+      summary
+      bullets
+    }
+    gallery {
+      __typename
+      image
+      alt
+      caption
+      category
+    }
+    techStack {
+      __typename
+      category
+      tools
+    }
+    features {
+      __typename
+      title
+      description
+      impact
+      icon
+    }
+    process {
+      __typename
+      phase
+      title
+      description
+      outputs
+    }
+    deliverables {
+      __typename
+      title
+      description
+      link
+    }
+    metrics {
+      __typename
+      value
+      label
+      description
+    }
+    testimonial {
+      __typename
+      quote
+      name
+      role
+      company
+      avatar
+    }
+    conversion {
+      __typename
+      heading
+      description
+      ctas {
+        __typename
+        label
+        href
+        variant
+        external
+      }
+    }
+    pricing {
+      __typename
+      model
+      startingAt
+      included
+      note
+    }
+    socialProof {
+      __typename
+      badges
+      links {
+        __typename
+        label
+        href
+      }
+      repositoryStats
+      launchNotes
+    }
+    responsiveUx {
+      __typename
+      breakpoints
+      interactionNotes
+      accessibilityNotes
+    }
+    seoPerformance {
+      __typename
+      performanceTargets
+      seoNotes
+      technicalChecks
+    }
+    infrastructure {
+      __typename
+      hosting
+      backend
+      database
+      storage
+      cicd
+      monitoring
+    }
+  }
   body
 }
     `;
@@ -572,7 +735,7 @@ const generateRequester = (client) => {
 export const ExperimentalGetTinaClient = () => getSdk(
   generateRequester(
     createClient({
-      url: "http://localhost:4001/graphql",
+      url: "/api/tina/gql",
       queries
     })
   )

@@ -699,23 +699,421 @@ export type ContactConnection = Connection & {
   edges?: Maybe<Array<Maybe<ContactConnectionEdges>>>;
 };
 
+export type ProjectSeo = {
+  __typename?: 'ProjectSeo';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  keywords?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ogImage?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailHeroPrimaryCta = {
+  __typename?: 'ProjectDetailHeroPrimaryCta';
+  label?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+  variant?: Maybe<Scalars['String']['output']>;
+  external?: Maybe<Scalars['Boolean']['output']>;
+};
+
+export type ProjectDetailHeroSecondaryCta = {
+  __typename?: 'ProjectDetailHeroSecondaryCta';
+  label?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+  variant?: Maybe<Scalars['String']['output']>;
+  external?: Maybe<Scalars['Boolean']['output']>;
+};
+
+export type ProjectDetailHero = {
+  __typename?: 'ProjectDetailHero';
+  eyebrow?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  primaryImage?: Maybe<Scalars['String']['output']>;
+  supportingImages?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  primaryCta?: Maybe<ProjectDetailHeroPrimaryCta>;
+  secondaryCta?: Maybe<ProjectDetailHeroSecondaryCta>;
+};
+
+export type ProjectDetailMetadata = {
+  __typename?: 'ProjectDetailMetadata';
+  role?: Maybe<Scalars['String']['output']>;
+  client?: Maybe<Scalars['String']['output']>;
+  timeline?: Maybe<Scalars['String']['output']>;
+  platform?: Maybe<Scalars['String']['output']>;
+  year?: Maybe<Scalars['String']['output']>;
+  collaboration?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailDesignDirection = {
+  __typename?: 'ProjectDetailDesignDirection';
+  heading?: Maybe<Scalars['String']['output']>;
+  summary?: Maybe<Scalars['String']['output']>;
+  bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type ProjectDetailOverview = {
+  __typename?: 'ProjectDetailOverview';
+  heading?: Maybe<Scalars['String']['output']>;
+  summary?: Maybe<Scalars['String']['output']>;
+  bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type ProjectDetailChallenge = {
+  __typename?: 'ProjectDetailChallenge';
+  heading?: Maybe<Scalars['String']['output']>;
+  summary?: Maybe<Scalars['String']['output']>;
+  bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type ProjectDetailSolution = {
+  __typename?: 'ProjectDetailSolution';
+  heading?: Maybe<Scalars['String']['output']>;
+  summary?: Maybe<Scalars['String']['output']>;
+  bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type ProjectDetailGallery = {
+  __typename?: 'ProjectDetailGallery';
+  image?: Maybe<Scalars['String']['output']>;
+  alt?: Maybe<Scalars['String']['output']>;
+  caption?: Maybe<Scalars['String']['output']>;
+  category?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailTechStack = {
+  __typename?: 'ProjectDetailTechStack';
+  category?: Maybe<Scalars['String']['output']>;
+  tools?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type ProjectDetailFeatures = {
+  __typename?: 'ProjectDetailFeatures';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  impact?: Maybe<Scalars['String']['output']>;
+  icon?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailProcess = {
+  __typename?: 'ProjectDetailProcess';
+  phase?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  outputs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type ProjectDetailDeliverables = {
+  __typename?: 'ProjectDetailDeliverables';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailMetrics = {
+  __typename?: 'ProjectDetailMetrics';
+  value?: Maybe<Scalars['String']['output']>;
+  label?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailTestimonial = {
+  __typename?: 'ProjectDetailTestimonial';
+  quote?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  role?: Maybe<Scalars['String']['output']>;
+  company?: Maybe<Scalars['String']['output']>;
+  avatar?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailConversionCtas = {
+  __typename?: 'ProjectDetailConversionCtas';
+  label?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+  variant?: Maybe<Scalars['String']['output']>;
+  external?: Maybe<Scalars['Boolean']['output']>;
+};
+
+export type ProjectDetailConversion = {
+  __typename?: 'ProjectDetailConversion';
+  heading?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  ctas?: Maybe<Array<Maybe<ProjectDetailConversionCtas>>>;
+};
+
+export type ProjectDetailPricing = {
+  __typename?: 'ProjectDetailPricing';
+  model?: Maybe<Scalars['String']['output']>;
+  startingAt?: Maybe<Scalars['String']['output']>;
+  included?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  note?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailSocialProofLinks = {
+  __typename?: 'ProjectDetailSocialProofLinks';
+  label?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailSocialProof = {
+  __typename?: 'ProjectDetailSocialProof';
+  badges?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  links?: Maybe<Array<Maybe<ProjectDetailSocialProofLinks>>>;
+  repositoryStats?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  launchNotes?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetailResponsiveUx = {
+  __typename?: 'ProjectDetailResponsiveUx';
+  breakpoints?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  interactionNotes?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  accessibilityNotes?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type ProjectDetailSeoPerformance = {
+  __typename?: 'ProjectDetailSeoPerformance';
+  performanceTargets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  seoNotes?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  technicalChecks?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type ProjectDetailInfrastructure = {
+  __typename?: 'ProjectDetailInfrastructure';
+  hosting?: Maybe<Scalars['String']['output']>;
+  backend?: Maybe<Scalars['String']['output']>;
+  database?: Maybe<Scalars['String']['output']>;
+  storage?: Maybe<Scalars['String']['output']>;
+  cicd?: Maybe<Scalars['String']['output']>;
+  monitoring?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectDetail = {
+  __typename?: 'ProjectDetail';
+  hero?: Maybe<ProjectDetailHero>;
+  metadata?: Maybe<ProjectDetailMetadata>;
+  designDirection?: Maybe<ProjectDetailDesignDirection>;
+  overview?: Maybe<ProjectDetailOverview>;
+  challenge?: Maybe<ProjectDetailChallenge>;
+  solution?: Maybe<ProjectDetailSolution>;
+  gallery?: Maybe<Array<Maybe<ProjectDetailGallery>>>;
+  techStack?: Maybe<Array<Maybe<ProjectDetailTechStack>>>;
+  features?: Maybe<Array<Maybe<ProjectDetailFeatures>>>;
+  process?: Maybe<Array<Maybe<ProjectDetailProcess>>>;
+  deliverables?: Maybe<Array<Maybe<ProjectDetailDeliverables>>>;
+  metrics?: Maybe<Array<Maybe<ProjectDetailMetrics>>>;
+  testimonial?: Maybe<ProjectDetailTestimonial>;
+  conversion?: Maybe<ProjectDetailConversion>;
+  pricing?: Maybe<ProjectDetailPricing>;
+  socialProof?: Maybe<ProjectDetailSocialProof>;
+  responsiveUx?: Maybe<ProjectDetailResponsiveUx>;
+  seoPerformance?: Maybe<ProjectDetailSeoPerformance>;
+  infrastructure?: Maybe<ProjectDetailInfrastructure>;
+};
+
 export type Project = Node & Document & {
   __typename?: 'Project';
   title: Scalars['String']['output'];
   slug: Scalars['String']['output'];
   headline?: Maybe<Scalars['String']['output']>;
   summary?: Maybe<Scalars['String']['output']>;
-  image?: Maybe<Scalars['String']['output']>;
+  images?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   date?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   technologies?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   github?: Maybe<Scalars['String']['output']>;
   live?: Maybe<Scalars['String']['output']>;
   featured?: Maybe<Scalars['Boolean']['output']>;
+  projectType?: Maybe<Scalars['String']['output']>;
+  seo?: Maybe<ProjectSeo>;
+  detail?: Maybe<ProjectDetail>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
+};
+
+export type ProjectSeoFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  keywords?: InputMaybe<StringFilter>;
+  ogImage?: InputMaybe<ImageFilter>;
+};
+
+export type ProjectDetailHeroPrimaryCtaFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+  variant?: InputMaybe<StringFilter>;
+  external?: InputMaybe<BooleanFilter>;
+};
+
+export type ProjectDetailHeroSecondaryCtaFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+  variant?: InputMaybe<StringFilter>;
+  external?: InputMaybe<BooleanFilter>;
+};
+
+export type ProjectDetailHeroFilter = {
+  eyebrow?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  primaryImage?: InputMaybe<ImageFilter>;
+  supportingImages?: InputMaybe<ImageFilter>;
+  primaryCta?: InputMaybe<ProjectDetailHeroPrimaryCtaFilter>;
+  secondaryCta?: InputMaybe<ProjectDetailHeroSecondaryCtaFilter>;
+};
+
+export type ProjectDetailMetadataFilter = {
+  role?: InputMaybe<StringFilter>;
+  client?: InputMaybe<StringFilter>;
+  timeline?: InputMaybe<StringFilter>;
+  platform?: InputMaybe<StringFilter>;
+  year?: InputMaybe<StringFilter>;
+  collaboration?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailDesignDirectionFilter = {
+  heading?: InputMaybe<StringFilter>;
+  summary?: InputMaybe<StringFilter>;
+  bullets?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailOverviewFilter = {
+  heading?: InputMaybe<StringFilter>;
+  summary?: InputMaybe<StringFilter>;
+  bullets?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailChallengeFilter = {
+  heading?: InputMaybe<StringFilter>;
+  summary?: InputMaybe<StringFilter>;
+  bullets?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailSolutionFilter = {
+  heading?: InputMaybe<StringFilter>;
+  summary?: InputMaybe<StringFilter>;
+  bullets?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailGalleryFilter = {
+  image?: InputMaybe<ImageFilter>;
+  alt?: InputMaybe<StringFilter>;
+  caption?: InputMaybe<StringFilter>;
+  category?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailTechStackFilter = {
+  category?: InputMaybe<StringFilter>;
+  tools?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailFeaturesFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  impact?: InputMaybe<StringFilter>;
+  icon?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailProcessFilter = {
+  phase?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  outputs?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailDeliverablesFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailMetricsFilter = {
+  value?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailTestimonialFilter = {
+  quote?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
+  role?: InputMaybe<StringFilter>;
+  company?: InputMaybe<StringFilter>;
+  avatar?: InputMaybe<ImageFilter>;
+};
+
+export type ProjectDetailConversionCtasFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+  variant?: InputMaybe<StringFilter>;
+  external?: InputMaybe<BooleanFilter>;
+};
+
+export type ProjectDetailConversionFilter = {
+  heading?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  ctas?: InputMaybe<ProjectDetailConversionCtasFilter>;
+};
+
+export type ProjectDetailPricingFilter = {
+  model?: InputMaybe<StringFilter>;
+  startingAt?: InputMaybe<StringFilter>;
+  included?: InputMaybe<StringFilter>;
+  note?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailSocialProofLinksFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailSocialProofFilter = {
+  badges?: InputMaybe<StringFilter>;
+  links?: InputMaybe<ProjectDetailSocialProofLinksFilter>;
+  repositoryStats?: InputMaybe<StringFilter>;
+  launchNotes?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailResponsiveUxFilter = {
+  breakpoints?: InputMaybe<StringFilter>;
+  interactionNotes?: InputMaybe<StringFilter>;
+  accessibilityNotes?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailSeoPerformanceFilter = {
+  performanceTargets?: InputMaybe<StringFilter>;
+  seoNotes?: InputMaybe<StringFilter>;
+  technicalChecks?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailInfrastructureFilter = {
+  hosting?: InputMaybe<StringFilter>;
+  backend?: InputMaybe<StringFilter>;
+  database?: InputMaybe<StringFilter>;
+  storage?: InputMaybe<StringFilter>;
+  cicd?: InputMaybe<StringFilter>;
+  monitoring?: InputMaybe<StringFilter>;
+};
+
+export type ProjectDetailFilter = {
+  hero?: InputMaybe<ProjectDetailHeroFilter>;
+  metadata?: InputMaybe<ProjectDetailMetadataFilter>;
+  designDirection?: InputMaybe<ProjectDetailDesignDirectionFilter>;
+  overview?: InputMaybe<ProjectDetailOverviewFilter>;
+  challenge?: InputMaybe<ProjectDetailChallengeFilter>;
+  solution?: InputMaybe<ProjectDetailSolutionFilter>;
+  gallery?: InputMaybe<ProjectDetailGalleryFilter>;
+  techStack?: InputMaybe<ProjectDetailTechStackFilter>;
+  features?: InputMaybe<ProjectDetailFeaturesFilter>;
+  process?: InputMaybe<ProjectDetailProcessFilter>;
+  deliverables?: InputMaybe<ProjectDetailDeliverablesFilter>;
+  metrics?: InputMaybe<ProjectDetailMetricsFilter>;
+  testimonial?: InputMaybe<ProjectDetailTestimonialFilter>;
+  conversion?: InputMaybe<ProjectDetailConversionFilter>;
+  pricing?: InputMaybe<ProjectDetailPricingFilter>;
+  socialProof?: InputMaybe<ProjectDetailSocialProofFilter>;
+  responsiveUx?: InputMaybe<ProjectDetailResponsiveUxFilter>;
+  seoPerformance?: InputMaybe<ProjectDetailSeoPerformanceFilter>;
+  infrastructure?: InputMaybe<ProjectDetailInfrastructureFilter>;
 };
 
 export type RichTextFilter = {
@@ -729,13 +1127,16 @@ export type ProjectFilter = {
   slug?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   summary?: InputMaybe<StringFilter>;
-  image?: InputMaybe<ImageFilter>;
+  images?: InputMaybe<ImageFilter>;
   date?: InputMaybe<StringFilter>;
   status?: InputMaybe<StringFilter>;
   technologies?: InputMaybe<StringFilter>;
   github?: InputMaybe<StringFilter>;
   live?: InputMaybe<StringFilter>;
   featured?: InputMaybe<BooleanFilter>;
+  projectType?: InputMaybe<StringFilter>;
+  seo?: InputMaybe<ProjectSeoFilter>;
+  detail?: InputMaybe<ProjectDetailFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
@@ -1053,18 +1454,206 @@ export type ContactMutation = {
   form?: InputMaybe<ContactFormMutation>;
 };
 
+export type ProjectSeoMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  keywords?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  ogImage?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailHeroPrimaryCtaMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+  variant?: InputMaybe<Scalars['String']['input']>;
+  external?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ProjectDetailHeroSecondaryCtaMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+  variant?: InputMaybe<Scalars['String']['input']>;
+  external?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ProjectDetailHeroMutation = {
+  eyebrow?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  primaryImage?: InputMaybe<Scalars['String']['input']>;
+  supportingImages?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  primaryCta?: InputMaybe<ProjectDetailHeroPrimaryCtaMutation>;
+  secondaryCta?: InputMaybe<ProjectDetailHeroSecondaryCtaMutation>;
+};
+
+export type ProjectDetailMetadataMutation = {
+  role?: InputMaybe<Scalars['String']['input']>;
+  client?: InputMaybe<Scalars['String']['input']>;
+  timeline?: InputMaybe<Scalars['String']['input']>;
+  platform?: InputMaybe<Scalars['String']['input']>;
+  year?: InputMaybe<Scalars['String']['input']>;
+  collaboration?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailDesignDirectionMutation = {
+  heading?: InputMaybe<Scalars['String']['input']>;
+  summary?: InputMaybe<Scalars['String']['input']>;
+  bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectDetailOverviewMutation = {
+  heading?: InputMaybe<Scalars['String']['input']>;
+  summary?: InputMaybe<Scalars['String']['input']>;
+  bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectDetailChallengeMutation = {
+  heading?: InputMaybe<Scalars['String']['input']>;
+  summary?: InputMaybe<Scalars['String']['input']>;
+  bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectDetailSolutionMutation = {
+  heading?: InputMaybe<Scalars['String']['input']>;
+  summary?: InputMaybe<Scalars['String']['input']>;
+  bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectDetailGalleryMutation = {
+  image?: InputMaybe<Scalars['String']['input']>;
+  alt?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailTechStackMutation = {
+  category?: InputMaybe<Scalars['String']['input']>;
+  tools?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectDetailFeaturesMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  impact?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailProcessMutation = {
+  phase?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  outputs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectDetailDeliverablesMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailMetricsMutation = {
+  value?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailTestimonialMutation = {
+  quote?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  role?: InputMaybe<Scalars['String']['input']>;
+  company?: InputMaybe<Scalars['String']['input']>;
+  avatar?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailConversionCtasMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+  variant?: InputMaybe<Scalars['String']['input']>;
+  external?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ProjectDetailConversionMutation = {
+  heading?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  ctas?: InputMaybe<Array<InputMaybe<ProjectDetailConversionCtasMutation>>>;
+};
+
+export type ProjectDetailPricingMutation = {
+  model?: InputMaybe<Scalars['String']['input']>;
+  startingAt?: InputMaybe<Scalars['String']['input']>;
+  included?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  note?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailSocialProofLinksMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailSocialProofMutation = {
+  badges?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  links?: InputMaybe<Array<InputMaybe<ProjectDetailSocialProofLinksMutation>>>;
+  repositoryStats?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  launchNotes?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailResponsiveUxMutation = {
+  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  interactionNotes?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  accessibilityNotes?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectDetailSeoPerformanceMutation = {
+  performanceTargets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  seoNotes?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  technicalChecks?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectDetailInfrastructureMutation = {
+  hosting?: InputMaybe<Scalars['String']['input']>;
+  backend?: InputMaybe<Scalars['String']['input']>;
+  database?: InputMaybe<Scalars['String']['input']>;
+  storage?: InputMaybe<Scalars['String']['input']>;
+  cicd?: InputMaybe<Scalars['String']['input']>;
+  monitoring?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectDetailMutation = {
+  hero?: InputMaybe<ProjectDetailHeroMutation>;
+  metadata?: InputMaybe<ProjectDetailMetadataMutation>;
+  designDirection?: InputMaybe<ProjectDetailDesignDirectionMutation>;
+  overview?: InputMaybe<ProjectDetailOverviewMutation>;
+  challenge?: InputMaybe<ProjectDetailChallengeMutation>;
+  solution?: InputMaybe<ProjectDetailSolutionMutation>;
+  gallery?: InputMaybe<Array<InputMaybe<ProjectDetailGalleryMutation>>>;
+  techStack?: InputMaybe<Array<InputMaybe<ProjectDetailTechStackMutation>>>;
+  features?: InputMaybe<Array<InputMaybe<ProjectDetailFeaturesMutation>>>;
+  process?: InputMaybe<Array<InputMaybe<ProjectDetailProcessMutation>>>;
+  deliverables?: InputMaybe<Array<InputMaybe<ProjectDetailDeliverablesMutation>>>;
+  metrics?: InputMaybe<Array<InputMaybe<ProjectDetailMetricsMutation>>>;
+  testimonial?: InputMaybe<ProjectDetailTestimonialMutation>;
+  conversion?: InputMaybe<ProjectDetailConversionMutation>;
+  pricing?: InputMaybe<ProjectDetailPricingMutation>;
+  socialProof?: InputMaybe<ProjectDetailSocialProofMutation>;
+  responsiveUx?: InputMaybe<ProjectDetailResponsiveUxMutation>;
+  seoPerformance?: InputMaybe<ProjectDetailSeoPerformanceMutation>;
+  infrastructure?: InputMaybe<ProjectDetailInfrastructureMutation>;
+};
+
 export type ProjectMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
   summary?: InputMaybe<Scalars['String']['input']>;
-  image?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   date?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Scalars['String']['input']>;
   technologies?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   github?: InputMaybe<Scalars['String']['input']>;
   live?: InputMaybe<Scalars['String']['input']>;
   featured?: InputMaybe<Scalars['Boolean']['input']>;
+  projectType?: InputMaybe<Scalars['String']['input']>;
+  seo?: InputMaybe<ProjectSeoMutation>;
+  detail?: InputMaybe<ProjectDetailMutation>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
@@ -1078,7 +1667,7 @@ export type ServicesPartsFragment = { __typename: 'Services', seo?: { __typename
 
 export type ContactPartsFragment = { __typename: 'Contact', seo?: { __typename: 'ContactSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null, hero?: { __typename: 'ContactHero', heading?: string | null, description?: string | null, cta?: string | null } | null, form?: { __typename: 'ContactForm', successTitle?: string | null, successDescription?: string | null, messagePlaceholder?: string | null } | null };
 
-export type ProjectPartsFragment = { __typename: 'Project', title: string, slug: string, headline?: string | null, summary?: string | null, image?: string | null, date?: string | null, status?: string | null, technologies?: Array<string | null> | null, github?: string | null, live?: string | null, featured?: boolean | null, body?: any | null };
+export type ProjectPartsFragment = { __typename: 'Project', title: string, slug: string, headline?: string | null, summary?: string | null, images?: Array<string | null> | null, date?: string | null, status?: string | null, technologies?: Array<string | null> | null, github?: string | null, live?: string | null, featured?: boolean | null, projectType?: string | null, body?: any | null, seo?: { __typename: 'ProjectSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null, ogImage?: string | null } | null, detail?: { __typename: 'ProjectDetail', hero?: { __typename: 'ProjectDetailHero', eyebrow?: string | null, title?: string | null, subtitle?: string | null, primaryImage?: string | null, supportingImages?: Array<string | null> | null, primaryCta?: { __typename: 'ProjectDetailHeroPrimaryCta', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null, secondaryCta?: { __typename: 'ProjectDetailHeroSecondaryCta', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null } | null, metadata?: { __typename: 'ProjectDetailMetadata', role?: string | null, client?: string | null, timeline?: string | null, platform?: string | null, year?: string | null, collaboration?: string | null } | null, designDirection?: { __typename: 'ProjectDetailDesignDirection', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, overview?: { __typename: 'ProjectDetailOverview', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, challenge?: { __typename: 'ProjectDetailChallenge', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, solution?: { __typename: 'ProjectDetailSolution', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, gallery?: Array<{ __typename: 'ProjectDetailGallery', image?: string | null, alt?: string | null, caption?: string | null, category?: string | null } | null> | null, techStack?: Array<{ __typename: 'ProjectDetailTechStack', category?: string | null, tools?: Array<string | null> | null } | null> | null, features?: Array<{ __typename: 'ProjectDetailFeatures', title?: string | null, description?: string | null, impact?: string | null, icon?: string | null } | null> | null, process?: Array<{ __typename: 'ProjectDetailProcess', phase?: string | null, title?: string | null, description?: string | null, outputs?: Array<string | null> | null } | null> | null, deliverables?: Array<{ __typename: 'ProjectDetailDeliverables', title?: string | null, description?: string | null, link?: string | null } | null> | null, metrics?: Array<{ __typename: 'ProjectDetailMetrics', value?: string | null, label?: string | null, description?: string | null } | null> | null, testimonial?: { __typename: 'ProjectDetailTestimonial', quote?: string | null, name?: string | null, role?: string | null, company?: string | null, avatar?: string | null } | null, conversion?: { __typename: 'ProjectDetailConversion', heading?: string | null, description?: string | null, ctas?: Array<{ __typename: 'ProjectDetailConversionCtas', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null> | null } | null, pricing?: { __typename: 'ProjectDetailPricing', model?: string | null, startingAt?: string | null, included?: Array<string | null> | null, note?: string | null } | null, socialProof?: { __typename: 'ProjectDetailSocialProof', badges?: Array<string | null> | null, repositoryStats?: Array<string | null> | null, launchNotes?: string | null, links?: Array<{ __typename: 'ProjectDetailSocialProofLinks', label?: string | null, href?: string | null } | null> | null } | null, responsiveUx?: { __typename: 'ProjectDetailResponsiveUx', breakpoints?: Array<string | null> | null, interactionNotes?: Array<string | null> | null, accessibilityNotes?: Array<string | null> | null } | null, seoPerformance?: { __typename: 'ProjectDetailSeoPerformance', performanceTargets?: Array<string | null> | null, seoNotes?: Array<string | null> | null, technicalChecks?: Array<string | null> | null } | null, infrastructure?: { __typename: 'ProjectDetailInfrastructure', hosting?: string | null, backend?: string | null, database?: string | null, storage?: string | null, cicd?: string | null, monitoring?: string | null } | null } | null };
 
 export type SiteQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -1180,7 +1769,7 @@ export type ProjectQueryVariables = Exact<{
 }>;
 
 
-export type ProjectQuery = { __typename?: 'Query', project: { __typename: 'Project', id: string, title: string, slug: string, headline?: string | null, summary?: string | null, image?: string | null, date?: string | null, status?: string | null, technologies?: Array<string | null> | null, github?: string | null, live?: string | null, featured?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ProjectQuery = { __typename?: 'Query', project: { __typename: 'Project', id: string, title: string, slug: string, headline?: string | null, summary?: string | null, images?: Array<string | null> | null, date?: string | null, status?: string | null, technologies?: Array<string | null> | null, github?: string | null, live?: string | null, featured?: boolean | null, projectType?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, seo?: { __typename: 'ProjectSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null, ogImage?: string | null } | null, detail?: { __typename: 'ProjectDetail', hero?: { __typename: 'ProjectDetailHero', eyebrow?: string | null, title?: string | null, subtitle?: string | null, primaryImage?: string | null, supportingImages?: Array<string | null> | null, primaryCta?: { __typename: 'ProjectDetailHeroPrimaryCta', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null, secondaryCta?: { __typename: 'ProjectDetailHeroSecondaryCta', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null } | null, metadata?: { __typename: 'ProjectDetailMetadata', role?: string | null, client?: string | null, timeline?: string | null, platform?: string | null, year?: string | null, collaboration?: string | null } | null, designDirection?: { __typename: 'ProjectDetailDesignDirection', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, overview?: { __typename: 'ProjectDetailOverview', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, challenge?: { __typename: 'ProjectDetailChallenge', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, solution?: { __typename: 'ProjectDetailSolution', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, gallery?: Array<{ __typename: 'ProjectDetailGallery', image?: string | null, alt?: string | null, caption?: string | null, category?: string | null } | null> | null, techStack?: Array<{ __typename: 'ProjectDetailTechStack', category?: string | null, tools?: Array<string | null> | null } | null> | null, features?: Array<{ __typename: 'ProjectDetailFeatures', title?: string | null, description?: string | null, impact?: string | null, icon?: string | null } | null> | null, process?: Array<{ __typename: 'ProjectDetailProcess', phase?: string | null, title?: string | null, description?: string | null, outputs?: Array<string | null> | null } | null> | null, deliverables?: Array<{ __typename: 'ProjectDetailDeliverables', title?: string | null, description?: string | null, link?: string | null } | null> | null, metrics?: Array<{ __typename: 'ProjectDetailMetrics', value?: string | null, label?: string | null, description?: string | null } | null> | null, testimonial?: { __typename: 'ProjectDetailTestimonial', quote?: string | null, name?: string | null, role?: string | null, company?: string | null, avatar?: string | null } | null, conversion?: { __typename: 'ProjectDetailConversion', heading?: string | null, description?: string | null, ctas?: Array<{ __typename: 'ProjectDetailConversionCtas', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null> | null } | null, pricing?: { __typename: 'ProjectDetailPricing', model?: string | null, startingAt?: string | null, included?: Array<string | null> | null, note?: string | null } | null, socialProof?: { __typename: 'ProjectDetailSocialProof', badges?: Array<string | null> | null, repositoryStats?: Array<string | null> | null, launchNotes?: string | null, links?: Array<{ __typename: 'ProjectDetailSocialProofLinks', label?: string | null, href?: string | null } | null> | null } | null, responsiveUx?: { __typename: 'ProjectDetailResponsiveUx', breakpoints?: Array<string | null> | null, interactionNotes?: Array<string | null> | null, accessibilityNotes?: Array<string | null> | null } | null, seoPerformance?: { __typename: 'ProjectDetailSeoPerformance', performanceTargets?: Array<string | null> | null, seoNotes?: Array<string | null> | null, technicalChecks?: Array<string | null> | null } | null, infrastructure?: { __typename: 'ProjectDetailInfrastructure', hosting?: string | null, backend?: string | null, database?: string | null, storage?: string | null, cicd?: string | null, monitoring?: string | null } | null } | null } };
 
 export type ProjectConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -1192,7 +1781,7 @@ export type ProjectConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ProjectConnectionQuery = { __typename?: 'Query', projectConnection: { __typename?: 'ProjectConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ProjectConnectionEdges', cursor: string, node?: { __typename: 'Project', id: string, title: string, slug: string, headline?: string | null, summary?: string | null, image?: string | null, date?: string | null, status?: string | null, technologies?: Array<string | null> | null, github?: string | null, live?: string | null, featured?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ProjectConnectionQuery = { __typename?: 'Query', projectConnection: { __typename?: 'ProjectConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ProjectConnectionEdges', cursor: string, node?: { __typename: 'Project', id: string, title: string, slug: string, headline?: string | null, summary?: string | null, images?: Array<string | null> | null, date?: string | null, status?: string | null, technologies?: Array<string | null> | null, github?: string | null, live?: string | null, featured?: boolean | null, projectType?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, seo?: { __typename: 'ProjectSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null, ogImage?: string | null } | null, detail?: { __typename: 'ProjectDetail', hero?: { __typename: 'ProjectDetailHero', eyebrow?: string | null, title?: string | null, subtitle?: string | null, primaryImage?: string | null, supportingImages?: Array<string | null> | null, primaryCta?: { __typename: 'ProjectDetailHeroPrimaryCta', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null, secondaryCta?: { __typename: 'ProjectDetailHeroSecondaryCta', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null } | null, metadata?: { __typename: 'ProjectDetailMetadata', role?: string | null, client?: string | null, timeline?: string | null, platform?: string | null, year?: string | null, collaboration?: string | null } | null, designDirection?: { __typename: 'ProjectDetailDesignDirection', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, overview?: { __typename: 'ProjectDetailOverview', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, challenge?: { __typename: 'ProjectDetailChallenge', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, solution?: { __typename: 'ProjectDetailSolution', heading?: string | null, summary?: string | null, bullets?: Array<string | null> | null } | null, gallery?: Array<{ __typename: 'ProjectDetailGallery', image?: string | null, alt?: string | null, caption?: string | null, category?: string | null } | null> | null, techStack?: Array<{ __typename: 'ProjectDetailTechStack', category?: string | null, tools?: Array<string | null> | null } | null> | null, features?: Array<{ __typename: 'ProjectDetailFeatures', title?: string | null, description?: string | null, impact?: string | null, icon?: string | null } | null> | null, process?: Array<{ __typename: 'ProjectDetailProcess', phase?: string | null, title?: string | null, description?: string | null, outputs?: Array<string | null> | null } | null> | null, deliverables?: Array<{ __typename: 'ProjectDetailDeliverables', title?: string | null, description?: string | null, link?: string | null } | null> | null, metrics?: Array<{ __typename: 'ProjectDetailMetrics', value?: string | null, label?: string | null, description?: string | null } | null> | null, testimonial?: { __typename: 'ProjectDetailTestimonial', quote?: string | null, name?: string | null, role?: string | null, company?: string | null, avatar?: string | null } | null, conversion?: { __typename: 'ProjectDetailConversion', heading?: string | null, description?: string | null, ctas?: Array<{ __typename: 'ProjectDetailConversionCtas', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null> | null } | null, pricing?: { __typename: 'ProjectDetailPricing', model?: string | null, startingAt?: string | null, included?: Array<string | null> | null, note?: string | null } | null, socialProof?: { __typename: 'ProjectDetailSocialProof', badges?: Array<string | null> | null, repositoryStats?: Array<string | null> | null, launchNotes?: string | null, links?: Array<{ __typename: 'ProjectDetailSocialProofLinks', label?: string | null, href?: string | null } | null> | null } | null, responsiveUx?: { __typename: 'ProjectDetailResponsiveUx', breakpoints?: Array<string | null> | null, interactionNotes?: Array<string | null> | null, accessibilityNotes?: Array<string | null> | null } | null, seoPerformance?: { __typename: 'ProjectDetailSeoPerformance', performanceTargets?: Array<string | null> | null, seoNotes?: Array<string | null> | null, technicalChecks?: Array<string | null> | null } | null, infrastructure?: { __typename: 'ProjectDetailInfrastructure', hosting?: string | null, backend?: string | null, database?: string | null, storage?: string | null, cicd?: string | null, monitoring?: string | null } | null } | null } | null } | null> | null } };
 
 export const SitePartsFragmentDoc = gql`
     fragment SiteParts on Site {
@@ -1349,13 +1938,176 @@ export const ProjectPartsFragmentDoc = gql`
   slug
   headline
   summary
-  image
+  images
   date
   status
   technologies
   github
   live
   featured
+  projectType
+  seo {
+    __typename
+    title
+    description
+    keywords
+    ogImage
+  }
+  detail {
+    __typename
+    hero {
+      __typename
+      eyebrow
+      title
+      subtitle
+      primaryImage
+      supportingImages
+      primaryCta {
+        __typename
+        label
+        href
+        variant
+        external
+      }
+      secondaryCta {
+        __typename
+        label
+        href
+        variant
+        external
+      }
+    }
+    metadata {
+      __typename
+      role
+      client
+      timeline
+      platform
+      year
+      collaboration
+    }
+    designDirection {
+      __typename
+      heading
+      summary
+      bullets
+    }
+    overview {
+      __typename
+      heading
+      summary
+      bullets
+    }
+    challenge {
+      __typename
+      heading
+      summary
+      bullets
+    }
+    solution {
+      __typename
+      heading
+      summary
+      bullets
+    }
+    gallery {
+      __typename
+      image
+      alt
+      caption
+      category
+    }
+    techStack {
+      __typename
+      category
+      tools
+    }
+    features {
+      __typename
+      title
+      description
+      impact
+      icon
+    }
+    process {
+      __typename
+      phase
+      title
+      description
+      outputs
+    }
+    deliverables {
+      __typename
+      title
+      description
+      link
+    }
+    metrics {
+      __typename
+      value
+      label
+      description
+    }
+    testimonial {
+      __typename
+      quote
+      name
+      role
+      company
+      avatar
+    }
+    conversion {
+      __typename
+      heading
+      description
+      ctas {
+        __typename
+        label
+        href
+        variant
+        external
+      }
+    }
+    pricing {
+      __typename
+      model
+      startingAt
+      included
+      note
+    }
+    socialProof {
+      __typename
+      badges
+      links {
+        __typename
+        label
+        href
+      }
+      repositoryStats
+      launchNotes
+    }
+    responsiveUx {
+      __typename
+      breakpoints
+      interactionNotes
+      accessibilityNotes
+    }
+    seoPerformance {
+      __typename
+      performanceTargets
+      seoNotes
+      technicalChecks
+    }
+    infrastructure {
+      __typename
+      hosting
+      backend
+      database
+      storage
+      cicd
+      monitoring
+    }
+  }
   body
 }
     `;
@@ -1787,7 +2539,7 @@ export const ExperimentalGetTinaClient = () =>
   getSdk(
     generateRequester(
       createClient({
-        url: "http://localhost:4001/graphql",
+        url: "/api/tina/gql",
         queries,
       })
     )
