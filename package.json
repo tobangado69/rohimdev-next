@@ -14,9 +14,12 @@
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
+    "@tinacms/datalayer": "^2.0.22",
     "geist": "^1.7.0",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.468.0",
     "next": "^15.1.0",
+    "next-tinacms-cloudinary": "^25.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tinacms": "^3.8.2"
