@@ -1,0 +1,178 @@
+---
+slug: chatapp
+title: ChatApp
+headline: Real-time messaging application built with React and Socket.IO, featuring live chat functionality and user presence indicators.
+summary: Real-time chat app with live messaging and presence indicators.
+image: https://raw.githubusercontent.com/tobangado69/ChatApp/main/assets/home.png
+date: February 2024
+status: In Development
+technologies:
+  - React
+  - Socket.IO
+  - Express
+  - PostgreSQL
+  - Sequelize
+  - Tailwind CSS
+github: https://github.com/tobangado69/ChatApp
+live: ""
+featured: true
+seo:
+  title: "ChatApp Case Study"
+  description: "Real-time messaging case study built with React, Socket.IO, Express, and PostgreSQL."
+  keywords:
+    - React
+    - Socket.IO
+    - Real-time messaging
+    - Express
+    - PostgreSQL
+  ogImage: "https://raw.githubusercontent.com/tobangado69/ChatApp/main/assets/home.png"
+detail:
+  hero:
+    eyebrow: "Real-time Messaging"
+    title: "ChatApp"
+    subtitle: "A full-stack chat experience focused on live messaging, presence, and event-driven UI feedback."
+    primaryImage: "https://raw.githubusercontent.com/tobangado69/ChatApp/main/assets/home.png"
+    primaryCta:
+      label: "View on GitHub"
+      href: "https://github.com/tobangado69/ChatApp"
+      variant: "primary"
+      external: true
+    secondaryCta:
+      label: "Discuss a similar build"
+      href: "/contact"
+      variant: "secondary"
+  metadata:
+    role: "Full-stack Developer"
+    client: "Personal Product Exploration"
+    timeline: "February 2024 — ongoing"
+    platform: "Web"
+    year: "2024"
+    collaboration: "Solo"
+  designDirection:
+    heading: "UI/UX Direction"
+    summary: "A calm, conversation-first interface that prioritizes readability, presence cues, and immediate feedback when messages arrive."
+    bullets:
+      - "Neutral surfaces with strong message hierarchy."
+      - "Presence indicators that reduce ambiguity in active conversations."
+      - "Motion used sparingly for send/receive feedback."
+  overview:
+    heading: "Project Overview"
+    summary: "ChatApp explores real-time product behavior through a React interface and Socket.IO backend with PostgreSQL persistence."
+    bullets:
+      - "Live message delivery through socket events."
+      - "Presence-oriented UI for clearer conversation state."
+      - "Express API layer coordinating auth and message flows."
+  challenge:
+    heading: "The Challenge"
+    summary: "Real-time communication needs fast feedback, stable socket state, and clear online/offline behavior without overwhelming the interface."
+    bullets:
+      - "Socket connections must recover gracefully from network drops."
+      - "Message order and delivery state need to stay trustworthy."
+      - "UI must communicate presence without visual noise."
+  solution:
+    heading: "The Solution"
+    summary: "A React front end driven by Socket.IO events, backed by Express and PostgreSQL through Sequelize models."
+    bullets:
+      - "Event-driven updates keep the chat view in sync."
+      - "Sequelize models structure users, rooms, and messages."
+      - "Tailwind CSS keeps layout responsive and consistent."
+  gallery:
+    - image: "https://raw.githubusercontent.com/tobangado69/ChatApp/main/assets/home.png"
+      alt: "ChatApp home screen with conversation list"
+      caption: "Conversation list and entry point into active chats"
+      category: "Product UI"
+  techStack:
+    - category: "Frontend"
+      tools:
+        - React
+        - Tailwind CSS
+    - category: "Realtime & API"
+      tools:
+        - Socket.IO
+        - Express
+    - category: "Data"
+      tools:
+        - PostgreSQL
+        - Sequelize
+  features:
+    - title: "Live messaging"
+      description: "Messages propagate through socket events so participants see updates without manual refresh."
+      impact: "Core real-time loop for the product experience."
+    - title: "Presence indicators"
+      description: "Online and activity cues help users understand who is available in a conversation."
+      impact: "Reduces uncertainty in multi-user chat flows."
+    - title: "Event-driven UI"
+      description: "React state reacts to socket payloads for sends, receives, and connection changes."
+      impact: "Keeps the interface aligned with server truth."
+    - title: "Persistent conversations"
+      description: "PostgreSQL stores conversation history through Sequelize-backed models."
+      impact: "Supports reload-safe chat history."
+  process:
+    - phase: "Discovery"
+      title: "Define real-time requirements"
+      description: "Mapped message lifecycle, presence rules, and failure cases before implementation."
+      outputs:
+        - "Event map"
+        - "Data model sketch"
+    - phase: "Build"
+      title: "Implement socket + API loop"
+      description: "Connected React UI to Express handlers and Socket.IO broadcasts."
+      outputs:
+        - "Working chat prototype"
+        - "Sequelize schema"
+    - phase: "Refine"
+      title: "Harden UX feedback"
+      description: "Improved loading, empty, and reconnect states across the chat experience."
+      outputs:
+        - "Presence UI"
+        - "Reconnection handling"
+  deliverables:
+    - title: "Full-stack repository"
+      description: "Open-source codebase covering client, API, and database layers."
+      link: "https://github.com/tobangado69/ChatApp"
+    - title: "Real-time architecture notes"
+      description: "Documented socket event flows and persistence boundaries in the project README."
+  metrics:
+    - value: "Real-time"
+      label: "Event flow"
+      description: "Socket-driven message delivery implemented end to end."
+    - value: "3 layers"
+      label: "Stack depth"
+      description: "React UI, Express API, and PostgreSQL persistence connected."
+  conversion:
+    heading: "Building something real-time?"
+    description: "ChatApp shows how I approach live messaging, presence, and full-stack JavaScript architecture."
+    ctas:
+      - label: "View on GitHub"
+        href: "https://github.com/tobangado69/ChatApp"
+        variant: "primary"
+        external: true
+      - label: "Start a conversation"
+        href: "/contact"
+        variant: "secondary"
+  responsiveUx:
+    breakpoints:
+      - "Mobile-first chat layout with readable message bubbles"
+      - "Tablet and desktop widen conversation panes without losing density"
+    interactionNotes:
+      - "Send actions provide immediate optimistic feedback"
+      - "Connection state surfaced during socket reconnects"
+    accessibilityNotes:
+      - "Readable contrast on message surfaces"
+      - "Clear focus order for input and send controls"
+  seoPerformance:
+    performanceTargets:
+      - "Minimize blocking assets on initial chat load"
+      - "Lazy-load non-critical UI chrome"
+    seoNotes:
+      - "Case-study metadata driven from structured frontmatter"
+    technicalChecks:
+      - "Remote hero imagery compatible with Next image config"
+  infrastructure:
+    hosting: "Local/dev deployment with Node.js process"
+    backend: "Express + Socket.IO server"
+    database: "PostgreSQL"
+    storage: "Relational models via Sequelize"
+---
+
+ChatApp demonstrates real-time messaging patterns with Socket.IO and a full-stack JavaScript architecture. The MDX body leaves room for deeper implementation notes as the product evolves—socket event diagrams, schema decisions, and future scaling considerations for rooms and moderation.

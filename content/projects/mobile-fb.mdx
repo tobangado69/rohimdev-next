@@ -1,0 +1,181 @@
+---
+slug: mobile-fb
+title: Mobile-FB
+headline: A comprehensive full-stack social media application that replicates core Facebook functionality on mobile devices.
+summary: Mobile social app with feeds, profiles, and real-time interaction patterns.
+image: https://i.imgur.com/CFZvp5T.png
+date: April 2024
+status: In Development
+technologies:
+  - React Native
+  - GraphQL
+  - Apollo Client
+  - Node.js
+  - MongoDB
+  - Redis
+  - Expo
+github: https://github.com/tobangado69/Mobile-FB
+live: ""
+featured: true
+seo:
+  title: "Mobile-FB Case Study"
+  description: "Mobile-first social app case study with React Native, Expo, GraphQL, Apollo Client, Node.js, MongoDB, and Redis."
+  keywords:
+    - React Native
+    - GraphQL
+    - Expo
+    - Social app
+    - Apollo Client
+  ogImage: "https://i.imgur.com/CFZvp5T.png"
+detail:
+  hero:
+    eyebrow: "Mobile Social"
+    title: "Mobile-FB"
+    subtitle: "A React Native social experience exploring feeds, profiles, and GraphQL-driven mobile data flows."
+    primaryImage: "https://i.imgur.com/CFZvp5T.png"
+    primaryCta:
+      label: "View on GitHub"
+      href: "https://github.com/tobangado69/Mobile-FB"
+      variant: "primary"
+      external: true
+    secondaryCta:
+      label: "Talk about mobile apps"
+      href: "/contact"
+      variant: "secondary"
+  metadata:
+    role: "Full-stack Developer"
+    client: "Personal Product Exploration"
+    timeline: "April 2024 — ongoing"
+    platform: "iOS & Android (React Native)"
+    year: "2024"
+    collaboration: "Solo"
+  designDirection:
+    heading: "Mobile UX Direction"
+    summary: "Native-feeling feed density, touch-first interactions, and clear hierarchy between posts, profiles, and actions."
+    bullets:
+      - "Feed cards optimized for thumb reach and scan speed."
+      - "Profile layouts that surface identity and activity clearly."
+      - "Loading and empty states designed for mobile context switches."
+  overview:
+    heading: "Project Overview"
+    summary: "Mobile-FB replicates core social networking patterns on mobile using React Native, Expo, and a GraphQL API layer."
+    bullets:
+      - "Feed-driven home experience with engagement actions."
+      - "Profile views for identity and user-generated content."
+      - "Apollo Client cache strategy for responsive UI updates."
+  challenge:
+    heading: "The Challenge"
+    summary: "Social feeds need fast mobile interactions, nested data, and responsive UI that stays coherent across network conditions."
+    bullets:
+      - "GraphQL queries must avoid over-fetching on constrained devices."
+      - "Feed scrolling should remain smooth with media and text mixed."
+      - "Auth and session flows must feel native on mobile."
+  solution:
+    heading: "The Solution"
+    summary: "React Native + Expo client with Apollo Client, backed by Node.js, MongoDB, and Redis for scalable social data patterns."
+    bullets:
+      - "GraphQL schema models users, posts, and relationships."
+      - "Apollo cache keeps feed interactions snappy."
+      - "Redis supports caching and session-oriented workloads."
+  gallery:
+    - image: "https://i.imgur.com/CFZvp5T.png"
+      alt: "Mobile-FB app screenshot showing social feed interface"
+      caption: "Feed-first mobile layout with post cards and navigation"
+      category: "Mobile UI"
+  techStack:
+    - category: "Mobile"
+      tools:
+        - React Native
+        - Expo
+    - category: "Data Layer"
+      tools:
+        - GraphQL
+        - Apollo Client
+    - category: "Backend"
+      tools:
+        - Node.js
+        - MongoDB
+        - Redis
+  features:
+    - title: "Mobile feed"
+      description: "Scrollable feed of posts with engagement affordances tuned for touch."
+      impact: "Central social loop for the application."
+    - title: "User profiles"
+      description: "Profile screens present identity, bio, and user content in a familiar social pattern."
+      impact: "Supports discovery and personal branding within the app."
+    - title: "GraphQL data layer"
+      description: "Queries and mutations fetch exactly the nested data each screen needs."
+      impact: "Reduces payload size versus REST-heavy mobile clients."
+    - title: "Cache-aware UI"
+      description: "Apollo Client keeps optimistic updates and cached reads responsive."
+      impact: "Improves perceived performance on slower networks."
+  process:
+    - phase: "Model"
+      title: "Define social graph schema"
+      description: "Mapped users, posts, and relationships in GraphQL before UI implementation."
+      outputs:
+        - "GraphQL schema"
+        - "Resolver plan"
+    - phase: "Build"
+      title: "Ship core mobile screens"
+      description: "Implemented feed, profile, and auth flows in React Native with Expo tooling."
+      outputs:
+        - "Feed screen"
+        - "Profile screen"
+    - phase: "Optimize"
+      title: "Tune mobile performance"
+      description: "Refined list rendering, cache policies, and loading states for smoother scrolling."
+      outputs:
+        - "Apollo cache config"
+        - "Empty/loading UI"
+  deliverables:
+    - title: "Mobile codebase"
+      description: "React Native application with Expo workflow and GraphQL integration."
+      link: "https://github.com/tobangado69/Mobile-FB"
+    - title: "API layer"
+      description: "Node.js GraphQL server with MongoDB persistence and Redis support."
+  metrics:
+    - value: "GraphQL"
+      label: "API model"
+      description: "Nested social data served through a typed schema."
+    - value: "Cross-platform"
+      label: "Delivery"
+      description: "Single React Native codebase targeting iOS and Android."
+  conversion:
+    heading: "Planning a mobile social product?"
+    description: "Mobile-FB demonstrates feed UX, GraphQL integration, and full-stack mobile architecture."
+    ctas:
+      - label: "View on GitHub"
+        href: "https://github.com/tobangado69/Mobile-FB"
+        variant: "primary"
+        external: true
+      - label: "Get in touch"
+        href: "/contact"
+        variant: "secondary"
+  responsiveUx:
+    breakpoints:
+      - "Phone-first layouts with safe-area aware spacing"
+      - "Tablet layouts reuse feed density with wider media"
+    interactionNotes:
+      - "Touch targets sized for primary actions"
+      - "Pull-friendly feed scrolling with stable list performance"
+    accessibilityNotes:
+      - "Readable type scale on small screens"
+      - "Sufficient contrast on feed cards and profile headers"
+  seoPerformance:
+    performanceTargets:
+      - "Optimize list virtualization for long feeds"
+      - "Cache hot GraphQL queries via Apollo"
+    seoNotes:
+      - "Case-study page metadata for portfolio discovery"
+    technicalChecks:
+      - "Imgur-hosted screenshots compatible with Next image config"
+  infrastructure:
+    hosting: "Expo development builds; API on Node.js"
+    backend: "Node.js GraphQL server"
+    database: "MongoDB"
+    storage: "Document models for users and posts"
+    monitoring: "Local/dev logging; production monitoring TBD"
+---
+
+Mobile-FB is a React Native social application focused on mobile-first social networking experiences. This narrative section can grow with authentication flow diagrams, feed ranking notes, and future plans for notifications and media uploads.
