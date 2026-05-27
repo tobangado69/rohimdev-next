@@ -1,0 +1,158 @@
+fragment SiteParts on Site {
+  __typename
+  name
+  tagline
+  username
+  description
+  year
+  seo {
+    __typename
+    title
+    description
+    keywords
+    ogImage
+    siteUrl
+    author {
+      __typename
+      name
+      title
+      email
+      location
+    }
+  }
+  social {
+    __typename
+    github
+    linkedin
+    telegram
+  }
+  navigation {
+    __typename
+    label
+    href
+  }
+}
+
+fragment HomeParts on Home {
+  __typename
+  seo {
+    __typename
+    title
+    description
+    keywords
+  }
+  hero {
+    __typename
+    badge
+    heading
+    description
+    trustText
+    ctas {
+      __typename
+      label
+      href
+      variant
+      external
+    }
+  }
+  stats {
+    __typename
+    label
+    value
+    description
+  }
+}
+
+fragment AboutParts on About {
+  __typename
+  seo {
+    __typename
+    title
+    description
+    keywords
+  }
+  hero {
+    __typename
+    heading
+    subheading
+    introduction
+    location
+    experienceYears
+    quote
+  }
+  careerJourney {
+    __typename
+    timeline {
+      __typename
+      period
+      title
+      company
+      description
+      technologies
+      status
+    }
+  }
+  profileImage
+}
+
+fragment ServicesParts on Services {
+  __typename
+  seo {
+    __typename
+    title
+    description
+    keywords
+  }
+  hero {
+    __typename
+    heading
+    description
+  }
+  coreServices {
+    __typename
+    id
+    title
+    description
+    features
+    technologies
+    startingPrice
+  }
+}
+
+fragment ContactParts on Contact {
+  __typename
+  seo {
+    __typename
+    title
+    description
+    keywords
+  }
+  hero {
+    __typename
+    heading
+    description
+    cta
+  }
+  form {
+    __typename
+    successTitle
+    successDescription
+    messagePlaceholder
+  }
+}
+
+fragment ProjectParts on Project {
+  __typename
+  title
+  slug
+  headline
+  summary
+  image
+  date
+  status
+  technologies
+  github
+  live
+  featured
+  body
+}

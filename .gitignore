@@ -21,5 +21,8 @@ npm-debug.log*
 *.swp
 *.swo
 
+# TinaCMS
+tina/__generated__/.cache
+
 # Local brainstorming artifacts
 .superpowers/
