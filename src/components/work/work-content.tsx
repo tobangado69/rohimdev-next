@@ -95,13 +95,15 @@ export function WorkContent({ projects }: WorkContentProps) {
             >
               <span className="sr-only">View {project.title} case study</span>
               <div className="aspect-16/10 overflow-hidden bg-[#1a1c18] w-full rounded-lg relative">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover bg-center group-hover:scale-[1.02] transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                />
+                {project.image && (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover bg-center group-hover:scale-[1.02] transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                  />
+                )}
               </div>
             </Link>
             <div className="mt-8 md:mt-12 px-2">

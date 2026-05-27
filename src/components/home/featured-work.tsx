@@ -5,36 +5,31 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import Image from "next/image";
+import type { ProjectContent } from "@/types/content";
 
-const CARDS = [
-  {
-    title: "Fintech Dashboard",
-    image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1c053fe9-7127-4df7-ae87-36ae206fe067_1600w.jpg",
-    gradient: "from-neutral-100 to-neutral-200",
-  },
-  {
-    title: "Mobile Health App",
-    image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0851aedf-fdcc-48be-8ea0-cd63cc04fcda_800w.jpg",
-    gradient: "from-blue-50 to-neutral-100",
-  },
-  {
-    title: "SaaS Analytics",
-    image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/51dd450a-0485-4587-89d8-c6078fb01266_1600w.jpg",
-    gradient: "from-orange-50 to-neutral-100",
-  },
-];
+type FeaturedWorkProps = {
+  projects: ProjectContent[];
+};
 
-export function FeaturedWork() {
+export function FeaturedWork({ projects }: FeaturedWorkProps) {
+  const cards = projects;
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const rotate = useCallback((dir: number) => {
-    setCurrentIndex((prev) => (prev + dir + CARDS.length) % CARDS.length);
-  }, []);
+  const rotate = useCallback(
+    (dir: number) => {
+      if (cards.length === 0) return;
+      setCurrentIndex((prev) => (prev + dir + cards.length) % cards.length);
+    },
+    [cards.length],
+  );
 
   useEffect(() => {
+    if (cards.length <= 1) return;
     const id = setInterval(() => rotate(1), 5000);
     return () => clearInterval(id);
-  }, [rotate]);
+  }, [cards.length, rotate]);
+
+  if (cards.length === 0) return null;
 
   return (
     <section
@@ -62,15 +57,15 @@ export function FeaturedWork() {
       </div>
 
       <div className="carousel-container flex w-full h-[500px] relative items-center justify-center">
-        {CARDS.map((card, i) => {
-          const offset = (i - currentIndex + CARDS.length) % CARDS.length;
+        {cards.map((card, i) => {
+          const offset = (i - currentIndex + cards.length) % cards.length;
           let pos: "active" | "prev" | "next" = "active";
           if (offset === 1) pos = "next";
-          else if (offset === CARDS.length - 1) pos = "prev";
+          else if (offset === cards.length - 1) pos = "prev";
 
           return (
             <SpotlightCard
-              key={card.title}
+              key={card.slug}
               className={`carousel-card lg:w-3/4 glass-panel cursor-pointer w-full h-full rounded-3xl p-2 ${pos}`}
             >
               <div className="w-full h-full bg-neutral-50 rounded-2xl overflow-hidden relative group">
@@ -79,16 +74,16 @@ export function FeaturedWork() {
                     {card.title}
                   </span>
                 </div>
-                <div
-                  className={`flex bg-gradient-to-br ${card.gradient} w-full h-full items-center justify-center`}
-                >
+                <div className="flex bg-gradient-to-br from-neutral-100 to-neutral-200 w-full h-full items-center justify-center">
                   <div className="relative transform group-hover:scale-[1.02] transition-transform duration-500 bg-white w-[80%] h-[70%] border border-neutral-100 rounded-xl p-6 shadow-2xl overflow-hidden">
-                    <Image
-                      src={card.image}
-                      alt={card.title}
-                      fill
-                      className="object-cover rounded-lg"
-                    />
+                    {card.image ? (
+                      <Image
+                        src={card.image}
+                        alt={card.title}
+                        fill
+                        className="object-cover rounded-lg"
+                      />
+                    ) : null}
                   </div>
                 </div>
               </div>
