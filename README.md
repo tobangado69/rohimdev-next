@@ -1,156 +1,199 @@
 # rohimdev.com
 
-Portfolio site for **Abdul Rohim** — Full-Stack Developer & Infrastructure Specialist. Built with Next.js 15, React 19, and Tailwind CSS.
+Portfolio site for **Abdul Rohim** — Full-Stack Developer & Infrastructure Specialist. Built with Next.js 15, React 19, Tailwind CSS v4, and [TinaCMS](https://tina.io/) for git-backed content editing.
 
-## 🚀 Features
+## Features
 
-- **Modern Design**: Clean UI with sidebar layout and smooth animations
-- **Responsive Layout**: Optimized for mobile, tablet, and desktop
-- **Project Showcase**: Portfolio with featured work and metrics
-- **Work Experience**: Professional experience and achievements
-- **Services**: Full-stack development and infrastructure solutions
-- **Contact Form**: Web3Forms integration (no backend required)
-- **SEO Optimized**: Per-page metadata, sitemap, and robots.txt
-- **Data-Driven**: JSON content in `data/` for easy updates
+- **Modern design** — Sidebar layout, scroll animations, responsive across breakpoints
+- **Portfolio & case studies** — Project grid at `/work` and premium detail pages at `/work/[slug]`
+- **Git-backed CMS** — Edit pages and projects in Tina at `/admin` (local) or Tina Cloud (production)
+- **Structured project content** — MDX with frontmatter (`detail`, `images`, `projectType`, SEO)
+- **Marketing pages** — Home, About, Services, and Contact driven by JSON in `content/pages/`
+- **Contact form** — [Web3Forms](https://web3forms.com/) (no custom backend)
+- **Media library** — Cloudinary uploads for project covers and galleries via Tina
+- **SEO** — Per-page metadata, `sitemap.ts`, and `robots.ts`
 
-## 🛠️ Tech Stack
+## Tech stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-- **UI**: [React 19](https://react.dev/), [Tailwind CSS v4](https://tailwindcss.com/), [Geist](https://vercel.com/font) font
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Contact**: [Web3Forms](https://web3forms.com/)
+| Layer | Tools |
+| --- | --- |
+| Framework | [Next.js 15](https://nextjs.org/) (App Router) |
+| UI | [React 19](https://react.dev/), [Tailwind CSS v4](https://tailwindcss.com/), [Geist](https://vercel.com/font) |
+| CMS | [TinaCMS](https://tina.io/) + `@tinacms/datalayer` |
+| Content | JSON (`content/pages/`) + MDX (`content/projects/`) |
+| Media | [Cloudinary](https://cloudinary.com/) via `next-tinacms-cloudinary` |
+| Icons | [Lucide React](https://lucide.dev/) |
+| Contact | [Web3Forms](https://web3forms.com/) |
 
-## 📋 Prerequisites
+## Prerequisites
 
 - [Node.js](https://nodejs.org/) 18+
-- [pnpm](https://pnpm.io/) (or npm/yarn)
+- [pnpm](https://pnpm.io/) (recommended) or npm/yarn
+- [Cloudinary](https://cloudinary.com/) account (for image uploads in Tina)
+- [Web3Forms](https://web3forms.com/) access key (for contact form)
 
-## 🔧 Installation
+## Installation
 
 1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/tobangado69/rohimdev.com.git
-   cd rohimdev.com
+   git clone https://github.com/tobangado69/rohimdev-next.git
+   cd rohimdev-next
    ```
 
 2. **Install dependencies**
+
    ```bash
    pnpm install
    ```
 
-3. **Set up environment variables**
+3. **Environment variables**
+
    ```bash
    cp .env.example .env
    ```
-   
-   Edit `.env` and add your Web3Forms access key:
-   ```env
-   NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key_here
-   ```
 
-4. **Run the development server**
+   See [Environment variables](#environment-variables) below.
+
+4. **Run locally**
+
+   Site only:
+
    ```bash
    pnpm dev
    ```
 
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+   Site + Tina admin (`/admin`):
 
-## 📁 Project Structure
+   ```bash
+   pnpm dev:tina
+   ```
 
-```
-rohimdev.com/
-├── data/                  # JSON content (site, pages, layout)
-│   ├── site.json          # Site metadata, SEO, social links
-│   ├── home.json          # Homepage content
-│   ├── about.json         # About page content
-│   ├── work.json          # Work experience
-│   ├── services.json      # Services content
-│   ├── contact.json       # Contact page content
-│   └── ...
+5. Open [http://localhost:3000](http://localhost:3000) — admin UI at [http://localhost:3000/admin](http://localhost:3000/admin) when using `dev:tina`.
+
+## Project structure
+
+```text
+rohimdev-next/
+├── content/
+│   ├── pages/           # Tina-managed JSON (home, about, services, contact, site)
+│   ├── projects/        # Portfolio case studies (MDX + structured frontmatter)
+│   ├── posts/           # Blog placeholder
+│   └── case-studies/    # Extended case studies placeholder
 ├── src/
-│   ├── app/               # Next.js App Router
-│   │   ├── about/         # About page
-│   │   ├── contact/       # Contact form page
-│   │   ├── services/      # Services page
-│   │   ├── work/          # Work experience page
-│   │   ├── layout.tsx     # Root layout
-│   │   ├── page.tsx       # Homepage
-│   │   ├── globals.css    # Global styles
-│   │   ├── robots.ts      # Robots.txt generator
-│   │   └── sitemap.ts     # Sitemap generator
-│   ├── components/        # React components
-│   │   ├── home/          # Homepage sections
-│   │   ├── layout/        # Sidebar, footer, mobile nav
-│   │   ├── contact/       # Contact form, founder section
-│   │   ├── work/          # Work experience
-│   │   └── ui/            # Shared UI components
-│   └── lib/               # Utilities (seo.ts, constants.ts)
-├── public/                # Static assets
-└── package.json
+│   ├── app/             # App Router routes
+│   │   ├── page.tsx     # Home
+│   │   ├── work/        # Portfolio list + [slug] detail
+│   │   ├── about/
+│   │   ├── services/
+│   │   └── contact/
+│   ├── components/      # UI sections (home, work, layout, …)
+│   ├── lib/
+│   │   ├── content.ts   # Reads content/ at build time
+│   │   └── seo.ts       # Metadata helpers
+│   └── pages/api/       # Tina GraphQL + Cloudinary media handlers
+├── tina/
+│   ├── config.ts        # Tina schema & collections
+│   └── database.ts      # Local datalayer (dev)
+├── public/admin/        # Tina admin build output (generated; assets via CI)
+└── docs/superpowers/    # Design specs & implementation plans
 ```
 
-## 🌐 Environment Variables
+## Content editing
 
-Create a `.env` file in the root directory:
+### Local workflow (default)
+
+1. Set `TINA_PUBLIC_IS_LOCAL=true` in `.env` (see `.env.example`).
+2. Run `pnpm dev:tina`.
+3. Open `/admin`, edit pages or projects, save — files update under `content/`.
+4. Commit and push; Vercel rebuilds the public site from git.
+
+### What you can edit in Tina
+
+| Collection | Path | Used on |
+| --- | --- | --- |
+| Site | `content/pages/site.json` | Global name, social links |
+| Pages | `content/pages/*.json` | Home, About, Services, Contact |
+| Projects | `content/projects/*.mdx` | `/work`, `/work/[slug]` |
+
+**Project images:** use the **Project Images** field in Tina. The first image is the cover on `/work`; additional images appear in the detail gallery. Set `projectType` to `production` or `study` for listing badges.
+
+### Production CMS (optional)
+
+To edit on the live site via `/admin`, you need [Tina Cloud](https://app.tina.io) linked to this repo, production env vars (`NEXT_PUBLIC_TINA_CLIENT_ID`, `TINA_TOKEN`), Cloudinary secrets, `TINA_PUBLIC_IS_LOCAL=false`, and build command `pnpm run build:tina`. The codebase currently uses a **local datalayer** for development; full production auth requires additional Tina Cloud wiring (see `docs/superpowers/plans/2026-05-27-tinacms-content-management.md`).
+
+For the simplest deploy, keep editing locally and ship content via git — no Tina Cloud required.
+
+## Environment variables
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Contact form | From [web3forms.com](https://web3forms.com/) |
+| `TINA_PUBLIC_IS_LOCAL` | Local CMS | `true` for local `/admin` without Tina Cloud |
+| `CLOUDINARY_CLOUD_NAME` | Tina media | Cloudinary dashboard |
+| `CLOUDINARY_API_KEY` | Tina media | Cloudinary dashboard |
+| `CLOUDINARY_API_SECRET` | Tina media | Server-only; never expose to client |
+| `NEXT_PUBLIC_TINA_CLIENT_ID` | Tina Cloud | Only for production CMS |
+| `TINA_TOKEN` | Tina Cloud | Server-only; only for production CMS |
+
+Example `.env`:
 
 ```env
-NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key_here
+NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key_here
+
+TINA_PUBLIC_IS_LOCAL=true
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
-### Getting a Web3Forms Access Key
+## Scripts
 
-1. Visit [Web3Forms](https://web3forms.com/)
-2. Enter your email address
-3. Copy the generated access key
-4. Add it to your `.env` file
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Next.js dev server (no Tina UI) |
+| `pnpm dev:tina` | Tina + Next.js — use for content editing |
+| `pnpm build` | Production build (site only) |
+| `pnpm build:tina` | `tinacms build` then `next build` (for Tina Cloud deploy) |
+| `pnpm build:tina:local` | Local admin build + Next (no cloud checks) |
+| `pnpm start` | Serve production build |
+| `pnpm lint` | ESLint |
+| `pnpm typecheck` | TypeScript check |
 
-## 📝 Available Scripts
+## Deployment
 
-- `pnpm dev` — Start development server
-- `pnpm build` — Build for production
-- `pnpm start` — Start production server
-- `pnpm lint` — Run ESLint
+### Vercel (recommended)
 
-## 🚢 Deployment
+1. Push to GitHub (`tobangado69/rohimdev-next`).
+2. Import the repo on [Vercel](https://vercel.com/).
+3. Add env vars from [Environment variables](#environment-variables).
+4. **Build command**
+   - Content via git only: `pnpm build`
+   - Tina admin in production: `pnpm build:tina` (+ Tina Cloud credentials)
+5. Deploy.
 
-### Deploy on Vercel (Recommended)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tobangado69/rohimdev-next)
 
-1. Push your code to GitHub
-2. Import your repository on [Vercel](https://vercel.com/)
-3. Add environment variables in Vercel dashboard
-4. Deploy!
-
-The easiest way to deploy is using the [Vercel Platform](https://vercel.com/new):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tobangado69/rohimdev.com)
-
-### Manual Deployment
+### Manual
 
 ```bash
 pnpm build
 pnpm start
 ```
 
-## 🎨 Customization
+Public pages read `content/` at **build time** via `src/lib/content.ts` — after deploy, new content appears after a rebuild (or Vercel redeploy on git push).
 
-### Content (Data-Driven)
+## Customization
 
-- **Site metadata & SEO**: `data/site.json`
-- **Homepage**: `data/home.json`
-- **About**: `data/about.json`
-- **Work experience**: `data/work.json`
-- **Services**: `data/services.json`
-- **Contact**: `data/contact.json`
-- **Layout (sidebar, footer)**: `data/layout.json`
+- **Page copy & SEO** — `content/pages/` or Tina **Pages** / **Site**
+- **Portfolio** — `content/projects/*.mdx` or Tina **Projects**
+- **Styles** — `src/app/globals.css`, Tailwind v4 via `postcss.config.mjs`
+- **Tina schema** — `tina/config.ts` (run `pnpm dev:tina` to regenerate types)
 
-### Styling
+Planning docs for major features live under `docs/superpowers/specs/` and `docs/superpowers/plans/`.
 
-- Global styles: `src/app/globals.css`
-- Tailwind v4: `postcss.config.mjs` (no separate tailwind.config)
-- Component styles: Tailwind classes in components
-
-## 👤 Author
+## Author
 
 **Abdul Rohim**
 
@@ -159,15 +202,10 @@ pnpm start
 - GitHub: [@tobangado69](https://github.com/tobangado69)
 - LinkedIn: [tobangado](https://www.linkedin.com/in/tobangado)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- [Next.js](https://nextjs.org/) for the framework
-- [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
-- [Geist](https://vercel.com/font) for typography
-- [Lucide](https://lucide.dev/) for icons
-- [Web3Forms](https://web3forms.com/) for contact form
+- [Next.js](https://nextjs.org/) · [TinaCMS](https://tina.io/) · [Tailwind CSS](https://tailwindcss.com/) · [Geist](https://vercel.com/font) · [Lucide](https://lucide.dev/) · [Web3Forms](https://web3forms.com/) · [Cloudinary](https://cloudinary.com/)
 
 ---
 
 Built by Abdul Rohim
-
