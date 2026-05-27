@@ -296,13 +296,35 @@ export default defineConfig({
           { type: "string", name: "slug", label: "Slug", required: true },
           { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
           { type: "string", name: "summary", label: "Summary", ui: { component: "textarea" } },
-          { type: "image", name: "image", label: "Image" },
+          {
+            type: "image",
+            name: "images",
+            label: "Project Images",
+            list: true,
+            ui: {
+              description:
+                "Upload one or more images. The first image is the cover on the Work page; additional images appear in the project detail gallery.",
+            },
+          },
           { type: "string", name: "date", label: "Date" },
           { type: "string", name: "status", label: "Status" },
           { type: "string", name: "technologies", label: "Technologies", list: true },
           { type: "string", name: "github", label: "GitHub URL" },
           { type: "string", name: "live", label: "Live URL" },
           { type: "boolean", name: "featured", label: "Featured" },
+          {
+            type: "string",
+            name: "projectType",
+            label: "Project Type",
+            options: [
+              { value: "production", label: "Production" },
+              { value: "study", label: "Study" },
+            ],
+            ui: {
+              description:
+                "Production = real shipped or client work. Study = learning, research exercise, or portfolio clone built for practice.",
+            },
+          },
           {
             type: "object",
             name: "seo",

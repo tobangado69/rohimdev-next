@@ -14,6 +14,14 @@ const SKILL_TAGS = [
   "React Native",
 ];
 
+function projectTypeLabel(projectType: ProjectContent["projectType"]): string {
+  return projectType === "production" ? "Production" : "Study";
+}
+
+function projectLinkText(project: ProjectContent): string {
+  return project.projectType === "production" ? "View project" : "View case study";
+}
+
 type WorkContentProps = {
   projects: ProjectContent[];
 };
@@ -93,7 +101,9 @@ export function WorkContent({ projects }: WorkContentProps) {
               href={`/work/${project.slug}`}
               className="block md:p-4 hover:shadow-md transition-all duration-500 bg-white w-full border border-neutral-200 rounded-2xl p-3 shadow-sm"
             >
-              <span className="sr-only">View {project.title} case study</span>
+              <span className="sr-only">
+                {projectLinkText(project)}: {project.title}
+              </span>
               <div className="aspect-16/10 overflow-hidden bg-[#1a1c18] w-full rounded-lg relative">
                 {project.image && (
                   <Image
@@ -158,6 +168,9 @@ export function WorkContent({ projects }: WorkContentProps) {
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3 mt-8">
+                  <span className="px-3 py-1.5 bg-neutral-200/50 rounded-md text-xs font-medium text-neutral-600">
+                    {projectTypeLabel(project.projectType)}
+                  </span>
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
@@ -170,7 +183,7 @@ export function WorkContent({ projects }: WorkContentProps) {
                     href={`/work/${project.slug}`}
                     className="ml-auto text-sm font-medium text-neutral-900 underline hover:text-neutral-600"
                   >
-                    View case study →
+                    {projectLinkText(project)} →
                   </Link>
                 </div>
               </div>

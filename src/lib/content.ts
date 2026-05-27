@@ -7,9 +7,11 @@ import type {
   CtaLink,
   HomeContent,
   ProjectContent,
+  ProjectType,
   ProjectConversion,
   ProjectDetailContent,
   ProjectFeature,
+  ProjectGalleryItem,
   ProjectHero,
   ProjectNarrativeSection,
   ProjectPricing,
@@ -42,6 +44,56 @@ function optionalString(value: unknown): string | undefined {
   if (typeof value !== "string") return undefined;
   const trimmed = value.trim();
   return trimmed.length > 0 ? trimmed : undefined;
+}
+
+function normalizeProjectType(value: unknown): ProjectType {
+  return value === "production" ? "production" : "study";
+}
+
+function normalizeProjectImages(
+  imagesField: unknown,
+  legacyImage: unknown,
+): string[] {
+  const fromList = optionalArray<string>(imagesField)
+    .map((url) => (typeof url === "string" ? url.trim() : ""))
+    .filter((url) => url.length > 0);
+
+  if (fromList.length > 0) {
+    return [...new Set(fromList)];
+  }
+
+  const legacy =
+    typeof legacyImage === "string"
+      ? legacyImage.trim()
+      : optionalString(legacyImage) ?? "";
+  return legacy ? [legacy] : [];
+}
+
+function mergeProjectGallery(
+  galleryImageUrls: string[],
+  manualGallery: ProjectGalleryItem[],
+  title: string,
+  coverImage: string,
+): ProjectGalleryItem[] | undefined {
+  const seen = new Set<string>(coverImage ? [coverImage] : []);
+  const merged: ProjectGalleryItem[] = [];
+
+  galleryImageUrls.forEach((url, index) => {
+    if (!url || seen.has(url)) return;
+    seen.add(url);
+    merged.push({
+      image: url,
+      alt: `${title} gallery image ${index + 1}`,
+    });
+  });
+
+  for (const item of manualGallery) {
+    if (!item.image || seen.has(item.image)) continue;
+    seen.add(item.image);
+    merged.push(item);
+  }
+
+  return merged.length > 0 ? merged : undefined;
 }
 
 function narrativeSection(
@@ -150,12 +202,14 @@ function normalizeProjectDetail(
     headline: string;
     summary: string;
     image: string;
+    galleryImageUrls: string[];
     technologies: string[];
     github?: string;
     live?: string;
   },
 ): ProjectDetailContent {
   const data = optionalObject<Record<string, unknown>>(detail);
+  const manualGallery = optionalArray<ProjectGalleryItem>(data?.gallery);
 
   return {
     hero: normalizeHero(data?.hero, base.title, base.headline, base.image),
@@ -176,7 +230,12 @@ function normalizeProjectDetail(
       "The Solution",
       `A focused implementation using ${base.technologies.slice(0, 3).join(", ") || "modern tools"}.`,
     ),
-    gallery: optionalArray(data?.gallery),
+    gallery: mergeProjectGallery(
+      base.galleryImageUrls,
+      manualGallery,
+      base.title,
+      base.image,
+    ),
     techStack: optionalArray(data?.techStack),
     features: normalizeFeatures(data?.features, base.technologies),
     process: optionalArray(data?.process),
@@ -200,41 +259,56 @@ function projectFromMdx(fileName: string): ProjectContent {
   const title = String(data.title ?? "Untitled Project");
   const headline = String(data.headline ?? "");
   const summary = String(data.summary ?? "");
-  const image = String(data.image ?? "");
+  const images = normalizeProjectImages(data.images, data.image);
+  const image = images[0] ?? "";
+  const galleryImageUrls = images.slice(1);
   const technologies = optionalArray<string>(data.technologies);
   const github = optionalString(data.github);
   const live = optionalString(data.live);
+  const projectType = normalizeProjectType(data.projectType);
+  const defaultSeoTitle =
+    projectType === "production" ? `${title} Project` : `${title} Case Study`;
 
   const seo =
     optionalObject<SeoContent>(data.seo) ?? {
-      title: `${title} Case Study`,
+      title: defaultSeoTitle,
       description: summary || headline,
       keywords: technologies,
       ogImage: image,
     };
 
-  return {
-    slug,
+  const seoWithCover = {
+    ...seo,
+    ogImage: seo.ogImage || image,
+  };
+
+  const detail = normalizeProjectDetail(data.detail, {
     title,
     headline,
     summary,
     image,
+    galleryImageUrls,
+    technologies,
+    github,
+    live,
+  });
+
+  return {
+    slug,
+    projectType,
+    title,
+    headline,
+    summary,
+    image,
+    images,
     date: String(data.date ?? ""),
     status: String(data.status ?? ""),
     technologies,
     github,
     live,
     featured: Boolean(data.featured),
-    seo,
-    detail: normalizeProjectDetail(data.detail, {
-      title,
-      headline,
-      summary,
-      image,
-      technologies,
-      github,
-      live,
-    }),
+    seo: seoWithCover,
+    detail,
     body: content.trim() || undefined,
   };
 }

@@ -20,8 +20,9 @@ technologies:
 github: ""
 live: ""
 featured: true
+projectType: production
 seo:
-  title: "Flux Case Study"
+  title: "Flux Project"
   description: "Internal Varnion field-operations platform and backend rewrite from FastAPI/MongoDB to Go/Gin and MySQL."
   keywords:
     - Go
@@ -153,8 +154,8 @@ detail:
       description: "CLI for dry-run, import, reload, and parity verification across supported collections."
     - title: "Frontend integration"
       description: "React app configured to consume the new API during cutover preparation."
-    - title: "Mock image prompts"
-      description: "Prompts for generating portfolio-safe Flux screenshots without real internal data."
+    - title: "Redacted screenshot prompts"
+      description: "Prompts for generating sanitized Flux UI screenshots without exposing real internal data."
   metrics:
     - value: "32+"
       label: "Collections migrated"
@@ -188,7 +189,7 @@ detail:
       - "Fast internal dashboard navigation across dense operational data"
       - "Stable API responses for table-heavy frontend views"
     seoNotes:
-      - "Portfolio page presents anonymized technical scope without internal data or public URLs"
+      - "Public project page presents anonymized technical scope without internal data or public URLs"
     technicalChecks:
       - "go test ./..."
       - "go vet ./..."
@@ -202,24 +203,24 @@ detail:
     monitoring: "Smoke test PASS/FAIL output and API health checks"
 ---
 
-Flux is a portfolio-safe case study about modernizing internal operations software: the public story focuses on architecture, migration safety, and workflow reliability while screenshots are generated separately with fictional data.
+Flux is a real internal production platform at Varnion. The public write-up focuses on architecture, migration safety, and workflow reliability; UI screenshots use sanitized mock data so operational details stay private.
 
 ## Nano mock image prompts
 
 ### Hero dashboard mockup
 
 ```text
-Premium desktop UI mockup of a fictional B2B SaaS product named "Flux", an internal field operations platform for telecom/ISP operations teams. Layout: left sidebar navigation with items Sites, Schedules, Activities, Reports, Tickets, Work Orders, Projects, Settings. Main content: top row of KPI stat cards (Open tickets, Activities today, Pending reports, Sites online), below a filterable data table with status badges (Open, In progress, Done). Style: modern enterprise dashboard, shadcn/ui aesthetic, light mode, neutral slate and white palette, subtle borders and shadows, no real company logos, no readable personal data. Resolution 1440x900, crisp UI design, portfolio case study quality.
+Premium desktop UI mockup of the Flux internal field operations platform for telecom/ISP operations teams. Layout: left sidebar navigation with items Sites, Schedules, Activities, Reports, Tickets, Work Orders, Projects, Settings. Main content: top row of KPI stat cards (Open tickets, Activities today, Pending reports, Sites online), below a filterable data table with status badges (Open, In progress, Done). Style: modern enterprise dashboard, shadcn/ui aesthetic, light mode, neutral slate and white palette, subtle borders and shadows, no real company logos, no readable personal data. Resolution 1440x900, crisp UI design, production-quality enterprise dashboard.
 ```
 
 ### Field activity form mockup
 
 ```text
-UI mockup of a field activity submission screen in the same "Flux" design system. Form fields: Site name, Activity category dropdown, Date/time, Notes, Photo attachment area, GPS/location hint, primary Submit button. Show validation states and a compact mobile-width panel centered on a light background, or split desktop form with clear hierarchy. Professional internal operations tool, fictional data only, no real brands, shadcn-like components, portfolio quality.
+UI mockup of a field activity submission screen in the Flux design system. Form fields: Site name, Activity category dropdown, Date/time, Notes, Photo attachment area, GPS/location hint, primary Submit button. Show validation states and a compact mobile-width panel centered on a light background, or split desktop form with clear hierarchy. Professional internal operations tool, sanitized sample data only, no real brands, shadcn-like components, production-quality UI.
 ```
 
 ### Ticket detail mockup
 
 ```text
-Desktop UI mockup, Flux operations platform, ticket detail drawer or page: ticket ID, priority chip, assigned technician, site name, timeline of status updates, comment thread, action buttons Assign and Close. Consistent with enterprise dashboard mockup 1, neutral palette, fictional content.
+Desktop UI mockup, Flux operations platform, ticket detail drawer or page: ticket ID, priority chip, assigned technician, site name, timeline of status updates, comment thread, action buttons Assign and Close. Consistent with enterprise dashboard mockup 1, neutral palette, sanitized sample content.
 ```

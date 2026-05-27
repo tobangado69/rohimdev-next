@@ -241,6 +241,8 @@ export type ProjectInfrastructure = {
   monitoring?: string;
 };
 
+export type ProjectType = "production" | "study";
+
 export type ProjectDetailContent = {
   hero: ProjectHero;
   metadata?: ProjectMetadata;
@@ -265,10 +267,15 @@ export type ProjectDetailContent = {
 
 export type ProjectContent = {
   slug: string;
+  /** Real shipped/client work vs learning/portfolio exercise. Legacy MDX defaults to `study`. */
+  projectType: ProjectType;
   title: string;
   headline: string;
   summary: string;
+  /** Cover image (first entry in `images`). */
   image: string;
+  /** All project images from CMS; [0] = cover, rest = detail gallery. */
+  images: string[];
   date: string;
   status: string;
   technologies: string[];
