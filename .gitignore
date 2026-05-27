@@ -20,3 +20,6 @@ npm-debug.log*
 .vscode
 *.swp
 *.swo
+
+# Local brainstorming artifacts
+.superpowers/
