@@ -1,0 +1,78 @@
+{
+  "seo": {
+    "title": "About Abdul Rohim - Full-Stack Developer Journey",
+    "description": "Learn about Abdul Rohim's journey from telecommunications engineer to full-stack developer.",
+    "keywords": ["about abdul rohim", "developer journey", "telecommunications engineer", "career transition"]
+  },
+  "hero": {
+    "heading": "Abdul Rohim",
+    "subheading": "Full-Stack Developer",
+    "introduction": "With 2+ years of experience, I specialize in building scalable applications using React, Next.js, Node.js, and Golang. From telecommunications to fullstack—I craft solutions that bridge systems and deliver results.",
+    "location": "Surabaya, Indonesia",
+    "experienceYears": "2+",
+    "quote": "I Have Served and I Will Be of Service"
+  },
+  "aboutMe": {
+    "heading": "About Me",
+    "paragraph": "I'm a Full Stack Developer building scalable web applications and APIs. Currently freelancing at Rohimdev.com and working as Infrastructure & Application Engineer at Varnion Technology. I focus on clean architecture, RESTful APIs, and modern tooling—delivering 3-5 concurrent projects while improving velocity with AI-assisted development."
+  },
+  "skills": {
+    "categories": [
+      {
+        "title": "Frontend",
+        "skills": [
+          { "name": "React & Next.js", "level": 90 },
+          { "name": "TypeScript", "level": 85 },
+          { "name": "Tailwind CSS", "level": 95 }
+        ]
+      },
+      {
+        "title": "Backend",
+        "skills": [
+          { "name": "Node.js & Express", "level": 85 },
+          { "name": "Golang (Gin)", "level": 80 },
+          { "name": "RESTful APIs", "level": 90 },
+          { "name": "Clean Architecture", "level": 85 }
+        ]
+      },
+      {
+        "title": "Database & Tools",
+        "skills": [
+          { "name": "PostgreSQL", "level": 85 },
+          { "name": "Prisma ORM", "level": 80 },
+          { "name": "Git & Version Control", "level": 90 },
+          { "name": "Docker", "level": 75 }
+        ]
+      }
+    ]
+  },
+  "careerJourney": {
+    "timeline": [
+      {
+        "period": "Jan 2025 - Present",
+        "title": "Freelance Fullstack Developer",
+        "company": "Rohimdev.com",
+        "description": "Delivering 3-5 concurrent fullstack projects for client-specific requirements. Building backend services with Node.js, Express, Hono, and Golang (Gin), designing PostgreSQL databases with Prisma ORM, and integrating frontend applications with backend services. Using AI-assisted tools to improve development velocity.",
+        "technologies": ["Node.js", "Express", "Hono", "Golang", "PostgreSQL", "Prisma", "React"],
+        "status": "current"
+      },
+      {
+        "period": "Jan 2025 - Present",
+        "title": "Infrastructure & Application Engineer",
+        "company": "Varnion Technology",
+        "description": "Managed infrastructure operations across 6–8 active client sites. Developed internal web applications using React, Node.js, and PostgreSQL for monitoring and operational workflows. Automated reporting pipelines, reduced network incidents, and presented technical solutions to B2B stakeholders.",
+        "technologies": ["React", "Node.js", "PostgreSQL", "Infrastructure", "Monitoring", "Automation"],
+        "status": "current"
+      },
+      {
+        "period": "Dec 2020 - Aug 2023",
+        "title": "Provisioning Technician",
+        "company": "PT Telkom Indonesia (IndiHome)",
+        "description": "Installed and configured fiber optic internet services. Conducted on-site troubleshooting and signal quality testing using OTDR and OPM. Reduced repeat visits through quality workmanship and customer education.",
+        "technologies": ["Fiber Optic", "OTDR", "OPM Testing", "Customer Service"],
+        "status": "previous"
+      }
+    ]
+  },
+  "profileImage": "/images/profile.png"
+}

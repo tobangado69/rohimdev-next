@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Abdul Rohim - Full-Stack JavaScript Engineer",
+    "description": "Professional full-stack JavaScript engineer building scalable web applications with React, Next.js, Node.js, TypeScript, and Golang.",
+    "keywords": ["fullstack developer", "react developer", "nextjs developer", "portfolio", "web developer"]
+  },
+  "hero": {
+    "badge": "Full-Stack Developer & Infrastructure Specialist",
+    "heading": "Full-Stack Developer & Web Architect.",
+    "description": "Hi, I’m Abdul Rohim. I build scalable, production-ready web applications using React, Next.js, Node.js, and Golang. 2+ years of hands-on experience delivering reliable full-stack solutions.",
+    "ctas": [
+      { "label": "Start a project", "href": "/contact", "variant": "primary" },
+      { "label": "View Projects", "href": "/work", "variant": "secondary" },
+      { "label": "Minimax Ambassador", "href": "https://minimax.ai", "variant": "red", "external": true },
+      { "label": "Trae Ambassador", "href": "https://trae.ai", "variant": "green", "external": true }
+    ],
+    "trustText": "Trusted by startups, founders, and engineering teams."
+  },
+  "logos": [
+    { "name": "React", "size": 48 },
+    { "name": "Next.js", "size": 48 },
+    { "name": "Node.js", "size": 48 },
+    { "name": "PostgreSQL", "size": 48 }
+  ],
+  "stats": [
+    { "label": "Projects", "value": "10+", "description": "Delivered across real-time chat, e-commerce, social apps, and more." },
+    { "label": "Experience", "value": "2+ years", "description": "Building scalable web and mobile applications." },
+    { "label": "Clients", "value": "3–5 concurrent", "description": "Active clients supported with full-stack development." },
+    { "label": "Location", "value": "Surabaya", "description": "Remote-first collaboration from Indonesia." }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "seo": {
+    "title": "Contact Abdul Rohim - Full-Stack Developer",
+    "description": "Get in touch with Abdul Rohim for full-stack development projects.",
+    "keywords": ["contact abdul rohim", "hire fullstack developer", "freelance developer contact", "react developer hire"]
+  },
+  "hero": {
+    "heading": "Let's build something together",
+    "description": "Tell me about your project, timeline, and goals. I'll help turn the idea into a reliable full-stack product.",
+    "cta": "Describe your project"
+  },
+  "form": {
+    "successTitle": "Thank you for reaching out!",
+    "successDescription": "Thanks for reaching out! I'll get back to you soon.",
+    "messagePlaceholder": "Describe your project, timeline, and goals..."
+  }
+}

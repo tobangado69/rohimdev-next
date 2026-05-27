@@ -1,0 +1,49 @@
+{
+  "seo": {
+    "title": "Services - Full-Stack JavaScript Development",
+    "description": "Professional full-stack development services including React, Next.js, Node.js, backend APIs, and mobile apps.",
+    "keywords": ["fullstack development services", "react development services", "mobile app development", "infrastructure services"]
+  },
+  "hero": {
+    "heading": "Full‑Stack Development Services",
+    "description": "Transform ideas into scalable, production‑ready applications across web and mobile."
+  },
+  "coreServices": [
+    {
+      "id": "frontend",
+      "title": "Frontend Development",
+      "description": "Transform your ideas into stunning, high-performance web applications using React and Next.js.",
+      "features": ["React & Next.js applications", "Responsive design & mobile-first approach", "Modern UI/UX with Tailwind CSS", "Performance optimization & SEO", "Progressive Web Apps (PWA)"],
+      "technologies": ["React", "Next.js", "Tailwind", "TypeScript"],
+      "startingPrice": "$2,000"
+    },
+    {
+      "id": "backend",
+      "title": "Backend Development",
+      "description": "Build powerful, scalable server-side solutions using Golang, Node.js, and Nest.js.",
+      "features": ["RESTful APIs & GraphQL servers", "Database design (PostgreSQL, MongoDB)", "Authentication & authorization systems", "Real-time features with Socket.IO", "Cloud deployment & scaling"],
+      "technologies": ["Golang", "Node.js", "Nest.js", "GraphQL", "PostgreSQL"],
+      "startingPrice": "$2,500"
+    },
+    {
+      "id": "mobile",
+      "title": "Mobile Development",
+      "description": "Create powerful mobile applications that work seamlessly across iOS and Android using React Native.",
+      "features": ["Cross-platform React Native apps", "Native performance & user experience", "App Store & Play Store deployment", "Push notifications & offline support", "Social features & real-time chat"],
+      "technologies": ["React Native", "Expo", "Firebase", "JavaScript"],
+      "startingPrice": "$3,500"
+    }
+  ],
+  "metrics": [
+    { "value": "2+ years", "description": "Building scalable web and mobile applications." },
+    { "value": "10+ projects", "description": "Delivered across real-time chat, e-commerce, social apps and more." },
+    { "value": "3–5 concurrent", "description": "Active clients supported with full-stack development." },
+    { "value": "Surabaya-based", "description": "Remote-first, async collaboration with global teams." }
+  ],
+  "cta": {
+    "heading": "Ready to start your project?",
+    "description": "Let's discuss your requirements and create something reliable together.",
+    "primary": "Start a Project",
+    "secondary": "View Portfolio"
+  }
+}

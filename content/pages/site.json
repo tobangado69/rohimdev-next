@@ -1,0 +1,32 @@
+{
+  "name": "rohimdev.com",
+  "tagline": "rohim.dev",
+  "username": "@rohimdev",
+  "description": "Professional full-stack JavaScript engineer building scalable web and mobile applications.",
+  "year": 2026,
+  "seo": {
+    "title": "Abdul Rohim - Full-Stack JavaScript Engineer",
+    "description": "Professional full-stack JavaScript engineer with experience in React, Next.js, Node.js, TypeScript, and Golang.",
+    "keywords": ["fullstack developer", "react developer", "nextjs developer", "nodejs developer", "typescript developer", "javascript developer", "golang developer"],
+    "ogImage": "https://rohimdev.com/og-image.jpg",
+    "siteUrl": "https://rohimdev.com",
+    "author": {
+      "name": "Abdul Rohim",
+      "title": "Full-Stack JavaScript Engineer",
+      "email": "rohimjoy70@gmail.com",
+      "location": "Indonesia"
+    }
+  },
+  "social": {
+    "github": "https://github.com/tobangado69",
+    "linkedin": "https://www.linkedin.com/in/tobangado",
+    "telegram": "https://t.me/Tobangado70"
+  },
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about" },
+    { "label": "Work", "href": "/work" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Contact", "href": "/contact" }
+  ]
+}
