@@ -8,7 +8,8 @@ type ProjectHeroProps = {
 
 export function ProjectHero({ project }: ProjectHeroProps) {
   const { hero } = project.detail;
-  const heroImage = hero.primaryImage || project.image;
+  // Cover `image` is the first CMS project image; detail hero follows it unless only primaryImage is set.
+  const heroImage = project.image || hero.primaryImage || "";
 
   return (
     <header className="space-y-10 animate-clip-in">
@@ -26,16 +27,18 @@ export function ProjectHero({ project }: ProjectHeroProps) {
         </p>
       </div>
 
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-neutral-200 bg-[#1a1c18] shadow-sm">
-        <Image
-          src={heroImage}
-          alt={project.title}
-          fill
-          priority
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 1200px"
-        />
-      </div>
+      {heroImage && (
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-neutral-200 bg-[#1a1c18] shadow-sm">
+          <Image
+            src={heroImage}
+            alt={project.title}
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 1200px"
+          />
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-3">
         {hero.primaryCta && (
