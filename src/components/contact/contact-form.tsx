@@ -4,7 +4,15 @@ import { useState } from "react";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
-export function ContactForm() {
+type ContactFormProps = {
+  content: {
+    successTitle: string;
+    successDescription: string;
+    messagePlaceholder: string;
+  };
+};
+
+export function ContactForm({ content }: ContactFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -57,12 +65,8 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div className="bg-white border border-neutral-200 rounded-2xl p-8 flex flex-col items-center justify-center gap-4 min-h-[300px]">
-        <p className="text-lg font-medium text-neutral-900">
-          Thank you for reaching out!
-        </p>
-        <p className="text-neutral-500 text-center">
-          Thanks for reaching out! I&apos;ll get back to you soon.
-        </p>
+        <p className="text-lg font-medium text-neutral-900">{content.successTitle}</p>
+        <p className="text-neutral-500 text-center">{content.successDescription}</p>
       </div>
     );
   }
@@ -120,7 +124,7 @@ export function ContactForm() {
           required
           rows={5}
           className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-neutral-400 focus:ring-2 focus:ring-neutral-200 focus:outline-none transition-colors resize-none"
-          placeholder="Describe your project, timeline, and goals..."
+          placeholder={content.messagePlaceholder}
         />
       </div>
       {errorMsg && (

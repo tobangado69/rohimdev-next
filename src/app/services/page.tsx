@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { SITE } from "@/lib/constants";
+import { getServicesContent } from "@/lib/content";
 import { getPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = getPageMetadata("services");
@@ -59,47 +60,32 @@ const WAY_OF_THINKING = [
   },
 ];
 
-const METRICS = [
-  { value: "2+ years", desc: "Building scalable web and mobile applications." },
-  { value: "10+ projects", desc: "Delivered across real-time chat, e-commerce, social apps & more." },
-  { value: "3–5 concurrent", desc: "Active clients supported with full-stack development." },
-  { value: "Surabaya-based", desc: "Remote-first, async collaboration with global teams." },
-];
-
-const SERVICE_COLUMNS = [
-  {
-    title: "Frontend Development",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-neutral-900">
-        <rect width="18" height="18" x="3" y="3" rx="2" />
-        <path d="M3 9h18" />
-        <path d="M9 21V9" />
-      </svg>
-    ),
-    items: ["React & Next.js applications", "Responsive design & mobile-first", "Tailwind CSS & modern UI", "Performance optimization & SEO", "Progressive Web Apps (PWA)"],
-  },
-  {
-    title: "Backend Development",
-    icon: (
+function getServiceIcon(id: string) {
+  if (id === "backend") {
+    return (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-neutral-900">
         <rect width="20" height="14" x="2" y="3" rx="2" />
         <line x1="8" x2="16" y1="21" y2="21" />
         <line x1="12" x2="12" y1="17" y2="21" />
       </svg>
-    ),
-    items: ["RESTful APIs & GraphQL servers", "PostgreSQL, MongoDB database design", "Authentication & authorization", "Real-time features with Socket.IO", "Cloud deployment & scaling"],
-  },
-  {
-    title: "Mobile Development",
-    icon: (
+    );
+  }
+  if (id === "mobile") {
+    return (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-neutral-900">
         <rect width="14" height="20" x="5" y="2" rx="2" />
         <path d="M12 18h.01" />
       </svg>
-    ),
-    items: ["Cross-platform React Native apps", "Native performance & UX", "App Store & Play Store deployment", "Push notifications & offline support", "Social features & real-time chat"],
-  },
-];
+    );
+  }
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-neutral-900">
+      <rect width="18" height="18" x="3" y="3" rx="2" />
+      <path d="M3 9h18" />
+      <path d="M9 21V9" />
+    </svg>
+  );
+}
 
 const TESTIMONIALS = [
   { quote: "Start Agency transformed our scattered ideas into a coherent, beautiful product. The speed of delivery was unmatched compared to other agencies we've tried.", name: "Sarah Chen", role: "CTO, FinFlow", avatar: "Sarah+Chen" },
@@ -109,6 +95,8 @@ const TESTIMONIALS = [
 ];
 
 export default function ServicesPage() {
+  const services = getServicesContent();
+
   return (
     <>
       <header
@@ -116,11 +104,10 @@ export default function ServicesPage() {
         style={{ animationDelay: "0.4s" }}
       >
         <h1 className="text-5xl lg:text-7xl font-medium tracking-tight text-neutral-900 mb-6">
-          Services
+          {services.hero.heading}
         </h1>
         <p className="leading-relaxed text-xl text-neutral-500 mb-8">
-          Transform ideas into scalable, production-ready applications across
-          web and mobile.
+          {services.hero.description}
         </p>
         <Link
           href="/contact"
@@ -174,7 +161,7 @@ export default function ServicesPage() {
       {/* Metrics */}
       <section className="animate-fade-up w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {METRICS.map(({ value, desc }) => (
+          {services.metrics.map(({ value, description }) => (
             <div
               key={value}
               className="bg-white p-8 rounded-2xl border border-neutral-100 shadow-sm hover:border-neutral-200 transition-colors h-full flex flex-col justify-center"
@@ -183,7 +170,7 @@ export default function ServicesPage() {
                 {value}
               </h3>
               <p className="text-[15px] leading-relaxed text-neutral-500">
-                {desc}
+                {description}
               </p>
             </div>
           ))}
@@ -210,17 +197,17 @@ export default function ServicesPage() {
           </div>
           <div className="lg:col-span-8">
             <div className="grid sm:grid-cols-3 gap-4">
-              {SERVICE_COLUMNS.map(({ title, icon, items }) => (
-                <div key={title} className="space-y-2 flex flex-col h-full">
+              {services.coreServices.map((service) => (
+                <div key={service.id} className="space-y-2 flex flex-col h-full">
                   <div className="bg-white border border-neutral-100 p-5 rounded-2xl flex items-center gap-3 shadow-sm min-h-[72px] hover:border-neutral-200 transition-colors">
-                    {icon}
+                    {getServiceIcon(service.id)}
                     <span className="text-[16px] font-semibold text-neutral-900 tracking-tight">
-                      {title}
+                      {service.title}
                     </span>
                   </div>
                   <div className="bg-white border border-neutral-100 p-6 rounded-2xl flex-1 shadow-sm hover:border-neutral-200 transition-colors">
                     <ul className="space-y-4 text-[15px] text-neutral-500 font-medium">
-                      {items.map((item) => (
+                      {service.features.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                     </ul>

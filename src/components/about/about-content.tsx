@@ -3,113 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PROFILE } from "@/lib/constants";
+import type { AboutContent as AboutContentData } from "@/types/content";
 
-/** Hardcoded data - no external data fetching */
-const ABOUT = {
-  hero: {
-    heading: "Abdul Rohim",
-    subheading: "Full-Stack Developer",
-    introduction:
-      "With 2+ years of experience, I specialize in building scalable applications using React, Next.js, Node.js, and Golang. From telecommunications to fullstack—I craft solutions that bridge systems and deliver results.",
-    location: "Surabaya, Indonesia",
-    experienceYears: "2+",
-    quote: "I Have Served and I Will Be of Service",
-  },
-  skills: {
-    categories: [
-      {
-        title: "Frontend",
-        skills: [
-          { name: "React & Next.js", level: 90 },
-          { name: "TypeScript", level: 85 },
-          { name: "Tailwind CSS", level: 95 },
-        ],
-      },
-      {
-        title: "Backend",
-        skills: [
-          { name: "Node.js & Express", level: 85 },
-          { name: "Golang (Gin)", level: 80 },
-          { name: "RESTful APIs", level: 90 },
-          { name: "Clean Architecture", level: 85 },
-        ],
-      },
-      {
-        title: "Database & Tools",
-        skills: [
-          { name: "PostgreSQL", level: 85 },
-          { name: "Prisma ORM", level: 80 },
-          { name: "Git & Version Control", level: 90 },
-          { name: "Docker", level: 75 },
-        ],
-      },
-    ],
-  },
-} as const;
+type AboutContentProps = {
+  content: AboutContentData;
+};
 
-const WORK_POSITIONS = [
-  {
-    status: "current" as const,
-    title: "Freelance Fullstack Developer",
-    company: "Rohimdev.com",
-    period: "Jan 2025 - Present",
-    responsibilities: [
-      "Built backend services using Node.js, Express, Hono, and Golang (Gin)",
-      "Designed and managed PostgreSQL databases with Prisma ORM",
-      "Integrated frontend applications with backend services for consistent data flow",
-      "Improved development velocity using AI-assisted tools (Cursor, Claude Code, TRAE)",
-    ],
-    technologies: [
-      "Node.js",
-      "Express",
-      "Hono",
-      "Golang",
-      "PostgreSQL",
-      "Prisma",
-      "React",
-    ],
-  },
-  {
-    status: "current" as const,
-    title: "Infrastructure & Application Engineer",
-    company: "Varnion Technology",
-    period: "Jan 2025 - Present",
-    responsibilities: [
-      "Managed infrastructure operations across 6–8 active client sites, ensuring SLA-aligned network stability and performance",
-      "Developed internal web applications using React, Node.js, and PostgreSQL to support monitoring and operational workflows",
-      "Automated reporting pipelines, reducing manual processing time by approximately 30%",
-      "Reduced network connectivity incidents by 40% through proactive monitoring and structured deployment practices",
-      "Presented technical infrastructure solutions to B2B stakeholders, including hotel general managers, aligning system capabilities with operational needs",
-    ],
-    technologies: [
-      "React",
-      "Node.js",
-      "PostgreSQL",
-      "Infrastructure",
-      "Monitoring",
-      "Automation",
-    ],
-  },
-  {
-    status: "previous" as const,
-    title: "Provisioning Technician",
-    company: "PT Telkom Indonesia (IndiHome)",
-    period: "Dec 2020 - Aug 2023",
-    responsibilities: [
-      "Installed and configured IndiHome internet services including fiber optic connections",
-      "Conducted on-site troubleshooting and signal quality testing using OTDR and OPM",
-      "Coordinated with NOC and customer service teams for prompt issue resolution",
-    ],
-    technologies: ["Fiber Optic", "OTDR", "OPM Testing", "Customer Service"],
-  },
-];
-
-export function AboutContent() {
-  const hero = ABOUT.hero;
-  const allSkills = ABOUT.skills.categories.flatMap((c) =>
-    c.skills.map((s) => ({ ...s, category: c.title })),
+export function AboutContent({ content }: AboutContentProps) {
+  const hero = content.hero;
+  const allSkills = content.skills.categories.flatMap((category) =>
+    category.skills.map((skill) => ({ ...skill, category: category.title })),
   );
-  const positions = WORK_POSITIONS;
+  const positions = content.careerJourney.timeline;
 
   return (
     <>
@@ -311,14 +216,7 @@ export function AboutContent() {
                 {position.title}
               </h4>
               <p className="text-neutral-600 mb-4">{position.company}</p>
-              <ul className="space-y-2 text-neutral-600">
-                {position.responsibilities.map((r, j) => (
-                  <li key={j} className="flex gap-2">
-                    <span className="text-neutral-400 shrink-0">•</span>
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-neutral-600 leading-relaxed">{position.description}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {position.technologies.map((tech) => (
                   <span
