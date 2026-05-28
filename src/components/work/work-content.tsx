@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { sortProjects, type ProjectDateSort } from "@/lib/project-sort";
 import Link from "next/link";
 import {
   AdaptiveProjectImage,
@@ -57,8 +58,8 @@ function WorkCardImage({
         alt={alt}
         variant="card"
         hoverScale
-        align={isPortrait ? "center" : "start"}
-        className="w-full"
+        align="center"
+        className="w-full min-w-0"
         onFit={handleFit}
       />
     </div>
@@ -70,7 +71,13 @@ type WorkContentProps = {
 };
 
 export function WorkContent({ projects }: WorkContentProps) {
-  const [view, setView] = useState<"list" | "grid">("list");
+  const [view, setView] = useState<"list" | "grid">("grid");
+  const [dateSort, setDateSort] = useState<ProjectDateSort>("newest");
+
+  const sortedProjects = useMemo(
+    () => sortProjects(projects, dateSort),
+    [projects, dateSort],
+  );
 
   return (
     <>
@@ -86,23 +93,55 @@ export function WorkContent({ projects }: WorkContentProps) {
             Full-stack applications across web and mobile.
           </p>
         </div>
-        <div className="flex gap-1 bg-neutral-200/50 rounded-lg p-1 gap-x-6 gap-y-6 items-center">
-          <button
-            onClick={() => setView("list")}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
-              view === "list" ? "bg-white shadow-sm text-neutral-900" : "text-neutral-500 hover:text-neutral-900 hover:bg-neutral-200/50"
-            }`}
-          >
-            List
-          </button>
-          <button
-            onClick={() => setView("grid")}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
-              view === "grid" ? "bg-white shadow-sm text-neutral-900" : "text-neutral-500 hover:text-neutral-900 hover:bg-neutral-200/50"
-            }`}
-          >
-            Grid
-          </button>
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="flex gap-1 rounded-lg bg-neutral-200/50 p-1">
+            <button
+              type="button"
+              onClick={() => setDateSort("newest")}
+              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
+                dateSort === "newest"
+                  ? "bg-white text-neutral-900 shadow-sm"
+                  : "text-neutral-500 hover:bg-neutral-200/50 hover:text-neutral-900"
+              }`}
+            >
+              Newest
+            </button>
+            <button
+              type="button"
+              onClick={() => setDateSort("oldest")}
+              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
+                dateSort === "oldest"
+                  ? "bg-white text-neutral-900 shadow-sm"
+                  : "text-neutral-500 hover:bg-neutral-200/50 hover:text-neutral-900"
+              }`}
+            >
+              Oldest
+            </button>
+          </div>
+          <div className="flex gap-1 rounded-lg bg-neutral-200/50 p-1">
+            <button
+              type="button"
+              onClick={() => setView("list")}
+              className={`rounded-md px-4 py-1.5 text-sm font-medium transition-all ${
+                view === "list"
+                  ? "bg-white text-neutral-900 shadow-sm"
+                  : "text-neutral-500 hover:bg-neutral-200/50 hover:text-neutral-900"
+              }`}
+            >
+              List
+            </button>
+            <button
+              type="button"
+              onClick={() => setView("grid")}
+              className={`rounded-md px-4 py-1.5 text-sm font-medium transition-all ${
+                view === "grid"
+                  ? "bg-white text-neutral-900 shadow-sm"
+                  : "text-neutral-500 hover:bg-neutral-200/50 hover:text-neutral-900"
+              }`}
+            >
+              Grid
+            </button>
+          </div>
         </div>
       </header>
 
@@ -138,7 +177,7 @@ export function WorkContent({ projects }: WorkContentProps) {
         className={`animate-fade-up ${view === "list" ? "flex flex-col gap-24" : "grid grid-cols-1 md:grid-cols-2 gap-12"}`}
         style={{ animationDelay: "0.5s" }}
       >
-        {projects.map((project) => (
+        {sortedProjects.map((project) => (
           <article key={project.slug} className="group">
             <Link
               href={`/work/${project.slug}`}

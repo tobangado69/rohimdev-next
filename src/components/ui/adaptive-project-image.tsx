@@ -3,6 +3,7 @@
 import {
   fitIntrinsicDimensions,
   fitWidthFirstDimensions,
+  getImageOrientation,
   type ImageOrientation,
 } from "@/lib/project-image-fit";
 import Image from "next/image";
@@ -161,13 +162,19 @@ export function AdaptiveProjectImage({
         measured >= 48
           ? measured
           : Math.min(natural.width, config.fallbackMaxWidthPx);
-      const isPortrait = natural.height > natural.width;
+      const orientation = getImageOrientation(natural.width, natural.height);
+      const isPortrait = orientation === "portrait";
       const maxHeight = getMaxHeightPx(variant, isPortrait);
 
       let fitMaxWidth = maxWidth;
       let allowUpscale = false;
 
-      if (variant === "card" && !isPortrait && config.landscapeFillWidth) {
+      const cardFillsWidth =
+        variant === "card" &&
+        orientation !== "portrait" &&
+        config.landscapeFillWidth;
+
+      if (cardFillsWidth) {
         fitMaxWidth = maxWidth;
         allowUpscale = config.landscapeAllowUpscale ?? false;
       } else if (
@@ -182,8 +189,7 @@ export function AdaptiveProjectImage({
         allowUpscale = config.portraitAllowUpscale ?? false;
       }
 
-      const useWidthFirst =
-        variant === "card" && !isPortrait && config.landscapeFillWidth;
+      const useWidthFirst = cardFillsWidth;
 
       const result = useWidthFirst
         ? fitWidthFirstDimensions({
@@ -247,8 +253,8 @@ export function AdaptiveProjectImage({
 
   const isPortraitCard =
     variant === "card" && display.orientation === "portrait";
-  const isLandscapeCard =
-    variant === "card" && display.orientation === "landscape";
+  const isFullWidthCard =
+    variant === "card" && display.orientation !== "portrait";
 
   return (
     <div
@@ -257,7 +263,7 @@ export function AdaptiveProjectImage({
     >
       <div
         className={`${
-          isLandscapeCard ? "w-full" : "w-fit max-w-full"
+          isFullWidthCard ? "w-full" : "w-fit max-w-full"
         } overflow-hidden ${config.rounded} ${
           isPortraitCard ? "border border-neutral-200/80 shadow-sm" : ""
         }`}
@@ -271,13 +277,13 @@ export function AdaptiveProjectImage({
           sizes={sizes ?? config.defaultSizes}
           onLoad={handleImageLoad}
           onLoadingComplete={captureNaturalSize}
-          className={`block ${isLandscapeCard ? "h-auto w-full" : ""} ${config.rounded} ${frameClassName} ${
+          className={`block ${isFullWidthCard ? "h-auto w-full max-w-full" : ""} ${config.rounded} ${frameClassName} ${
             hoverScale
               ? "transition-transform duration-500 group-hover:scale-[1.01]"
               : ""
           }`}
           style={
-            isLandscapeCard
+            isFullWidthCard
               ? { width: "100%", height: "auto", aspectRatio: `${display.width} / ${display.height}` }
               : { width: display.width, height: display.height }
           }
