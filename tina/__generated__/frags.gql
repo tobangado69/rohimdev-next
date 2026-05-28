@@ -154,6 +154,7 @@ fragment ProjectParts on Project {
   github
   live
   featured
+  order
   projectType
   seo {
     __typename

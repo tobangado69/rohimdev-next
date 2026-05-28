@@ -396,12 +396,27 @@ var config_default = defineConfig({
               description: "Upload or paste images (\u2318V / Ctrl+V in the box above). First image = Work page cover; rest = detail gallery."
             })
           },
-          { type: "string", name: "date", label: "Date" },
+          {
+            type: "string",
+            name: "date",
+            label: "Date",
+            ui: {
+              description: 'Project date for sorting on /work (e.g. "2026", "April 2024"). Newest/oldest toggle on the work page uses this field.'
+            }
+          },
           { type: "string", name: "status", label: "Status" },
           { type: "string", name: "technologies", label: "Technologies", list: true },
           { type: "string", name: "github", label: "GitHub URL" },
           { type: "string", name: "live", label: "Live URL" },
           { type: "boolean", name: "featured", label: "Featured" },
+          {
+            type: "number",
+            name: "order",
+            label: "Display Order",
+            ui: {
+              description: "Tiebreaker when two projects share the same date (lower = higher). Main sort is by Date + Newest/Oldest on /work."
+            }
+          },
           {
             type: "string",
             name: "projectType",

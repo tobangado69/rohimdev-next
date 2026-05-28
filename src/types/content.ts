@@ -282,6 +282,8 @@ export type ProjectContent = {
   github?: string;
   live?: string;
   featured: boolean;
+  /** Lower values appear first on /work. Defaults to 100 when unset. */
+  order: number;
   seo: SeoContent;
   detail: ProjectDetailContent;
   body?: string;

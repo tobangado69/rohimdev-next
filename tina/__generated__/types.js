@@ -167,6 +167,7 @@ export const ProjectPartsFragmentDoc = gql`
   github
   live
   featured
+  order
   projectType
   seo {
     __typename

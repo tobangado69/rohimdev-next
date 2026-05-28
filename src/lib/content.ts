@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { sortProjects } from "@/lib/project-sort";
 import type {
   AboutContent,
   ContactContent,
@@ -21,6 +22,8 @@ import type {
   SeoContent,
   SiteContent,
 } from "@/types/content";
+
+export { parseProjectDateKey, sortProjects, type ProjectDateSort } from "@/lib/project-sort";
 
 const contentRoot = path.join(process.cwd(), "content");
 
@@ -48,6 +51,19 @@ function optionalString(value: unknown): string | undefined {
 
 function normalizeProjectType(value: unknown): ProjectType {
   return value === "production" ? "production" : "study";
+}
+
+const DEFAULT_PROJECT_ORDER = 100;
+
+function normalizeProjectOrder(value: unknown): number {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return Math.round(value);
+  }
+  if (typeof value === "string" && value.trim() !== "") {
+    const parsed = Number(value);
+    if (Number.isFinite(parsed)) return Math.round(parsed);
+  }
+  return DEFAULT_PROJECT_ORDER;
 }
 
 function normalizeProjectImages(
@@ -307,6 +323,7 @@ function projectFromMdx(fileName: string): ProjectContent {
     github,
     live,
     featured: Boolean(data.featured),
+    order: normalizeProjectOrder(data.order),
     seo: seoWithCover,
     detail,
     body: content.trim() || undefined,
@@ -337,11 +354,12 @@ export function getProjects(): ProjectContent[] {
   const dir = path.join(contentRoot, "projects");
   if (!fs.existsSync(dir)) return [];
 
-  return fs
+  const projects = fs
     .readdirSync(dir)
     .filter((fileName) => fileName.endsWith(".mdx"))
-    .map(projectFromMdx)
-    .sort((a, b) => Number(b.featured) - Number(a.featured));
+    .map(projectFromMdx);
+
+  return sortProjects(projects, "newest");
 }
 
 export function getProjectBySlug(slug: string): ProjectContent | undefined {

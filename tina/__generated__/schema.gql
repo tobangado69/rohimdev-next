@@ -710,6 +710,7 @@ type Project implements Node & Document {
   github: String
   live: String
   featured: Boolean
+  order: Float
   projectType: String
   seo: ProjectSeo
   detail: ProjectDetail
@@ -922,6 +923,7 @@ input ProjectFilter {
   github: StringFilter
   live: StringFilter
   featured: BooleanFilter
+  order: NumberFilter
   projectType: StringFilter
   seo: ProjectSeoFilter
   detail: ProjectDetailFilter
@@ -1331,6 +1333,7 @@ input ProjectMutation {
   github: String
   live: String
   featured: Boolean
+  order: Float
   projectType: String
   seo: ProjectSeoMutation
   detail: ProjectDetailMutation
