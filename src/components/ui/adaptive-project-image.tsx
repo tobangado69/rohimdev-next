@@ -214,7 +214,7 @@ export function AdaptiveProjectImage({
       observer.disconnect();
       window.removeEventListener("resize", update);
     };
-  }, [natural, variant, config.fallbackMaxWidthPx]);
+  }, [natural, variant, config]);
 
   const alignClass =
     align === "center" ? "justify-center" : "justify-start";
