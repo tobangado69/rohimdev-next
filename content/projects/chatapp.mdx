@@ -176,4 +176,6 @@ detail:
     storage: "Relational models via Sequelize"
 ---
 
-ChatApp demonstrates real-time messaging patterns with Socket.IO and a full-stack JavaScript architecture. The MDX body leaves room for deeper implementation notes as the product evolves—socket event diagrams, schema decisions, and future scaling considerations for rooms and moderation.
+ChatApp is a real-time messaging application built with React, Redux, Socket.IO, and an Express API on PostgreSQL. Users join rooms, see presence and typing indicators, and send messages without full page reloads—the same interaction model used in team chat and lightweight support desks.
+
+Authentication and persistence stay on the server; the client optimizes for responsive UI state. Sections above document features, process, and infrastructure; this narrative closes the story for readers who want one continuous summary after the structured modules.

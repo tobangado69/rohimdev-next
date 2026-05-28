@@ -1,11 +1,12 @@
 ---
-slug: flux
-title: Flux
-headline: Internal field-operations platform for telecom teams with a Go/Gin and MySQL backend rewrite.
-summary: Enterprise operations tool covering sites, schedules, field activities, reports, tickets, work orders, projects, and data migration from legacy systems.
-images: []
-image: ""
-date: "2026"
+image: ''
+title: Vlux
+slug: vlux
+headline: Internal field-operations platform for telecom teams with a Golang and React.js
+summary: 'Enterprise operations tool covering sites, schedules, field activities, reports, tickets, work orders, projects, and data migration from legacy systems.'
+images:
+  - 'https://res.cloudinary.com/dxhayzttf/image/upload/v1779955128/image_x0c6j0.png'
+date: '2026'
 status: Internal
 technologies:
   - Go
@@ -17,13 +18,13 @@ technologies:
   - Radix UI
   - MongoDB Migration
   - JWT
-github: ""
-live: ""
-featured: true
+github: ''
+live: ''
+featured: false
 projectType: production
 seo:
-  title: "Flux Project"
-  description: "Internal Varnion field-operations platform and backend rewrite from FastAPI/MongoDB to Go/Gin and MySQL."
+  title: Flux Project
+  description: Internal Varnion field-operations platform and backend rewrite from FastAPI/MongoDB to Go/Gin and MySQL.
   keywords:
     - Go
     - Gin
@@ -32,195 +33,182 @@ seo:
     - Internal Tools
     - Data Migration
     - React
-  ogImage: ""
+  ogImage: ''
 detail:
   hero:
-    eyebrow: "Enterprise Operations"
-    title: "Flux"
-    subtitle: "An internal operations platform for field teams, reports, tickets, sites, and cutover-safe backend modernization."
+    eyebrow: Enterprise Operations
+    title: Flux
+    subtitle: 'An internal operations platform for field teams, reports, tickets, sites, and cutover-safe backend modernization.'
     primaryCta:
-      label: "Discuss internal tools"
-      href: "/contact"
-      variant: "primary"
+      label: Discuss internal tools
+      href: /contact
+      variant: primary
       external: false
   metadata:
-    role: "Full-stack Developer"
-    client: "Varnion"
-    timeline: "2026"
-    platform: "Enterprise web application"
-    year: "2026"
-    collaboration: "Internal operations team"
+    role: Full-stack Developer
+    client: Varnion
+    timeline: '2026'
+    platform: Enterprise web application
+    year: '2026'
+    collaboration: Internal operations team
   designDirection:
-    heading: "Enterprise Workflow Direction"
-    summary: "Flux needed to support dense operational data while keeping field, admin, and reporting workflows predictable during a backend rewrite."
+    heading: Enterprise Workflow Direction
+    summary: 'Flux needed to support dense operational data while keeping field, admin, and reporting workflows predictable during a backend rewrite.'
     bullets:
-      - "Table-heavy workflows prioritize filtering, status visibility, and role-scoped access."
-      - "Frontend API calls must adapt to Go response shapes without disrupting users."
-      - "Migration tooling preserves historical operations data and uploaded assets."
-      - "Smoke tests validate critical read paths before cutover."
+      - 'Table-heavy workflows prioritize filtering, status visibility, and role-scoped access.'
+      - Frontend API calls must adapt to Go response shapes without disrupting users.
+      - Migration tooling preserves historical operations data and uploaded assets.
+      - Smoke tests validate critical read paths before cutover.
   overview:
-    heading: "Project Overview"
-    summary: "Flux is an internal operations platform for Varnion teams managing sites, schedules, field activities, reports, tickets, Starlink workflows, Fiberzone work orders, projects, notifications, and more."
+    heading: Project Overview
+    summary: 'Flux is an internal operations platform for Varnion teams managing sites, schedules, field activities, reports, tickets, Starlink workflows, Fiberzone work orders, projects, notifications, and more.'
     bullets:
-      - "Go/Gin + MySQL backend runs alongside a legacy FastAPI/MongoDB system during rewrite."
-      - "React frontend uses `REACT_APP_API_URL` to target the new API."
-      - "Migration tooling imports 32+ collections from MongoDB into relational tables."
-      - "Cutover support includes parity checks, uploads sync, and smoke scripts."
+      - Go/Gin + MySQL backend runs alongside a legacy FastAPI/MongoDB system during rewrite.
+      - React frontend uses `REACT_APP_API_URL` to target the new API.
+      - Migration tooling imports 32+ collections from MongoDB into relational tables.
+      - 'Cutover support includes parity checks, uploads sync, and smoke scripts.'
   challenge:
-    heading: "The Challenge"
-    summary: "Internal operations platforms carry years of data, role-specific behavior, and edge-case workflows that cannot be lost during a backend rewrite."
+    heading: The Challenge
+    summary: 'Internal operations platforms carry years of data, role-specific behavior, and edge-case workflows that cannot be lost during a backend rewrite.'
     bullets:
-      - "MongoDB documents and embedded assets needed reliable MySQL mapping."
-      - "Legacy IDs and auth sessions had to remain compatible where possible."
-      - "Frontend views depended on many endpoints and response shapes."
-      - "Role-based data scoping needed consistent enforcement across domains."
+      - MongoDB documents and embedded assets needed reliable MySQL mapping.
+      - Legacy IDs and auth sessions had to remain compatible where possible.
+      - Frontend views depended on many endpoints and response shapes.
+      - Role-based data scoping needed consistent enforcement across domains.
   solution:
-    heading: "The Solution"
-    summary: "A phased Go/Gin + MySQL rewrite with migration tooling, smoke tests, uploads sync, and frontend API compatibility work."
+    heading: The Solution
+    summary: 'A phased Go/Gin + MySQL rewrite with migration tooling, smoke tests, uploads sync, and frontend API compatibility work.'
     bullets:
-      - "GORM models and migrations define the new relational foundation."
-      - "Migration CLI supports dry-run, collection import, full import, fresh reload, and verification."
-      - "Go API serves static uploads while preserving legacy upload paths."
-      - "Smoke suite checks dozens of read-only endpoints used by the React frontend."
+      - GORM models and migrations define the new relational foundation.
+      - 'Migration CLI supports dry-run, collection import, full import, fresh reload, and verification.'
+      - Go API serves static uploads while preserving legacy upload paths.
+      - Smoke suite checks dozens of read-only endpoints used by the React frontend.
+  gallery:
+    - image: 'https://res.cloudinary.com/dxhayzttf/image/upload/v1779955164/image_sshwiz.png'
+      alt: image-wo
+    - image: 'https://res.cloudinary.com/dxhayzttf/image/upload/v1779955211/image_chnpsq.png'
+      alt: image-project
   techStack:
-    - category: "Backend Rewrite"
+    - category: Backend Rewrite
       tools:
         - Go
         - Gin
         - GORM
         - MySQL
-    - category: "Frontend"
+    - category: Frontend
       tools:
         - React
         - CRACO
         - shadcn/ui
         - Radix UI
         - Axios
-    - category: "Migration"
+    - category: Migration
       tools:
         - MongoDB
         - Data migration CLI
         - Upload sync
         - Parity verification
-    - category: "Security & Access"
+    - category: Security & Access
       tools:
         - JWT
         - Role-based scoping
         - Existing SECRET_KEY compatibility
   features:
-    - title: "Backend modernization"
-      description: "Rewrites legacy FastAPI/MongoDB services into Go/Gin with MySQL persistence."
-      impact: "Improves operational reliability while preserving existing workflows."
-    - title: "Data migration CLI"
-      description: "Imports 32+ collections with dry-run, fresh reload, and verification modes."
-      impact: "Makes cutover safer and repeatable."
-    - title: "Operational domain coverage"
-      description: "Supports sites, activities, reports, tickets, work orders, projects, Starlink, and notifications."
-      impact: "Keeps field and admin workflows centralized."
-    - title: "Uploads preservation"
-      description: "Synchronizes legacy uploads and converted embedded assets so historical records keep working."
-      impact: "Prevents broken references after migration."
-    - title: "Smoke suite"
-      description: "Validates roughly 45 read-only frontend endpoints before cutover."
-      impact: "Gives confidence that critical views remain usable."
+    - title: Backend modernization
+      description: Rewrites legacy FastAPI/MongoDB services into Go/Gin with MySQL persistence.
+      impact: Improves operational reliability while preserving existing workflows.
+    - title: Data migration CLI
+      description: 'Imports 32+ collections with dry-run, fresh reload, and verification modes.'
+      impact: Makes cutover safer and repeatable.
+    - title: Operational domain coverage
+      description: 'Supports sites, activities, reports, tickets, work orders, projects, Starlink, and notifications.'
+      impact: Keeps field and admin workflows centralized.
+    - title: Uploads preservation
+      description: Synchronizes legacy uploads and converted embedded assets so historical records keep working.
+      impact: Prevents broken references after migration.
+    - title: Smoke suite
+      description: Validates roughly 45 read-only frontend endpoints before cutover.
+      impact: Gives confidence that critical views remain usable.
   process:
-    - phase: "Discovery"
-      title: "Map legacy domains and migration constraints"
-      description: "Audited legacy collections, models, auth expectations, uploads, and frontend API dependencies."
+    - phase: Discovery
+      title: Map legacy domains and migration constraints
+      description: 'Audited legacy collections, models, auth expectations, uploads, and frontend API dependencies.'
       outputs:
-        - "Rewrite design spec"
-        - "Collection mapping"
-        - "Cutover checklist"
-    - phase: "Backend foundation"
-      title: "Build Go/Gin API and MySQL schema"
-      description: "Created service layers, platform utilities, migrations, auth compatibility, and endpoint coverage."
+        - Rewrite design spec
+        - Collection mapping
+        - Cutover checklist
+    - phase: Backend foundation
+      title: Build Go/Gin API and MySQL schema
+      description: 'Created service layers, platform utilities, migrations, auth compatibility, and endpoint coverage.'
       outputs:
-        - "Go API"
-        - "MySQL migrations"
-        - "Shared platform packages"
-    - phase: "Migration and cutover prep"
-      title: "Validate data, uploads, and frontend reads"
-      description: "Implemented migration commands, smoke scripts, uploads sync guidance, and frontend base URL alignment."
+        - Go API
+        - MySQL migrations
+        - Shared platform packages
+    - phase: Migration and cutover prep
+      title: 'Validate data, uploads, and frontend reads'
+      description: 'Implemented migration commands, smoke scripts, uploads sync guidance, and frontend base URL alignment.'
       outputs:
-        - "Migration CLI"
-        - "Smoke test suite"
-        - "Frontend compatibility updates"
+        - Migration CLI
+        - Smoke test suite
+        - Frontend compatibility updates
   deliverables:
-    - title: "Go/Gin API"
-      description: "New backend serving internal operations domains."
-    - title: "MySQL schema and migrations"
-      description: "Relational data model replacing legacy MongoDB documents."
-    - title: "Migration tool"
-      description: "CLI for dry-run, import, reload, and parity verification across supported collections."
-    - title: "Frontend integration"
-      description: "React app configured to consume the new API during cutover preparation."
-    - title: "Redacted screenshot prompts"
-      description: "Prompts for generating sanitized Flux UI screenshots without exposing real internal data."
+    - title: Go/Gin API
+      description: New backend serving internal operations domains.
+    - title: MySQL schema and migrations
+      description: Relational data model replacing legacy MongoDB documents.
+    - title: Migration tool
+      description: 'CLI for dry-run, import, reload, and parity verification across supported collections.'
+    - title: Frontend integration
+      description: React app configured to consume the new API during cutover preparation.
+    - title: Redacted screenshot prompts
+      description: Prompts for generating sanitized Flux UI screenshots without exposing real internal data.
   metrics:
-    - value: "32+"
-      label: "Collections migrated"
-      description: "Legacy Mongo collections mapped into MySQL import flow."
-    - value: "45"
-      label: "Smoke endpoints"
-      description: "Read-only routes used by the React frontend."
-    - value: "2 systems"
-      label: "Rewrite boundary"
-      description: "Legacy FastAPI/MongoDB and new Go/Gin/MySQL during migration."
+    - value: 32+
+      label: Collections migrated
+      description: Legacy Mongo collections mapped into MySQL import flow.
+    - value: '45'
+      label: Smoke endpoints
+      description: Read-only routes used by the React frontend.
+    - value: 2 systems
+      label: Rewrite boundary
+      description: Legacy FastAPI/MongoDB and new Go/Gin/MySQL during migration.
   conversion:
-    heading: "Modernizing internal operations software?"
-    description: "Flux shows how I approach high-risk rewrites, migration tooling, and internal dashboards without exposing private systems."
+    heading: Modernizing internal operations software?
+    description: 'Flux shows how I approach high-risk rewrites, migration tooling, and internal dashboards without exposing private systems.'
     ctas:
-      - label: "Discuss an internal tool"
-        href: "/contact"
-        variant: "primary"
+      - label: Discuss an internal tool
+        href: /contact
+        variant: primary
         external: false
   responsiveUx:
     breakpoints:
-      - "Desktop-first operations dashboards for tables and reports"
-      - "Responsive forms and detail views for field-adjacent workflows"
+      - Desktop-first operations dashboards for tables and reports
+      - Responsive forms and detail views for field-adjacent workflows
     interactionNotes:
-      - "Status chips, filters, and scoped lists reduce operational ambiguity"
-      - "Smoke-tested endpoints protect critical frontend views"
+      - 'Status chips, filters, and scoped lists reduce operational ambiguity'
+      - Smoke-tested endpoints protect critical frontend views
     accessibilityNotes:
-      - "Radix/shadcn patterns support consistent focus behavior"
-      - "Data tables rely on clear labels, actions, and status states"
+      - Radix/shadcn patterns support consistent focus behavior
+      - 'Data tables rely on clear labels, actions, and status states'
   seoPerformance:
     performanceTargets:
-      - "Fast internal dashboard navigation across dense operational data"
-      - "Stable API responses for table-heavy frontend views"
+      - Fast internal dashboard navigation across dense operational data
+      - Stable API responses for table-heavy frontend views
     seoNotes:
-      - "Public project page presents anonymized technical scope without internal data or public URLs"
+      - Public project page presents anonymized technical scope without internal data or public URLs
     technicalChecks:
-      - "go test ./..."
-      - "go vet ./..."
-      - "Smoke script for read-only frontend endpoints"
+      - go test ./...
+      - go vet ./...
+      - Smoke script for read-only frontend endpoints
   infrastructure:
-    hosting: "Internal deployment"
-    backend: "Go/Gin API"
-    database: "MySQL"
-    storage: "Local/static upload serving with legacy uploads sync"
-    cicd: "Build, smoke, and migration scripts"
-    monitoring: "Smoke test PASS/FAIL output and API health checks"
+    hosting: Internal deployment
+    backend: Go/Gin API
+    database: MySQL
+    storage: Local/static upload serving with legacy uploads sync
+    cicd: 'Build, smoke, and migration scripts'
+    monitoring: Smoke test PASS/FAIL output and API health checks
 ---
 
-Flux is a real internal production platform at Varnion. The public write-up focuses on architecture, migration safety, and workflow reliability; UI screenshots use sanitized mock data so operational details stay private.
+Vlux is a production internal platform at Varnion for telecom field operations: sites, schedules, activities, reports, tickets, work orders, and projects. The backend was modernized from FastAPI and MongoDB to Go, Gin, and MySQL with migration scripts and smoke tests so teams could cut over without losing operational history.
 
-## Nano mock image prompts
-
-### Hero dashboard mockup
-
-```text
-Premium desktop UI mockup of the Flux internal field operations platform for telecom/ISP operations teams. Layout: left sidebar navigation with items Sites, Schedules, Activities, Reports, Tickets, Work Orders, Projects, Settings. Main content: top row of KPI stat cards (Open tickets, Activities today, Pending reports, Sites online), below a filterable data table with status badges (Open, In progress, Done). Style: modern enterprise dashboard, shadcn/ui aesthetic, light mode, neutral slate and white palette, subtle borders and shadows, no real company logos, no readable personal data. Resolution 1440x900, crisp UI design, production-quality enterprise dashboard.
-```
-
-### Field activity form mockup
-
-```text
-UI mockup of a field activity submission screen in the Flux design system. Form fields: Site name, Activity category dropdown, Date/time, Notes, Photo attachment area, GPS/location hint, primary Submit button. Show validation states and a compact mobile-width panel centered on a light background, or split desktop form with clear hierarchy. Professional internal operations tool, sanitized sample data only, no real brands, shadcn-like components, production-quality UI.
-```
-
-### Ticket detail mockup
-
-```text
-Desktop UI mockup, Flux operations platform, ticket detail drawer or page: ticket ID, priority chip, assigned technician, site name, timeline of status updates, comment thread, action buttons Assign and Close. Consistent with enterprise dashboard mockup 1, neutral palette, sanitized sample content.
-```
+The public case study emphasizes architecture, workflow reliability, and data migration safety—not live customer data. Gallery imagery should use sanitized UI only: an enterprise dashboard with KPI cards and ticket tables, a field activity submission form, and a ticket detail view with status timeline and assign/close actions, all in a neutral shadcn-style light theme.
