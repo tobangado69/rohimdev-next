@@ -116,7 +116,7 @@ rohimdev-next/
 | Pages | `content/pages/*.json` | Home, About, Services, Contact |
 | Projects | `content/projects/*.mdx` | `/work`, `/work/[slug]` |
 
-**Project images:** use the **Project Images** field in Tina. The first image is the cover on `/work`; additional images appear in the detail gallery. Set `projectType` to `production` or `study` for listing badges.
+**Project images:** use **Project Images** (and other image fields under Project Detail). Click the dashed paste box, then **⌘V / Ctrl+V** to paste a screenshot or copied image—it uploads to Cloudinary automatically. You can still use the media picker below. First list image = `/work` cover; the rest = detail gallery. Set `projectType` to `production` or `study` for listing badges.
 
 ### Production CMS (optional)
 
