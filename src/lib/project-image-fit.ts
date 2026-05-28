@@ -55,3 +55,48 @@ export function fitIntrinsicDimensions(
     orientation,
   };
 }
+
+/** Scale to container width first; only shrink width if height exceeds maxHeight. */
+export function fitWidthFirstDimensions(
+  input: FitIntrinsicInput,
+): FitIntrinsicResult {
+  const {
+    naturalWidth,
+    naturalHeight,
+    maxWidth,
+    maxHeight,
+    allowUpscale = false,
+  } = input;
+
+  const orientation = getImageOrientation(naturalWidth, naturalHeight);
+  const aspect = naturalWidth / naturalHeight;
+
+  let width = maxWidth;
+  let height = width / aspect;
+
+  if (height > maxHeight) {
+    height = maxHeight;
+    width = height * aspect;
+  }
+
+  if (!allowUpscale) {
+    if (width > naturalWidth || height > naturalHeight) {
+      width = naturalWidth;
+      height = naturalHeight;
+      if (width > maxWidth) {
+        width = maxWidth;
+        height = width / aspect;
+      }
+      if (height > maxHeight) {
+        height = maxHeight;
+        width = height * aspect;
+      }
+    }
+  }
+
+  return {
+    width: Math.max(1, Math.round(width)),
+    height: Math.max(1, Math.round(height)),
+    orientation,
+  };
+}

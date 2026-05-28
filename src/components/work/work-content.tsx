@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { AdaptiveProjectImage } from "@/components/ui/adaptive-project-image";
+import {
+  AdaptiveProjectImage,
+  type ProjectImageFitState,
+} from "@/components/ui/adaptive-project-image";
+import type { ImageOrientation } from "@/lib/project-image-fit";
 import { GlassButton } from "@/components/ui/glass-button";
 import type { ProjectContent } from "@/types/content";
 
@@ -20,6 +24,44 @@ function projectTypeLabel(projectType: ProjectContent["projectType"]): string {
 
 function projectLinkText(project: ProjectContent): string {
   return project.projectType === "production" ? "View project" : "View case study";
+}
+
+function WorkCardImage({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}) {
+  const [orientation, setOrientation] = useState<ImageOrientation | null>(
+    null,
+  );
+
+  const handleFit = (fit: ProjectImageFitState) => {
+    setOrientation(fit.orientation);
+  };
+
+  const isPortrait = orientation === "portrait";
+
+  return (
+    <div
+      className={
+        isPortrait
+          ? "flex w-full justify-center rounded-lg bg-neutral-50 p-2"
+          : "w-full overflow-hidden rounded-lg"
+      }
+    >
+      <AdaptiveProjectImage
+        src={src}
+        alt={alt}
+        variant="card"
+        hoverScale
+        align={isPortrait ? "center" : "start"}
+        className="w-full"
+        onFit={handleFit}
+      />
+    </div>
+  );
 }
 
 type WorkContentProps = {
@@ -99,21 +141,13 @@ export function WorkContent({ projects }: WorkContentProps) {
           <article key={project.slug} className="group">
             <Link
               href={`/work/${project.slug}`}
-              className="block md:p-4 hover:shadow-md transition-all duration-500 bg-white w-full border border-neutral-200 rounded-2xl p-3 shadow-sm"
+              className="block p-2 hover:shadow-md transition-all duration-500 bg-white w-full border border-neutral-200 rounded-2xl shadow-sm"
             >
               <span className="sr-only">
                 {projectLinkText(project)}: {project.title}
               </span>
               {project.image ? (
-                <div className="flex w-full justify-center">
-                  <AdaptiveProjectImage
-                    src={project.image}
-                    alt={project.title}
-                    variant="card"
-                    hoverScale
-                    align="center"
-                  />
-                </div>
+                <WorkCardImage src={project.image} alt={project.title} />
               ) : (
                 <div
                   className="aspect-[16/10] w-full rounded-lg bg-[#1a1c18]"

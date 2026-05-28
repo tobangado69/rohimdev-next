@@ -2,10 +2,17 @@
 
 import {
   fitIntrinsicDimensions,
+  fitWidthFirstDimensions,
   type ImageOrientation,
 } from "@/lib/project-image-fit";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type SyntheticEvent,
+} from "react";
 
 type Dimensions = { width: number; height: number };
 
@@ -21,16 +28,26 @@ const variantConfig: Record<
     rounded: string;
     defaultSizes: string;
     skeletonMinHeight: string;
+    fallbackMaxWidthPx: number;
+    portraitTargetWidthPx?: number;
+    portraitAllowUpscale?: boolean;
+    landscapeFillWidth?: boolean;
+    landscapeAllowUpscale?: boolean;
   }
 > = {
   card: {
     landscapeMaxHeightVh: 0,
-    landscapeMaxHeightPx: 352,
-    portraitMaxHeightVh: 0.7,
-    portraitMaxHeightPx: 480,
+    landscapeMaxHeightPx: 560,
+    landscapeFillWidth: true,
+    landscapeAllowUpscale: true,
+    portraitMaxHeightVh: 0.75,
+    portraitMaxHeightPx: 520,
+    portraitTargetWidthPx: 300,
+    portraitAllowUpscale: true,
     rounded: "rounded-lg",
     defaultSizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px",
     skeletonMinHeight: "min-h-[12rem]",
+    fallbackMaxWidthPx: 800,
   },
   hero: {
     landscapeMaxHeightVh: 0.78,
@@ -40,6 +57,7 @@ const variantConfig: Record<
     rounded: "rounded-2xl",
     defaultSizes: "(max-width: 768px) 100vw, 1200px",
     skeletonMinHeight: "min-h-[16rem]",
+    fallbackMaxWidthPx: 1200,
   },
   gallery: {
     landscapeMaxHeightVh: 0,
@@ -49,6 +67,7 @@ const variantConfig: Record<
     rounded: "rounded-none",
     defaultSizes: "(max-width: 768px) 100vw, 600px",
     skeletonMinHeight: "min-h-[10rem]",
+    fallbackMaxWidthPx: 560,
   },
 };
 
@@ -120,26 +139,67 @@ export function AdaptiveProjectImage({
   const [natural, setNatural] = useState<Dimensions | null>(null);
   const [display, setDisplay] = useState<ProjectImageFitState | null>(null);
 
-  const onLoadingComplete = useCallback((img: HTMLImageElement) => {
+  const captureNaturalSize = useCallback((img: HTMLImageElement) => {
     if (img.naturalWidth > 0 && img.naturalHeight > 0) {
       setNatural({ width: img.naturalWidth, height: img.naturalHeight });
     }
   }, []);
 
+  const handleImageLoad = useCallback(
+    (event: SyntheticEvent<HTMLImageElement>) => {
+      captureNaturalSize(event.currentTarget);
+    },
+    [captureNaturalSize],
+  );
+
   useEffect(() => {
     if (!natural || !wrapperRef.current) return;
 
     const update = () => {
-      const maxWidth = wrapperRef.current?.clientWidth ?? natural.width;
+      const measured = wrapperRef.current?.clientWidth ?? 0;
+      const maxWidth =
+        measured >= 48
+          ? measured
+          : Math.min(natural.width, config.fallbackMaxWidthPx);
       const isPortrait = natural.height > natural.width;
       const maxHeight = getMaxHeightPx(variant, isPortrait);
 
-      const result = fitIntrinsicDimensions({
-        naturalWidth: natural.width,
-        naturalHeight: natural.height,
-        maxWidth,
-        maxHeight,
-      });
+      let fitMaxWidth = maxWidth;
+      let allowUpscale = false;
+
+      if (variant === "card" && !isPortrait && config.landscapeFillWidth) {
+        fitMaxWidth = maxWidth;
+        allowUpscale = config.landscapeAllowUpscale ?? false;
+      } else if (
+        variant === "card" &&
+        isPortrait &&
+        config.portraitTargetWidthPx
+      ) {
+        fitMaxWidth = Math.min(
+          config.portraitTargetWidthPx,
+          Math.round(maxWidth * 0.88),
+        );
+        allowUpscale = config.portraitAllowUpscale ?? false;
+      }
+
+      const useWidthFirst =
+        variant === "card" && !isPortrait && config.landscapeFillWidth;
+
+      const result = useWidthFirst
+        ? fitWidthFirstDimensions({
+            naturalWidth: natural.width,
+            naturalHeight: natural.height,
+            maxWidth: fitMaxWidth,
+            maxHeight,
+            allowUpscale,
+          })
+        : fitIntrinsicDimensions({
+            naturalWidth: natural.width,
+            naturalHeight: natural.height,
+            maxWidth: fitMaxWidth,
+            maxHeight,
+            allowUpscale,
+          });
 
       setDisplay(result);
       onFitRef.current?.(result);
@@ -154,7 +214,7 @@ export function AdaptiveProjectImage({
       observer.disconnect();
       window.removeEventListener("resize", update);
     };
-  }, [natural, variant]);
+  }, [natural, variant, config.fallbackMaxWidthPx]);
 
   const alignClass =
     align === "center" ? "justify-center" : "justify-start";
@@ -176,7 +236,8 @@ export function AdaptiveProjectImage({
           height={10}
           priority={priority}
           sizes={sizes ?? config.defaultSizes}
-          onLoadingComplete={onLoadingComplete}
+          onLoad={handleImageLoad}
+          onLoadingComplete={captureNaturalSize}
           className="pointer-events-none absolute h-0 w-0 opacity-0"
           aria-hidden
         />
@@ -184,12 +245,23 @@ export function AdaptiveProjectImage({
     );
   }
 
+  const isPortraitCard =
+    variant === "card" && display.orientation === "portrait";
+  const isLandscapeCard =
+    variant === "card" && display.orientation === "landscape";
+
   return (
     <div
       ref={wrapperRef}
       className={`flex w-full ${alignClass} ${className}`}
     >
-      <div className="w-fit max-w-full">
+      <div
+        className={`${
+          isLandscapeCard ? "w-full" : "w-fit max-w-full"
+        } overflow-hidden ${config.rounded} ${
+          isPortraitCard ? "border border-neutral-200/80 shadow-sm" : ""
+        }`}
+      >
         <Image
           src={src}
           alt={alt}
@@ -197,12 +269,18 @@ export function AdaptiveProjectImage({
           height={display.height}
           priority={priority}
           sizes={sizes ?? config.defaultSizes}
-          className={`block ${config.rounded} ${frameClassName} ${
+          onLoad={handleImageLoad}
+          onLoadingComplete={captureNaturalSize}
+          className={`block ${isLandscapeCard ? "h-auto w-full" : ""} ${config.rounded} ${frameClassName} ${
             hoverScale
               ? "transition-transform duration-500 group-hover:scale-[1.01]"
               : ""
           }`}
-          style={{ width: display.width, height: display.height }}
+          style={
+            isLandscapeCard
+              ? { width: "100%", height: "auto", aspectRatio: `${display.width} / ${display.height}` }
+              : { width: display.width, height: display.height }
+          }
         />
       </div>
     </div>
