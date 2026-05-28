@@ -14,6 +14,7 @@ const SKILL_TAGS = [
   "React & Next.js",
   "Node.js",
   "TypeScript",
+  "Golang",
   "PostgreSQL",
   "React Native",
 ];
