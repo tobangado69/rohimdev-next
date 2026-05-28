@@ -1,4 +1,5 @@
 import { defineConfig, LocalAuthProvider } from "tinacms";
+import { pasteImageUi } from "./fields";
 
 // Tina CLI loads `.env` only (not `.env.local`). Without a Cloud client ID, stay local.
 const isLocal =
@@ -202,7 +203,7 @@ export default defineConfig({
               },
             ],
           },
-          { type: "image", name: "profileImage", label: "Profile Image" },
+          { type: "image", name: "profileImage", label: "Profile Image", ui: pasteImageUi() },
         ],
       },
       {
@@ -301,10 +302,10 @@ export default defineConfig({
             name: "images",
             label: "Project Images",
             list: true,
-            ui: {
+            ui: pasteImageUi({
               description:
-                "Upload one or more images. The first image is the cover on the Work page; additional images appear in the project detail gallery.",
-            },
+                "Upload or paste images (⌘V / Ctrl+V in the box above). First image = Work page cover; rest = detail gallery.",
+            }),
           },
           { type: "string", name: "date", label: "Date" },
           { type: "string", name: "status", label: "Status" },
@@ -333,7 +334,7 @@ export default defineConfig({
               { type: "string", name: "title", label: "Title" },
               { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
               { type: "string", name: "keywords", label: "Keywords", list: true },
-              { type: "image", name: "ogImage", label: "OG Image" },
+              { type: "image", name: "ogImage", label: "OG Image", ui: pasteImageUi() },
             ],
           },
           {
@@ -349,8 +350,14 @@ export default defineConfig({
                   { type: "string", name: "eyebrow", label: "Eyebrow" },
                   { type: "string", name: "title", label: "Title Override" },
                   { type: "string", name: "subtitle", label: "Subtitle", ui: { component: "textarea" } },
-                  { type: "image", name: "primaryImage", label: "Primary Image" },
-                  { type: "image", name: "supportingImages", label: "Supporting Images", list: true },
+                  { type: "image", name: "primaryImage", label: "Primary Image", ui: pasteImageUi() },
+                  {
+                    type: "image",
+                    name: "supportingImages",
+                    label: "Supporting Images",
+                    list: true,
+                    ui: pasteImageUi(),
+                  },
                   {
                     type: "object",
                     name: "primaryCta",
@@ -434,7 +441,7 @@ export default defineConfig({
                 label: "Gallery",
                 list: true,
                 fields: [
-                  { type: "image", name: "image", label: "Image" },
+                  { type: "image", name: "image", label: "Image", ui: pasteImageUi() },
                   { type: "string", name: "alt", label: "Alt Text" },
                   { type: "string", name: "caption", label: "Caption" },
                   { type: "string", name: "category", label: "Category" },
@@ -505,7 +512,7 @@ export default defineConfig({
                   { type: "string", name: "name", label: "Name" },
                   { type: "string", name: "role", label: "Role" },
                   { type: "string", name: "company", label: "Company" },
-                  { type: "image", name: "avatar", label: "Avatar" },
+                  { type: "image", name: "avatar", label: "Avatar", ui: pasteImageUi() },
                 ],
               },
               {

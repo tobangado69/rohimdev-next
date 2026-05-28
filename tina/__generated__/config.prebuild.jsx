@@ -1,5 +1,105 @@
 // tina/config.ts
 import { defineConfig, LocalAuthProvider } from "tinacms";
+
+// tina/components/paste-image-field.tsx
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { ImageField, wrapFieldsWithMeta } from "tinacms";
+var MEDIA_UPLOAD_URL = "/api/cloudinary/media";
+async function uploadImageFile(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("directory", "");
+  formData.append("filename", file.name || `paste-${Date.now()}.png`);
+  const response = await fetch(MEDIA_UPLOAD_URL, {
+    method: "POST",
+    body: formData
+  });
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    throw new Error(body.message ?? `Upload failed (${response.status})`);
+  }
+  const result = await response.json();
+  return result.secure_url;
+}
+function fileFromClipboard(event) {
+  const items = event.clipboardData?.items;
+  if (!items) return null;
+  for (const item of items) {
+    if (item.type.startsWith("image/")) {
+      return item.getAsFile();
+    }
+  }
+  return null;
+}
+function PasteImageFieldInner(props) {
+  const { field, input } = props;
+  const isList = Boolean(field.list);
+  const zoneRef = useRef(null);
+  const [uploading, setUploading] = useState(false);
+  const [pasteError, setPasteError] = useState(null);
+  const applyImageUrl = useCallback(
+    (url) => {
+      if (isList) {
+        const current = Array.isArray(input.value) ? input.value.filter((v) => typeof v === "string" && v.length > 0) : input.value ? [String(input.value)] : [];
+        input.onChange([...current, url]);
+        return;
+      }
+      input.onChange(url);
+    },
+    [input, isList]
+  );
+  const handlePaste = useCallback(
+    async (event) => {
+      const file = fileFromClipboard(event);
+      if (!file) return;
+      event.preventDefault();
+      event.stopPropagation();
+      setUploading(true);
+      setPasteError(null);
+      try {
+        const url = await uploadImageFile(file);
+        applyImageUrl(url);
+      } catch (error) {
+        setPasteError(error instanceof Error ? error.message : "Paste upload failed");
+      } finally {
+        setUploading(false);
+      }
+    },
+    [applyImageUrl]
+  );
+  useEffect(() => {
+    const node = zoneRef.current;
+    if (!node) return;
+    const onPaste = (event) => {
+      void handlePaste(event);
+    };
+    node.addEventListener("paste", onPaste);
+    return () => node.removeEventListener("paste", onPaste);
+  }, [handlePaste]);
+  return React.createElement("div", { className: "space-y-3" }, React.createElement(
+    "div",
+    {
+      ref: zoneRef,
+      tabIndex: 0,
+      role: "group",
+      "aria-label": "Paste image from clipboard",
+      className: "rounded-md border border-dashed border-neutral-300 bg-neutral-50 px-3 py-2 text-sm text-neutral-600 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+    },
+    uploading ? React.createElement("span", null, "Uploading pasted image\u2026") : React.createElement("span", null, "Click here, then press ", React.createElement("kbd", { className: "rounded border px-1 text-xs" }, "\u2318V"), " or", " ", React.createElement("kbd", { className: "rounded border px-1 text-xs" }, "Ctrl+V"), " to paste a screenshot or copied image.", isList ? " The image is appended to the list below." : ""),
+    pasteError ? React.createElement("p", { className: "mt-2 text-sm text-red-600", role: "alert" }, pasteError) : null
+  ), React.createElement(ImageField, { ...props }));
+}
+var PasteImageField = wrapFieldsWithMeta(PasteImageFieldInner);
+
+// tina/fields.ts
+function pasteImageUi(options) {
+  return {
+    component: PasteImageField,
+    ...options?.description ? { description: options.description } : {}
+  };
+}
+
+// tina/config.ts
 var isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true" || !process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
 var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
 var config_default = defineConfig({
@@ -193,7 +293,7 @@ var config_default = defineConfig({
               }
             ]
           },
-          { type: "image", name: "profileImage", label: "Profile Image" }
+          { type: "image", name: "profileImage", label: "Profile Image", ui: pasteImageUi() }
         ]
       },
       {
@@ -292,9 +392,9 @@ var config_default = defineConfig({
             name: "images",
             label: "Project Images",
             list: true,
-            ui: {
-              description: "Upload one or more images. The first image is the cover on the Work page; additional images appear in the project detail gallery."
-            }
+            ui: pasteImageUi({
+              description: "Upload or paste images (\u2318V / Ctrl+V in the box above). First image = Work page cover; rest = detail gallery."
+            })
           },
           { type: "string", name: "date", label: "Date" },
           { type: "string", name: "status", label: "Status" },
@@ -322,7 +422,7 @@ var config_default = defineConfig({
               { type: "string", name: "title", label: "Title" },
               { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
               { type: "string", name: "keywords", label: "Keywords", list: true },
-              { type: "image", name: "ogImage", label: "OG Image" }
+              { type: "image", name: "ogImage", label: "OG Image", ui: pasteImageUi() }
             ]
           },
           {
@@ -338,8 +438,14 @@ var config_default = defineConfig({
                   { type: "string", name: "eyebrow", label: "Eyebrow" },
                   { type: "string", name: "title", label: "Title Override" },
                   { type: "string", name: "subtitle", label: "Subtitle", ui: { component: "textarea" } },
-                  { type: "image", name: "primaryImage", label: "Primary Image" },
-                  { type: "image", name: "supportingImages", label: "Supporting Images", list: true },
+                  { type: "image", name: "primaryImage", label: "Primary Image", ui: pasteImageUi() },
+                  {
+                    type: "image",
+                    name: "supportingImages",
+                    label: "Supporting Images",
+                    list: true,
+                    ui: pasteImageUi()
+                  },
                   {
                     type: "object",
                     name: "primaryCta",
@@ -423,7 +529,7 @@ var config_default = defineConfig({
                 label: "Gallery",
                 list: true,
                 fields: [
-                  { type: "image", name: "image", label: "Image" },
+                  { type: "image", name: "image", label: "Image", ui: pasteImageUi() },
                   { type: "string", name: "alt", label: "Alt Text" },
                   { type: "string", name: "caption", label: "Caption" },
                   { type: "string", name: "category", label: "Category" }
@@ -494,7 +600,7 @@ var config_default = defineConfig({
                   { type: "string", name: "name", label: "Name" },
                   { type: "string", name: "role", label: "Role" },
                   { type: "string", name: "company", label: "Company" },
-                  { type: "image", name: "avatar", label: "Avatar" }
+                  { type: "image", name: "avatar", label: "Avatar", ui: pasteImageUi() }
                 ]
               },
               {
