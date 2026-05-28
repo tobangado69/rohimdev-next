@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ProjectContent } from "@/types/content";
 import { ProjectConversionSection } from "./project-conversion";
+import { ProjectExtendedNarrative } from "./project-extended-narrative";
 import { ProjectDeliverables } from "./project-deliverables";
 import { ProjectFeatures } from "./project-features";
 import { ProjectGallery } from "./project-gallery";
@@ -86,16 +87,7 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         <ProjectSeoPerformanceSection seoPerformance={detail.seoPerformance} />
       )}
 
-      {project.body && (
-        <section className="space-y-4 animate-fade-up border-t border-neutral-200 pt-12">
-          <h2 className="text-3xl font-medium tracking-tight text-neutral-900">
-            Extended Narrative
-          </h2>
-          <div className="prose prose-neutral max-w-3xl text-lg text-neutral-600 leading-relaxed whitespace-pre-line">
-            {project.body}
-          </div>
-        </section>
-      )}
+      {project.body && <ProjectExtendedNarrative body={project.body} />}
 
       <ProjectConversionSection conversion={detail.conversion} />
     </article>
