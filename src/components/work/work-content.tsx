@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { AdaptiveProjectImage } from "@/components/ui/adaptive-project-image";
 import { GlassButton } from "@/components/ui/glass-button";
 import type { ProjectContent } from "@/types/content";
 
@@ -104,17 +104,22 @@ export function WorkContent({ projects }: WorkContentProps) {
               <span className="sr-only">
                 {projectLinkText(project)}: {project.title}
               </span>
-              <div className="aspect-16/10 overflow-hidden bg-[#1a1c18] w-full rounded-lg relative">
-                {project.image && (
-                  <Image
+              {project.image ? (
+                <div className="flex w-full justify-center">
+                  <AdaptiveProjectImage
                     src={project.image}
                     alt={project.title}
-                    fill
-                    className="object-cover bg-center group-hover:scale-[1.02] transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                    variant="card"
+                    hoverScale
+                    align="center"
                   />
-                )}
-              </div>
+                </div>
+              ) : (
+                <div
+                  className="aspect-[16/10] w-full rounded-lg bg-[#1a1c18]"
+                  aria-hidden
+                />
+              )}
             </Link>
             <div className="mt-8 md:mt-12 px-2">
               <div className="max-w-4xl">

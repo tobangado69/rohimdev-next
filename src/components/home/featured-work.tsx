@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { SectionHeader } from "@/components/ui/section-header";
-import Image from "next/image";
+import { AdaptiveProjectImage } from "@/components/ui/adaptive-project-image";
 import type { ProjectContent } from "@/types/content";
 
 type FeaturedWorkProps = {
@@ -74,17 +74,16 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
                     {card.title}
                   </span>
                 </div>
-                <div className="flex bg-gradient-to-br from-neutral-100 to-neutral-200 w-full h-full items-center justify-center">
-                  <div className="relative transform group-hover:scale-[1.02] transition-transform duration-500 bg-white w-[80%] h-[70%] border border-neutral-100 rounded-xl p-6 shadow-2xl overflow-hidden">
-                    {card.image ? (
-                      <Image
-                        src={card.image}
-                        alt={card.title}
-                        fill
-                        className="object-cover rounded-lg"
-                      />
-                    ) : null}
-                  </div>
+                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200 p-6">
+                  {card.image ? (
+                    <AdaptiveProjectImage
+                      src={card.image}
+                      alt={card.title}
+                      variant="card"
+                      align="center"
+                      frameClassName="rounded-lg border border-neutral-100 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  ) : null}
                 </div>
               </div>
             </SpotlightCard>

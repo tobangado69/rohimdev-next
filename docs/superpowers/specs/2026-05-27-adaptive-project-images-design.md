@@ -1,7 +1,7 @@
 # Adaptive Project Images Design
 
 **Date:** 2026-05-27  
-**Status:** Approved — pending user spec review  
+**Status:** Implemented  
 **Project:** rohimdev-next
 
 ## Goal
