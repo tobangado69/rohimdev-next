@@ -17,6 +17,8 @@ technologies:
   - MiniMax AI
   - Zustand
   - TanStack Query
+  - Mapbox
+  - Kotlin
 github: ''
 live: ''
 featured: true
@@ -31,6 +33,8 @@ seo:
     - AI Coach
     - Health Tech
     - Hypertension Literacy
+    - Mapbox
+    - GPS Tracking
   ogImage: ''
 detail:
   hero:
@@ -57,14 +61,17 @@ detail:
       - Clear sodium warnings grounded in WHO guidance.
       - Education and quiz flows designed for high-school comprehension.
       - AI coach interactions constrained by rate limits and safety-focused messaging.
+      - Exercise sessions with GPS route recording for outdoor activities.
   overview:
     heading: Project Overview
     summary: 'Neuro Health is a mobile application built for an academic study on AI coaching, sodium diet behavior, physical activity, and hypertension literacy among Indonesian high-school students.'
     bullets:
       - 'Daily health score combines sodium, activity, reminders, and education progress.'
       - Students can log food and receive automatic sodium estimates.
-      - Physical activity tracking supports step goals and weekly charts.
+      - Physical activity tracking supports step goals, weekly charts, and GPS route recording.
       - MiniMax-powered AI coach provides personalised guidance within backend rate limits.
+      - Push notification scheduler for breakfast, lunch, dinner, exercise, and medication reminders.
+      - Pre-test and post-test quizzes measure hypertension literacy improvement.
   challenge:
     heading: The Challenge
     summary: 'Health research software must balance clear behavioral guidance, safe AI responses, privacy-sensitive data handling, and a mobile experience that students can use consistently.'
@@ -73,23 +80,28 @@ detail:
       - 'AI coaching needs guardrails, limits, and predictable backend behavior.'
       - Education flows must support pre/post-test literacy measurement.
       - Mobile reminders should encourage consistency without overwhelming users.
+      - GPS route recording requires jitter filtering and crash recovery.
+      - Step counts must stay monotonic to prevent data regression.
   solution:
     heading: The Solution
-    summary: 'A TypeScript monorepo with an Expo mobile app, Express API, Supabase backend, and MiniMax AI integration for guided health coaching.'
+    summary: 'A TypeScript monorepo with an Expo mobile app, Express API, Supabase backend, MiniMax AI integration, Mapbox GPS tracking, and a Kotlin foreground service for live step notifications.'
     bullets:
       - Expo Router powers the mobile experience with native-feeling navigation.
-      - 'Supabase stores auth, profile, diet, activity, quiz, and education data.'
+      - 'Supabase stores auth, profile, diet, activity, quiz, and education data with RLS.'
       - 'Express API centralizes AI coach calls, validation, rate limiting, CORS, and security headers.'
       - Zustand and TanStack Query separate local UI state from server state.
+      - Mapbox renders GPS routes during exercise sessions with polyline tracking.
+      - Kotlin foreground service keeps step notifications live on Android.
+      - Reanimated powers smooth animated UI transitions.
   gallery:
     - image: 'https://res.cloudinary.com/dxhayzttf/image/upload/v1779953006/telegram-cloud-photo-size-5-6107134150352507226-w_xusoho.jpg'
-      alt: image beranda
+      alt: Dashboard beranda
     - image: 'https://res.cloudinary.com/dxhayzttf/image/upload/v1779953022/telegram-cloud-photo-size-5-6107134150352507228-w_mkt5td.jpg'
-      alt: Image diet
+      alt: Diet tracking
     - image: 'https://res.cloudinary.com/dxhayzttf/image/upload/v1779953045/telegram-cloud-photo-size-5-6107134150352507227-w_yhwjfx.jpg'
-      alt: Image Aktivitas
+      alt: Activity monitoring
     - image: 'https://res.cloudinary.com/dxhayzttf/image/upload/v1779953063/telegram-cloud-photo-size-5-6107134150352507230-w_gmne8z.jpg'
-      alt: Image AI Chat
+      alt: AI Coach chat
   techStack:
     - category: Mobile
       tools:
@@ -98,6 +110,8 @@ detail:
         - React 19
         - Zustand
         - TanStack Query
+        - Reanimated
+        - Mapbox
     - category: Backend
       tools:
         - Node.js
@@ -110,14 +124,22 @@ detail:
       tools:
         - Supabase
         - PostgreSQL
+        - Row Level Security
     - category: AI & Tooling
       tools:
         - MiniMax Text API
         - Vitest
         - GitHub Actions
+        - EAS Build
+    - category: Native
+      tools:
+        - Kotlin
+        - Android Foreground Service
+        - expo-location
+        - expo-notifications
   features:
     - title: Daily health dashboard
-      description: 'Shows a student-friendly summary of health score, progress, and reminders.'
+      description: 'Shows a student-friendly summary of health score, progress, and reminders with personalized greeting based on time of day.'
       impact: Turns research indicators into a practical daily check-in loop.
     - title: Sodium diet tracking
       description: Students can log food and receive sodium estimates with WHO-based warning thresholds.
@@ -125,12 +147,21 @@ detail:
     - title: Physical activity monitoring
       description: Pedometer and weekly charts help students understand movement habits over time.
       impact: Supports lifestyle intervention beyond nutrition alone.
+    - title: Exercise sessions with GPS
+      description: Manual start/stop workouts with optional duration/step targets and GPS route recording via Mapbox.
+      impact: Encourages structured outdoor activity with visual route feedback.
     - title: Hypertension education and quizzes
       description: Articles and pre/post-test quizzes measure and reinforce hypertension literacy.
       impact: Connects learning outcomes directly to app usage.
     - title: AI coach
-      description: MiniMax-powered coach provides personalised guidance through a controlled backend endpoint.
+      description: MiniMax-powered coach provides personalised guidance through a controlled backend endpoint with prompt injection filtering.
       impact: Adds conversational support without exposing AI keys or uncontrolled client calls.
+    - title: Notification scheduler
+      description: Scheduled push reminders for breakfast, lunch, dinner, exercise, and medication.
+      impact: Reinforces habit formation without overwhelming users.
+    - title: App tour and onboarding
+      description: Guided onboarding flow with family history, pre-test, and interactive app tour.
+      impact: Reduces friction for first-time student users.
   process:
     - phase: Research mapping
       title: Translate study goals into product flows
@@ -146,16 +177,24 @@ detail:
         - Mobile screens
         - API routes
         - Supabase migration
+    - phase: Native and GPS integration
+      title: Add exercise sessions and live notifications
+      description: 'Integrated Mapbox for GPS route recording, Kotlin foreground service for live step notifications, and crash recovery.'
+      outputs:
+        - GPS route recording
+        - Kotlin foreground service
+        - Exercise session architecture
     - phase: Safety and validation
       title: Harden AI and health-data boundaries
-      description: 'Added validation, rate limits, security middleware, and testable backend boundaries for sensitive flows.'
+      description: 'Added validation, rate limits, security middleware, AI gatekeeper, and testable backend boundaries for sensitive flows.'
       outputs:
         - AI rate limiting
         - Health check endpoint
         - Backend tests
+        - Coach gatekeeper
   deliverables:
     - title: Expo mobile application
-      description: 'Student-facing mobile app for dashboard, diet, activity, education, quiz, and AI coach flows.'
+      description: 'Student-facing mobile app for dashboard, diet, activity, education, quiz, exercise, and AI coach flows.'
     - title: Express backend API
       description: 'Typed API layer for Supabase data access, validation, security middleware, and MiniMax AI calls.'
     - title: Supabase schema
@@ -163,18 +202,18 @@ detail:
     - title: Research-ready app structure
       description: 'Monorepo layout with backend, mobile app, docs, scripts, and specs.'
   metrics:
-    - value: 6 modules
+    - value: 7 modules
       label: Core app areas
-      description: 'Dashboard, diet, activity, education, quiz, and AI coach.'
-    - value: 2000 mg/day
+      description: 'Dashboard, diet, activity, exercise, education, quiz, and AI coach.'
+    - value: 1500 mg/day
       label: Sodium threshold
       description: WHO-based sodium warning target surfaced in the app.
-    - value: 2 apps
+    - value: 3 packages
       label: Workspace packages
-      description: Expo mobile app plus Express backend.
+      description: Expo mobile app, Express backend, and shared tooling.
   conversion:
     heading: Building health-tech or research software?
-    description: 'Neuro Health shows how I approach sensitive mobile workflows, AI integration, and research-aligned product design.'
+    description: 'Neuro Health shows how I approach sensitive mobile workflows, AI integration, GPS tracking, and research-aligned product design.'
     ctas:
       - label: Start a conversation
         href: /contact
@@ -184,29 +223,43 @@ detail:
     breakpoints:
       - Mobile-first Expo screens for high-school users
       - Charts and dashboards tuned for phone-sized reading
+      - Mapbox routes optimized for mobile viewport
     interactionNotes:
       - Daily reminders and progress feedback reinforce habit formation
       - AI chat flow keeps guidance accessible without leaving the app
+      - Exercise sessions support both native and JS fallback modes
     accessibilityNotes:
       - Readable health indicators and warning text
       - Simple navigation for repeat daily use
+      - Voice-friendly notification reminders
   seoPerformance:
     performanceTargets:
       - Keep mobile screens responsive under repeated tracking flows
       - Avoid exposing AI calls from the client
+      - Minimize GPS battery drain during exercise sessions
     seoNotes:
       - Private research product; public write-up focuses on technical and product process
     technicalChecks:
       - Backend typecheck and Vitest support API reliability
       - Health endpoint validates backend availability
+      - Monotonic step sync prevents data regression
   infrastructure:
     hosting: Private research deployment
     backend: Express TypeScript API
     database: Supabase PostgreSQL
     storage: Supabase-managed data
+    cicd: GitHub Actions + EAS Build
     monitoring: Backend health check and test suite
 ---
 
-Neuro Health turns a hypertension-literacy research program into a student-facing mobile product: daily sodium and activity tracking, structured education and quizzes, and MiniMax-guided coaching behind rate-limited Express APIs and Supabase-backed data.
+Neuro Health turns a hypertension-literacy research program into a student-facing mobile product: daily sodium and activity tracking, structured education and quizzes, AI-guided coaching, and GPS-recorded exercise sessions.
 
-The app is private to the study—no public repo or live demo—but the case study documents how research constraints (safety, privacy, adolescent UX) shaped the Expo, TypeScript, and backend design choices outlined in the sections above.
+The app opens with a bento-grid dashboard that surfaces a daily health score, sodium intake summary, step progress ring, and weekly bar chart. A warm Indonesian greeting changes based on time of day, and personalized hero copy adapts to step progress. Students log food through an Indonesian food database search, receiving automatic sodium estimates against a 1500 mg daily cap. The activity tab tracks steps via pedometer, displays weekly bars with a Strava-style goal line, and supports manual exercise sessions for walking or running with optional GPS route recording through Mapbox.
+
+The education module delivers hypertension articles with an embedded YouTube video, followed by interactive pre-test and post-test quizzes that measure literacy improvement over time. The AI Coach, powered by MiniMax, streams responses through a controlled backend endpoint. A rule-based gatekeeper filters prompt injection and off-topic queries before they reach the API, while per-user rate limiting keeps usage predictable.
+
+Behind the scenes, a Kotlin foreground service on Android keeps step notifications live in both daily and session modes. A step sync guard ensures counts stay monotonic, preventing regression on app relaunch. GPS routes are recorded with jitter filtering and crash recovery, so students never lose an outdoor workout.
+
+The entire stack lives in a TypeScript monorepo: Expo Router mobile app, Express API, Supabase PostgreSQL with Row Level Security, and GitHub Actions CI. EAS Build handles Android previews and production releases, with OTA updates for quick iteration.
+
+The app is private to the study—no public repo or live demo—but the case study documents how research constraints (safety, privacy, adolescent UX, and data integrity) shaped the Expo, TypeScript, and backend design choices outlined above.
