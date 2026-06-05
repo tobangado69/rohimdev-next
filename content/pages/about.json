@@ -52,23 +52,58 @@
         "period": "Jan 2025 - Present",
         "title": "Freelance Fullstack Developer",
         "company": "Rohimdev.com",
-        "description": "Delivering 3-5 concurrent fullstack projects for client-specific requirements. Building backend services with Node.js, Express, Hono, and Golang (Gin), designing PostgreSQL databases with Prisma ORM, and integrating frontend applications with backend services. Using AI-assisted tools to improve development velocity.",
+        "description": "Delivering 3-5 concurrent fullstack projects for client-specific requirements.",
+        "bullets": [
+          "Delivering 3-5 concurrent fullstack projects for client-specific requirements",
+          "Building backend services with Node.js, Express, Hono, and Golang (Gin)",
+          "Designing PostgreSQL databases with Prisma ORM",
+          "Integrating frontend applications with backend services",
+          "Using AI-assisted tools to improve development velocity"
+        ],
         "technologies": ["Node.js", "Express", "Hono", "Golang", "PostgreSQL", "Prisma", "React"],
         "status": "current"
       },
       {
-        "period": "Jan 2025 - Present",
+        "period": "May 2026 - Present",
+        "title": "Full Stack Developer",
+        "company": "Varnion Technology",
+        "description": "Developed and maintained internal business applications to support daily operational workflows and company processes.",
+        "bullets": [
+          "Developed and maintained internal business applications to support daily operational workflows and company processes",
+          "Built scalable frontend and backend features using modern web technologies",
+          "Designed and integrated REST APIs for internal system communication and automation",
+          "Managed databases, optimized queries, and improved overall application performance",
+          "Collaborated with internal teams to gather requirements and deliver tailored technical solutions",
+          "Focused on clean architecture, maintainable code, and user-friendly system experiences",
+          "Contributed to system improvements, bug fixing, and ongoing application maintenance"
+        ],
+        "technologies": ["React", "Node.js", "PostgreSQL", "REST APIs", "Clean Architecture"],
+        "status": "current"
+      },
+      {
+        "period": "Jan 2025 - Apr 2026",
         "title": "Infrastructure & Application Engineer",
         "company": "Varnion Technology",
-        "description": "Managed infrastructure operations across 6–8 active client sites. Developed internal web applications using React, Node.js, and PostgreSQL for monitoring and operational workflows. Automated reporting pipelines, reduced network incidents, and presented technical solutions to B2B stakeholders.",
+        "description": "Managed infrastructure operations across 6–8 active client sites.",
+        "bullets": [
+          "Managed infrastructure operations across 6–8 active client sites",
+          "Developed internal web applications using React, Node.js, and PostgreSQL for monitoring and operational workflows",
+          "Automated reporting pipelines and reduced network incidents",
+          "Presented technical solutions to B2B stakeholders"
+        ],
         "technologies": ["React", "Node.js", "PostgreSQL", "Infrastructure", "Monitoring", "Automation"],
-        "status": "current"
+        "status": "previous"
       },
       {
         "period": "Dec 2020 - Aug 2023",
         "title": "Provisioning Technician",
         "company": "PT Telkom Indonesia (IndiHome)",
-        "description": "Installed and configured fiber optic internet services. Conducted on-site troubleshooting and signal quality testing using OTDR and OPM. Reduced repeat visits through quality workmanship and customer education.",
+        "description": "Installed and configured fiber optic internet services.",
+        "bullets": [
+          "Installed and configured fiber optic internet services",
+          "Conducted on-site troubleshooting and signal quality testing using OTDR and OPM",
+          "Reduced repeat visits through quality workmanship and customer education"
+        ],
         "technologies": ["Fiber Optic", "OTDR", "OPM Testing", "Customer Service"],
         "status": "previous"
       }

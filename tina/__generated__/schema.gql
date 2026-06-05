@@ -314,6 +314,7 @@ type AboutCareerJourneyTimeline {
   title: String
   company: String
   description: String
+  bullets: [String]
   technologies: [String]
   status: String
 }
@@ -352,6 +353,7 @@ input AboutCareerJourneyTimelineFilter {
   title: StringFilter
   company: StringFilter
   description: StringFilter
+  bullets: StringFilter
   technologies: StringFilter
   status: StringFilter
 }
@@ -1071,6 +1073,7 @@ input AboutCareerJourneyTimelineMutation {
   title: String
   company: String
   description: String
+  bullets: [String]
   technologies: [String]
   status: String
 }

@@ -58,6 +58,7 @@ export type ExperienceItem = {
   title: string;
   company: string;
   description: string;
+  bullets?: string[];
   technologies: string[];
   status?: "current" | "previous";
 };

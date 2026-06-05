@@ -98,6 +98,7 @@ export const AboutPartsFragmentDoc = gql`
       title
       company
       description
+      bullets
       technologies
       status
     }

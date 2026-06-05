@@ -287,6 +287,7 @@ var config_default = defineConfig({
                   { type: "string", name: "title", label: "Title" },
                   { type: "string", name: "company", label: "Company" },
                   { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+                  { type: "string", name: "bullets", label: "Bullets", list: true },
                   { type: "string", name: "technologies", label: "Technologies", list: true },
                   { type: "string", name: "status", label: "Status", options: ["current", "previous"] }
                 ]

@@ -484,6 +484,7 @@ export type AboutCareerJourneyTimeline = {
   title?: Maybe<Scalars['String']['output']>;
   company?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
+  bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   technologies?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   status?: Maybe<Scalars['String']['output']>;
 };
@@ -524,6 +525,7 @@ export type AboutCareerJourneyTimelineFilter = {
   title?: InputMaybe<StringFilter>;
   company?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  bullets?: InputMaybe<StringFilter>;
   technologies?: InputMaybe<StringFilter>;
   status?: InputMaybe<StringFilter>;
 };
@@ -1391,6 +1393,7 @@ export type AboutCareerJourneyTimelineMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   company?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   technologies?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<Scalars['String']['input']>;
 };
@@ -1664,7 +1667,7 @@ export type SitePartsFragment = { __typename: 'Site', name: string, tagline?: st
 
 export type HomePartsFragment = { __typename: 'Home', seo?: { __typename: 'HomeSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null, hero?: { __typename: 'HomeHero', badge?: string | null, heading?: string | null, description?: string | null, trustText?: string | null, ctas?: Array<{ __typename: 'HomeHeroCtas', label?: string | null, href?: string | null, variant?: string | null, external?: boolean | null } | null> | null } | null, stats?: Array<{ __typename: 'HomeStats', label?: string | null, value?: string | null, description?: string | null } | null> | null };
 
-export type AboutPartsFragment = { __typename: 'About', profileImage?: string | null, seo?: { __typename: 'AboutSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null, hero?: { __typename: 'AboutHero', heading?: string | null, subheading?: string | null, introduction?: string | null, location?: string | null, experienceYears?: string | null, quote?: string | null } | null, careerJourney?: { __typename: 'AboutCareerJourney', timeline?: Array<{ __typename: 'AboutCareerJourneyTimeline', period?: string | null, title?: string | null, company?: string | null, description?: string | null, technologies?: Array<string | null> | null, status?: string | null } | null> | null } | null };
+export type AboutPartsFragment = { __typename: 'About', profileImage?: string | null, seo?: { __typename: 'AboutSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null, hero?: { __typename: 'AboutHero', heading?: string | null, subheading?: string | null, introduction?: string | null, location?: string | null, experienceYears?: string | null, quote?: string | null } | null, careerJourney?: { __typename: 'AboutCareerJourney', timeline?: Array<{ __typename: 'AboutCareerJourneyTimeline', period?: string | null, title?: string | null, company?: string | null, description?: string | null, bullets?: Array<string | null> | null, technologies?: Array<string | null> | null, status?: string | null } | null> | null } | null };
 
 export type ServicesPartsFragment = { __typename: 'Services', seo?: { __typename: 'ServicesSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null, hero?: { __typename: 'ServicesHero', heading?: string | null, description?: string | null } | null, coreServices?: Array<{ __typename: 'ServicesCoreServices', id?: string | null, title?: string | null, description?: string | null, features?: Array<string | null> | null, technologies?: Array<string | null> | null, startingPrice?: string | null } | null> | null };
 
@@ -1715,7 +1718,7 @@ export type AboutQueryVariables = Exact<{
 }>;
 
 
-export type AboutQuery = { __typename?: 'Query', about: { __typename: 'About', id: string, profileImage?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, seo?: { __typename: 'AboutSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null, hero?: { __typename: 'AboutHero', heading?: string | null, subheading?: string | null, introduction?: string | null, location?: string | null, experienceYears?: string | null, quote?: string | null } | null, careerJourney?: { __typename: 'AboutCareerJourney', timeline?: Array<{ __typename: 'AboutCareerJourneyTimeline', period?: string | null, title?: string | null, company?: string | null, description?: string | null, technologies?: Array<string | null> | null, status?: string | null } | null> | null } | null } };
+export type AboutQuery = { __typename?: 'Query', about: { __typename: 'About', id: string, profileImage?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, seo?: { __typename: 'AboutSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null, hero?: { __typename: 'AboutHero', heading?: string | null, subheading?: string | null, introduction?: string | null, location?: string | null, experienceYears?: string | null, quote?: string | null } | null, careerJourney?: { __typename: 'AboutCareerJourney', timeline?: Array<{ __typename: 'AboutCareerJourneyTimeline', period?: string | null, title?: string | null, company?: string | null, description?: string | null, bullets?: Array<string | null> | null, technologies?: Array<string | null> | null, status?: string | null } | null> | null } | null } };
 
 export type AboutConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -1727,7 +1730,7 @@ export type AboutConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AboutConnectionQuery = { __typename?: 'Query', aboutConnection: { __typename?: 'AboutConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AboutConnectionEdges', cursor: string, node?: { __typename: 'About', id: string, profileImage?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, seo?: { __typename: 'AboutSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null, hero?: { __typename: 'AboutHero', heading?: string | null, subheading?: string | null, introduction?: string | null, location?: string | null, experienceYears?: string | null, quote?: string | null } | null, careerJourney?: { __typename: 'AboutCareerJourney', timeline?: Array<{ __typename: 'AboutCareerJourneyTimeline', period?: string | null, title?: string | null, company?: string | null, description?: string | null, technologies?: Array<string | null> | null, status?: string | null } | null> | null } | null } | null } | null> | null } };
+export type AboutConnectionQuery = { __typename?: 'Query', aboutConnection: { __typename?: 'AboutConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AboutConnectionEdges', cursor: string, node?: { __typename: 'About', id: string, profileImage?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, seo?: { __typename: 'AboutSeo', title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null, hero?: { __typename: 'AboutHero', heading?: string | null, subheading?: string | null, introduction?: string | null, location?: string | null, experienceYears?: string | null, quote?: string | null } | null, careerJourney?: { __typename: 'AboutCareerJourney', timeline?: Array<{ __typename: 'AboutCareerJourneyTimeline', period?: string | null, title?: string | null, company?: string | null, description?: string | null, bullets?: Array<string | null> | null, technologies?: Array<string | null> | null, status?: string | null } | null> | null } | null } | null } | null> | null } };
 
 export type ServicesQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -1879,6 +1882,7 @@ export const AboutPartsFragmentDoc = gql`
       title
       company
       description
+      bullets
       technologies
       status
     }

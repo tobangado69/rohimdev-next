@@ -88,6 +88,7 @@ fragment AboutParts on About {
       title
       company
       description
+      bullets
       technologies
       status
     }

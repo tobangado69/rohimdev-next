@@ -215,8 +215,19 @@ export function AboutContent({ content }: AboutContentProps) {
               <h4 className="text-xl font-semibold text-neutral-900 mb-4">
                 {position.title}
               </h4>
-              <p className="text-neutral-600 mb-4">{position.company}</p>
-              <p className="text-neutral-600 leading-relaxed">{position.description}</p>
+              {position.company && (
+                <p className="text-neutral-700 font-semibold mb-1">{position.company}</p>
+              )}
+              {(!position.bullets || position.bullets.length === 0) && (
+                <p className="text-neutral-600 leading-relaxed">{position.description}</p>
+              )}
+              {position.bullets && position.bullets.length > 0 && (
+                <ul className="mt-3 space-y-2 list-disc list-inside text-neutral-600 leading-relaxed text-sm">
+                  {position.bullets.map((bullet, i) => (
+                    <li key={i}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
               <div className="mt-4 flex flex-wrap gap-2">
                 {position.technologies.map((tech) => (
                   <span
