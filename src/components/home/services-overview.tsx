@@ -1,23 +1,8 @@
+import { AppWindow, Monitor, Palette } from "lucide-react";
+
 const SERVICES = [
   {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-neutral-900 shrink-0"
-      >
-        <rect width="18" height="18" x="3" y="3" rx="2" />
-        <path d="M3 9h18" />
-        <path d="M9 21V9" />
-      </svg>
-    ),
+    icon: <AppWindow className="text-neutral-900 shrink-0 w-5 h-5" />,
     title: "Product Design",
     items: [
       "Web Apps",
@@ -27,23 +12,7 @@ const SERVICES = [
     ],
   },
   {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-neutral-900 shrink-0"
-      >
-        <rect width="20" height="16" x="2" y="4" rx="2" />
-        <path d="M2 8h20" />
-      </svg>
-    ),
+    icon: <Monitor className="text-neutral-900 shrink-0 w-5 h-5" />,
     title: "Web Design",
     items: [
       "Landing Pages",
@@ -53,22 +22,7 @@ const SERVICES = [
     ],
   },
   {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-neutral-900 shrink-0"
-      >
-        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-      </svg>
-    ),
+    icon: <Palette className="text-neutral-900 shrink-0 w-5 h-5" />,
     title: "Brand Identity",
     items: ["Brand Guidelines", "Brand Assets", "Logos & Marks", "Pitch Decks"],
   },

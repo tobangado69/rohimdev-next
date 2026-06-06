@@ -6,6 +6,12 @@ import {
   Zap,
   RefreshCw,
   Mail,
+  FolderCheck,
+  Braces,
+  Terminal,
+  FileCode,
+  CheckCircle2,
+  Server,
 } from "lucide-react";
 
 const STEPS = [
@@ -107,42 +113,42 @@ function Step2Visual() {
 function Step3Visual() {
   return (
     <div className="relative h-48 sm:h-56 rounded-2xl bg-neutral-100 border border-neutral-200 overflow-hidden p-4">
-      <div className="w-full h-full rounded-xl overflow-hidden bg-white border border-neutral-200 p-3">
+      <div className="w-full h-full rounded-xl overflow-hidden bg-white border border-neutral-200 p-3 shadow-inner">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 bg-emerald-100 rounded-lg flex items-center justify-center">
-              <RefreshCw className="w-3 h-3 text-emerald-600" />
+              <RefreshCw className="w-3 h-3 text-emerald-600 animate-spin" style={{ animationDuration: "12s" }} />
             </div>
             <div className="h-2 w-16 bg-neutral-900 rounded" />
           </div>
-          <div className="w-4 h-4 bg-green-400 rounded-full" />
+          <div className="w-4 h-4 bg-emerald-400 rounded-full animate-pulse" />
         </div>
-        <div className="grid grid-cols-3 gap-2 mb-3">
-          <div className="bg-blue-50 border border-blue-200 rounded p-2 text-center">
-            <MessageSquare className="w-3 h-3 mx-auto text-blue-600 mb-1" />
-            <div className="h-1 w-8 bg-blue-600 rounded mx-auto" />
+        <div className="grid grid-cols-3 gap-2 mb-2">
+          <div className="bg-emerald-50 border border-emerald-100 rounded p-2 text-center transition-all hover:scale-105">
+            <FolderCheck className="w-3.5 h-3.5 mx-auto text-emerald-600 mb-1" />
+            <div className="h-1 w-10 bg-emerald-600 rounded mx-auto opacity-80" />
           </div>
-          <div className="bg-emerald-50 border border-emerald-200 rounded p-2 text-center">
-            <Mail className="w-3 h-3 mx-auto text-emerald-600 mb-1" />
-            <div className="h-1 w-6 bg-emerald-600 rounded mx-auto" />
+          <div className="bg-blue-50 border border-blue-100 rounded p-2 text-center transition-all hover:scale-105">
+            <Braces className="w-3.5 h-3.5 mx-auto text-blue-600 mb-1" />
+            <div className="h-1 w-8 bg-blue-600 rounded mx-auto opacity-80" />
           </div>
-          <div className="bg-purple-50 border border-purple-200 rounded p-2 text-center">
-            <Monitor className="w-3 h-3 mx-auto text-purple-600 mb-1" />
-            <div className="h-1 w-10 bg-purple-600 rounded mx-auto" />
+          <div className="bg-purple-50 border border-purple-100 rounded p-2 text-center transition-all hover:scale-105">
+            <Terminal className="w-3.5 h-3.5 mx-auto text-purple-600 mb-1" />
+            <div className="h-1 w-12 bg-purple-600 rounded mx-auto opacity-80" />
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-2 mb-3">
-          <div className="bg-blue-50 border border-blue-200 rounded p-2 text-center">
-            <MessageSquare className="w-3 h-3 mx-auto text-blue-600 mb-1" />
-            <div className="h-1 w-8 bg-blue-600 rounded mx-auto" />
+        <div className="grid grid-cols-3 gap-2">
+          <div className="bg-indigo-50 border border-indigo-100 rounded p-2 text-center transition-all hover:scale-105">
+            <FileCode className="w-3.5 h-3.5 mx-auto text-indigo-600 mb-1" />
+            <div className="h-1 w-10 bg-indigo-600 rounded mx-auto opacity-80" />
           </div>
-          <div className="text-center bg-emerald-50 border border-emerald-200 rounded p-2">
-            <Mail className="w-3 h-3 mx-auto text-emerald-600 mb-1" />
-            <div className="h-1 w-6 bg-emerald-600 rounded mx-auto" />
+          <div className="bg-emerald-50 border border-emerald-100 rounded p-2 text-center transition-all hover:scale-105">
+            <CheckCircle2 className="w-3.5 h-3.5 mx-auto text-emerald-600 mb-1" />
+            <div className="h-1 w-6 bg-emerald-600 rounded mx-auto opacity-80" />
           </div>
-          <div className="bg-purple-50 border border-purple-200 rounded p-2 text-center">
-            <Monitor className="w-3 h-3 mx-auto text-purple-600 mb-1" />
-            <div className="h-1 w-10 bg-purple-600 rounded mx-auto" />
+          <div className="bg-orange-50 border border-orange-100 rounded p-2 text-center transition-all hover:scale-105">
+            <Server className="w-3.5 h-3.5 mx-auto text-orange-600 mb-1" />
+            <div className="h-1 w-8 bg-orange-600 rounded mx-auto opacity-80" />
           </div>
         </div>
       </div>

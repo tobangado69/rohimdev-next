@@ -1,91 +1,36 @@
 import Link from "next/link";
+import { Route, Gauge, Layers, Award } from "lucide-react";
 
 const FEATURE_ICONS = [
   {
     svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-        role="img"
-        viewBox="0 0 24 24"
-        className="w-7 h-7 text-neutral-400"
-      >
-        <path
-          fill="currentColor"
-          d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2"
-          opacity=".5"
-        />
-        <path
-          fill="currentColor"
-          d="M12 6a1 1 0 0 1 1 1v4.586l2.707 2.707a1 1 0 0 1-1.414 1.414l-3-3A1 1 0 0 1 11 12V7a1 1 0 0 1 1-1"
-        />
-      </svg>
+      <div className="w-10 h-10 bg-neutral-100 border border-neutral-200 rounded-xl flex items-center justify-center text-neutral-900 shadow-sm transition-transform hover:scale-105">
+        <Route className="w-5 h-5" />
+      </div>
     ),
     text: "Your learning path adapts based on progress and skill assessments.",
   },
   {
     svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-        role="img"
-        viewBox="0 0 24 24"
-        className="w-7 h-7 text-neutral-400"
-      >
-        <path
-          fill="currentColor"
-          d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12"
-          opacity=".5"
-        />
-        <path
-          fill="currentColor"
-          d="M12 7.75a.75.75 0 0 1 .75.75v3.69l2.28 2.28a.75.75 0 1 1-1.06 1.06l-2.5-2.5a.75.75 0 0 1-.22-.53V8.5a.75.75 0 0 1 .75-.75"
-        />
-      </svg>
+      <div className="w-10 h-10 bg-neutral-100 border border-neutral-200 rounded-xl flex items-center justify-center text-neutral-900 shadow-sm transition-transform hover:scale-105">
+        <Gauge className="w-5 h-5" />
+      </div>
     ),
     text: "The system knows when to push or hold back — based on mastery zones.",
   },
   {
     svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-        role="img"
-        viewBox="0 0 24 24"
-        className="w-7 h-7 text-neutral-400"
-      >
-        <path
-          fill="currentColor"
-          d="M12 22c-4.714 0-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22"
-          opacity=".5"
-        />
-        <path
-          fill="currentColor"
-          d="M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l4.47-4.47a.75.75 0 0 1 1.06 0"
-        />
-      </svg>
+      <div className="w-10 h-10 bg-neutral-100 border border-neutral-200 rounded-xl flex items-center justify-center text-neutral-900 shadow-sm transition-transform hover:scale-105">
+        <Layers className="w-5 h-5" />
+      </div>
     ),
     text: "No more switching platforms. Theory, practice, and labs unified.",
   },
   {
     svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-        role="img"
-        viewBox="0 0 24 24"
-        className="w-7 h-7 text-neutral-400"
-      >
-        <path
-          fill="currentColor"
-          d="M19.83 8.7L12 2.1a.08.08 0 0 0-.07 0L4.17 8.7A1 1 0 0 0 4 9.6V20a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.6a1 1 0 0 0-.17-.9"
-          opacity=".5"
-        />
-        <path
-          fill="currentColor"
-          d="M12.75 18a.75.75 0 0 1-1.5 0v-4a.75.75 0 0 1 1.5 0z"
-        />
-      </svg>
+      <div className="w-10 h-10 bg-neutral-100 border border-neutral-200 rounded-xl flex items-center justify-center text-neutral-900 shadow-sm transition-transform hover:scale-105">
+        <Award className="w-5 h-5" />
+      </div>
     ),
     text: "Portfolio, skills, and credentials tracked. Always know your value.",
   },

@@ -1,4 +1,4 @@
-import { TrendingUp, Users, Target, Zap } from "lucide-react";
+import { TrendingUp, Users, Target, GitBranch } from "lucide-react";
 
 const REASONS = [
   {
@@ -20,7 +20,7 @@ const REASONS = [
       "Well-defined scope, clear milestones, and transparent progress — so you always know what’s shipping and when.",
   },
   {
-    icon: Zap,
+    icon: GitBranch,
     title: "Built for iteration",
     description:
       "Startups pivot. I design systems that adapt without painful rewrites or wasted effort.",

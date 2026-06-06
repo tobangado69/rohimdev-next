@@ -1,4 +1,15 @@
 import Link from "next/link";
+import {
+  ArrowRight,
+  Video,
+  CalendarCheck,
+  Layers,
+  Award,
+  MessageSquare,
+  Pause,
+  Calendar,
+  ShieldCheck,
+} from "lucide-react";
 
 export function PricingPreview() {
   return (
@@ -30,7 +41,7 @@ export function PricingPreview() {
                 support.
               </p>
               <div className="text-2xl font-semibold text-neutral-900 tracking-tight mb-4">
-                Starting from $1,500/month
+                Starting from $1,000/month
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
@@ -38,39 +49,13 @@ export function PricingPreview() {
                   className="flex-1 bg-neutral-900 text-white font-medium px-6 py-3 rounded-full hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 text-[15px]"
                 >
                   Start Today
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/contact"
                   className="flex-1 bg-white text-neutral-900 border border-neutral-200 font-medium px-6 py-3 rounded-full hover:bg-neutral-50 transition-colors flex items-center justify-center gap-2 text-[15px]"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polygon points="23 7 16 12 23 17 23 7" />
-                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-                  </svg>
+                  <Video className="w-4 h-4" />
                   Book a Call
                 </Link>
               </div>
@@ -80,22 +65,7 @@ export function PricingPreview() {
             <div className="bg-white border border-neutral-200/60 rounded-3xl p-4">
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-[15px] text-neutral-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-neutral-400 shrink-0"
-                  >
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                    <path d="M3 6h18" />
-                    <path d="M16 10a4 4 0 0 1-8 0" />
-                  </svg>
+                  <CalendarCheck className="text-neutral-400 shrink-0 w-5 h-5" />
                   <span>
                     Priority task handling & predictable delivery{" "}
                     <span
@@ -107,65 +77,22 @@ export function PricingPreview() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-[15px] text-neutral-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-neutral-400 shrink-0"
-                  >
-                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                    <polyline points="2 17 12 22 22 17" />
-                    <polyline points="2 12 12 17 22 12" />
-                  </svg>
+                  <Layers className="text-neutral-400 shrink-0 w-5 h-5" />
                   <span>
                     <span className="border-b border-neutral-300">
                       Full-stack development:
-                    </span>
+                    </span>{" "}
                     Frontend, backend, and system design
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-[15px] text-neutral-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-neutral-400 shrink-0"
-                  >
-                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                    <line x1="12" y1="9" x2="12" y2="13" />
-                    <line x1="12" y1="17" x2="12.01" y2="17" />
-                  </svg>
+                  <Award className="text-neutral-400 shrink-0 w-5 h-5" />
                   <span>
                     Weekly milestones, clean code, and production-ready output
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-[15px] text-neutral-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-neutral-400 shrink-0"
-                  >
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                  </svg>
+                  <MessageSquare className="text-neutral-400 shrink-0 w-5 h-5" />
                   <span>Direct 1:1 communication via Slack & Telegram</span>
                 </li>
               </ul>
@@ -175,20 +102,7 @@ export function PricingPreview() {
             <div className="grid sm:grid-cols-2 gap-2">
               <div className="bg-white border border-neutral-200/60 rounded-3xl p-6">
                 <div className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center mb-4 text-neutral-900">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect x="6" y="4" width="4" height="16" />
-                    <rect x="14" y="4" width="4" height="16" />
-                  </svg>
+                  <Pause className="w-4 h-4" />
                 </div>
                 <h4 className="text-base font-medium text-neutral-900 mb-2">
                   Flexible engagement
@@ -200,23 +114,7 @@ export function PricingPreview() {
               </div>
               <div className="bg-white border border-neutral-200/60 rounded-3xl p-6">
                 <div className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center mb-4 text-neutral-900">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                    <path d="m9 16 2 2 4-4" />
-                  </svg>
+                  <Calendar className="w-4 h-4" />
                 </div>
                 <h4 className="text-base font-medium text-neutral-900 mb-2">
                   Trial collaboration
@@ -230,20 +128,7 @@ export function PricingPreview() {
 
             {/* Powered by Stripe */}
             <div className="flex justify-center py-2 items-center gap-1.5 opacity-60">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-neutral-500"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
+              <ShieldCheck className="text-neutral-500 w-3.5 h-3.5" />
               <span className="text-[11px] font-medium text-neutral-500">
                 Checkout powered by Stripe
               </span>

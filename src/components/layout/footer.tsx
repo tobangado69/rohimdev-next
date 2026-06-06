@@ -129,7 +129,7 @@ export function Footer() {
               </div>
               <div className="space-y-3">
                 <h3 className="uppercase text-xs font-medium text-neutral-400 tracking-[0.16em]">
-                  Case studies
+                  Projects
                 </h3>
                 <ul className="space-y-2 text-neutral-600">
                   <li>
