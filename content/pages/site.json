@@ -8,7 +8,7 @@
     "title": "Abdul Rohim - Full-Stack JavaScript Engineer",
     "description": "Professional full-stack JavaScript engineer with experience in React, Next.js, Node.js, TypeScript, and Golang.",
     "keywords": ["fullstack developer", "react developer", "nextjs developer", "nodejs developer", "typescript developer", "javascript developer", "golang developer"],
-    "ogImage": "https://rohimdev.com/og-image.jpg",
+    "ogImage": "",
     "siteUrl": "https://rohimdev.com",
     "author": {
       "name": "Abdul Rohim",

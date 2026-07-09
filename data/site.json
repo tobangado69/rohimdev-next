@@ -19,8 +19,8 @@
         "telegram": "https://t.me/Tobangado70"
       }
     },
-    "defaultImage": "https://rohimdev.com/images/profile.png",
-    "ogImage": "https://rohimdev.com/og-image.jpg",
+    "defaultImage": "",
+    "ogImage": "",
     "keywords": {
       "primary": ["fullstack developer", "react developer", "nextjs developer", "nodejs developer", "typescript developer", "javascript developer"],
       "secondary": ["mobile app developer", "react native developer", "golang developer", "network engineer", "portfolio", "web developer"],

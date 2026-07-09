@@ -22,7 +22,7 @@ function metadataFromSeo(seo: SeoContent, siteName: string): Metadata {
         : undefined,
     },
     twitter: {
-      card: "summary_large_image",
+      card: seo.ogImage ? "summary_large_image" : "summary",
       title: seo.title,
       description: seo.description,
       images: seo.ogImage ? [seo.ogImage] : undefined,
@@ -57,7 +57,7 @@ export function getDefaultMetadata(): Metadata {
         : undefined,
     },
     twitter: {
-      card: "summary_large_image",
+      card: seo.ogImage ? "summary_large_image" : "summary",
       title: seo.title,
       description: seo.description,
       images: seo.ogImage ? [seo.ogImage] : undefined,
