@@ -278,6 +278,21 @@ export default defineConfig({
           },
           {
             type: "object",
+            name: "mainSection",
+            label: "Main Section",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "paragraphs",
+                label: "Paragraphs",
+                list: true,
+                ui: { component: "textarea" },
+              },
+            ],
+          },
+          {
+            type: "object",
             name: "form",
             label: "Form",
             fields: [

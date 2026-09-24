@@ -35,6 +35,24 @@ export default function ContactPage() {
       </section>
 
       <section
+        className="animate-fade-up w-full max-w-3xl space-y-6"
+        style={{ animationDelay: "0.52s" }}
+        aria-labelledby="contact-main-heading"
+      >
+        <h2
+          id="contact-main-heading"
+          className="text-3xl lg:text-4xl font-medium text-neutral-900 tracking-tight"
+        >
+          {contact.mainSection.heading}
+        </h2>
+        <div className="space-y-5 text-lg text-neutral-600 leading-relaxed">
+          {contact.mainSection.paragraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+
+      <section
         id="form"
         className="animate-fade-up w-full max-w-2xl"
         style={{ animationDelay: "0.55s" }}

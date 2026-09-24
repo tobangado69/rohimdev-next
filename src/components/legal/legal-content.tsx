@@ -58,13 +58,7 @@ export function LegalContent({ type }: LegalContentProps) {
               <p className="text-neutral-600">{data.agreementStatement}</p>
               {data.contactEmail && (
                 <p className="mt-4 text-neutral-900">
-                  Contact:{" "}
-                  <a
-                    href={`mailto:${data.contactEmail}`}
-                    className="underline hover:text-neutral-600"
-                  >
-                    {data.contactEmail}
-                  </a>
+                  Contact: {data.contactEmail}
                 </p>
               )}
             </div>

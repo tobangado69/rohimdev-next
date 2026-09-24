@@ -118,6 +118,10 @@ export type ContactContent = {
     description: string;
     cta: string;
   };
+  mainSection: {
+    heading: string;
+    paragraphs: string[];
+  };
   form: {
     successTitle: string;
     successDescription: string;

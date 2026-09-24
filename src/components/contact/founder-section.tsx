@@ -22,7 +22,7 @@ export function FounderSection() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-4">
           <Link
             href="#form"
             className="hover:bg-neutral-800 transition-all duration-300 flex gap-3 text-base font-medium text-white bg-neutral-900 rounded-full px-8 py-4 items-center justify-center"
@@ -46,27 +46,10 @@ export function FounderSection() {
             </svg>
             Book a Call
           </Link>
-          <a
-            href={`mailto:${PROFILE.email}`}
-            className="hover:bg-neutral-50 transition-all duration-300 flex text-base font-medium text-neutral-900 bg-white border border-neutral-200 rounded-full px-8 py-4 shadow-sm items-center justify-center gap-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-5 h-5"
-            >
-              <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-            </svg>
-            Email me
-          </a>
+          <p className="text-base text-neutral-600">
+            Or email me at{" "}
+            <span className="font-medium text-neutral-900">{PROFILE.email}</span>
+          </p>
         </div>
       </div>
 

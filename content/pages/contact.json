@@ -9,6 +9,19 @@
     "description": "Tell me about your project, timeline, and goals. I'll help turn the idea into a reliable full-stack product.",
     "cta": "Describe your project"
   },
+  "mainSection": {
+    "heading": "How we start working together",
+    "paragraphs": [
+      "I build full-stack web applications and APIs. That is the core of the work: product surfaces people use, and the services those surfaces depend on. On the frontend I work with React and Next.js. On the backend I design and ship Node.js and Golang services, RESTful APIs, and the data models that keep them honest. Freelance engagements come through rohimdev.com. Alongside that, I do infrastructure and application engineering—so the same person who shapes the product also thinks about how it runs, how it deploys, and how it stays maintainable after the first release.",
+      "The stack is a means, not a slogan. Clean architecture, clear boundaries between layers, and databases that match the access patterns matter more than chasing every new framework. PostgreSQL with a careful schema, Prisma when it fits, Docker when the environment needs to be reproducible—these show up because they reduce surprise, not because a checklist demanded them. When a project needs a web app, an API, or both wired together, that is the work I take on.",
+      "An engagement usually starts with a message. You can use the form on this page or write me directly. I read what you send and check scope and fit before anything else. Fit means the problem is something I can own end to end, or a well-defined slice of a larger system. Scope means we can name what ships first, what can wait, and what is out of bounds. If the shape is wrong for either of us, I say so early. That is kinder than a half-committed yes.",
+      "I do not invent urgency or pressure you into a call. A short, concrete note is enough to begin. After that first exchange we can decide whether a deeper conversation helps. Sometimes a written back-and-forth is enough to draft a plan. Sometimes a call clears ambiguity faster. Either path starts from the same place: you describe the work, I respond with how I would approach it and whether I am the right person for it.",
+      "Your first message should include three things. First, what you are building—the product, feature, or system, in plain language. Second, timeline—when you need something usable, and whether that date is fixed or flexible. Third, constraints—budget range, team size, existing stack, compliance needs, or anything else that would change the design if I learned it late. Incomplete notes still get a reply; complete notes get a faster, more useful one.",
+      "You do not need a polished brief. A few paragraphs that cover those three points beat a long deck with no dates. If you already have wireframes, a repo, or an API contract, mention them. If you are still deciding between approaches, say that too—I would rather help choose a direction than reverse a wrong one after weeks of build.",
+      "I work best when expectations are spoken early. Delivery on freelance projects through rohimdev.com sits next to infrastructure and application engineering work, so capacity and sequencing matter. Saying what success looks like for the first milestone keeps both of us aligned. If you are unsure about the milestone, we can define one together after I understand the problem.",
+      "This page is here so you can reach me without guessing. Use the form below, or send the details above in whatever channel you prefer. I will check scope and fit, then reply with next steps. No invented client lists, no fabricated metrics—just the work, the start of the conversation, and what helps that conversation land."
+    ]
+  },
   "form": {
     "successTitle": "Thank you for reaching out!",
     "successDescription": "Thanks for reaching out! I'll get back to you soon.",
